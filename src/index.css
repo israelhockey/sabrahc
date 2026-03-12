@@ -133,7 +133,7 @@
   }
 
   .logo-blend {
-    mix-blend-mode: lighten;
+    mix-blend-mode: screen;
   }
 
   .section-divider {
