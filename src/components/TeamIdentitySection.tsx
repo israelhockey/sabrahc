@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import brandingImg from "@/assets/jhc-branding.png";
+import jerseysImg from "@/assets/jhc-jerseys.png";
 
 const colors = [
   { name: "Navy Blue", hex: "#0B1F3B", tw: "bg-navy" },
