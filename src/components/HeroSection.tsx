@@ -32,7 +32,7 @@ const HeroSection = () => {
         <motion.img
           src={logoImg}
           alt="Jerusalem HC Lion Crest"
-          className="w-32 h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 object-contain mx-auto mb-6 drop-shadow-2xl logo-blend"
+          className="w-32 h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 object-contain mx-auto mb-6 drop-shadow-2xl"
           initial={{ opacity: 0, scale: 0.5, rotateY: 90 }}
           animate={{ opacity: 1, scale: 1, rotateY: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
