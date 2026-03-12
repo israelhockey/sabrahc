@@ -36,7 +36,7 @@ const TeamIdentitySection = () => (
           className="flex justify-center"
         >
           <img
-            src={brandingImg}
+            src={jerseysImg}
             alt="Jerusalem HC jerseys and logo"
             className="w-full max-w-lg rounded-lg border border-border shadow-2xl"
           />

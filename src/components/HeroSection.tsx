@@ -26,7 +26,7 @@ const HeroSection = () => {
         >
           {/* Logo */}
           <img
-            src={brandingImg}
+            src={logoImg}
             alt="Jerusalem HC Lion Crest Logo"
             className="w-40 h-40 md:w-52 md:h-52 object-contain object-top mb-8 drop-shadow-2xl"
           />
