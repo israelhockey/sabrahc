@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import brandingImg from "@/assets/jhc-branding.png";
+import jerseysImg from "@/assets/jhc-jerseys.png";
 
 const colors = [
   { name: "Navy Blue", hex: "#0B1F3B", tw: "bg-navy" },
@@ -36,7 +36,7 @@ const TeamIdentitySection = () => (
           className="flex justify-center"
         >
           <img
-            src={brandingImg}
+            src={jerseysImg}
             alt="Jerusalem HC jerseys and logo"
             className="w-full max-w-lg rounded-lg border border-border shadow-2xl"
           />

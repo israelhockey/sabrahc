@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { CAMPAIGN } from "@/lib/campaign";
 import { ChevronDown } from "lucide-react";
-import brandingImg from "@/assets/jhc-branding.png";
+import logoImg from "@/assets/jhc-logo.png";
 
 const HeroSection = () => {
   const progressPercent = Math.min((CAMPAIGN.raisedAmount / CAMPAIGN.goalAmount) * 100, 100);
@@ -26,7 +26,7 @@ const HeroSection = () => {
         >
           {/* Logo */}
           <img
-            src={brandingImg}
+            src={logoImg}
             alt="Jerusalem HC Lion Crest Logo"
             className="w-40 h-40 md:w-52 md:h-52 object-contain object-top mb-8 drop-shadow-2xl"
           />
