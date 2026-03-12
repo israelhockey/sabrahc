@@ -20,7 +20,7 @@ const TeamIdentitySection = () => {
 
       <div className="container px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
@@ -38,7 +38,7 @@ const TeamIdentitySection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Interactive image viewer */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -79,7 +79,7 @@ const TeamIdentitySection = () => {
 
           {/* Details */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
