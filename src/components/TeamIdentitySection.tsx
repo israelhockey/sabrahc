@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import jerseysImg from "@/assets/jhc-jerseys.png";
+import logoImg from "@/assets/jhc-logo.png";
 
 const colors = [
   { name: "Navy Blue", hex: "#0B1F3B", tw: "bg-navy" },
@@ -7,69 +9,116 @@ const colors = [
   { name: "White", hex: "#FFFFFF", tw: "bg-foreground" },
 ];
 
-const TeamIdentitySection = () => (
-  <section id="identity" className="py-24 md:py-32 bg-navy-dark relative overflow-hidden">
-    {/* Subtle glow */}
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse,hsla(40,49%,54%,0.06)_0%,transparent_70%)] pointer-events-none" />
+const TeamIdentitySection = () => {
+  const [activeTab, setActiveTab] = useState<"jerseys" | "logo">("jerseys");
 
-    <div className="container px-4 relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <p className="text-primary font-semibold text-sm tracking-widest mb-3">TEAM IDENTITY</p>
-        <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground">
-          The Lion of Jerusalem
-        </h2>
-      </motion.div>
+  return (
+    <section id="identity" className="py-24 md:py-32 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,hsla(40,49%,54%,0.06)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,hsla(200,60%,50%,0.04)_0%,transparent_50%)] pointer-events-none" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Jerseys / Logo placeholder */}
+      <div className="container px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex justify-center"
+          className="text-center mb-16"
         >
-          <img
-            src={jerseysImg}
-            alt="Jerusalem HC jerseys and logo"
-            className="w-full max-w-lg rounded-lg border border-border shadow-2xl"
-          />
+          <p className="text-primary font-semibold text-sm tracking-[0.4em] mb-4">TEAM IDENTITY</p>
+          <h2 className="font-heading text-4xl md:text-6xl font-bold text-foreground">
+            The Lion of <span className="text-gold-gradient">Jerusalem</span>
+          </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base md:text-lg">
+            The club identity is built around the Lion of Jerusalem — representing strength, resilience, and pride.
+          </p>
         </motion.div>
 
-        {/* Text + palette */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-muted-foreground leading-relaxed text-base md:text-lg mb-6">
-            The club identity is built around the Lion of Jerusalem, representing strength, resilience, and pride.
-          </p>
-          <p className="text-muted-foreground leading-relaxed text-base md:text-lg mb-8">
-            The crest integrates Jerusalem's historic stone walls with a modern professional hockey identity.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Interactive image viewer */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Tab buttons */}
+            <div className="flex gap-3 mb-6 justify-center lg:justify-start">
+              {(["jerseys", "logo"] as const).map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 py-2 rounded-full font-heading text-sm tracking-wider transition-all ${
+                    activeTab === tab
+                      ? "bg-primary text-primary-foreground"
+                      : "border border-border text-muted-foreground hover:border-primary/40"
+                  }`}
+                >
+                  {tab === "jerseys" ? "Jerseys" : "Crest"}
+                </button>
+              ))}
+            </div>
 
-          {/* Color palette */}
-          <div className="flex gap-4">
-            {colors.map((c) => (
-              <div key={c.name} className="flex flex-col items-center gap-2">
-                <div className={`w-14 h-14 rounded-lg ${c.tw} border border-border`} />
-                <span className="text-xs text-muted-foreground">{c.name}</span>
-                <span className="text-xs text-muted-foreground/60 font-mono">{c.hex}</span>
+            {/* Image display */}
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              className="relative group"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <img
+                src={activeTab === "jerseys" ? jerseysImg : logoImg}
+                alt={activeTab === "jerseys" ? "Jerusalem HC jerseys" : "Jerusalem HC crest"}
+                className="relative w-full max-w-lg mx-auto rounded-xl border border-border shadow-2xl"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Details */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-8"
+          >
+            <div className="glass-card rounded-xl p-8">
+              <h3 className="font-heading text-xl font-semibold text-foreground mb-4">The Crest</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                The crest integrates Jerusalem's historic stone walls with a modern professional hockey identity. 
+                The Lion of Judah stands as a symbol of the city's ancient legacy and the team's fierce competitive spirit.
+              </p>
+            </div>
+
+            <div className="glass-card rounded-xl p-8">
+              <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Team Colors</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Navy Blue and Gold — timeless colors representing the Jerusalem night sky and the city's golden stone.
+              </p>
+              <div className="flex gap-6">
+                {colors.map((c) => (
+                  <motion.div
+                    key={c.name}
+                    whileHover={{ scale: 1.1 }}
+                    className="flex flex-col items-center gap-2 cursor-default"
+                  >
+                    <div className={`w-16 h-16 rounded-xl ${c.tw} border border-border shadow-lg`} />
+                    <span className="text-xs text-muted-foreground font-medium">{c.name}</span>
+                    <span className="text-[10px] text-muted-foreground/50 font-mono">{c.hex}</span>
+                  </motion.div>
+                ))}
               </div>
-            ))}
-          </div>
-        </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+
+      <div className="section-divider mt-24" />
+    </section>
+  );
+};
 
 export default TeamIdentitySection;
