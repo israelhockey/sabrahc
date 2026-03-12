@@ -34,7 +34,7 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
         <a href="#" className="flex items-center gap-3">
-          <img src={logoImg} alt="Jerusalem HC" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+          <img src={logoImg} alt="Jerusalem HC" className="w-8 h-8 md:w-10 md:h-10 object-contain logo-blend" />
           <span className="font-heading text-lg md:text-xl font-bold tracking-wider text-foreground">
             JERUSALEM <span className="text-primary">HC</span>
           </span>
