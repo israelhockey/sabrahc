@@ -3,10 +3,10 @@ import HeroSection from "@/components/HeroSection";
 import VisionSection from "@/components/VisionSection";
 import TeamIdentitySection from "@/components/TeamIdentitySection";
 import SeasonPlanSection from "@/components/SeasonPlanSection";
-import MembershipSection from "@/components/MembershipSection";
+import GameExperienceSection from "@/components/GameExperienceSection";
 import VIPGiveawaySection from "@/components/VIPGiveawaySection";
 import FoundersWallSection from "@/components/FoundersWallSection";
-import GameExperienceSection from "@/components/GameExperienceSection";
+import MembershipSection from "@/components/MembershipSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
@@ -17,10 +17,10 @@ const Index = () => (
     <VisionSection />
     <TeamIdentitySection />
     <SeasonPlanSection />
-    <MembershipSection />
+    <GameExperienceSection />
     <VIPGiveawaySection />
     <FoundersWallSection />
-    <GameExperienceSection />
+    <MembershipSection />
     <FinalCTASection />
     <Footer />
   </>

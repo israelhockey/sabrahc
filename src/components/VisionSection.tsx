@@ -1,59 +1,104 @@
-import { motion } from "framer-motion";
-import { Globe, Trophy, Users, MapPin } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import AnimatedCounter from "./AnimatedCounter";
+import puckImg from "@/assets/puck-ice.jpg";
 
-const features = [
-  { icon: Globe, title: "International Competition", desc: "Compete against professional teams from Romania, Hungary, and across Europe." },
-  { icon: Trophy, title: "INHL League Play", desc: "Compete in Israel's top domestic hockey league alongside international fixtures." },
-  { icon: Users, title: "Player Development", desc: "Provide Israeli players the opportunity to develop at a professional level." },
-  { icon: MapPin, title: "20+ Home Games", desc: "Host a minimum of 20 international home games each season in Jerusalem." },
+const stats = [
+  { value: 40, suffix: "+", label: "YEARS OF HOCKEY IN ISRAEL" },
+  { value: 20, suffix: "+", label: "HOME GAMES PER SEASON" },
+  { value: 6, suffix: "", label: "EUROPEAN NATIONS" },
 ];
 
-const VisionSection = () => (
-  <section id="vision" className="py-24 md:py-32 bg-ice-texture">
-    <div className="container px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="max-w-3xl mx-auto text-center mb-16"
-      >
-        <p className="text-primary font-semibold text-sm tracking-widest mb-3">THE VISION</p>
-        <h2 className="font-heading text-3xl md:text-5xl font-bold mb-8 text-foreground">
-          Building the Future of Israeli Hockey
-        </h2>
-        <div className="space-y-5 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <p>Jerusalem HC is being created to bring Israeli hockey to the next level.</p>
-          <p>
-            For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Jerusalem HC will become the first full-time professional hockey club based in Israel.
-          </p>
-          <p>
-            The club will compete against professional teams from Romania, Hungary, and across Europe while also playing in Israel's top domestic league, the INHL.
-          </p>
-          <p>
-            The goal is to provide Israeli players the opportunity to develop at a high level while representing Israel internationally.
-          </p>
-        </div>
-      </motion.div>
+const VisionSection = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const imgScale = useTransform(scrollYProgress, [0, 0.5], [1.1, 1]);
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {features.map((f, i) => (
+  return (
+    <section id="story" ref={ref} className="relative overflow-hidden">
+      {/* Full-bleed image section */}
+      <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+        <motion.img
+          src={puckImg}
+          alt="Hockey puck on ice"
+          className="w-full h-full object-cover"
+          style={{ scale: imgScale }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/30 to-background" />
+        <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
-            key={f.title}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="p-6 rounded-lg border border-border bg-card/50 backdrop-blur-sm hover:border-primary/40 transition-colors group"
+            transition={{ duration: 0.8 }}
+            className="text-center px-4"
           >
-            <f.icon className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
-            <h3 className="font-heading text-lg font-semibold text-foreground mb-2">{f.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+            <p className="text-primary font-semibold text-sm tracking-[0.4em] mb-4">THE VISION</p>
+            <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+              Building The Future
+              <br />
+              <span className="text-gold-gradient">Of Israeli Hockey</span>
+            </h2>
           </motion.div>
-        ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+
+      {/* Content */}
+      <div className="py-20 md:py-28">
+        <div className="container px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="space-y-6 text-muted-foreground leading-relaxed text-base md:text-lg">
+                <p className="text-foreground text-xl md:text-2xl font-medium leading-relaxed">
+                  Jerusalem HC is being created to bring Israeli hockey to the next level — from grassroots passion to international competition.
+                </p>
+                <p>
+                  For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Jerusalem HC will become the first full-time professional hockey club based in Israel.
+                </p>
+                <p>
+                  The club will compete against professional teams from Romania, Hungary, and across Europe while also playing in Israel's top domestic league, the INHL.
+                </p>
+                <p>
+                  The goal is to provide Israeli players the opportunity to develop at a high level while representing Israel internationally.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="grid grid-cols-1 gap-6"
+            >
+              {stats.map((s, i) => (
+                <div
+                  key={s.label}
+                  className="glass-card-hover rounded-xl p-8 text-center"
+                >
+                  <AnimatedCounter
+                    target={s.value}
+                    suffix={s.suffix}
+                    className="text-5xl md:text-6xl font-heading font-bold text-gold-gradient block"
+                    duration={1.5 + i * 0.3}
+                  />
+                  <p className="text-sm text-muted-foreground tracking-widest mt-3 font-heading">{s.label}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      <div className="section-divider" />
+    </section>
+  );
+};
 
 export default VisionSection;
