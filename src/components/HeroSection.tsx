@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CAMPAIGN } from "@/lib/campaign";
 import { ChevronDown } from "lucide-react";
+import brandingImg from "@/assets/jhc-branding.png";
 
 const HeroSection = () => {
   const progressPercent = Math.min((CAMPAIGN.raisedAmount / CAMPAIGN.goalAmount) * 100, 100);
@@ -23,10 +24,12 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center"
         >
-          {/* Logo placeholder */}
-          <div className="w-32 h-32 md:w-44 md:h-44 rounded-full gold-border-glow flex items-center justify-center mb-8 bg-navy-dark/60">
-            <span className="font-heading text-4xl md:text-5xl font-bold text-primary">JHC</span>
-          </div>
+          {/* Logo */}
+          <img
+            src={brandingImg}
+            alt="Jerusalem HC Lion Crest Logo"
+            className="w-40 h-40 md:w-52 md:h-52 object-contain object-top mb-8 drop-shadow-2xl"
+          />
 
           <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-2">
             <span className="text-gold-gradient">JERUSALEM HC</span>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import brandingImg from "@/assets/jhc-branding.png";
 
 const colors = [
   { name: "Navy Blue", hex: "#0B1F3B", tw: "bg-navy" },
@@ -32,18 +33,13 @@ const TeamIdentitySection = () => (
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex gap-6 justify-center"
+          className="flex justify-center"
         >
-          {/* Home Jersey */}
-          <div className="w-40 h-56 md:w-52 md:h-72 rounded-lg gold-border-glow bg-navy flex flex-col items-center justify-center">
-            <span className="font-heading text-3xl md:text-4xl font-bold text-primary mb-1">JHC</span>
-            <span className="text-xs text-muted-foreground tracking-wider">HOME</span>
-          </div>
-          {/* Away Jersey */}
-          <div className="w-40 h-56 md:w-52 md:h-72 rounded-lg border border-border bg-secondary flex flex-col items-center justify-center">
-            <span className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-1">JHC</span>
-            <span className="text-xs text-muted-foreground tracking-wider">AWAY</span>
-          </div>
+          <img
+            src={brandingImg}
+            alt="Jerusalem HC jerseys and logo"
+            className="w-full max-w-lg rounded-lg border border-border shadow-2xl"
+          />
         </motion.div>
 
         {/* Text + palette */}
