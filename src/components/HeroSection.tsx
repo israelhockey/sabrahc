@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CAMPAIGN } from "@/lib/campaign";
 import { ChevronDown } from "lucide-react";
+import brandingImg from "@/assets/jhc-branding.png";
 
 const HeroSection = () => {
   const progressPercent = Math.min((CAMPAIGN.raisedAmount / CAMPAIGN.goalAmount) * 100, 100);
