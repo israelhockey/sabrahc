@@ -1,14 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import VisionSection from "@/components/VisionSection";
+import TeamIdentitySection from "@/components/TeamIdentitySection";
+import SeasonPlanSection from "@/components/SeasonPlanSection";
+import MembershipSection from "@/components/MembershipSection";
+import VIPGiveawaySection from "@/components/VIPGiveawaySection";
+import FoundersWallSection from "@/components/FoundersWallSection";
+import GameExperienceSection from "@/components/GameExperienceSection";
+import FinalCTASection from "@/components/FinalCTASection";
+import Footer from "@/components/Footer";
 
-const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
-};
+const Index = () => (
+  <>
+    <Navbar />
+    <HeroSection />
+    <VisionSection />
+    <TeamIdentitySection />
+    <SeasonPlanSection />
+    <MembershipSection />
+    <VIPGiveawaySection />
+    <FoundersWallSection />
+    <GameExperienceSection />
+    <FinalCTASection />
+    <Footer />
+  </>
+);
 
 export default Index;
