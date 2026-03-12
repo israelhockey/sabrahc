@@ -132,6 +132,7 @@
     background-size: cover;
   }
 
+
   .section-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent);
