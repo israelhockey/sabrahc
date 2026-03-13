@@ -3,8 +3,10 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Calendar, Clock, MapPin, Trophy, Users, Globe } from "lucide-react";
 import logoImg from "@/assets/jhc-logo.png";
-import arenaImg from "@/assets/arena-hero.jpg";
+import arenaImg from "@/assets/hero-arena.jpg";
 import puckImg from "@/assets/puck-ice.jpg";
+import actionImg from "@/assets/jhc-action.png";
+import playerImg from "@/assets/jhc-player.png";
 import IceParticles from "@/components/IceParticles";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
@@ -40,67 +42,111 @@ const Home = () => {
     <>
       {/* ========== HERO ========== */}
       <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Full-bleed arena background with parallax */}
         <motion.div className="absolute inset-0" style={{ y: bgY }}>
           <img src={arenaImg} alt="" className="w-full h-[130%] object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
         </motion.div>
 
-        <IceParticles count={30} />
-
-        <motion.div className="container relative z-10 text-center px-4" style={{ opacity }}>
-          <motion.img
-            src={logoImg}
-            alt="Jerusalem HC Crest"
-            className="w-28 h-28 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain mx-auto mb-6 drop-shadow-2xl"
-            initial={{ opacity: 0, scale: 0.6 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          />
-
-          <motion.h1
-            className="font-display text-7xl md:text-9xl lg:text-[10rem] leading-[0.85] tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            <span className="text-gold-gradient">JERUSALEM</span>
-            <br />
-            <span className="text-foreground">HOCKEY CLUB</span>
-          </motion.h1>
-
-          <motion.p
-            className="mt-6 text-sm md:text-base tracking-[0.4em] text-primary font-heading"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-3 justify-center mt-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-          >
-            <Link
-              to="/about"
-              className="px-10 py-4 font-heading text-sm font-semibold tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 transition-all clip-angle-right"
-            >
-              OUR STORY
-            </Link>
-            <Link
-              to="/roster"
-              className="px-10 py-4 font-heading text-sm font-semibold tracking-wider border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all"
-            >
-              MEET THE TEAM
-            </Link>
-          </motion.div>
+        {/* Animated gold light sweep */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.3, 0] }}
+          transition={{ duration: 3, repeat: Infinity, repeatDelay: 5, ease: "easeInOut" }}
+        >
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[radial-gradient(ellipse,hsl(40_55%_60%_/_0.2)_0%,transparent_60%)]" />
         </motion.div>
 
-        {/* Diagonal bottom edge */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />
+        <IceParticles count={40} />
+
+        <motion.div className="container relative z-10 px-4" style={{ opacity }}>
+          <div className="flex flex-col items-center text-center">
+            {/* Oversized logo with dramatic entrance */}
+            <motion.div
+              className="relative mb-8"
+              initial={{ opacity: 0, scale: 0.3, rotateY: 180 }}
+              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <img src={logoImg} alt="Jerusalem HC Crest" className="w-36 h-36 md:w-52 md:h-52 lg:w-64 lg:h-64 object-contain drop-shadow-2xl" />
+              {/* Glow behind logo */}
+              <div className="absolute inset-0 blur-3xl bg-primary/20 rounded-full scale-150 -z-10" />
+            </motion.div>
+
+            {/* Title with staggered reveal */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <h1 className="font-display text-7xl md:text-9xl lg:text-[11rem] leading-[0.8] tracking-tight">
+                <span className="text-gold-gradient">JERUSALEM</span>
+              </h1>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="w-48 md:w-72 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent my-3"
+            />
+
+            <motion.h2
+              className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground tracking-[0.15em] leading-none"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.9 }}
+            >
+              HOCKEY CLUB
+            </motion.h2>
+
+            <motion.p
+              className="mt-5 text-xs md:text-sm tracking-[0.5em] text-primary/80 font-heading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+            >
+              EST. 2024 · ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-3 justify-center mt-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4 }}
+            >
+              <Link
+                to="/about"
+                className="group relative px-12 py-4 font-heading text-sm font-semibold tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 transition-all clip-angle-right overflow-hidden"
+              >
+                <span className="relative z-10">OUR STORY</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-gold-light to-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Link>
+              <Link
+                to="/schedule"
+                className="px-12 py-4 font-heading text-sm font-semibold tracking-wider border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all gold-border-glow"
+              >
+                2025-26 SEASON
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Diagonal bottom slice */}
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-background" style={{ clipPath: "polygon(0 70%, 100% 0, 100% 100%, 0 100%)" }} />
+
+        {/* Scroll cue */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
+        >
+          <span className="text-[10px] text-muted-foreground tracking-[0.3em] font-heading">SCROLL</span>
+          <div className="w-[1px] h-6 bg-gradient-to-b from-primary to-transparent" />
+        </motion.div>
       </section>
 
       {/* ========== NEXT GAME BAR ========== */}
