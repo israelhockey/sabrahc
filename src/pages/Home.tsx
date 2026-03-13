@@ -3,8 +3,10 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Calendar, Clock, MapPin, Trophy, Users, Globe } from "lucide-react";
 import logoImg from "@/assets/jhc-logo.png";
-import arenaImg from "@/assets/arena-hero.jpg";
+import arenaImg from "@/assets/hero-arena.jpg";
 import puckImg from "@/assets/puck-ice.jpg";
+import actionImg from "@/assets/jhc-action.png";
+import playerImg from "@/assets/jhc-player.png";
 import IceParticles from "@/components/IceParticles";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
