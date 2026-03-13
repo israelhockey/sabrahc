@@ -1,36 +1,20 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import Roster from "./pages/Roster";
+import Schedule from "./pages/Schedule";
+import News from "./pages/News";
+import About from "./pages/About";
+import Fans from "./pages/Fans";
+import Media from "./pages/Media";
+import Founders from "./pages/Founders";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
-
-const ScrollToHash = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (!location.hash) return;
-
-    const targetId = decodeURIComponent(location.hash.slice(1));
-    const scrollToTarget = () => {
-      const target = document.getElementById(targetId);
-      if (!target) return;
-
-      const navbarOffset = 90;
-      const top = target.getBoundingClientRect().top + window.scrollY - navbarOffset;
-      window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
-    };
-
-    const timeout = window.setTimeout(scrollToTarget, 0);
-    return () => window.clearTimeout(timeout);
-  }, [location.hash]);
-
-  return null;
-};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -38,10 +22,17 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToHash />
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/roster" element={<Roster />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/fans" element={<Fans />} />
+            <Route path="/media" element={<Media />} />
+            <Route path="/founders" element={<Founders />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
