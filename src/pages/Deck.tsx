@@ -192,23 +192,23 @@ const Deck = () => {
       </section>
 
       {/* ════════════ TABLE OF CONTENTS ════════════ */}
-      <Section id="toc" className="py-16 md:py-20">
+      <Section id="toc" className="py-10 md:py-14">
         <div className="container px-4">
-          <div className="max-w-4xl mx-auto">
-            <GlassCard className="!p-8 md:!p-12">
+          <div className="max-w-3xl mx-auto">
+            <GlassCard className="!p-5 md:!p-7">
               <SectionLabel>CONTENTS</SectionLabel>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-2 mt-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-1 mt-4">
                 {tocItems.map((item, i) => (
                   <motion.div
                     key={item}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.03 }}
-                    className="flex items-center gap-4 py-2 border-b border-border/40 group cursor-default"
+                    transition={{ delay: i * 0.02 }}
+                    className="flex items-center gap-2 py-1.5 group cursor-default"
                   >
-                    <span className="font-display text-lg text-primary/60 w-8">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="text-sm text-foreground/80 font-heading tracking-wider group-hover:text-primary transition-colors">{item}</span>
+                    <span className="font-display text-xs text-primary/50">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-[11px] text-foreground/70 font-heading tracking-wider group-hover:text-primary transition-colors">{item}</span>
                   </motion.div>
                 ))}
               </div>
