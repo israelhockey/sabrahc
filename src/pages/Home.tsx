@@ -19,12 +19,7 @@ const nextGame = {
   league: "EIHL",
 };
 
-const newsItems = [
-  { id: 1, title: "Jerusalem HC Signs Forward Alon Eizenman", category: "ROSTER", date: "Mar 10, 2025" },
-  { id: 2, title: "Pre-Season Training Camp Dates Announced", category: "TEAM NEWS", date: "Mar 8, 2025" },
-  { id: 3, title: "Partnership with EIHL Confirmed for 2025-26", category: "LEAGUE", date: "Mar 5, 2025" },
-  { id: 4, title: "Jersey Reveal: Home & Away Unveiled", category: "MERCH", date: "Mar 2, 2025" },
-];
+const newsItems = articles.slice(0, 4);
 
 const stats = [
   { value: 40, suffix: "+", label: "Years of Hockey in Israel", icon: Trophy },
