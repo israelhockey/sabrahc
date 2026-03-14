@@ -815,7 +815,7 @@ const Deck = () => {
 
               <div className="pt-6 border-t border-border flex items-center justify-between">
                 <span className="font-heading text-base tracking-wider text-foreground">TOTAL ANNUAL BUDGET</span>
-                <span className="font-display text-3xl text-gold-gradient">~₪1,000K</span>
+                <span className="font-display text-3xl text-gold-gradient">₪1,000,000</span>
               </div>
             </GlassCard>
           </div>
