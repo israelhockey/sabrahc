@@ -12,6 +12,7 @@ import arenaImg from "@/assets/hero-arena.jpg";
 import jerseysImg from "@/assets/jhc-jerseys.png";
 import actionImg from "@/assets/jhc-action.png";
 import playerImg from "@/assets/jhc-player.png";
+import arenaMockup from "@/assets/arena-mockup.png";
 
 /* ── helpers ── */
 const Section = ({
