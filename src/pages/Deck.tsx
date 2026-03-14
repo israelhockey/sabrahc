@@ -677,12 +677,28 @@ const Deck = () => {
               <div className="lg:col-span-2 space-y-4">
                 <StatBox value="500" label="FOUNDING MEMBERS GOAL" icon={Users} />
                 <StatBox value="$600" label="MEMBERSHIP PRICE" icon={DollarSign} delay={0.1} />
-                <GlassCard delay={0.2} className="text-center">
-                  <Award className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-2">GRAND PRIZE</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    VIP trip for two to Israel to attend three Jerusalem HC home games — flights, hotel & VIP access included.
-                  </p>
+                <GlassCard delay={0.2} className="relative overflow-hidden !border-primary/30">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-gold-light to-primary" />
+                  <div className="relative text-center pt-2">
+                    <div className="w-14 h-14 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center mx-auto mb-3">
+                      <Award className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="font-display text-2xl text-gold-gradient mb-1">GRAND PRIZE</h3>
+                    <p className="font-heading text-xs tracking-widest text-primary/80 mb-3">EVERY MEMBER IS ENTERED</p>
+                    <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
+                      <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed">
+                        ✈️ VIP trip for two to Israel
+                      </p>
+                      <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed mt-1">
+                        🏒 Attend three Jerusalem HC home games
+                      </p>
+                      <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed mt-1">
+                        🏨 Flights, hotel & VIP access included
+                      </p>
+                    </div>
+                    <p className="text-[10px] text-muted-foreground mt-3 tracking-wider">ALL-EXPENSES-PAID EXPERIENCE</p>
+                  </div>
                 </GlassCard>
               </div>
             </div>
