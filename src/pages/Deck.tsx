@@ -290,6 +290,8 @@ const Deck = () => {
                     "4 national teams competing internationally",
                     "Growing youth participation year over year",
                     "Increasing global Jewish hockey community",
+                    "The IEHL has surged in popularity over the last 5 years — dozens of international players relocate to Israel each season to compete",
+                    "Fan attendance and engagement in the IEHL continues to grow year after year, building a passionate hockey culture",
                   ]}
                 />
               </GlassCard>
