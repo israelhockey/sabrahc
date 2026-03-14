@@ -927,7 +927,7 @@ const Deck = () => {
         <div className="container px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
-              <SectionLabel>14 — WHY INVEST</SectionLabel>
+              <SectionLabel>14 — WHY SPONSOR</SectionLabel>
               <SectionTitle>
                 A UNIQUE <span className="text-gold-gradient">OPPORTUNITY</span>
               </SectionTitle>
