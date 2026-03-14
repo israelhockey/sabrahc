@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Fans from "./pages/Fans";
 import Media from "./pages/Media";
 import Founders from "./pages/Founders";
+import Deck from "./pages/Deck";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/fans" element={<Fans />} />
             <Route path="/media" element={<Media />} />
             <Route path="/founders" element={<Founders />} />
+            <Route path="/deck" element={<Deck />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

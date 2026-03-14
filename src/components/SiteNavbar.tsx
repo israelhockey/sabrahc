@@ -17,6 +17,7 @@ const NAV_ITEMS = [
   { label: "Media", path: "/media" },
   { label: "About", path: "/about" },
   { label: "Founders", path: "/founders" },
+  { label: "Deck", path: "/deck" },
 ];
 
 const SiteNavbar = () => {
