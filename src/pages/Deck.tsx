@@ -438,7 +438,20 @@ const Deck = () => {
               </SectionTitle>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-xl overflow-hidden mb-10 group"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <img src={arenaMockup} alt="Jerusalem HC arena mockup — packed arena with JHC branding" className="relative w-full rounded-xl border border-border shadow-2xl" />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/80 to-transparent p-6">
+                <p className="font-heading text-xs tracking-[0.3em] text-primary">ARENA CONCEPT MOCKUP</p>
+                <p className="text-sm text-foreground/80 mt-1">Jerusalem HC home game — full branding, packed stands, world-class atmosphere</p>
+              </div>
+            </motion.div>
+
               <GlassCard>
                 <div className="flex items-center gap-3 mb-5">
                   <Building2 className="w-6 h-6 text-primary" />
