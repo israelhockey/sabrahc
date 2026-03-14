@@ -9,6 +9,7 @@ import actionImg from "@/assets/jhc-action.png";
 import playerImg from "@/assets/jhc-player.png";
 import IceParticles from "@/components/IceParticles";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import { articles } from "./NewsArticle";
 
 const nextGame = {
   opponent: "Ferencváros TC",
