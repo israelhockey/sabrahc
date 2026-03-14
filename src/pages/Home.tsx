@@ -201,16 +201,26 @@ const Home = () => {
                 transition={{ delay: i * 0.1 }}
               >
                 <Link
-                  to="/news"
-                  className="block glass-card-hover rounded-sm p-6 h-full"
+                  to={`/news/${item.slug}`}
+                  className="block glass-card-hover rounded-sm overflow-hidden h-full group"
                 >
-                  <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-4">
-                    {item.category}
-                  </span>
-                  <h3 className="font-heading text-base tracking-wider text-foreground mb-3 leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground">{item.date}</p>
+                  <div className="relative h-36 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                    <span className="absolute bottom-2 left-3 inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 backdrop-blur-sm">
+                      {item.category}
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-heading text-base tracking-wider text-foreground mb-3 leading-snug group-hover:text-primary transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground">{item.date}</p>
+                  </div>
                 </Link>
               </motion.div>
             ))}
