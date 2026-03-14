@@ -478,15 +478,15 @@ const Deck = () => {
                   <Building2 className="w-6 h-6 text-primary" />
                   <div>
                     <h3 className="font-heading text-lg tracking-wider text-foreground">Blue Ice Arena</h3>
-                    <p className="text-xs text-muted-foreground">Jerusalem · Capacity: 750</p>
+                    <p className="text-xs text-muted-foreground">Ashdod, Israel · Capacity: 750</p>
                   </div>
                 </div>
                 <BulletList
                   items={[
-                    "Two-side seating bowl configuration",
-                    "Intimate European-style hockey environment",
-                    "Home base in the heart of Jerusalem",
-                    "Select home games and special events",
+                    "One-side seating configuration with 750 seats",
+                    "Intimate atmosphere with fans right on top of the action",
+                    "Located in Ashdod, Israel",
+                    "Will host at least 10 games during the season",
                   ]}
                 />
                 <div className="mt-5 p-4 rounded-lg bg-primary/5 border border-primary/15">
