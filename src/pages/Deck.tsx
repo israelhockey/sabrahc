@@ -452,6 +452,7 @@ const Deck = () => {
               </div>
             </motion.div>
 
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               <GlassCard>
                 <div className="flex items-center gap-3 mb-5">
                   <Building2 className="w-6 h-6 text-primary" />
