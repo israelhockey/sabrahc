@@ -503,13 +503,13 @@ const Deck = () => {
               </SectionTitle>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
               {[
                 {
                   title: "International Games",
                   count: "20",
                   desc: "Home games vs European teams",
-                  detail: "Romania · Hungary · Alps Hockey League · Other European teams",
+                  detail: "Romania · Hungary · Poland · Russia · Alps Hockey League",
                   icon: Globe,
                 },
                 {
@@ -536,6 +536,20 @@ const Deck = () => {
                 </GlassCard>
               ))}
             </div>
+
+            <GlassCard className="border-primary/25 !bg-primary/5">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
+                  <Plane className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-base tracking-wider text-foreground mb-2">HISTORIC INTERNATIONAL MATCHUPS</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    For the <span className="text-primary font-semibold">first time ever</span>, professional hockey teams from Romania, Hungary, Poland, Russia, and other European nations will travel to Israel to compete. Jerusalem HC will bring international hockey to Israeli ice — creating landmark sporting events and putting Israeli hockey on the global map.
+                  </p>
+                </div>
+              </div>
+            </GlassCard>
           </div>
         </div>
       </Section>
