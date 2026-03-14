@@ -97,7 +97,7 @@ const tocItems = [
   "Club Identity", "Arena & Game Experience", "Season Format",
   "Player Development", "Business Model", "Founding Membership",
   "Financial Plan", "Operating Budget", "Growth Strategy",
-  "Strategic Impact", "Why Invest", "The Vision", "Join the Founders",
+  "Strategic Impact", "Why Sponsor", "The Vision", "Join the Founders",
 ];
 
 /* ────────────────────────────── DECK PAGE ────────────────────────────── */
@@ -921,13 +921,13 @@ const Deck = () => {
 
       <div className="section-divider" />
 
-      {/* ════════════ 14 — WHY INVEST ════════════ */}
+      {/* ════════════ 14 — WHY SPONSOR ════════════ */}
       <Section id="s14" className="py-20 md:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,hsl(40_49%_54%_/_0.06)_0%,transparent_50%)] pointer-events-none" />
         <div className="container px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
-              <SectionLabel>14 — WHY INVEST</SectionLabel>
+              <SectionLabel>14 — WHY SPONSOR</SectionLabel>
               <SectionTitle>
                 A UNIQUE <span className="text-gold-gradient">OPPORTUNITY</span>
               </SectionTitle>
