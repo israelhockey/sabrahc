@@ -1,57 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Newspaper, ChevronRight } from "lucide-react";
-
-const articles = [
-  {
-    id: 1,
-    title: "Jerusalem HC Signs Forward Alon Eizenman as First Roster Addition",
-    excerpt: "The 24-year-old Israeli forward becomes the first officially signed player for the inaugural Jerusalem HC roster, bringing national team experience and a scoring touch.",
-    category: "ROSTER",
-    date: "March 10, 2025",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Pre-Season Training Camp Dates Announced for August 2025",
-    excerpt: "The club has announced a three-week training camp at the Canada Centre in Metula, beginning August 15th.",
-    category: "TEAM NEWS",
-    date: "March 8, 2025",
-    featured: false,
-  },
-  {
-    id: 3,
-    title: "Partnership with European Interleague Hockey League Confirmed",
-    excerpt: "Jerusalem HC will compete in the EIHL alongside teams from Romania, Hungary, and Serbia in its debut 2025-26 season.",
-    category: "LEAGUE",
-    date: "March 5, 2025",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Jersey Reveal: Navy & Gold Home and Away Kits Unveiled",
-    excerpt: "The official Jerusalem HC jerseys feature the Lion of Jerusalem crest and a design inspired by the city's ancient stone walls.",
-    category: "MERCH",
-    date: "March 2, 2025",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Canada Centre Rink Upgrades Underway for Pro Hockey Standards",
-    excerpt: "Renovations to Israel's primary ice rink in Metula are set to bring the facility up to European professional hockey standards.",
-    category: "FACILITY",
-    date: "February 26, 2025",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "Youth Development Partnership Announced with Israeli Ice Hockey Federation",
-    excerpt: "Jerusalem HC and the IIHF Israel branch will collaborate on youth camps, scouting, and player development pipelines.",
-    category: "DEVELOPMENT",
-    date: "February 20, 2025",
-    featured: false,
-  },
-];
+import { articles } from "./NewsArticle";
 
 const News = () => (
   <>
@@ -75,40 +25,50 @@ const News = () => (
       <div className="container">
         {/* Featured article */}
         {articles.filter(a => a.featured).map((article) => (
-          <motion.article
-            key={article.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass-card rounded-sm p-8 lg:p-12 mb-8 stripe-accent"
-          >
-            <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-4">
-              {article.category}
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4 leading-tight">{article.title}</h2>
-            <p className="text-muted-foreground leading-relaxed max-w-2xl mb-4">{article.excerpt}</p>
-            <p className="text-xs text-muted-foreground/60">{article.date}</p>
-          </motion.article>
+          <Link key={article.id} to={`/news/${article.slug}`} className="block">
+            <motion.article
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="glass-card rounded-sm p-8 lg:p-12 mb-8 stripe-accent group cursor-pointer hover:border-primary/30 transition-colors"
+            >
+              <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-4">
+                {article.category}
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4 leading-tight group-hover:text-primary transition-colors">{article.title}</h2>
+              <p className="text-muted-foreground leading-relaxed max-w-2xl mb-4">{article.excerpt}</p>
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-muted-foreground/60">{article.date}</p>
+                <span className="text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                  Read article <ChevronRight size={14} />
+                </span>
+              </div>
+            </motion.article>
+          </Link>
         ))}
 
         {/* Article grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {articles.filter(a => !a.featured).map((article, i) => (
-            <motion.article
-              key={article.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="glass-card-hover rounded-sm p-6 cursor-pointer"
-            >
-              <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-4">
-                {article.category}
-              </span>
-              <h3 className="font-heading text-base tracking-wider text-foreground mb-3 leading-snug">{article.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">{article.excerpt}</p>
-              <p className="text-xs text-muted-foreground/60">{article.date}</p>
-            </motion.article>
+            <Link key={article.id} to={`/news/${article.slug}`}>
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="glass-card-hover rounded-sm p-6 cursor-pointer h-full group"
+              >
+                <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-4">
+                  {article.category}
+                </span>
+                <h3 className="font-heading text-base tracking-wider text-foreground mb-3 leading-snug group-hover:text-primary transition-colors">{article.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">{article.excerpt}</p>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-muted-foreground/60">{article.date}</p>
+                  <ChevronRight size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </motion.article>
+            </Link>
           ))}
         </div>
       </div>
