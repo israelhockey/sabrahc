@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Roster from "./pages/Roster";
 import Schedule from "./pages/Schedule";
 import News from "./pages/News";
+import NewsArticle from "./pages/NewsArticle";
 import About from "./pages/About";
 import Fans from "./pages/Fans";
 import Media from "./pages/Media";
