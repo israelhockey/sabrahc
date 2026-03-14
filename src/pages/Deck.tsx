@@ -767,11 +767,11 @@ const Deck = () => {
             <GlassCard>
               <div className="space-y-4 mb-8">
                 {[
-                  { label: "Player Salaries", amount: "₪350,000", pct: 46 },
-                  { label: "Travel & International Competition", amount: "₪150,000", pct: 20 },
-                  { label: "Arena Operations", amount: "₪120,000", pct: 16 },
-                  { label: "Marketing & Media", amount: "₪80,000", pct: 11 },
-                  { label: "Equipment & Logistics", amount: "₪60,000", pct: 8 },
+                  { label: "Player & Staff Salaries", amount: "₪350,000", pct: 41 },
+                  { label: "Travel & International Teams Coming", amount: "₪200,000", pct: 24 },
+                  { label: "Arena Operations", amount: "₪120,000", pct: 14 },
+                  { label: "Equipment & Logistics", amount: "₪100,000", pct: 12 },
+                  { label: "Marketing & Media", amount: "₪80,000", pct: 9 },
                 ].map((item, i) => (
                   <motion.div
                     key={item.label}
