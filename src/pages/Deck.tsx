@@ -437,34 +437,54 @@ const Deck = () => {
               </SectionTitle>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <GlassCard className="lg:col-span-2">
-                <div className="flex items-center gap-3 mb-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              <GlassCard>
+                <div className="flex items-center gap-3 mb-5">
+                  <Building2 className="w-6 h-6 text-primary" />
+                  <div>
+                    <h3 className="font-heading text-lg tracking-wider text-foreground">One Ice Arena</h3>
+                    <p className="text-xs text-muted-foreground">Primary Venue · Near Netanya · Capacity: 2,000</p>
+                  </div>
+                </div>
+                <div className="bg-primary/5 border border-primary/15 rounded-lg p-4 mb-4">
+                  <p className="text-sm text-primary font-heading tracking-wider">★ MOST GAMES PLAYED HERE</p>
+                </div>
+                <BulletList
+                  items={[
+                    "Israel's largest ice arena — 2,000 seat capacity",
+                    "Full broadcast and streaming capability",
+                    "Professional-grade facilities for international competition",
+                    "Fan-focused game day atmosphere",
+                  ]}
+                />
+              </GlassCard>
+              <GlassCard delay={0.15}>
+                <div className="flex items-center gap-3 mb-5">
                   <Building2 className="w-6 h-6 text-primary" />
                   <div>
                     <h3 className="font-heading text-lg tracking-wider text-foreground">Blue Ice Arena</h3>
-                    <p className="text-xs text-muted-foreground">Capacity: ~1,000</p>
+                    <p className="text-xs text-muted-foreground">Jerusalem · Capacity: 750</p>
                   </div>
                 </div>
                 <BulletList
                   items={[
                     "Two-side seating bowl configuration",
                     "Intimate European-style hockey environment",
-                    "Full broadcast capability for streaming",
-                    "Fan-focused game atmosphere and experience",
+                    "Home base in the heart of Jerusalem",
+                    "Select home games and special events",
                   ]}
                 />
-                <div className="mt-6 p-4 rounded-lg bg-primary/5 border border-primary/15">
+                <div className="mt-5 p-4 rounded-lg bg-primary/5 border border-primary/15">
                   <p className="text-sm text-foreground/80 italic">
                     "A packed, high-energy arena where fans are close to the action."
                   </p>
                 </div>
               </GlassCard>
-              <div className="flex flex-col gap-3">
-                <StatBox value="1,000" label="SEAT CAPACITY" icon={Users} />
-                <StatBox value="20" label="HOME GAMES / SEASON" icon={Calendar} delay={0.1} />
-                <StatBox value="LIVE" label="BROADCAST READY" icon={Tv} delay={0.2} />
-              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              <StatBox value="2,000" label="ONE ICE CAPACITY" icon={Users} />
+              <StatBox value="750" label="BLUE ICE CAPACITY" icon={Building2} delay={0.1} />
+              <StatBox value="LIVE" label="BROADCAST READY" icon={Tv} delay={0.2} />
             </div>
           </div>
         </div>
