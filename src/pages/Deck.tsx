@@ -97,7 +97,7 @@ const tocItems = [
   "Club Identity", "Arena & Game Experience", "Season Format",
   "Player Development", "Business Model", "Founding Membership",
   "Financial Plan", "Operating Budget", "Growth Strategy",
-  "Strategic Impact", "Why Invest", "The Vision", "Join the Founders",
+  "Strategic Impact", "Why Sponsor", "The Vision", "Join the Founders",
 ];
 
 /* ────────────────────────────── DECK PAGE ────────────────────────────── */
