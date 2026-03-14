@@ -921,7 +921,7 @@ const Deck = () => {
 
       <div className="section-divider" />
 
-      {/* ════════════ 14 — WHY INVEST ════════════ */}
+      {/* ════════════ 14 — WHY SPONSOR ════════════ */}
       <Section id="s14" className="py-20 md:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,hsl(40_49%_54%_/_0.06)_0%,transparent_50%)] pointer-events-none" />
         <div className="container px-4 relative z-10">
