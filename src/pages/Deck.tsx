@@ -433,7 +433,7 @@ const Deck = () => {
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
               <SectionLabel>05 — ARENA & GAME EXPERIENCE</SectionLabel>
               <SectionTitle>
-                BLUE ICE <span className="text-gold-gradient">ARENA</span>
+                TWO WORLD-CLASS <span className="text-gold-gradient">ARENAS</span>
               </SectionTitle>
             </motion.div>
 
