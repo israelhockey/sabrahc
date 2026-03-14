@@ -192,23 +192,23 @@ const Deck = () => {
       </section>
 
       {/* ════════════ TABLE OF CONTENTS ════════════ */}
-      <Section id="toc" className="py-16 md:py-20">
+      <Section id="toc" className="py-10 md:py-14">
         <div className="container px-4">
-          <div className="max-w-4xl mx-auto">
-            <GlassCard className="!p-8 md:!p-12">
+          <div className="max-w-3xl mx-auto">
+            <GlassCard className="!p-5 md:!p-7">
               <SectionLabel>CONTENTS</SectionLabel>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-2 mt-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-1 mt-4">
                 {tocItems.map((item, i) => (
                   <motion.div
                     key={item}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.03 }}
-                    className="flex items-center gap-4 py-2 border-b border-border/40 group cursor-default"
+                    transition={{ delay: i * 0.02 }}
+                    className="flex items-center gap-2 py-1.5 group cursor-default"
                   >
-                    <span className="font-display text-lg text-primary/60 w-8">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="text-sm text-foreground/80 font-heading tracking-wider group-hover:text-primary transition-colors">{item}</span>
+                    <span className="font-display text-xs text-primary/50">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-[11px] text-foreground/70 font-heading tracking-wider group-hover:text-primary transition-colors">{item}</span>
                   </motion.div>
                 ))}
               </div>
@@ -290,6 +290,8 @@ const Deck = () => {
                     "4 national teams competing internationally",
                     "Growing youth participation year over year",
                     "Increasing global Jewish hockey community",
+                    "The IEHL has surged in popularity over the last 5 years — dozens of international players relocate to Israel each season to compete",
+                    "Fan attendance and engagement in the IEHL continues to grow year after year, building a passionate hockey culture",
                   ]}
                 />
               </GlassCard>
@@ -431,38 +433,58 @@ const Deck = () => {
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
               <SectionLabel>05 — ARENA & GAME EXPERIENCE</SectionLabel>
               <SectionTitle>
-                BLUE ICE <span className="text-gold-gradient">ARENA</span>
+                TWO WORLD-CLASS <span className="text-gold-gradient">ARENAS</span>
               </SectionTitle>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <GlassCard className="lg:col-span-2">
-                <div className="flex items-center gap-3 mb-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              <GlassCard>
+                <div className="flex items-center gap-3 mb-5">
+                  <Building2 className="w-6 h-6 text-primary" />
+                  <div>
+                    <h3 className="font-heading text-lg tracking-wider text-foreground">One Ice Arena</h3>
+                    <p className="text-xs text-muted-foreground">Primary Venue · Near Netanya · Capacity: 2,000</p>
+                  </div>
+                </div>
+                <div className="bg-primary/5 border border-primary/15 rounded-lg p-4 mb-4">
+                  <p className="text-sm text-primary font-heading tracking-wider">★ MOST GAMES PLAYED HERE</p>
+                </div>
+                <BulletList
+                  items={[
+                    "Israel's largest ice arena — 2,000 seat capacity",
+                    "Full broadcast and streaming capability",
+                    "Professional-grade facilities for international competition",
+                    "Fan-focused game day atmosphere",
+                  ]}
+                />
+              </GlassCard>
+              <GlassCard delay={0.15}>
+                <div className="flex items-center gap-3 mb-5">
                   <Building2 className="w-6 h-6 text-primary" />
                   <div>
                     <h3 className="font-heading text-lg tracking-wider text-foreground">Blue Ice Arena</h3>
-                    <p className="text-xs text-muted-foreground">Capacity: ~1,000</p>
+                    <p className="text-xs text-muted-foreground">Jerusalem · Capacity: 750</p>
                   </div>
                 </div>
                 <BulletList
                   items={[
                     "Two-side seating bowl configuration",
                     "Intimate European-style hockey environment",
-                    "Full broadcast capability for streaming",
-                    "Fan-focused game atmosphere and experience",
+                    "Home base in the heart of Jerusalem",
+                    "Select home games and special events",
                   ]}
                 />
-                <div className="mt-6 p-4 rounded-lg bg-primary/5 border border-primary/15">
+                <div className="mt-5 p-4 rounded-lg bg-primary/5 border border-primary/15">
                   <p className="text-sm text-foreground/80 italic">
                     "A packed, high-energy arena where fans are close to the action."
                   </p>
                 </div>
               </GlassCard>
-              <div className="flex flex-col gap-3">
-                <StatBox value="1,000" label="SEAT CAPACITY" icon={Users} />
-                <StatBox value="20" label="HOME GAMES / SEASON" icon={Calendar} delay={0.1} />
-                <StatBox value="LIVE" label="BROADCAST READY" icon={Tv} delay={0.2} />
-              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              <StatBox value="2,000" label="ONE ICE CAPACITY" icon={Users} />
+              <StatBox value="750" label="BLUE ICE CAPACITY" icon={Building2} delay={0.1} />
+              <StatBox value="LIVE" label="BROADCAST READY" icon={Tv} delay={0.2} />
             </div>
           </div>
         </div>
@@ -481,13 +503,13 @@ const Deck = () => {
               </SectionTitle>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
               {[
                 {
                   title: "International Games",
                   count: "20",
                   desc: "Home games vs European teams",
-                  detail: "Romania · Hungary · Alps Hockey League · Other European teams",
+                  detail: "Romania · Hungary · Poland · Russia · Alps Hockey League",
                   icon: Globe,
                 },
                 {
@@ -514,6 +536,20 @@ const Deck = () => {
                 </GlassCard>
               ))}
             </div>
+
+            <GlassCard className="border-primary/25 !bg-primary/5">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
+                  <Plane className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-base tracking-wider text-foreground mb-2">HISTORIC INTERNATIONAL MATCHUPS</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    For the <span className="text-primary font-semibold">first time ever</span>, professional hockey teams from Romania, Hungary, Poland, Russia, and other European nations will travel to Israel to compete. Jerusalem HC will bring international hockey to Israeli ice — creating landmark sporting events and putting Israeli hockey on the global map.
+                  </p>
+                </div>
+              </div>
+            </GlassCard>
           </div>
         </div>
       </Section>
@@ -641,12 +677,28 @@ const Deck = () => {
               <div className="lg:col-span-2 space-y-4">
                 <StatBox value="500" label="FOUNDING MEMBERS GOAL" icon={Users} />
                 <StatBox value="$600" label="MEMBERSHIP PRICE" icon={DollarSign} delay={0.1} />
-                <GlassCard delay={0.2} className="text-center">
-                  <Award className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-2">GRAND PRIZE</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    VIP trip for two to Israel to attend three Jerusalem HC home games — flights, hotel & VIP access included.
-                  </p>
+                <GlassCard delay={0.2} className="relative overflow-hidden !border-primary/30">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-gold-light to-primary" />
+                  <div className="relative text-center pt-2">
+                    <div className="w-14 h-14 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center mx-auto mb-3">
+                      <Award className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="font-display text-2xl text-gold-gradient mb-1">GRAND PRIZE</h3>
+                    <p className="font-heading text-xs tracking-widest text-primary/80 mb-3">EVERY MEMBER IS ENTERED</p>
+                    <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
+                      <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed">
+                        ✈️ VIP trip for two to Israel
+                      </p>
+                      <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed mt-1">
+                        🏒 Attend three Jerusalem HC home games
+                      </p>
+                      <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed mt-1">
+                        🏨 Flights, hotel & VIP access included
+                      </p>
+                    </div>
+                    <p className="text-[10px] text-muted-foreground mt-3 tracking-wider">ALL-EXPENSES-PAID EXPERIENCE</p>
+                  </div>
                 </GlassCard>
               </div>
             </div>
@@ -715,11 +767,11 @@ const Deck = () => {
             <GlassCard>
               <div className="space-y-4 mb-8">
                 {[
-                  { label: "Player Salaries", amount: "₪350,000", pct: 46 },
-                  { label: "Travel & International Competition", amount: "₪150,000", pct: 20 },
-                  { label: "Arena Operations", amount: "₪120,000", pct: 16 },
-                  { label: "Marketing & Media", amount: "₪80,000", pct: 11 },
-                  { label: "Equipment & Logistics", amount: "₪60,000", pct: 8 },
+                  { label: "Player & Staff Salaries", amount: "₪350,000", pct: 41 },
+                  { label: "Travel & International Teams Coming", amount: "₪200,000", pct: 24 },
+                  { label: "Arena Operations", amount: "₪120,000", pct: 14 },
+                  { label: "Equipment & Logistics", amount: "₪100,000", pct: 12 },
+                  { label: "Marketing & Media", amount: "₪80,000", pct: 9 },
                 ].map((item, i) => (
                   <motion.div
                     key={item.label}
@@ -747,7 +799,7 @@ const Deck = () => {
 
               <div className="pt-6 border-t border-border flex items-center justify-between">
                 <span className="font-heading text-base tracking-wider text-foreground">TOTAL ANNUAL BUDGET</span>
-                <span className="font-display text-3xl text-gold-gradient">~₪760K</span>
+                <span className="font-display text-3xl text-gold-gradient">~₪850K</span>
               </div>
             </GlassCard>
           </div>
