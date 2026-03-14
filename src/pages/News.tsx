@@ -30,18 +30,31 @@ const News = () => (
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="glass-card rounded-sm p-8 lg:p-12 mb-8 stripe-accent group cursor-pointer hover:border-primary/30 transition-colors"
+              className="glass-card rounded-sm overflow-hidden mb-8 group cursor-pointer hover:border-primary/30 transition-colors"
             >
-              <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-4">
-                {article.category}
-              </span>
-              <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4 leading-tight group-hover:text-primary transition-colors">{article.title}</h2>
-              <p className="text-muted-foreground leading-relaxed max-w-2xl mb-4">{article.excerpt}</p>
-              <div className="flex items-center justify-between">
-                <p className="text-xs text-muted-foreground/60">{article.date}</p>
-                <span className="text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                  Read article <ChevronRight size={14} />
-                </span>
+              <div className="md:flex">
+                <div className="relative md:w-2/5 h-56 md:h-auto overflow-hidden">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/80 hidden md:block" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent md:hidden" />
+                </div>
+                <div className="p-8 lg:p-12 md:w-3/5">
+                  <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-4">
+                    {article.category}
+                  </span>
+                  <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4 leading-tight group-hover:text-primary transition-colors">{article.title}</h2>
+                  <p className="text-muted-foreground leading-relaxed max-w-2xl mb-4">{article.excerpt}</p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-muted-foreground/60">{article.date}</p>
+                    <span className="text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                      Read article <ChevronRight size={14} />
+                    </span>
+                  </div>
+                </div>
               </div>
             </motion.article>
           </Link>
@@ -56,16 +69,26 @@ const News = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="glass-card-hover rounded-sm p-6 cursor-pointer h-full group"
+                className="glass-card-hover rounded-sm overflow-hidden cursor-pointer h-full group"
               >
-                <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-4">
-                  {article.category}
-                </span>
-                <h3 className="font-heading text-base tracking-wider text-foreground mb-3 leading-snug group-hover:text-primary transition-colors">{article.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">{article.excerpt}</p>
-                <div className="flex items-center justify-between">
-                  <p className="text-xs text-muted-foreground/60">{article.date}</p>
-                  <ChevronRight size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                  <span className="absolute bottom-3 left-3 inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 backdrop-blur-sm">
+                    {article.category}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-heading text-base tracking-wider text-foreground mb-3 leading-snug group-hover:text-primary transition-colors">{article.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">{article.excerpt}</p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-muted-foreground/60">{article.date}</p>
+                    <ChevronRight size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
                 </div>
               </motion.article>
             </Link>

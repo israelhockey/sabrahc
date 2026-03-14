@@ -1,6 +1,13 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronRight, ArrowLeft, Calendar, Tag, Clock } from "lucide-react";
+import { ChevronRight, ArrowLeft, Calendar, Clock } from "lucide-react";
+
+import newsSigning from "@/assets/news-signing.jpg";
+import newsTraining from "@/assets/news-training.jpg";
+import newsLeague from "@/assets/news-league.jpg";
+import newsJerseys from "@/assets/news-jerseys.jpg";
+import newsArena from "@/assets/news-arena.jpg";
+import newsYouth from "@/assets/news-youth.jpg";
 
 const articles = [
   {
@@ -11,6 +18,7 @@ const articles = [
     category: "ROSTER",
     date: "March 10, 2025",
     readTime: "4 min read",
+    image: newsSigning,
     body: [
       "Jerusalem Hockey Club is proud to announce the signing of forward Alon Eizenman, marking the club's first official roster addition ahead of its inaugural 2025-26 season.",
       "The 24-year-old Israeli forward brings a wealth of experience from his time with the Israeli national team, where he's been a consistent contributor in international competition. Known for his speed, vision, and finishing ability, Eizenman represents the caliber of player Jerusalem HC aims to build around.",
@@ -29,6 +37,7 @@ const articles = [
     category: "TEAM NEWS",
     date: "March 8, 2025",
     readTime: "3 min read",
+    image: newsTraining,
     body: [
       "Jerusalem HC has officially announced that its inaugural pre-season training camp will take place at the Canada Centre in Metula, beginning August 15th, 2025.",
       "The three-week camp will serve as the club's primary preparation period ahead of the 2025-26 EIHL season. Players will undergo fitness testing, tactical sessions, and intra-squad scrimmages to build chemistry and establish the team's playing identity.",
@@ -47,6 +56,7 @@ const articles = [
     category: "LEAGUE",
     date: "March 5, 2025",
     readTime: "3 min read",
+    image: newsLeague,
     body: [
       "Jerusalem Hockey Club has officially confirmed its participation in the European Interleague Hockey League (EIHL) for the 2025-26 season, marking a landmark moment for Israeli professional hockey.",
       "The EIHL features clubs from across Central and Eastern Europe, including teams from Romania, Hungary, and Serbia. Jerusalem HC will be the first Israeli club to compete in the league, opening new doors for the sport in the region.",
@@ -65,6 +75,7 @@ const articles = [
     category: "MERCH",
     date: "March 2, 2025",
     readTime: "3 min read",
+    image: newsJerseys,
     body: [
       "Jerusalem HC has unveiled its official home and away jerseys for the inaugural 2025-26 season, and the response from the hockey community has been overwhelmingly positive.",
       "The home jersey features a deep navy base with gold accents, prominently displaying the Lion of Jerusalem crest at the center. Subtle design elements inspired by the ancient stone walls of Jerusalem's Old City are woven into the shoulder and hem patterns.",
@@ -83,6 +94,7 @@ const articles = [
     category: "FACILITY",
     date: "February 26, 2025",
     readTime: "3 min read",
+    image: newsArena,
     body: [
       "Significant renovations are underway at the Canada Centre in Metula, Israel's premier ice sports facility, to prepare it for professional-level hockey competition.",
       "The upgrades include improvements to the ice surface quality, enhanced lighting systems, updated player facilities including locker rooms and training areas, and expanded seating capacity to better accommodate game-day crowds.",
@@ -101,6 +113,7 @@ const articles = [
     category: "DEVELOPMENT",
     date: "February 20, 2025",
     readTime: "4 min read",
+    image: newsYouth,
     body: [
       "Jerusalem HC has announced a formal partnership with the Israeli Ice Hockey Federation to establish a comprehensive youth development program aimed at growing the next generation of Israeli hockey talent.",
       "The partnership will encompass youth training camps, scouting programs across Israel, and the creation of a structured player development pipeline from grassroots to professional level.",
@@ -125,28 +138,39 @@ const NewsArticle = () => {
 
   return (
     <>
-      {/* Hero header */}
-      <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
-        {/* Dramatic gradient background */}
-        <div className="absolute inset-0 bg-card" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(40_49%_54%_/_0.12)_0%,transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(220_60%_20%_/_0.15)_0%,transparent_50%)]" />
-        
-        {/* Gold accent line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent origin-left"
-        />
+      {/* Hero image header */}
+      <section className="relative pt-0 overflow-hidden">
+        {/* Full-width hero image */}
+        <div className="relative h-[40vh] md:h-[50vh] lg:h-[60vh]">
+          <motion.img
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            src={article.image}
+            alt={article.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Dark overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/40 to-transparent" />
+          
+          {/* Gold accent line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent origin-left z-10"
+          />
+        </div>
 
-        <div className="container relative z-10">
+        {/* Content overlapping the image */}
+        <div className="container relative z-10 -mt-32 md:-mt-40 pb-12">
           {/* Breadcrumb */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4 }}
-            className="flex items-center gap-2 text-xs text-muted-foreground mb-8"
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="flex items-center gap-2 text-xs text-muted-foreground mb-6"
           >
             <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
             <ChevronRight size={12} />
@@ -159,11 +183,11 @@ const NewsArticle = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.25 }}
           >
             <Link
               to="/news"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8 group"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6 group"
             >
               <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
               Back to News
@@ -174,10 +198,10 @@ const NewsArticle = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.5 }}
-            className="flex flex-wrap items-center gap-4 mb-6"
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="flex flex-wrap items-center gap-4 mb-5"
           >
-            <span className="inline-block px-4 py-1.5 text-[10px] font-heading tracking-[0.2em] text-primary bg-primary/10 border border-primary/30 rounded-sm">
+            <span className="inline-block px-4 py-1.5 text-[10px] font-heading tracking-[0.2em] text-primary bg-primary/10 border border-primary/30 rounded-sm backdrop-blur-sm">
               {article.category}
             </span>
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
@@ -196,25 +220,22 @@ const NewsArticle = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.6 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
             className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] max-w-4xl"
           >
             {article.title}
           </motion.h1>
 
-          {/* Excerpt as lead */}
+          {/* Excerpt */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.5 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
             className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl"
           >
             {article.excerpt}
           </motion.p>
         </div>
-
-        {/* Bottom slice */}
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />
       </section>
 
       {/* Article body */}
@@ -225,7 +246,7 @@ const NewsArticle = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.6 }}
               className="w-16 h-0.5 bg-primary mb-10"
             />
 
@@ -281,16 +302,25 @@ const NewsArticle = () => {
               >
                 <Link
                   to={`/news/${a.slug}`}
-                  className="block glass-card-hover rounded-sm p-6 h-full group"
+                  className="block glass-card-hover rounded-sm overflow-hidden h-full group"
                 >
-                  <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-4">
-                    {a.category}
-                  </span>
-                  <h3 className="font-heading text-base tracking-wider text-foreground mb-3 leading-snug group-hover:text-primary transition-colors">
-                    {a.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">{a.excerpt}</p>
-                  <p className="text-xs text-muted-foreground/60">{a.date}</p>
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={a.image}
+                      alt={a.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                  </div>
+                  <div className="p-5">
+                    <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-3">
+                      {a.category}
+                    </span>
+                    <h3 className="font-heading text-sm tracking-wider text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
+                      {a.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground/60">{a.date}</p>
+                  </div>
                 </Link>
               </motion.div>
             ))}
