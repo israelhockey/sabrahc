@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Roster from "./pages/Roster";
 import Schedule from "./pages/Schedule";
 import News from "./pages/News";
+import NewsArticle from "./pages/NewsArticle";
 import About from "./pages/About";
 import Fans from "./pages/Fans";
 import Media from "./pages/Media";
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/roster" element={<Roster />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/news" element={<News />} />
+            <Route path="/news/:slug" element={<NewsArticle />} />
             <Route path="/about" element={<About />} />
             <Route path="/fans" element={<Fans />} />
             <Route path="/media" element={<Media />} />
