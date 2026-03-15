@@ -16,7 +16,7 @@ const HeroSection = () => {
     <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <img src={arenaImg} alt="" className="w-full h-[130%] object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
       </motion.div>
 
