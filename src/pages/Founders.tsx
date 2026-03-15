@@ -41,11 +41,13 @@ const reasons = [
 
 const faqs = [
   { q: "What exactly do I get as a founding member?", a: "You receive a limited-edition Founders jersey (never sold again), a merch pack, digital season ticket for all broadcasts, 20% lifetime merch discount, entry into the VIP Israel trip giveaway, and your name permanently on the Founders Wall at the arena." },
-  { q: "Can I pay in installments?", a: `Yes! You can pay $${CAMPAIGN.membershipPrice} as a one-time contribution, or split it into ${CAMPAIGN.installmentCount} payments of $${CAMPAIGN.installmentPrice}.` },
-  { q: "Is this a donation or an investment?", a: "This is a founding membership contribution. You're becoming one of the original 500 supporters who made Sabra HC possible — with exclusive perks and permanent recognition." },
-  { q: "I'm a hockey player — can I try out?", a: "Absolutely. Sabra HC is actively building its roster. If you're a Jewish hockey player interested in making aliyah and playing professionally in Israel, reach out to us directly." },
-  { q: "How will my money be used?", a: "Founding membership funds go directly toward the club's first two seasons — player salaries, arena operations, equipment, travel for international competition, and youth development programs." },
+  { q: "Is this annual or one-time?", a: `The founding membership is $${CAMPAIGN.membershipPrice}/year. Your annual contribution directly funds professional hockey operations in Israel — player salaries, arena costs, equipment, travel, and youth development. You can also split each year into ${CAMPAIGN.installmentCount} payments of $${CAMPAIGN.installmentPrice}.` },
+  { q: "Who owns Sabra HC?", a: "No single person owns Sabra HC. The club is operated by the Israel Ice Hockey Federation and exists to grow Israeli hockey at every level. All funds go directly into building the sport — from youth programs to professional competition." },
+  { q: "Is this a donation or an investment?", a: "This is a founding membership. You're becoming one of the original 500 supporters who make professional hockey in Israel possible — with exclusive perks, permanent recognition, and the knowledge that you're building something historic." },
+  { q: "I'm a hockey player — can I try out?", a: "Absolutely. Sabra HC fields a fully professional roster and is actively recruiting. If you're a Jewish hockey player interested in making aliyah and playing professionally in Israel, reach out to us directly." },
+  { q: "How will my money be used?", a: "Founding membership funds go directly toward club operations — professional player salaries, arena operations, equipment, international travel for competition, coaching staff, and youth development programs across Israel." },
   { q: "Will there be more than 500 founding members?", a: "No. The Founders program is permanently capped at 500 members. Once all spots are claimed, the program closes forever." },
+  { q: "Are all players professionals?", a: "Yes. Sabra HC operates as a fully professional team in every aspect — all players are paid professionals, with full-time coaching staff, professional training facilities, and competitive international schedules." },
 ];
 
 const Founders = () => {
