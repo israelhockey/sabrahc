@@ -44,7 +44,7 @@ const FinalCTASection = () => {
             <span className="text-gold-gradient">Built for the Ice</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto mb-10">
-            Be part of history. Join the movement to bring professional hockey to Israel.
+            Be part of history. Join the movement to bring professional hockey to Israel — and create a pathway for Jewish athletes to play at the highest level.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

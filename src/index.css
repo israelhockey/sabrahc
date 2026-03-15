@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&family=Black+Ops+One&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -75,6 +75,11 @@
 @layer utilities {
   .font-display {
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
+  }
+
+  .font-logo {
+    font-family: 'Black Ops One', 'Oswald', sans-serif;
+    letter-spacing: 0.08em;
   }
 
   .text-gold-gradient {

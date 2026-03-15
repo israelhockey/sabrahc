@@ -29,7 +29,7 @@ const MembershipSection = () => (
           Be Part of <span className="text-gold-gradient">History</span>
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg">
-          We are inviting {CAMPAIGN.goalMembers} founding members to help launch Israel's first professional hockey team.
+          We are inviting {CAMPAIGN.goalMembers} founding members to help launch Israel's first professional hockey team. As a founder, you're not just supporting a team — you're building a pathway for Jewish athletes to make aliyah and play at the pro level, just like soccer and basketball in Israel.
         </p>
       </motion.div>
 

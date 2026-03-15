@@ -9,8 +9,8 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 const values = [
   { icon: Target, title: "Excellence", desc: "Pursuing the highest standards of professional hockey in every aspect of the organization." },
   { icon: Heart, title: "Community", desc: "Building a passionate fanbase and creating a sense of belonging through sport." },
-  { icon: Globe, title: "Representation", desc: "Putting Israel on the European hockey map and competing at the highest level." },
-  { icon: Star, title: "Development", desc: "Creating pathways for Israeli players to grow and compete professionally." },
+  { icon: Globe, title: "Pathway to Israel", desc: "Creating opportunities for Jewish hockey players worldwide to make aliyah and compete professionally — just like soccer and basketball." },
+  { icon: Star, title: "Development", desc: "Building pathways for Israeli and olim players to grow, compete, and represent Israel at the highest level." },
 ];
 
 const timeline = [
@@ -67,13 +67,13 @@ const About = () => (
                 Sabra HC is being created to bring Israeli hockey to the next level — from grassroots passion to international competition.
               </p>
               <p>
-                For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Sabra HC will become the first full-time professional hockey club based in Israel.
+                For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Sabra HC will become the first full-time professional hockey club based in Israel. Just as Israel has built world-class professional leagues in soccer and basketball, it's time for hockey to make the same leap.
               </p>
               <p>
-                The club will compete against professional teams from Romania, Hungary, and across Europe while also playing in Israel's top domestic league, the INHL.
+                Sabra HC is more than a team — it's a pathway. For Jewish hockey players around the world, the club offers the opportunity to make aliyah and compete at the professional level in Israel. It's a chance to build a life in Israel while pursuing the sport they love.
               </p>
               <p>
-                The goal is to provide Israeli players the opportunity to develop at a high level while representing Israel internationally.
+                The club will compete against professional teams from Romania, Hungary, and across Europe while also playing in Israel's top domestic league, the INHL — putting Israel on the map in international hockey.
               </p>
             </div>
           </motion.div>
@@ -103,7 +103,7 @@ const About = () => (
             WHAT WE <span className="text-gold-gradient">STAND FOR</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            To establish a world-class professional hockey organization that represents Israel on the international stage.
+            To establish a world-class professional hockey organization that represents Israel internationally — and to create a pathway for Jewish athletes to make aliyah and excel at the highest level.
           </p>
         </div>
 
