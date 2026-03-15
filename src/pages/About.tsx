@@ -103,7 +103,7 @@ const About = () => (
             WHAT WE <span className="text-gold-gradient">STAND FOR</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            To establish a world-class professional hockey organization that represents Israel internationally — and to create a pathway for Jewish athletes to make aliyah and excel at the highest level.
+            To establish a world-class professional hockey organization that represents Israel internationally — to create a pathway for Jewish athletes to make aliyah and excel at the highest level, and to build a development route so local Israeli players and young talent can grow within the system and stay in Israel to compete professionally.
           </p>
         </div>
 
