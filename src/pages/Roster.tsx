@@ -35,7 +35,6 @@ const Roster = () => {
 
   return (
     <>
-      {/* Page Hero */}
       <section className="pt-28 pb-12 lg:pt-36 lg:pb-16 bg-card relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(40_49%_54%_/_0.05)_0%,transparent_50%)] pointer-events-none" />
         <div className="container relative z-10">
@@ -49,13 +48,12 @@ const Roster = () => {
             <h1 className="font-display text-5xl md:text-7xl text-foreground">TEAM ROSTER</h1>
           </div>
           <p className="text-muted-foreground mt-3 max-w-xl">
-            Meet the players representing Jerusalem HC in the 2025–26 season.
+            Meet the players representing Sabra HC in the 2025–26 season.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-8 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />
       </section>
 
-      {/* Filters */}
       <section className="py-8">
         <div className="container">
           <div className="flex gap-2 flex-wrap">
@@ -76,7 +74,6 @@ const Roster = () => {
         </div>
       </section>
 
-      {/* Player Grid */}
       <section className="pb-20 lg:pb-28">
         <div className="container">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -89,7 +86,6 @@ const Roster = () => {
                 transition={{ delay: i * 0.05 }}
                 className="glass-card-hover rounded-sm overflow-hidden group"
               >
-                {/* Player number strip */}
                 <div className="h-24 bg-secondary/50 flex items-center justify-center relative">
                   <span className="font-display text-6xl text-primary/20">{player.number}</span>
                   <span className="absolute top-3 left-4 text-2xl">{player.country}</span>

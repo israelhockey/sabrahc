@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoImg from "@/assets/jhc-logo.png";
+import logoImg from "@/assets/sabra-logo.png";
 
 const footerLinks = [
   {
@@ -37,14 +37,14 @@ const SiteFooter = () => (
         {/* Brand */}
         <div className="lg:col-span-2">
           <Link to="/" className="flex items-center gap-3 mb-4">
-            <img src={logoImg} alt="Jerusalem HC" className="w-12 h-12 object-contain" />
+            <img src={logoImg} alt="Sabra HC" className="w-12 h-12 object-contain" />
             <div>
-              <span className="font-display text-2xl tracking-wide text-foreground">JERUSALEM HC</span>
+              <span className="font-display text-2xl tracking-wide text-foreground">SABRA HC</span>
               <p className="text-[10px] tracking-[0.25em] text-primary">ISRAEL'S PROFESSIONAL HOCKEY CLUB</p>
             </div>
           </Link>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-            Jerusalem Hockey Club is Israel's first professional ice hockey team, competing domestically and across Europe.
+            Sabra Hockey Club is Israel's first professional ice hockey team, competing domestically and across Europe.
           </p>
         </div>
 
@@ -72,10 +72,10 @@ const SiteFooter = () => (
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} Jerusalem Hockey Club. All rights reserved.
+          &copy; {new Date().getFullYear()} Sabra Hockey Club. All rights reserved.
         </p>
         <p className="text-xs text-muted-foreground/60">
-          #RoarForJerusalem
+          #BornInTheDesert
         </p>
       </div>
     </div>

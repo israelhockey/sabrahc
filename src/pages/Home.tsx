@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Calendar, Clock, MapPin, Trophy, Users, Globe } from "lucide-react";
-import logoImg from "@/assets/jhc-logo.png";
+import logoImg from "@/assets/sabra-logo.png";
 import arenaImg from "@/assets/hero-arena.jpg";
 import puckImg from "@/assets/puck-ice.jpg";
 import actionImg from "@/assets/jhc-action.png";
@@ -15,7 +15,7 @@ const nextGame = {
   opponent: "Ferencváros TC",
   date: "OCT 18, 2025",
   time: "19:30",
-  venue: "Canada Centre, Metula",
+  venue: "One Ice Arena, Netanya",
   league: "EIHL",
 };
 
@@ -38,14 +38,12 @@ const Home = () => {
     <>
       {/* ========== HERO ========== */}
       <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Full-bleed arena background with parallax */}
         <motion.div className="absolute inset-0" style={{ y: bgY }}>
           <img src={arenaImg} alt="" className="w-full h-[130%] object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
         </motion.div>
 
-        {/* Animated gold light sweep */}
         <motion.div
           className="absolute inset-0 pointer-events-none"
           initial={{ opacity: 0 }}
@@ -59,26 +57,23 @@ const Home = () => {
 
         <motion.div className="container relative z-10 px-4" style={{ opacity }}>
           <div className="flex flex-col items-center text-center">
-            {/* Oversized logo with dramatic entrance */}
             <motion.div
               className="relative mb-8"
               initial={{ opacity: 0, scale: 0.3, rotateY: 180 }}
               animate={{ opacity: 1, scale: 1, rotateY: 0 }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
-              <img src={logoImg} alt="Jerusalem HC Crest" className="w-36 h-36 md:w-52 md:h-52 lg:w-64 lg:h-64 object-contain drop-shadow-2xl" />
-              {/* Glow behind logo */}
+              <img src={logoImg} alt="Sabra HC Crest" className="w-36 h-36 md:w-52 md:h-52 lg:w-64 lg:h-64 object-contain drop-shadow-2xl" />
               <div className="absolute inset-0 blur-3xl bg-primary/20 rounded-full scale-150 -z-10" />
             </motion.div>
 
-            {/* Title with staggered reveal */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
               <h1 className="font-display text-7xl md:text-9xl lg:text-[11rem] leading-[0.8] tracking-tight">
-                <span className="text-gold-gradient">JERUSALEM</span>
+                <span className="text-gold-gradient">SABRA</span>
               </h1>
             </motion.div>
 
@@ -104,10 +99,9 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
             >
-              EST. 2024 · ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
+              BORN IN THE DESERT · ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
             </motion.p>
 
-            {/* CTAs */}
             <motion.div
               className="flex flex-col sm:flex-row gap-3 justify-center mt-10"
               initial={{ opacity: 0, y: 20 }}
@@ -131,10 +125,8 @@ const Home = () => {
           </div>
         </motion.div>
 
-        {/* Diagonal bottom slice */}
         <div className="absolute bottom-0 left-0 right-0 h-28 bg-background" style={{ clipPath: "polygon(0 70%, 100% 0, 100% 100%, 0 100%)" }} />
 
-        {/* Scroll cue */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -157,7 +149,7 @@ const Home = () => {
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-3">
                   <img src={logoImg} alt="" className="w-10 h-10 object-contain" />
-                  <span className="font-heading text-lg tracking-wider text-foreground">JHC</span>
+                  <span className="font-heading text-lg tracking-wider text-foreground">SHC</span>
                 </div>
                 <span className="font-display text-2xl text-primary">VS</span>
                 <span className="font-heading text-lg tracking-wider text-foreground">{nextGame.opponent}</span>
@@ -253,7 +245,7 @@ const Home = () => {
                   <span className="text-gold-gradient">OF ISRAELI HOCKEY</span>
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">
-                  Jerusalem HC is being created to elevate Israeli hockey from grassroots passion to international professional competition.
+                  Sabra HC is being created to elevate Israeli hockey from grassroots passion to international professional competition.
                 </p>
                 <Link
                   to="/about"

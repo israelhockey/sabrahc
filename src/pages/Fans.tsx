@@ -5,18 +5,18 @@ import { CAMPAIGN } from "@/lib/campaign";
 import { Check, ShieldCheck } from "lucide-react";
 
 const perks = [
-  { icon: Ticket, title: "Season Tickets", desc: "Priority access to all home games at the Canada Centre in Metula." },
+  { icon: Ticket, title: "Season Tickets", desc: "Priority access to all home games at the One Ice Arena near Netanya." },
   { icon: Shirt, title: "Team Store", desc: "Official jerseys, scarves, hats, and exclusive limited-edition merchandise." },
   { icon: Gift, title: "VIP Experiences", desc: "Meet the players, attend practices, and enjoy premium game-day experiences." },
   { icon: Star, title: "Fan Rewards", desc: "Earn points attending games and engaging online. Redeem for exclusive prizes." },
 ];
 
 const benefits = [
-  "Official Founders Edition Jerusalem HC jersey",
+  "Official Founders Edition Sabra HC jersey",
   "Founders merchandise pack (scarf, hat, pin)",
   "Digital season ticket access to all broadcasts and replays",
   "Exclusive behind-the-scenes team content",
-  "Entry into VIP trip giveaway to Jerusalem",
+  "Entry into VIP trip giveaway to Israel",
   "20% discount on team merchandise",
   "Name permanently displayed on the Founders Wall",
 ];
@@ -36,7 +36,7 @@ const Fans = () => (
           <h1 className="font-display text-5xl md:text-7xl text-foreground">FAN ZONE</h1>
         </div>
         <p className="text-muted-foreground mt-3 max-w-xl">
-          Everything for the Jerusalem HC faithful. Tickets, merchandise, experiences, and more.
+          Everything for the Sabra HC faithful. Tickets, merchandise, experiences, and more.
         </p>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-8 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />
@@ -140,7 +140,7 @@ const Fans = () => (
           JOIN THE <span className="text-gold-gradient">PRIDE</span>
         </h2>
         <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-          Follow Jerusalem HC on social media and connect with fellow fans around the world. Use #RoarForJerusalem to be featured.
+          Follow Sabra HC on social media and connect with fellow fans around the world. Use #BornInTheDesert to be featured.
         </p>
         <div className="flex gap-4 justify-center">
           {["Instagram", "Twitter/X", "YouTube", "Facebook"].map((platform) => (

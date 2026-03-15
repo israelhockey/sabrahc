@@ -16,7 +16,6 @@ const VisionSection = () => {
 
   return (
     <section id="story" ref={ref} className="relative overflow-hidden">
-      {/* Full-bleed image section */}
       <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         <motion.img
           src={puckImg}
@@ -43,7 +42,6 @@ const VisionSection = () => {
         </div>
       </div>
 
-      {/* Content */}
       <div className="py-20 md:py-28">
         <div className="container px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -55,10 +53,10 @@ const VisionSection = () => {
             >
               <div className="space-y-6 text-muted-foreground leading-relaxed text-base md:text-lg">
                 <p className="text-foreground text-xl md:text-2xl font-medium leading-relaxed">
-                  Jerusalem HC is being created to bring Israeli hockey to the next level — from grassroots passion to international competition.
+                  Sabra HC is being created to bring Israeli hockey to the next level — from grassroots passion to international competition.
                 </p>
                 <p>
-                  For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Jerusalem HC will become the first full-time professional hockey club based in Israel.
+                  For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Sabra HC will become the first full-time professional hockey club based in Israel.
                 </p>
                 <p>
                   The club will compete against professional teams from Romania, Hungary, and across Europe while also playing in Israel's top domestic league, the INHL.
@@ -69,7 +67,6 @@ const VisionSection = () => {
               </div>
             </motion.div>
 
-            {/* Stats */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}

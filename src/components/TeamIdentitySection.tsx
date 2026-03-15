@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import jerseysImg from "@/assets/jhc-jerseys.png";
-import logoImg from "@/assets/jhc-logo.png";
+import jerseysImg from "@/assets/sabra-jerseys.png";
+import logoImg from "@/assets/sabra-logo.png";
 
 const colors = [
   { name: "Navy Blue", hex: "#0B1F3B", tw: "bg-navy" },
@@ -14,7 +14,6 @@ const TeamIdentitySection = () => {
 
   return (
     <section id="identity" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,hsla(40,49%,54%,0.06)_0%,transparent_50%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,hsla(200,60%,50%,0.04)_0%,transparent_50%)] pointer-events-none" />
 
@@ -28,22 +27,20 @@ const TeamIdentitySection = () => {
         >
           <p className="text-primary font-semibold text-sm tracking-[0.4em] mb-4">TEAM IDENTITY</p>
           <h2 className="font-heading text-4xl md:text-6xl font-bold text-foreground">
-            The Lion of <span className="text-gold-gradient">Jerusalem</span>
+            The <span className="text-gold-gradient">Sabra</span> Lion
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base md:text-lg">
-            The club identity is built around the Lion of Jerusalem — representing strength, resilience, and pride.
+            The club identity is built around the Sabra Lion — tough on the outside, sweet on the inside. Born in the desert, built for the ice.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Interactive image viewer */}
           <motion.div
             initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Tab buttons */}
             <div className="flex gap-3 mb-6 justify-center lg:justify-start">
               {(["jerseys", "logo"] as const).map((tab) => (
                 <button
@@ -60,7 +57,6 @@ const TeamIdentitySection = () => {
               ))}
             </div>
 
-            {/* Image display */}
             <motion.div
               key={activeTab}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -71,13 +67,12 @@ const TeamIdentitySection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <img
                 src={activeTab === "jerseys" ? jerseysImg : logoImg}
-                alt={activeTab === "jerseys" ? "Jerusalem HC jerseys" : "Jerusalem HC crest"}
+                alt={activeTab === "jerseys" ? "Sabra HC jerseys" : "Sabra HC crest"}
                 className="relative w-full max-w-lg mx-auto rounded-xl border border-border shadow-2xl"
               />
             </motion.div>
           </motion.div>
 
-          {/* Details */}
           <motion.div
             initial={false}
             whileInView={{ opacity: 1, x: 0 }}
@@ -88,15 +83,15 @@ const TeamIdentitySection = () => {
             <div className="glass-card rounded-xl p-8">
               <h3 className="font-heading text-xl font-semibold text-foreground mb-4">The Crest</h3>
               <p className="text-muted-foreground leading-relaxed">
-                The crest integrates Jerusalem's historic stone walls with a modern professional hockey identity. 
-                The Lion of Judah stands as a symbol of the city's ancient legacy and the team's fierce competitive spirit.
+                The crest features a fierce Sabra lion with a cactus mane, representing the Israeli spirit — tough and resilient on the outside, warm and passionate on the inside. 
+                Crossed hockey sticks and the Star of David complete a modern professional hockey identity rooted in Israeli culture.
               </p>
             </div>
 
             <div className="glass-card rounded-xl p-8">
               <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Team Colors</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Navy Blue and Gold — timeless colors representing the Jerusalem night sky and the city's golden stone.
+                Navy Blue and Gold — representing the deep desert night sky and the golden sands of Israel.
               </p>
               <div className="flex gap-6">
                 {colors.map((c) => (

@@ -5,11 +5,11 @@ import { FOUNDING_MEMBERS, CAMPAIGN } from "@/lib/campaign";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
 const benefits = [
-  "Official Founders Edition Jerusalem HC jersey",
+  "Official Founders Edition Sabra HC jersey",
   "Founders merchandise pack (scarf, hat, pin)",
   "Digital season ticket access to all broadcasts and replays",
   "Exclusive behind-the-scenes team content",
-  "Entry into VIP trip giveaway to Jerusalem",
+  "Entry into VIP trip giveaway to Israel",
   "20% discount on team merchandise",
   "Name permanently displayed on the Founders Wall",
 ];

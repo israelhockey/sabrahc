@@ -4,7 +4,7 @@ import { Zap, Globe, Users, Radio } from "lucide-react";
 const features = [
   { icon: Zap, title: "Professional Production", desc: "Full game-day production with arena lighting, music, and entertainment — a complete professional sports experience." },
   { icon: Globe, title: "International Opponents", desc: "Compete against top-tier European teams from Romania, Hungary, Serbia, and beyond." },
-  { icon: Users, title: "Community First", desc: "Building a passionate fan base and creating a home for hockey culture in the heart of Jerusalem." },
+  { icon: Users, title: "Community First", desc: "Building a passionate fan base and creating a home for hockey culture in Israel." },
   { icon: Radio, title: "Global Broadcasts", desc: "Every game streamed live for founding members worldwide with professional commentary and replays." },
 ];
 
@@ -22,7 +22,7 @@ const GameExperienceSection = () => (
       >
         <p className="text-primary font-semibold text-sm tracking-[0.4em] mb-4">THE EXPERIENCE</p>
         <h2 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4">
-          Elite Hockey in <span className="text-gold-gradient">Jerusalem</span>
+          Elite Hockey in <span className="text-gold-gradient">Israel</span>
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
           More than just a game — it's a world-class sports experience that will put Israeli hockey on the map.
