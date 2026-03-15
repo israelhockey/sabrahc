@@ -13,6 +13,9 @@ import sabraLogo from "@/assets/sabra-logo.png";
 import sabraJerseys from "@/assets/sabra-jerseys.png";
 import jhcAction from "@/assets/jhc-action.png";
 import arenaHero from "@/assets/arena-hero.jpg";
+import collageNewEra from "@/assets/collage-new-era.jpg";
+import collageJerseys from "@/assets/collage-jerseys.jpg";
+import collageArena from "@/assets/collage-arena.jpg";
 
 type BodyBlock =
   | string
@@ -55,7 +58,7 @@ const articles: {
 
       "Sabra HC was created to reverse that trajectory. To give Israeli hockey players a reason to stay. To build something professional, competitive, and enduring right here at home.",
 
-      { type: "image", src: jhcAction, alt: "Israeli hockey players competing on the international stage", caption: "Israeli hockey has a proud history of international competition — now it gets a professional home." },
+      { type: "image", src: collageNewEra, alt: "A New Era for Israeli Hockey — Sabra HC brand collage", caption: "A new era for Israeli hockey — Sabra HC brings professional competition home.", wide: true },
 
       { type: "heading", text: "What It Means to Be a Sabra" },
 
@@ -93,7 +96,7 @@ const articles: {
 
       "For non-Jewish international players, Sabra HC offers a unique professional opportunity — the chance to compete at a high level while experiencing life in one of the world's most dynamic countries. Israel's professional sports landscape has proven this model works. Basketball and soccer clubs like Maccabi Tel Aviv and Hapoel have attracted international talent for decades. Now hockey joins that tradition.",
 
-      { type: "image", src: sabraJerseys, alt: "Sabra HC official navy and gold jerseys", caption: "The official Sabra HC jerseys — navy, gold, and green representing the desert night sky, golden sands, and the Sabra cactus.", wide: true },
+      { type: "image", src: collageJerseys, alt: "Sabra HC official jersey reveal with crest details", caption: "Every stitch tells a story — the official Sabra HC jerseys feature the Lion of Judah crest, cactus patches, and the Israeli flag.", wide: true },
 
       { type: "heading", text: "Home Ice" },
 
@@ -101,7 +104,7 @@ const articles: {
 
       { type: "pullquote", text: "The atmosphere we want to create is unlike anything Israeli hockey has seen. We want packed stands, we want energy, we want families and kids and die-hard fans who live and breathe this team." },
 
-      { type: "image", src: arenaHero, alt: "Professional ice hockey arena interior", caption: "The vision: a world-class hockey atmosphere on Israeli ice." },
+      { type: "image", src: collageArena, alt: "Home Ice Advantage — Sabra HC arena concept", caption: "Home ice advantage — world-class hockey atmosphere on Israeli ice.", wide: true },
 
       { type: "heading", text: "The 2026–27 Inaugural Season" },
 
