@@ -160,7 +160,7 @@ const Deck = () => {
               Israel's First Professional Hockey Club
             </p>
             <p className="text-muted-foreground/60 text-xs tracking-[0.3em] font-heading">
-              JERUSALEM, ISRAEL · FOUNDED 2026
+              SABRA HC · ISRAEL · FOUNDED 2026
             </p>
           </motion.div>
 
