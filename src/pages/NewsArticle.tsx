@@ -90,7 +90,7 @@ const articles = [
     id: 2,
     slug: "pre-season-training-camp-summer-2026",
     title: "Pre-Season Training Camp Dates Announced for Summer 2026",
-    excerpt: "The club has announced a three-week training camp at the One Ice Arena near Netanya, beginning August 15th.",
+    excerpt: "The club has announced a pre-season training camp at the One Ice Arena near Netanya ahead of the 2026-27 season.",
     category: "TEAM NEWS",
     date: "March 8, 2025",
     readTime: "3 min read",
