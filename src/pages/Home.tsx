@@ -12,10 +12,10 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import { articles } from "./NewsArticle";
 
 const nextGame = {
-  opponent: "Ferencváros TC",
-  date: "OCT 18, 2025",
-  time: "19:30",
-  venue: "One Ice Arena, Netanya",
+  opponent: "TBA",
+  date: "TBA",
+  time: "TBA",
+  venue: "TBA",
   league: "EIHL",
 };
 
