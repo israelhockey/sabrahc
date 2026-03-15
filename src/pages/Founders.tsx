@@ -45,7 +45,7 @@ const faqs = [
   { q: "Is this a donation or an investment?", a: "This is a founding membership. You're becoming one of the original 500 supporters who make professional hockey in Israel possible — with exclusive perks, permanent recognition, and the knowledge that you're building something historic." },
   { q: "I'm a hockey player — can I try out?", a: "Absolutely. Sabra HC fields a fully professional roster and is actively recruiting. If you're a Jewish hockey player interested in making aliyah and playing professionally in Israel, reach out to us directly." },
   { q: "How will my money be used?", a: "Founding membership funds go directly toward club operations — professional player salaries, arena operations, equipment, international travel for competition, coaching staff, and youth development programs across Israel." },
-  { q: "Will there be more than 500 founding members?", a: "No. The Founders program is permanently capped at 500 members. Once all spots are claimed, the program closes forever." },
+  { q: "Will there be more than 500 founding members?", a: "Each year is capped at 500 founding members. Once all spots for the year are filled, registration closes and the VIP trip raffle is drawn. A new cycle opens the following season." },
   { q: "Are all players professionals?", a: "Yes. Sabra HC operates as a fully professional team in every aspect — all players are paid professionals, with full-time coaching staff, professional training facilities, and competitive international schedules." },
 ];
 
@@ -156,7 +156,7 @@ const Founders = () => {
                   </motion.div>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  <span className="text-primary font-semibold">{spotsLeft}</span> spots remaining — then it's closed forever
+                  <span className="text-primary font-semibold">{spotsLeft}</span> spots remaining this season
                 </p>
               </div>
 
@@ -373,7 +373,7 @@ const Founders = () => {
               </h2>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  The founding membership is permanently capped at <span className="text-foreground font-semibold">500 people</span>. Once every spot is taken, the program closes — forever. There will never be another chance to be a founding member of Israel's first fully professional hockey club.
+                  The founding membership is capped at <span className="text-foreground font-semibold">500 members per year</span>. Once every spot for the season is taken, registration closes and the VIP Israel trip raffle is drawn. Don't wait — spots fill fast and you don't want to miss this year's draw.
                 </p>
                 <p>
                   Your annual membership funds a fully professional operation — paid players, full-time coaching staff, international travel, and youth development across Israel. The club is federation-operated, meaning every dollar goes into growing the sport, not lining anyone's pockets.
@@ -501,9 +501,9 @@ const Founders = () => {
               viewport={{ once: true }}
               className="text-center text-sm text-muted-foreground mt-8"
             >
-              Only <span className="text-primary font-bold">{spotsLeft}</span> of {CAMPAIGN.goalMembers} founding spots remaining.
+              Only <span className="text-primary font-bold">{spotsLeft}</span> of {CAMPAIGN.goalMembers} founding spots remaining this season.
               <br />
-              <span className="text-xs">This program will never reopen once all spots are claimed.</span>
+              <span className="text-xs">Once all spots are filled, registration closes and the raffle is drawn.</span>
             </motion.p>
           </div>
         </div>
