@@ -560,7 +560,7 @@ const Deck = () => {
                 <div>
                   <h3 className="font-heading text-base tracking-wider text-foreground mb-2">HISTORIC INTERNATIONAL MATCHUPS</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    For the <span className="text-primary font-semibold">first time ever</span>, professional hockey teams from Romania, Hungary, Poland, Russia, and other European nations will travel to Israel to compete. Jerusalem HC will bring international hockey to Israeli ice — creating landmark sporting events and putting Israeli hockey on the global map.
+                    For the <span className="text-primary font-semibold">first time ever</span>, professional hockey teams from Romania, Hungary, Poland, Russia, and other European nations will travel to Israel to compete. Sabra HC will bring international hockey to Israeli ice — creating landmark sporting events and putting Israeli hockey on the global map.
                   </p>
                 </div>
               </div>
