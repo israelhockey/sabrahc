@@ -7,9 +7,9 @@ import {
   Rocket, Star, Heart, ChevronRight, MapPin, Ticket, ShoppingBag,
   Award, Plane, Check
 } from "lucide-react";
-import logoImg from "@/assets/jhc-logo.png";
+import logoImg from "@/assets/sabra-logo.png";
 import arenaImg from "@/assets/hero-arena.jpg";
-import jerseysImg from "@/assets/jhc-jerseys.png";
+import jerseysImg from "@/assets/sabra-jerseys.png";
 import actionImg from "@/assets/jhc-action.png";
 import playerImg from "@/assets/jhc-player.png";
 import arenaMockup from "@/assets/arena-mockup.png";
