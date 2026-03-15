@@ -3,8 +3,8 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ChevronRight, Target, Heart, Globe, Trophy, Star, Shield,
-  Users, Plane, MapPin, Calendar, Swords, Flag, Medal,
-  ArrowRight, Sparkles,
+  Users, Plane, MapPin, Flag, Medal,
+  ArrowRight,
 } from "lucide-react";
 import logoImg from "@/assets/sabra-logo.png";
 import jerseysImg from "@/assets/sabra-jerseys.png";
@@ -43,14 +43,13 @@ const pillars = [
   },
 ];
 
-const timeline = [
-  { year: "1986", title: "Hockey Arrives in Israel", desc: "Ice hockey begins in Israel with recreational leagues and the formation of the national federation.", icon: Flag },
-  { year: "2002", title: "IIHF Membership", desc: "Israel becomes a full member of the International Ice Hockey Federation, competing in Division III tournaments.", icon: Globe },
-  { year: "2018", title: "Canada Israel Hockey School", desc: "The CIHS launches in Israel, bringing North American coaching and development to Israeli youth players.", icon: Star },
-  { year: "2024", title: "The Vision is Born", desc: "The concept for Sabra HC is formalized — Israel's first fully professional hockey club.", icon: Sparkles },
-  { year: "2025", title: "Club Founded", desc: "Sabra HC officially launches. The Founding 500 membership opens. Brand, roster, and arena negotiations begin.", icon: Trophy },
-  { year: "2025-26", title: "Inaugural Season", desc: "Sabra HC competes in the EIHL and INHL — professional hockey on Israeli ice, against European competition.", icon: Swords },
-  { year: "2026+", title: "Growth & Legacy", desc: "Youth academies across Israel, a dedicated arena, deeper European integration, and a model for emerging hockey nations.", icon: Medal },
+const journeyHighlights = [
+  { icon: Medal, label: "International Medals", desc: "Israeli teams competing and medaling on the world stage across multiple IIHF divisions." },
+  { icon: Globe, label: "Global Networking", desc: "Connections built between Israeli hockey and federations across North America, Europe, and beyond." },
+  { icon: Users, label: "Development Camps", desc: "Training camps bringing world-class coaching to Israeli youth and building the next generation of players." },
+  { icon: Trophy, label: "League Growth", desc: "From recreational pick-up games to a structured, competitive national league with international participation." },
+  { icon: Star, label: "National Team Programs", desc: "Men's, women's, and junior national teams representing Israel in IIHF competition worldwide." },
+  { icon: Flag, label: "Cultural Identity", desc: "Hockey becoming part of the Israeli sports fabric — creating community, pride, and purpose on the ice." },
 ];
 
 const whyNow = [
@@ -400,7 +399,7 @@ const About = () => {
 
       <div className="section-divider" />
 
-      {/* ════════ TIMELINE ════════ */}
+      {/* ════════ THE JOURNEY ════════ */}
       <section className="py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,hsla(130,50%,40%,0.04)_0%,transparent_40%)] pointer-events-none" />
 
@@ -409,7 +408,7 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
             <p className="text-primary font-heading text-sm tracking-[0.4em] mb-4 font-semibold">THE JOURNEY</p>
             <h2 className="font-display text-4xl md:text-6xl text-foreground">
@@ -418,37 +417,46 @@ const About = () => {
             </h2>
           </motion.div>
 
-          <div className="max-w-3xl mx-auto">
-            {timeline.map((item, i) => (
-              <motion.div
-                key={item.year}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="flex gap-6 relative group"
-              >
-                {/* Timeline line */}
-                <div className="flex flex-col items-center flex-shrink-0">
-                  <motion.div
-                    whileHover={{ scale: 1.3 }}
-                    className="w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/40 flex items-center justify-center z-10 group-hover:border-primary group-hover:bg-primary/20 transition-all cursor-default"
-                  >
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </motion.div>
-                  {i < timeline.length - 1 && (
-                    <div className="w-[2px] flex-1 bg-gradient-to-b from-primary/30 to-border" />
-                  )}
-                </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center mb-16"
+          >
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Decades of dedication have built Israeli hockey into what it is today — international medals, world-class development camps, a growing network of players and federations, and a passionate community that refuses to quit. The foundation is set. <span className="text-foreground font-semibold">With Sabra HC, we take it to new heights.</span>
+            </p>
+          </motion.div>
 
-                <div className="pb-12">
-                  <p className="font-display text-2xl md:text-3xl text-primary">{item.year}</p>
-                  <h3 className="font-heading text-lg tracking-wider text-foreground mt-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed max-w-md">{item.desc}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {journeyHighlights.map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="glass-card-hover rounded-xl p-7 group hover:border-primary/30 transition-all"
+              >
+                <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <item.icon className="w-5 h-5 text-primary" />
                 </div>
+                <h3 className="font-heading text-sm tracking-wider text-foreground mb-2">{item.label}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-14"
+          >
+            <p className="text-gold-gradient font-heading text-lg md:text-xl tracking-[0.15em] italic">
+              Born in the Desert. Built for the Ice.
+            </p>
+          </motion.div>
         </div>
       </section>
 
