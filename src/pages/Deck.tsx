@@ -445,10 +445,10 @@ const Deck = () => {
               className="relative rounded-xl overflow-hidden mb-10 group"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <img src={arenaMockup} alt="Jerusalem HC arena mockup — packed arena with JHC branding" className="relative w-full rounded-xl border border-border shadow-2xl" />
+              <img src={arenaMockup} alt="Sabra HC arena mockup" className="relative w-full rounded-xl border border-border shadow-2xl" />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/80 to-transparent p-6">
                 <p className="font-heading text-xs tracking-[0.3em] text-primary">ARENA CONCEPT MOCKUP</p>
-                <p className="text-sm text-foreground/80 mt-1">Jerusalem HC home game — full branding, packed stands, world-class atmosphere</p>
+                <p className="text-sm text-foreground/80 mt-1">Sabra HC home game — full branding, packed stands, world-class atmosphere</p>
               </div>
             </motion.div>
 
