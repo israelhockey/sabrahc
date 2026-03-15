@@ -120,13 +120,29 @@ const About = () => {
           />
 
           <motion.p
-            className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-primary font-heading text-sm md:text-base tracking-[0.25em] mb-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1 }}
           >
+            "SABRA" — NATIVE ISRAELI
+          </motion.p>
+          <motion.p
+            className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.3 }}
+          >
             Israel's first fully professional hockey club — a pathway for Jewish athletes worldwide,
             a home for international talent, and the foundation of a hockey culture that will last forever.
+          </motion.p>
+          <motion.p
+            className="text-gold-gradient font-heading text-lg md:text-2xl tracking-[0.15em] italic"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5 }}
+          >
+            Born in the Desert. Built for the Ice.
           </motion.p>
 
           <motion.div

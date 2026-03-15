@@ -161,12 +161,18 @@ const Deck = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="mt-6 space-y-1"
+            className="mt-6 space-y-2"
           >
+            <p className="text-primary font-heading text-xs md:text-sm tracking-[0.3em] font-semibold">
+              "SABRA" — NATIVE ISRAELI
+            </p>
             <p className="text-muted-foreground text-sm md:text-base font-light italic">
               Israel's First Professional Hockey Club
             </p>
-            <p className="text-muted-foreground/60 text-xs tracking-[0.3em] font-heading">
+            <p className="text-gold-gradient font-heading text-base md:text-lg tracking-[0.15em] italic mt-2">
+              Born in the Desert. Built for the Ice.
+            </p>
+            <p className="text-muted-foreground/60 text-xs tracking-[0.3em] font-heading mt-1">
               SABRA HC · ISRAEL · FOUNDED 2026
             </p>
           </motion.div>
