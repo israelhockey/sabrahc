@@ -357,9 +357,9 @@ const Founders = () => {
               <div className="relative glass-card rounded-2xl p-10 md:p-12">
                 <div className="text-center mb-10">
                   <p className="font-display text-7xl md:text-8xl text-gold-gradient">${CAMPAIGN.membershipPrice}</p>
-                  <p className="text-muted-foreground text-sm mt-3">One-time founding membership</p>
+                  <p className="text-muted-foreground text-sm mt-3">Annual founding membership</p>
                   <p className="text-muted-foreground text-xs mt-1">
-                    or {CAMPAIGN.installmentCount} easy payments of ${CAMPAIGN.installmentPrice}
+                    or {CAMPAIGN.installmentCount} easy payments of ${CAMPAIGN.installmentPrice}/year
                   </p>
                 </div>
 
