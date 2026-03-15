@@ -58,7 +58,7 @@ const articles: {
 
       "Sabra HC was created to reverse that trajectory. To give Israeli hockey players a reason to stay. To build something professional, competitive, and enduring right here at home.",
 
-      { type: "image", src: jhcAction, alt: "Israeli hockey players competing on the international stage", caption: "Israeli hockey has a proud history of international competition — now it gets a professional home." },
+      { type: "image", src: collageNewEra, alt: "A New Era for Israeli Hockey — Sabra HC brand collage", caption: "A new era for Israeli hockey — Sabra HC brings professional competition home.", wide: true },
 
       { type: "heading", text: "What It Means to Be a Sabra" },
 
