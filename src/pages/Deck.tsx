@@ -234,7 +234,7 @@ const Deck = () => {
                 ISRAEL'S FIRST <span className="text-gold-gradient">PROFESSIONAL</span> HOCKEY CLUB
               </SectionTitle>
               <p className="text-muted-foreground leading-relaxed mb-8 text-base">
-                Jerusalem HC is launching Israel's first full-time professional hockey club. The club will compete internationally while serving as the premier development platform for Israeli players.
+                Sabra HC is launching Israel's first full-time professional hockey club. The club will compete internationally while serving as the premier development platform for Israeli players.
               </p>
               <BulletList
                 items={[
