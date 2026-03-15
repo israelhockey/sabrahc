@@ -67,13 +67,13 @@ const About = () => (
                 Sabra HC is being created to bring Israeli hockey to the next level — from grassroots passion to international competition.
               </p>
               <p>
-                For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Sabra HC will become the first full-time professional hockey club based in Israel.
+                For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Sabra HC will become the first full-time professional hockey club based in Israel. Just as Israel has built world-class professional leagues in soccer and basketball, it's time for hockey to make the same leap.
               </p>
               <p>
-                The club will compete against professional teams from Romania, Hungary, and across Europe while also playing in Israel's top domestic league, the INHL.
+                Sabra HC is more than a team — it's a pathway. For Jewish hockey players around the world, the club offers the opportunity to make aliyah and compete at the professional level in Israel. It's a chance to build a life in Israel while pursuing the sport they love.
               </p>
               <p>
-                The goal is to provide Israeli players the opportunity to develop at a high level while representing Israel internationally.
+                The club will compete against professional teams from Romania, Hungary, and across Europe while also playing in Israel's top domestic league, the INHL — putting Israel on the map in international hockey.
               </p>
             </div>
           </motion.div>
