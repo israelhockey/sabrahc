@@ -344,7 +344,7 @@ const Founders = () => {
               JOIN THE <span className="text-gold-gradient">FOUNDERS</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              One price. Lifetime membership. Permanent legacy.
+              Annual membership. Professional hockey. Permanent legacy.
             </p>
           </motion.div>
 
