@@ -14,7 +14,7 @@ const Schedule = () => (
         </div>
         <div className="flex items-center gap-4">
           <Calendar className="w-8 h-8 text-primary" />
-          <h1 className="font-display text-5xl md:text-7xl text-foreground">2025–26 SCHEDULE</h1>
+          <h1 className="font-display text-5xl md:text-7xl text-foreground">2026–27 SCHEDULE</h1>
         </div>
         <p className="text-muted-foreground mt-3 max-w-xl">
           Follow Sabra HC through the EIHL and INHL seasons.
