@@ -141,7 +141,7 @@ const Deck = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <p className="text-primary font-heading text-xs tracking-[0.5em] mb-4 font-semibold">FOUNDING INVESTOR DECK</p>
+            <p className="text-primary font-heading text-xs tracking-[0.5em] mb-4 font-semibold">FOUNDING SPONSOR DECK</p>
             <h1 className="font-display text-6xl md:text-8xl lg:text-[10rem] leading-[0.8] tracking-tight">
               <span className="text-gold-gradient">SABRA</span>
             </h1>
