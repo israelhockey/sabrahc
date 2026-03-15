@@ -77,6 +77,11 @@
     font-family: 'Bebas Neue', 'Oswald', sans-serif;
   }
 
+  .font-logo {
+    font-family: 'Black Ops One', 'Oswald', sans-serif;
+    letter-spacing: 0.08em;
+  }
+
   .text-gold-gradient {
     background: linear-gradient(135deg, hsl(40 55% 70%), hsl(40 49% 54%), hsl(40 45% 40%));
     -webkit-background-clip: text;
