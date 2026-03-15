@@ -14,7 +14,7 @@ const Schedule = () => (
         </div>
         <div className="flex items-center gap-4">
           <Calendar className="w-8 h-8 text-primary" />
-          <h1 className="font-display text-5xl md:text-7xl text-foreground">2025–26 SCHEDULE</h1>
+          <h1 className="font-display text-5xl md:text-7xl text-foreground">2026–27 SCHEDULE</h1>
         </div>
         <p className="text-muted-foreground mt-3 max-w-xl">
           Follow Sabra HC through the EIHL and INHL seasons.
@@ -36,7 +36,7 @@ const Schedule = () => (
           </div>
           <h2 className="font-display text-4xl md:text-6xl text-foreground mb-4">TBA</h2>
           <p className="text-muted-foreground max-w-md text-lg">
-            The 2025–26 schedule will be announced soon. Stay tuned for game dates, opponents, and venues.
+            The 2026–27 schedule will be announced soon. Stay tuned for game dates, opponents, and venues.
           </p>
           <span className="inline-block mt-8 px-5 py-2 text-xs font-heading tracking-widest text-primary border border-primary/20 bg-primary/5">
             COMING SOON

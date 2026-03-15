@@ -119,7 +119,7 @@ const Home = () => {
                 to="/schedule"
                 className="px-12 py-4 font-heading text-sm font-semibold tracking-wider border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all gold-border-glow"
               >
-                2025-26 SEASON
+                2026-27 SEASON
               </Link>
             </motion.div>
           </div>

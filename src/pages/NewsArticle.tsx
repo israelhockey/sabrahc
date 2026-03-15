@@ -41,7 +41,7 @@ const articles = [
 
       "For years, Israeli players who wanted to pursue hockey at the highest level had only one option — leave the country. Move to Canada, the United States, or Europe. Train in foreign systems, play for foreign clubs, and hope for a shot. Many of these athletes are Israeli-born. Many are Jewish players from the diaspora who dream of connecting to Israel. Until now, there was no professional pathway that kept them here or brought them home.",
 
-      "Sabra HC changes that. We are building a club that operates under the Israel Ice Hockey Federation, competing in the European Interleague Hockey League alongside teams from Romania, Hungary, and Serbia. Our roster will feature 15-17 Israeli players, 3-5 international imports, and 5 local U20 development players — a structure designed to be both competitive and developmental.",
+      "Sabra HC changes that. We are building an independent professional club that operates under the Israel Ice Hockey Federation. Rather than joining an existing league, Sabra HC will chart its own course — hosting and traveling to face professional teams from Romania, Hungary, Poland, and beyond in a 40+ game season of international and domestic competition. Our roster will feature 15-17 Israeli players, 3-5 international imports, and 5 local U20 development players — a structure designed to be both competitive and developmental. The long-term vision is clear: 3-5 years of building as an independent professional organization before applying to join an established European league.",
 
       "\"We want to be the club that young Israeli players dream of playing for,\" said the front office. \"And we want to be the club that Jewish athletes around the world see as their bridge to Israel. Hockey can be the vehicle for Aliyah, for connection, for belonging.\"",
 
@@ -51,13 +51,13 @@ const articles = [
 
       "For Jewish hockey players around the world — in North America, Europe, and beyond — Sabra HC represents something unprecedented: a professional hockey club in Israel that can facilitate Aliyah through sport. Players can pursue their athletic careers while building a life in Israel, contributing to the country's sporting landscape, and connecting to their heritage in the most tangible way possible.",
 
-      "For non-Jewish international players, Sabra HC offers a unique professional opportunity — the chance to compete in a growing European league while experiencing life in one of the world's most dynamic countries. Israel's professional sports landscape has proven this model works. Basketball and soccer clubs like Maccabi Tel Aviv and Hapoel have attracted international talent for decades. Now hockey joins that tradition.",
+      "For non-Jewish international players, Sabra HC offers a unique professional opportunity — the chance to compete at a high level while experiencing life in one of the world's most dynamic countries. Israel's professional sports landscape has proven this model works. Basketball and soccer clubs like Maccabi Tel Aviv and Hapoel have attracted international talent for decades. Now hockey joins that tradition.",
 
       "Our home will be the One Ice Arena near Netanya — Israel's largest ice facility, currently undergoing upgrades to meet European professional standards — with additional games hosted at the Blue Ice Arena in Ashdod. Together, these venues give the club geographic reach across Israel and the capacity to build a true fan culture from day one.",
 
       "\"The atmosphere we want to create is unlike anything Israeli hockey has seen,\" said the club. \"We want packed stands, we want energy, we want families and kids and die-hard fans who live and breathe this team. We want to build a hockey culture in Israel that rivals what you see in Prague, Helsinki, or Montreal.\"",
 
-      "The 2025-26 season will be our inaugural campaign, and while the journey is just beginning, the ambition is clear: compete immediately, develop relentlessly, and build something that lasts. This is not a vanity project. This is not a one-season experiment. Sabra HC is being built with the operational rigor of a professional sports organization — a full-time coaching staff, professional training facilities, structured competition, and the administrative backbone to sustain long-term growth.",
+      "The inaugural 2026-27 season will kick off in September 2026 and run through March 2027. While the journey is just beginning, the ambition is clear: compete immediately, develop relentlessly, and build something that lasts. This is not a vanity project. This is not a one-season experiment. Sabra HC is being built with the operational rigor of a professional sports organization — a full-time coaching staff, professional training facilities, structured competition, and the administrative backbone to sustain long-term growth.",
 
       "We are calling on fans, supporters, and believers in this vision to join us from the ground floor. Our Founding Membership program offers exclusive access, recognition, and the chance to say you were there from the very beginning. History is being written, and every founding member's name will be part of it.",
 
@@ -77,27 +77,27 @@ const articles = [
     readTime: "4 min read",
     image: newsSigning,
     body: [
-      "Sabra Hockey Club is proud to announce the signing of forward Alon Eizenman, marking the club's first official roster addition ahead of its inaugural 2025-26 season.",
+      "Sabra Hockey Club is proud to announce the signing of forward Alon Eizenman, marking the club's first official roster addition ahead of its inaugural 2026-27 season.",
       "The 24-year-old Israeli forward brings a wealth of experience from his time with the Israeli national team, where he's been a consistent contributor in international competition. Known for his speed, vision, and finishing ability, Eizenman represents the caliber of player Sabra HC aims to build around.",
       "\"This is a historic moment for the club,\" said the Sabra HC front office. \"Alon embodies the spirit of what we're building — a player with deep roots in Israeli hockey who has the talent and drive to compete at the European level.\"",
       "Eizenman expressed his excitement about joining the project from the ground floor: \"To be the first player signed by Sabra HC is an incredible honor. I believe in the vision of this club and I want to be part of something special. We're going to put Israeli hockey on the map.\"",
-      "The forward is expected to be a key piece of the roster as the club prepares for its debut season in the European Interleague Hockey League (EIHL), competing against teams from Romania, Hungary, and Serbia.",
+      "The forward is expected to be a key piece of the roster as the club prepares for its debut season, competing against international teams from Romania, Hungary, Poland, and more.",
       "Additional roster announcements are expected in the coming weeks as the club continues to build a competitive squad for the upcoming season."
     ],
     featured: false,
   },
   {
     id: 2,
-    slug: "pre-season-training-camp-august-2025",
-    title: "Pre-Season Training Camp Dates Announced for August 2025",
-    excerpt: "The club has announced a three-week training camp at the One Ice Arena near Netanya, beginning August 15th.",
+    slug: "pre-season-training-camp-summer-2026",
+    title: "Pre-Season Training Camp Dates Announced for Summer 2026",
+    excerpt: "The club has announced a pre-season training camp at the One Ice Arena near Netanya ahead of the 2026-27 season.",
     category: "TEAM NEWS",
     date: "March 8, 2025",
     readTime: "3 min read",
     image: newsTraining,
     body: [
-      "Sabra HC has officially announced that its inaugural pre-season training camp will take place at the One Ice Arena near Netanya, beginning August 15th, 2025.",
-      "The three-week camp will serve as the club's primary preparation period ahead of the 2025-26 EIHL season. Players will undergo fitness testing, tactical sessions, and intra-squad scrimmages to build chemistry and establish the team's playing identity.",
+      "Sabra HC has officially announced that its inaugural pre-season training camp will take place at the One Ice Arena near Netanya during the summer of 2026.",
+      "The camp will serve as the club's primary preparation period ahead of the 2026-27 season. Players will undergo fitness testing, tactical sessions, and intra-squad scrimmages to build chemistry and establish the team's playing identity.",
       "\"Training camp is where the real work begins,\" said the coaching staff. \"We'll use these three weeks to evaluate talent, build systems, and create the culture that will define Sabra HC.\"",
       "The One Ice Arena near Netanya, Israel's largest ice facility, is currently undergoing upgrades to meet European professional standards. The renovations are expected to be completed well in advance of the camp's start date.",
       "Fans will have the opportunity to attend select open practices during the camp period. Details on public access and fan events will be announced closer to the date.",
@@ -107,20 +107,20 @@ const articles = [
   },
   {
     id: 3,
-    slug: "eihl-partnership-confirmed",
-    title: "Partnership with European Interleague Hockey League Confirmed",
-    excerpt: "Sabra HC will compete in the EIHL alongside teams from Romania, Hungary, and Serbia in its debut 2025-26 season.",
+    slug: "international-competition-confirmed",
+    title: "International Competition Schedule Confirmed for Inaugural Season",
+    excerpt: "Sabra HC will face professional teams from Romania, Hungary, Poland, and more as an independent club in its debut 2026-27 season.",
     category: "LEAGUE",
     date: "March 5, 2025",
     readTime: "3 min read",
     image: newsLeague,
     body: [
-      "Sabra Hockey Club has officially confirmed its participation in the European Interleague Hockey League (EIHL) for the 2025-26 season, marking a landmark moment for Israeli professional hockey.",
-      "The EIHL features clubs from across Central and Eastern Europe, including teams from Romania, Hungary, and Serbia. Sabra HC will be the first Israeli club to compete in the league, opening new doors for the sport in the region.",
-      "\"Joining the EIHL gives our players the chance to compete against quality European opposition on a regular basis,\" said the club's management. \"This is exactly the kind of platform Israeli hockey needs to grow.\"",
-      "The league schedule is expected to feature home and away matchups, with Sabra HC hosting games at both the One Ice Arena near Netanya and the Blue Ice Arena in Ashdod.",
-      "Travel logistics and game scheduling are currently being finalized with league officials. The full 2025-26 season schedule is expected to be released by June 2025.",
-      "This partnership represents a significant step in Sabra HC's mission to elevate Israeli hockey to a professional, internationally competitive level."
+      "Sabra Hockey Club has officially confirmed its international competition plan for the 2026-27 season, marking a landmark moment for Israeli professional hockey.",
+      "As an independent professional club, Sabra HC will host and travel to face teams from across Central and Eastern Europe, including clubs from Romania, Hungary, Poland, and more. The 40+ game season will feature international matchups, domestic INHL league games, and exhibition contests.",
+      "\"Playing against quality European opposition on a regular basis is exactly the kind of platform Israeli hockey needs to grow,\" said the club's management. \"We're building something independent and sustainable before pursuing full league membership.\"",
+      "Home games will be hosted at both the One Ice Arena near Netanya and the Blue Ice Arena in Ashdod, bringing professional European hockey to Israeli soil for the first time.",
+      "The club's long-term strategy involves 3-5 years of independent professional play before applying to join an established European league such as the Alps Hockey League, Romanian league, or Hungarian league.",
+      "This competition plan represents a significant step in Sabra HC's mission to elevate Israeli hockey to a professional, internationally competitive level."
     ],
     featured: false,
   },
@@ -134,7 +134,7 @@ const articles = [
     readTime: "3 min read",
     image: newsJerseys,
     body: [
-      "Sabra HC has unveiled its official home jersey for the inaugural 2025-26 season, and the response from the hockey community has been overwhelmingly positive.",
+      "Sabra HC has unveiled its official home jersey for the inaugural 2026-27 season, and the response from the hockey community has been overwhelmingly positive.",
       "The home jersey features a deep navy base with gold and white accents, prominently displaying the Sabra Lion crest at the center. The cactus shoulder patches and Star of David details connect the team to its Israeli roots.",
       "\"Our jerseys tell a story,\" said the design team. \"Every element — from the Sabra lion crest to the cactus patches — connects the player wearing it to the spirit of Israel. Born in the desert, tough on the outside, sweet on the inside. That's the Sabra identity.\"",
       "The jersey features 'Born in the Desert' stitched inside the collar, a nod to the team's motto and the Sabra spirit that defines Israeli culture.",
@@ -156,7 +156,7 @@ const articles = [
       "Significant renovations are underway at the One Ice Arena near Netanya, Israel's premier ice sports facility, to prepare it for professional-level hockey competition.",
       "The upgrades include improvements to the ice surface quality, enhanced lighting systems, updated player facilities including locker rooms and training areas, and expanded seating capacity to better accommodate game-day crowds.",
       "\"The One Ice Arena has been a cornerstone of Israeli ice sports,\" said facility management. \"These upgrades ensure it can serve as a proper home venue for professional hockey at the European level.\"",
-      "The renovation project is being coordinated with Sabra HC's timeline, with all major work expected to be completed before the club's August 2025 pre-season training camp.",
+      "The renovation project is being coordinated with Sabra HC's timeline, with all major work expected to be completed before the club's summer 2026 pre-season training camp.",
       "Additional improvements to fan amenities, including concession areas and merchandise retail space, are also part of the renovation plan.",
       "The One Ice Arena will serve as one of two home venues for Sabra HC, alongside the Blue Ice Arena in Ashdod, giving the club geographic reach across Israel."
     ],
