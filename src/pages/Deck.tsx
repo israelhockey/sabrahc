@@ -307,7 +307,7 @@ const Deck = () => {
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Target className="w-6 h-6 text-primary" />
                   </div>
-                  <p className="text-foreground font-heading tracking-wider text-lg">Jerusalem HC fills this gap.</p>
+                  <p className="text-foreground font-heading tracking-wider text-lg">Sabra HC fills this gap.</p>
                 </div>
               </GlassCard>
             </div>
