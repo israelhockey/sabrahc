@@ -33,19 +33,21 @@ const benefits = [
 ];
 
 const reasons = [
-  { icon: Globe, title: "A Pathway to Israel", desc: "Sabra HC creates a real professional route for Jewish hockey players worldwide to make aliyah and build their lives in Israel while competing at the highest level." },
-  { icon: Heart, title: "Growing the Sport", desc: "You're not just supporting a team — you're building a development pipeline for local Israeli youth and ensuring the next generation has a future in hockey." },
-  { icon: Trophy, title: "Making History", desc: "Israel has world-class soccer and basketball leagues. It's time hockey joined them. You'll be part of the team that made it happen." },
-  { icon: Users, title: "500 People. One Mission.", desc: "This isn't a donation — it's a founding stake in Israel's first professional hockey club. Only 500 spots exist. Ever." },
+  { icon: Globe, title: "A Pathway to Israel", desc: "Sabra HC creates a real professional route for Jewish hockey players worldwide to make aliyah and build their lives in Israel while competing at the highest level. Play pro hockey. Live in Israel. Both at the same time." },
+  { icon: Heart, title: "Growing the Sport Locally", desc: "You're not just supporting a team — you're building a development pipeline for local Israeli youth and ensuring the next generation has a real future in hockey. Every shekel goes back into the sport." },
+  { icon: Trophy, title: "A Fully Professional Club", desc: "All players are professionals. The team operates as a fully professional organization in every aspect — coaching, training, travel, competition, and player development. No shortcuts." },
+  { icon: Users, title: "Federation-Operated", desc: "Sabra HC is not owned by any one person. It is operated by the Israel Ice Hockey Federation and exists solely to grow Israeli hockey at every level — from youth programs to international competition." },
 ];
 
 const faqs = [
   { q: "What exactly do I get as a founding member?", a: "You receive a limited-edition Founders jersey (never sold again), a merch pack, digital season ticket for all broadcasts, 20% lifetime merch discount, entry into the VIP Israel trip giveaway, and your name permanently on the Founders Wall at the arena." },
-  { q: "Can I pay in installments?", a: `Yes! You can pay $${CAMPAIGN.membershipPrice} as a one-time contribution, or split it into ${CAMPAIGN.installmentCount} payments of $${CAMPAIGN.installmentPrice}.` },
-  { q: "Is this a donation or an investment?", a: "This is a founding membership contribution. You're becoming one of the original 500 supporters who made Sabra HC possible — with exclusive perks and permanent recognition." },
-  { q: "I'm a hockey player — can I try out?", a: "Absolutely. Sabra HC is actively building its roster. If you're a Jewish hockey player interested in making aliyah and playing professionally in Israel, reach out to us directly." },
-  { q: "How will my money be used?", a: "Founding membership funds go directly toward the club's first two seasons — player salaries, arena operations, equipment, travel for international competition, and youth development programs." },
+  { q: "Is this annual or one-time?", a: `The founding membership is $${CAMPAIGN.membershipPrice}/year. Your annual contribution directly funds professional hockey operations in Israel — player salaries, arena costs, equipment, travel, and youth development. You can also split each year into ${CAMPAIGN.installmentCount} payments of $${CAMPAIGN.installmentPrice}.` },
+  { q: "Who owns Sabra HC?", a: "No single person owns Sabra HC. The club is operated by the Israel Ice Hockey Federation and exists to grow Israeli hockey at every level. All funds go directly into building the sport — from youth programs to professional competition." },
+  { q: "Is this a donation or an investment?", a: "This is a founding membership. You're becoming one of the original 500 supporters who make professional hockey in Israel possible — with exclusive perks, permanent recognition, and the knowledge that you're building something historic." },
+  { q: "I'm a hockey player — can I try out?", a: "Absolutely. Sabra HC fields a fully professional roster and is actively recruiting. If you're a Jewish hockey player interested in making aliyah and playing professionally in Israel, reach out to us directly." },
+  { q: "How will my money be used?", a: "Founding membership funds go directly toward club operations — professional player salaries, arena operations, equipment, international travel for competition, coaching staff, and youth development programs across Israel." },
   { q: "Will there be more than 500 founding members?", a: "No. The Founders program is permanently capped at 500 members. Once all spots are claimed, the program closes forever." },
+  { q: "Are all players professionals?", a: "Yes. Sabra HC operates as a fully professional team in every aspect — all players are paid professionals, with full-time coaching staff, professional training facilities, and competitive international schedules." },
 ];
 
 const Founders = () => {
@@ -90,7 +92,7 @@ const Founders = () => {
               <span className="text-gold-gradient">FIRST 500</span>
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Sabra HC is Israel's first professional hockey club — a pathway for Jewish athletes to make aliyah and play at the highest level. Become a founding member and help write the first chapter.
+              Sabra HC is Israel's first fully professional hockey club — a pathway for Jewish athletes to make aliyah and play at the highest level. Your annual founding membership directly supports and grows professional hockey in Israel.
             </p>
           </motion.div>
 
@@ -189,7 +191,7 @@ const Founders = () => {
               <span className="text-gold-gradient">IT'S A MOVEMENT</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-              Israel built world-class professional leagues in soccer and basketball. Now it's hockey's turn. Sabra HC is creating a professional pathway for Jewish athletes to make aliyah, compete at the highest level, and grow the sport for the next generation of Israeli kids.
+              Israel built world-class professional leagues in soccer and basketball. Now it's hockey's turn. Sabra HC is operated by the Israel Ice Hockey Federation — not owned by any individual — and exists to grow the sport at every level. Your founding membership creates a professional pathway for Jewish athletes to make aliyah, compete at the highest level, and inspire the next generation.
             </p>
           </motion.div>
 
@@ -276,10 +278,13 @@ const Founders = () => {
               </h2>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  The founding membership is permanently capped at <span className="text-foreground font-semibold">500 people</span>. Once every spot is taken, the program closes — forever. There will never be another chance to be a founding member of Israel's first professional hockey club.
+                  The founding membership is permanently capped at <span className="text-foreground font-semibold">500 people</span>. Once every spot is taken, the program closes — forever. There will never be another chance to be a founding member of Israel's first fully professional hockey club.
                 </p>
                 <p>
-                  The first season is being built right now. The roster is forming. The arena is booked. The jerseys are being produced. Every founding member who joins today is part of the foundation that makes this real.
+                  Your annual membership funds a fully professional operation — paid players, full-time coaching staff, international travel, and youth development across Israel. The club is federation-operated, meaning every dollar goes into growing the sport, not lining anyone's pockets.
+                </p>
+                <p>
+                  The first season is being built right now. The roster of professional players is forming. The arena is booked. The jerseys are being produced. Every founding member who joins today is part of the foundation that makes this real.
                 </p>
                 <p className="text-foreground font-medium text-lg">
                   This is your chance to be part of something that has never existed before.
@@ -339,7 +344,7 @@ const Founders = () => {
               JOIN THE <span className="text-gold-gradient">FOUNDERS</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              One price. Lifetime membership. Permanent legacy.
+              Annual membership. Professional hockey. Permanent legacy.
             </p>
           </motion.div>
 
@@ -355,9 +360,9 @@ const Founders = () => {
               <div className="relative glass-card rounded-2xl p-10 md:p-12">
                 <div className="text-center mb-10">
                   <p className="font-display text-7xl md:text-8xl text-gold-gradient">${CAMPAIGN.membershipPrice}</p>
-                  <p className="text-muted-foreground text-sm mt-3">One-time founding membership</p>
+                  <p className="text-muted-foreground text-sm mt-3">Annual founding membership</p>
                   <p className="text-muted-foreground text-xs mt-1">
-                    or {CAMPAIGN.installmentCount} easy payments of ${CAMPAIGN.installmentPrice}
+                    or {CAMPAIGN.installmentCount} easy payments of ${CAMPAIGN.installmentPrice}/year
                   </p>
                 </div>
 
@@ -381,10 +386,10 @@ const Founders = () => {
 
                 <div className="space-y-3">
                   <button className="w-full py-5 rounded-xl font-heading text-base font-bold tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 transition-all gold-glow">
-                    PAY ${CAMPAIGN.membershipPrice} — JOIN NOW
+                    PAY ${CAMPAIGN.membershipPrice}/YEAR — JOIN NOW
                   </button>
                   <button className="w-full py-5 rounded-xl font-heading text-sm font-semibold tracking-wider border border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary/50 transition-all">
-                    PAY {CAMPAIGN.installmentCount}× ${CAMPAIGN.installmentPrice} — INSTALLMENTS
+                    PAY {CAMPAIGN.installmentCount}× ${CAMPAIGN.installmentPrice}/YEAR — INSTALLMENTS
                   </button>
                 </div>
 
