@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoImg from "@/assets/jhc-logo.png";
+import logoImg from "@/assets/sabra-logo.png";
 
 const NAV_ITEMS = [
   { label: "News", path: "/news" },
@@ -56,12 +56,12 @@ const SiteNavbar = () => {
           <Link to="/" className="flex items-center gap-3 group">
             <img
               src={logoImg}
-              alt="Jerusalem HC"
+              alt="Sabra HC"
               className="w-10 h-10 lg:w-12 lg:h-12 object-contain transition-transform group-hover:scale-105"
             />
             <div className="flex flex-col leading-none">
               <span className="font-display text-xl lg:text-2xl tracking-wide text-foreground">
-                JERUSALEM HC
+                SABRA HC
               </span>
               <span className="text-[9px] tracking-[0.3em] text-primary font-medium hidden sm:block">
                 EST. 2025 • ISRAEL

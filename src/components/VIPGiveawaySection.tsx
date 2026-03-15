@@ -3,7 +3,7 @@ import { Plane, Hotel, Ticket, Users, Star, Gift } from "lucide-react";
 
 const perks = [
   { icon: Plane, text: "Round-trip flights for two" },
-  { icon: Hotel, text: "Hotel accommodation in Jerusalem" },
+  { icon: Hotel, text: "Hotel accommodation in Israel" },
   { icon: Ticket, text: "VIP access to 3 home games" },
   { icon: Users, text: "Meet players and coaching staff" },
   { icon: Star, text: "Behind-the-scenes team experience" },
@@ -27,10 +27,10 @@ const VIPGiveawaySection = () => (
           </div>
           <p className="text-primary font-semibold text-sm tracking-[0.4em] mb-4">EXCLUSIVE GIVEAWAY</p>
           <h2 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4">
-            VIP Trip to <span className="text-gold-gradient">Jerusalem</span>
+            VIP Trip to <span className="text-gold-gradient">Israel</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg">
-            All founding members are automatically entered for an all-expenses-paid VIP trip to Jerusalem for two.
+            All founding members are automatically entered for an all-expenses-paid VIP trip to Israel for two.
           </p>
         </motion.div>
 

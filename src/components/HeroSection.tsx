@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ChevronDown } from "lucide-react";
-import logoImg from "@/assets/jhc-logo.png";
+import logoImg from "@/assets/sabra-logo.png";
 import arenaImg from "@/assets/arena-hero.jpg";
 import IceParticles from "./IceParticles";
 
@@ -14,43 +14,37 @@ const HeroSection = () => {
 
   return (
     <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Parallax background image */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <img src={arenaImg} alt="" className="w-full h-[130%] object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
       </motion.div>
 
-      {/* Ice particles */}
       <IceParticles count={50} />
 
-      {/* Spotlight / arena glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse,hsla(40,49%,54%,0.15)_0%,transparent_70%)] pointer-events-none" />
 
       <motion.div className="container relative z-10 text-center px-4" style={{ y: textY, opacity }}>
-        {/* Logo entrance */}
         <motion.img
           src={logoImg}
-          alt="Jerusalem HC Lion Crest"
+          alt="Sabra HC Lion Crest"
           className="w-32 h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 object-contain mx-auto mb-6 drop-shadow-2xl"
           initial={{ opacity: 0, scale: 0.5, rotateY: 90 }}
           animate={{ opacity: 1, scale: 1, rotateY: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         />
 
-        {/* Title */}
         <motion.h1
           className="font-heading text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-none"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <span className="text-gold-gradient">JERUSALEM</span>
+          <span className="text-gold-gradient">SABRA</span>
           <br />
           <span className="text-stroke text-6xl md:text-7xl lg:text-8xl">HOCKEY CLUB</span>
         </motion.h1>
 
-        {/* Tagline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,7 +58,6 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +79,6 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 12, 0] }}
         transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}

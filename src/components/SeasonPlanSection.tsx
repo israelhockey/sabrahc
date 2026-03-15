@@ -12,7 +12,6 @@ const blocks = [
 
 const SeasonPlanSection = () => (
   <section id="season" className="relative overflow-hidden">
-    {/* Parallax image banner */}
     <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
       <img
         src={actionImg}
@@ -38,7 +37,6 @@ const SeasonPlanSection = () => (
       </div>
     </div>
 
-    {/* Cards */}
     <div className="py-20 md:py-28">
       <div className="container px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -72,7 +70,7 @@ const SeasonPlanSection = () => (
           transition={{ duration: 0.8 }}
           className="text-center text-muted-foreground max-w-2xl mx-auto leading-relaxed text-base md:text-lg"
         >
-          Jerusalem HC will begin as an independent professional team with the goal of joining a European league in the future, competing full-time against the best clubs on the continent.
+          Sabra HC will begin as an independent professional team with the goal of joining a European league in the future, competing full-time against the best clubs on the continent.
         </motion.p>
       </div>
     </div>

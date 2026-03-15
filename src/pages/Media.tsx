@@ -2,20 +2,20 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight, Camera, Radio, Play, Image as ImageIcon } from "lucide-react";
 import arenaImg from "@/assets/arena-hero.jpg";
-import jerseysImg from "@/assets/jhc-jerseys.png";
-import logoImg from "@/assets/jhc-logo.png";
+import jerseysImg from "@/assets/sabra-jerseys.png";
+import logoImg from "@/assets/sabra-logo.png";
 import puckImg from "@/assets/puck-ice.jpg";
 
 const gallery = [
-  { src: arenaImg, alt: "Canada Centre Arena", caption: "Home ice at the Canada Centre" },
-  { src: jerseysImg, alt: "JHC Jerseys", caption: "Official 2025-26 jerseys" },
-  { src: logoImg, alt: "JHC Crest", caption: "The Lion of Jerusalem crest" },
+  { src: arenaImg, alt: "One Ice Arena", caption: "Home ice at the One Ice Arena" },
+  { src: jerseysImg, alt: "Sabra HC Jerseys", caption: "Official 2025-26 jerseys" },
+  { src: logoImg, alt: "Sabra HC Crest", caption: "The Sabra Lion crest" },
   { src: puckImg, alt: "Hockey puck on ice", caption: "Game day atmosphere" },
 ];
 
 const broadcasts = [
   { title: "Live Game Streams", desc: "All home and away games streamed live to founding members worldwide.", icon: Play },
-  { title: "JHC Radio", desc: "Game commentary, player interviews, and weekly analysis podcast.", icon: Radio },
+  { title: "Sabra HC Radio", desc: "Game commentary, player interviews, and weekly analysis podcast.", icon: Radio },
   { title: "Press Room", desc: "Official press releases, media kits, and accreditation requests.", icon: Camera },
 ];
 
@@ -34,7 +34,7 @@ const Media = () => (
           <h1 className="font-display text-5xl md:text-7xl text-foreground">MEDIA CENTER</h1>
         </div>
         <p className="text-muted-foreground mt-3 max-w-xl">
-          Photos, broadcasts, and press materials from Jerusalem Hockey Club.
+          Photos, broadcasts, and press materials from Sabra Hockey Club.
         </p>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-8 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />

@@ -3,13 +3,13 @@ import { CAMPAIGN } from "@/lib/campaign";
 import { Check, ShieldCheck } from "lucide-react";
 
 const benefits = [
-  "Official Founders Edition Jerusalem HC jersey",
+  "Official Founders Edition Sabra HC jersey",
   "Founders merchandise pack (scarf, hat, pin)",
   "Digital season ticket access to all broadcasts and replays",
   "Exclusive behind-the-scenes team content",
-  "Entry into VIP trip giveaway to Jerusalem",
+  "Entry into VIP trip giveaway to Israel",
   "20% discount on team merchandise",
-  "Name permanently displayed on the Jerusalem HC Founders Wall",
+  "Name permanently displayed on the Sabra HC Founders Wall",
 ];
 
 const MembershipSection = () => (
@@ -41,7 +41,6 @@ const MembershipSection = () => (
           transition={{ duration: 0.6, delay: 0.1 }}
           className="rounded-2xl relative group"
         >
-          {/* Glow effect */}
           <div className="absolute -inset-[1px] bg-gradient-to-b from-primary/40 via-primary/10 to-primary/40 rounded-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
           
           <div className="relative glass-card rounded-2xl p-8 md:p-10">

@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { Share2 } from "lucide-react";
 import IceParticles from "./IceParticles";
-import logoImg from "@/assets/jhc-logo.png";
+import logoImg from "@/assets/sabra-logo.png";
 
 const FinalCTASection = () => {
   const handleShare = async () => {
     const data = {
-      title: "Jerusalem HC — Israel's First Professional Hockey Club",
+      title: "Sabra HC — Israel's First Professional Hockey Club",
       text: "Help launch Israel's first professional hockey club. Become a founding member!",
       url: window.location.href,
     };
@@ -32,16 +32,16 @@ const FinalCTASection = () => {
         >
           <motion.img
             src={logoImg}
-            alt="Jerusalem HC"
+            alt="Sabra HC"
             className="w-24 h-24 md:w-32 md:h-32 object-contain mx-auto mb-8 opacity-40"
             whileInView={{ opacity: 0.4 }}
             viewport={{ once: true }}
           />
 
           <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight">
-            The Future of Hockey
+            Born in the Desert
             <br />
-            <span className="text-gold-gradient">Starts in Jerusalem</span>
+            <span className="text-gold-gradient">Built for the Ice</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto mb-10">
             Be part of history. Join the movement to bring professional hockey to Israel.

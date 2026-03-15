@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight, Target, Heart, Globe, Trophy, Star, Shield } from "lucide-react";
-import logoImg from "@/assets/jhc-logo.png";
-import jerseysImg from "@/assets/jhc-jerseys.png";
+import logoImg from "@/assets/sabra-logo.png";
+import jerseysImg from "@/assets/sabra-jerseys.png";
 import puckImg from "@/assets/puck-ice.jpg";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
@@ -14,15 +14,15 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2024", title: "Vision Born", desc: "The concept for Jerusalem HC is formalized, aiming to create Israel's first professional hockey club." },
-  { year: "2025", title: "Club Founded", desc: "Jerusalem HC officially launches with founding membership and brand identity." },
-  { year: "2025-26", title: "Inaugural Season", desc: "The team competes in the EIHL and INHL, playing home games at the Canada Centre in Metula." },
+  { year: "2024", title: "Vision Born", desc: "The concept for Sabra HC is formalized, aiming to create Israel's first professional hockey club." },
+  { year: "2025", title: "Club Founded", desc: "Sabra HC officially launches with founding membership and brand identity." },
+  { year: "2025-26", title: "Inaugural Season", desc: "The team competes in the EIHL and INHL, playing home games at the One Ice Arena." },
   { year: "2026+", title: "Growth & Legacy", desc: "Expansion of youth programs, a dedicated arena, and deeper European competition." },
 ];
 
 const colors = [
-  { name: "Navy Blue", hex: "#0B1F3B", desc: "The Jerusalem night sky" },
-  { name: "Gold", hex: "#C8A44D", desc: "The city's golden stone" },
+  { name: "Navy Blue", hex: "#0B1F3B", desc: "The deep desert night sky" },
+  { name: "Gold", hex: "#C8A44D", desc: "The golden sand of Israel" },
   { name: "White", hex: "#FFFFFF", desc: "The ice we play on" },
 ];
 
@@ -42,7 +42,7 @@ const About = () => (
           <h1 className="font-display text-5xl md:text-7xl text-foreground">ABOUT THE CLUB</h1>
         </div>
         <p className="text-muted-foreground mt-3 max-w-xl">
-          The story, mission, and identity of Jerusalem Hockey Club.
+          The story, mission, and identity of Sabra Hockey Club.
         </p>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-8 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />
@@ -64,10 +64,10 @@ const About = () => (
             </h2>
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p className="text-foreground text-lg font-medium">
-                Jerusalem HC is being created to bring Israeli hockey to the next level — from grassroots passion to international competition.
+                Sabra HC is being created to bring Israeli hockey to the next level — from grassroots passion to international competition.
               </p>
               <p>
-                For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Jerusalem HC will become the first full-time professional hockey club based in Israel.
+                For nearly 40 years, hockey has been growing in Israel through local leagues and national teams. Now, Sabra HC will become the first full-time professional hockey club based in Israel.
               </p>
               <p>
                 The club will compete against professional teams from Romania, Hungary, and across Europe while also playing in Israel's top domestic league, the INHL.
@@ -103,7 +103,7 @@ const About = () => (
             WHAT WE <span className="text-gold-gradient">STAND FOR</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            To establish a world-class professional hockey organization that represents Jerusalem and Israel on the international stage.
+            To establish a world-class professional hockey organization that represents Israel on the international stage.
           </p>
         </div>
 
@@ -168,11 +168,11 @@ const About = () => (
           <div>
             <p className="text-primary font-heading text-sm tracking-[0.3em] mb-4">TEAM IDENTITY</p>
             <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">
-              THE LION OF <span className="text-gold-gradient">JERUSALEM</span>
+              THE <span className="text-gold-gradient">SABRA</span> LION
             </h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              The crest integrates Jerusalem's historic stone walls with a modern professional hockey identity.
-              The Lion of Judah stands as a symbol of the city's ancient legacy and the team's fierce competitive spirit.
+              The crest features a fierce Sabra lion with a cactus mane — representing the Israeli spirit: tough on the outside, sweet on the inside.
+              Crossed hockey sticks and the Star of David complete a modern professional hockey identity rooted in Israeli culture.
             </p>
 
             <h3 className="font-heading text-sm tracking-wider text-foreground mb-4">TEAM COLORS</h3>
@@ -193,8 +193,8 @@ const About = () => (
             viewport={{ once: true }}
             className="grid grid-cols-2 gap-4"
           >
-            <img src={logoImg} alt="Jerusalem HC Crest" className="w-full rounded-sm border border-border p-6 bg-card" />
-            <img src={jerseysImg} alt="Jerusalem HC Jerseys" className="w-full rounded-sm border border-border" />
+            <img src={logoImg} alt="Sabra HC Crest" className="w-full rounded-sm border border-border p-6 bg-card" />
+            <img src={jerseysImg} alt="Sabra HC Jerseys" className="w-full rounded-sm border border-border" />
           </motion.div>
         </div>
       </div>

@@ -7,9 +7,9 @@ import {
   Rocket, Star, Heart, ChevronRight, MapPin, Ticket, ShoppingBag,
   Award, Plane, Check
 } from "lucide-react";
-import logoImg from "@/assets/jhc-logo.png";
+import logoImg from "@/assets/sabra-logo.png";
 import arenaImg from "@/assets/hero-arena.jpg";
-import jerseysImg from "@/assets/jhc-jerseys.png";
+import jerseysImg from "@/assets/sabra-jerseys.png";
 import actionImg from "@/assets/jhc-action.png";
 import playerImg from "@/assets/jhc-player.png";
 import arenaMockup from "@/assets/arena-mockup.png";
@@ -130,7 +130,7 @@ const Deck = () => {
         <motion.div className="container relative z-10 px-4 text-center" style={{ opacity: heroOpacity }}>
           <motion.img
             src={logoImg}
-            alt="Jerusalem HC"
+            alt="Sabra HC"
             className="w-28 h-28 md:w-40 md:h-40 object-contain mx-auto mb-8 drop-shadow-2xl"
             initial={{ opacity: 0, scale: 0.4, rotateY: 180 }}
             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -143,7 +143,7 @@ const Deck = () => {
           >
             <p className="text-primary font-heading text-xs tracking-[0.5em] mb-4 font-semibold">FOUNDING INVESTOR DECK</p>
             <h1 className="font-display text-6xl md:text-8xl lg:text-[10rem] leading-[0.8] tracking-tight">
-              <span className="text-gold-gradient">JERUSALEM</span>
+              <span className="text-gold-gradient">SABRA</span>
             </h1>
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground tracking-[0.12em] mt-2">
               HOCKEY CLUB
@@ -160,7 +160,7 @@ const Deck = () => {
               Israel's First Professional Hockey Club
             </p>
             <p className="text-muted-foreground/60 text-xs tracking-[0.3em] font-heading">
-              JERUSALEM, ISRAEL · FOUNDED 2026
+              SABRA HC · ISRAEL · FOUNDED 2026
             </p>
           </motion.div>
 
@@ -234,13 +234,13 @@ const Deck = () => {
                 ISRAEL'S FIRST <span className="text-gold-gradient">PROFESSIONAL</span> HOCKEY CLUB
               </SectionTitle>
               <p className="text-muted-foreground leading-relaxed mb-8 text-base">
-                Jerusalem HC is launching Israel's first full-time professional hockey club. The club will compete internationally while serving as the premier development platform for Israeli players.
+                Sabra HC is launching Israel's first full-time professional hockey club. The club will compete internationally while serving as the premier development platform for Israeli players.
               </p>
               <BulletList
                 items={[
                   "Build a sustainable professional hockey organization in Israel",
                   "Elevate Israeli players to international competition",
-                  "Establish Jerusalem HC as a global hockey brand",
+                  "Establish Sabra HC as a global hockey brand",
                   "Join a European professional league within 3–5 years",
                 ]}
               />
@@ -307,7 +307,7 @@ const Deck = () => {
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Target className="w-6 h-6 text-primary" />
                   </div>
-                  <p className="text-foreground font-heading tracking-wider text-lg">Jerusalem HC fills this gap.</p>
+                  <p className="text-foreground font-heading tracking-wider text-lg">Sabra HC fills this gap.</p>
                 </div>
               </GlassCard>
             </div>
@@ -333,7 +333,7 @@ const Deck = () => {
                 <h3 className="font-heading text-lg tracking-wider text-foreground mb-4">Key Factors</h3>
                 <BulletList
                   items={[
-                    "Global visibility of Jerusalem as a world-renowned city",
+                    "Global visibility of Israel as a sports and culture destination",
                     "Strong government support for sports development",
                     "Growing youth hockey participation across Israel",
                     "Untapped professional sports market with massive potential",
@@ -341,7 +341,7 @@ const Deck = () => {
                 />
               </GlassCard>
               <GlassCard delay={0.15}>
-                <h3 className="font-heading text-lg tracking-wider text-foreground mb-4">Jerusalem HC Will Serve As</h3>
+                <h3 className="font-heading text-lg tracking-wider text-foreground mb-4">Sabra HC Will Serve As</h3>
                 <div className="space-y-4">
                   {[
                     { icon: Globe, text: "Israel's flagship professional hockey team" },
@@ -370,10 +370,10 @@ const Deck = () => {
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-14">
               <SectionLabel>04 — CLUB IDENTITY</SectionLabel>
               <SectionTitle>
-                THE LION OF <span className="text-gold-gradient">JERUSALEM</span>
+                THE <span className="text-gold-gradient">SABRA</span> LION
               </SectionTitle>
               <p className="text-muted-foreground max-w-xl mx-auto">
-                Jerusalem HC represents the strength, heritage, and pride of the city of Jerusalem.
+                Sabra HC represents the spirit of Israel — tough on the outside, sweet on the inside. Born in the desert, built for the ice.
               </p>
             </motion.div>
 
@@ -385,7 +385,7 @@ const Deck = () => {
                 className="relative group"
               >
                 <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <img src={jerseysImg} alt="Jerusalem HC jerseys" className="relative w-full rounded-xl border border-border shadow-2xl" />
+                <img src={jerseysImg} alt="Sabra HC jerseys" className="relative w-full rounded-xl border border-border shadow-2xl" />
               </motion.div>
 
               <div className="space-y-6">
@@ -394,7 +394,7 @@ const Deck = () => {
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                       <Shield className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="font-heading text-lg tracking-wider text-foreground">Symbol: The Lion of Jerusalem</h3>
+                    <h3 className="font-heading text-lg tracking-wider text-foreground">Symbol: The Sabra Lion</h3>
                   </div>
                   <BulletList
                     items={[
@@ -445,10 +445,10 @@ const Deck = () => {
               className="relative rounded-xl overflow-hidden mb-10 group"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <img src={arenaMockup} alt="Jerusalem HC arena mockup — packed arena with JHC branding" className="relative w-full rounded-xl border border-border shadow-2xl" />
+              <img src={arenaMockup} alt="Sabra HC arena mockup" className="relative w-full rounded-xl border border-border shadow-2xl" />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/80 to-transparent p-6">
                 <p className="font-heading text-xs tracking-[0.3em] text-primary">ARENA CONCEPT MOCKUP</p>
-                <p className="text-sm text-foreground/80 mt-1">Jerusalem HC home game — full branding, packed stands, world-class atmosphere</p>
+                <p className="text-sm text-foreground/80 mt-1">Sabra HC home game — full branding, packed stands, world-class atmosphere</p>
               </div>
             </motion.div>
 
@@ -560,7 +560,7 @@ const Deck = () => {
                 <div>
                   <h3 className="font-heading text-base tracking-wider text-foreground mb-2">HISTORIC INTERNATIONAL MATCHUPS</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    For the <span className="text-primary font-semibold">first time ever</span>, professional hockey teams from Romania, Hungary, Poland, Russia, and other European nations will travel to Israel to compete. Jerusalem HC will bring international hockey to Israeli ice — creating landmark sporting events and putting Israeli hockey on the global map.
+                    For the <span className="text-primary font-semibold">first time ever</span>, professional hockey teams from Romania, Hungary, Poland, Russia, and other European nations will travel to Israel to compete. Sabra HC will bring international hockey to Israeli ice — creating landmark sporting events and putting Israeli hockey on the global map.
                   </p>
                 </div>
               </div>
@@ -614,7 +614,7 @@ const Deck = () => {
               className="relative group"
             >
               <div className="absolute -inset-2 bg-gradient-to-b from-primary/15 via-transparent to-primary/15 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <img src={playerImg} alt="Jerusalem HC player" className="relative w-full max-w-md mx-auto rounded-xl border border-border shadow-2xl" />
+              <img src={playerImg} alt="Sabra HC player" className="relative w-full max-w-md mx-auto rounded-xl border border-border shadow-2xl" />
             </motion.div>
           </div>
         </div>
@@ -678,7 +678,7 @@ const Deck = () => {
                   </div>
                   <CheckList
                     items={[
-                      "Official Jerusalem HC Founders Edition jersey",
+                      "Official Sabra HC Founders Edition jersey",
                       "Founders merchandise pack (scarf, hat, pin)",
                       "Digital season pass — all broadcasts & replays",
                       "Exclusive behind-the-scenes team content",
@@ -706,7 +706,7 @@ const Deck = () => {
                         ✈️ VIP trip for two to Israel
                       </p>
                       <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed mt-1">
-                        🏒 Attend three Jerusalem HC home games
+                        🏒 Attend three Sabra HC home games
                       </p>
                       <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed mt-1">
                         🏨 Flights, hotel & VIP access included
@@ -969,7 +969,7 @@ const Deck = () => {
               THE FLAGSHIP HOCKEY CLUB <span className="text-gold-gradient">IN ISRAEL</span>
             </SectionTitle>
             <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-              Jerusalem HC will become the flagship hockey club in Israel. The organization will build a sustainable professional team
+              Sabra HC will become the flagship hockey club in Israel. The organization will build a sustainable professional team
               capable of competing internationally while developing the next generation of Israeli hockey players.
             </p>
           </motion.div>
@@ -983,12 +983,12 @@ const Deck = () => {
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
             <motion.img
               src={logoImg}
-              alt="Jerusalem HC"
+              alt="Sabra HC"
               className="w-24 h-24 md:w-32 md:h-32 object-contain mx-auto mb-8 drop-shadow-2xl"
             />
             <SectionLabel>16 — JOIN THE FOUNDERS</SectionLabel>
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-foreground leading-[0.85] mb-6">
-              JERUSALEM HC IS<br />
+              SABRA HC IS<br />
               <span className="text-gold-gradient">MORE THAN A TEAM</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg mb-10 leading-relaxed">
@@ -1005,7 +1005,7 @@ const Deck = () => {
                 </span>
               </Link>
               <a
-                href="mailto:info@jerusalemhc.com"
+                href="mailto:info@sabrahc.com"
                 className="px-12 py-5 font-heading text-sm font-semibold tracking-wider border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all gold-border-glow"
               >
                 CONTACT US
@@ -1013,7 +1013,7 @@ const Deck = () => {
             </div>
 
             <p className="text-muted-foreground/50 text-xs tracking-[0.3em] font-heading mt-12">
-              JERUSALEM HC · EST. 2026 · ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
+              SABRA HC · EST. 2026 · ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
             </p>
           </motion.div>
         </div>

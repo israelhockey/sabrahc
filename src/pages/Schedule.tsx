@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Calendar, ChevronRight, MapPin } from "lucide-react";
-import logoImg from "@/assets/jhc-logo.png";
+import logoImg from "@/assets/sabra-logo.png";
 
 const games = [
-  { id: 1, date: "Oct 18", time: "19:30", opponent: "Ferencváros TC", location: "Canada Centre, Metula", type: "Home", league: "EIHL" },
+  { id: 1, date: "Oct 18", time: "19:30", opponent: "Ferencváros TC", location: "One Ice Arena, Netanya", type: "Home", league: "EIHL" },
   { id: 2, date: "Oct 25", time: "20:00", opponent: "ASC Corona Brașov", location: "Brașov, Romania", type: "Away", league: "EIHL" },
-  { id: 3, date: "Nov 1", time: "19:00", opponent: "HC Csíkszereda", location: "Canada Centre, Metula", type: "Home", league: "EIHL" },
+  { id: 3, date: "Nov 1", time: "19:00", opponent: "HC Csíkszereda", location: "One Ice Arena, Netanya", type: "Home", league: "EIHL" },
   { id: 4, date: "Nov 8", time: "18:00", opponent: "MAC Budapest", location: "Budapest, Hungary", type: "Away", league: "EIHL" },
-  { id: 5, date: "Nov 15", time: "19:30", opponent: "Maccabi Metula", location: "Canada Centre, Metula", type: "Home", league: "INHL" },
+  { id: 5, date: "Nov 15", time: "19:30", opponent: "Maccabi Metula", location: "One Ice Arena, Netanya", type: "Home", league: "INHL" },
   { id: 6, date: "Nov 22", time: "20:00", opponent: "HC Galați", location: "Galați, Romania", type: "Away", league: "EIHL" },
-  { id: 7, date: "Nov 29", time: "19:30", opponent: "Bat Yam HC", location: "Canada Centre, Metula", type: "Home", league: "INHL" },
+  { id: 7, date: "Nov 29", time: "19:30", opponent: "Bat Yam HC", location: "One Ice Arena, Netanya", type: "Home", league: "INHL" },
   { id: 8, date: "Dec 6", time: "18:30", opponent: "Ferencváros TC", location: "Budapest, Hungary", type: "Away", league: "EIHL" },
-  { id: 9, date: "Dec 13", time: "19:30", opponent: "Haifa HC", location: "Canada Centre, Metula", type: "Home", league: "INHL" },
-  { id: 10, date: "Dec 20", time: "19:00", opponent: "ASC Corona Brașov", location: "Canada Centre, Metula", type: "Home", league: "EIHL" },
+  { id: 9, date: "Dec 13", time: "19:30", opponent: "Haifa HC", location: "One Ice Arena, Netanya", type: "Home", league: "INHL" },
+  { id: 10, date: "Dec 20", time: "19:00", opponent: "ASC Corona Brașov", location: "One Ice Arena, Netanya", type: "Home", league: "EIHL" },
 ];
 
 const Schedule = () => (
@@ -31,7 +31,7 @@ const Schedule = () => (
           <h1 className="font-display text-5xl md:text-7xl text-foreground">2025–26 SCHEDULE</h1>
         </div>
         <p className="text-muted-foreground mt-3 max-w-xl">
-          Follow Jerusalem HC through the EIHL and INHL seasons.
+          Follow Sabra HC through the EIHL and INHL seasons.
         </p>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-8 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />
@@ -51,13 +51,11 @@ const Schedule = () => (
                 game.type === "Home" ? "glass-card" : "bg-card/50 border-border"
               }`}
             >
-              {/* Date */}
               <div className="w-full md:w-28 text-center md:text-left">
                 <p className="font-display text-xl text-foreground">{game.date}</p>
                 <p className="text-xs text-muted-foreground">{game.time}</p>
               </div>
 
-              {/* League badge */}
               <div className="w-full md:w-20">
                 <span className={`inline-block px-3 py-1 text-[10px] font-heading tracking-wider ${
                   game.league === "EIHL" ? "text-primary bg-primary/10 border border-primary/20" : "text-foreground bg-secondary border border-border"
@@ -66,23 +64,20 @@ const Schedule = () => (
                 </span>
               </div>
 
-              {/* Matchup */}
               <div className="flex-1 flex items-center gap-4 justify-center md:justify-start">
                 <div className="flex items-center gap-2">
                   <img src={logoImg} alt="" className="w-6 h-6 object-contain" />
-                  <span className="font-heading text-sm tracking-wider text-foreground">JHC</span>
+                  <span className="font-heading text-sm tracking-wider text-foreground">SHC</span>
                 </div>
                 <span className="font-display text-lg text-primary">VS</span>
                 <span className="font-heading text-sm tracking-wider text-foreground">{game.opponent}</span>
               </div>
 
-              {/* Location */}
               <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <MapPin size={12} className="text-primary" />
                 {game.location}
               </div>
 
-              {/* Home/Away badge */}
               <div className="w-full md:w-20 text-center md:text-right">
                 <span className={`inline-block px-3 py-1 text-[10px] font-heading tracking-wider ${
                   game.type === "Home" ? "text-primary-foreground bg-primary" : "text-muted-foreground bg-muted"
