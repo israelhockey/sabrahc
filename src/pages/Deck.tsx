@@ -370,10 +370,10 @@ const Deck = () => {
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-14">
               <SectionLabel>04 — CLUB IDENTITY</SectionLabel>
               <SectionTitle>
-                THE LION OF <span className="text-gold-gradient">JERUSALEM</span>
+                THE <span className="text-gold-gradient">SABRA</span> LION
               </SectionTitle>
               <p className="text-muted-foreground max-w-xl mx-auto">
-                Jerusalem HC represents the strength, heritage, and pride of the city of Jerusalem.
+                Sabra HC represents the spirit of Israel — tough on the outside, sweet on the inside. Born in the desert, built for the ice.
               </p>
             </motion.div>
 
