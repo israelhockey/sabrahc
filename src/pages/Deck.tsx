@@ -583,9 +583,9 @@ const Deck = () => {
 
               <div className="space-y-4 mb-8">
                 {[
-                  { label: "Israeli Players", count: "8–10", desc: "Core local talent" },
-                  { label: "International Pros", count: "8–10", desc: "Experienced professionals" },
-                  { label: "Development Players", count: "4", desc: "Future stars" },
+                  { label: "Israeli Players", count: "15–17", desc: "Core local talent" },
+                  { label: "Imports", count: "3–5", desc: "Experienced international professionals" },
+                  { label: "Development Players", count: "5", desc: "Local U20 future stars" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-4 glass-card rounded-lg p-4">
                     <p className="font-display text-3xl text-gold-gradient w-20 text-center">{item.count}</p>
