@@ -99,17 +99,17 @@ const Founders = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
+            className="flex flex-col sm:flex-row gap-3 justify-center mt-10 px-4"
           >
             <a
               href="#join"
-              className="px-12 py-5 font-heading text-base font-semibold tracking-wider rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all gold-glow"
+              className="px-8 sm:px-12 py-4 sm:py-5 font-heading text-sm sm:text-base font-semibold tracking-wider rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all gold-glow text-center"
             >
               BECOME A FOUNDER — ${CAMPAIGN.membershipPrice}
             </a>
             <a
               href="#why"
-              className="px-12 py-5 font-heading text-base font-semibold tracking-wider rounded-full border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all"
+              className="px-8 sm:px-12 py-4 sm:py-5 font-heading text-sm sm:text-base font-semibold tracking-wider rounded-full border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all text-center"
             >
               WHY JOIN?
             </a>
@@ -282,7 +282,7 @@ const Founders = () => {
 
               <div className="relative grid grid-cols-1 md:grid-cols-5 items-stretch">
                 {/* Left — dramatic visual (2 cols) */}
-                <div className="md:col-span-2 relative flex flex-col items-center justify-center py-16 px-8">
+                <div className="md:col-span-2 relative flex flex-col items-center justify-center py-10 md:py-16 px-6 md:px-8">
                   {/* Rotating ring */}
                   <motion.div
                     className="absolute w-44 h-44 rounded-full border border-dashed border-primary/20"
@@ -317,9 +317,9 @@ const Founders = () => {
                 </div>
 
                 {/* Right — content (3 cols) */}
-                <div className="md:col-span-3 p-10 md:p-14 lg:p-16 flex flex-col justify-center">
+                <div className="md:col-span-3 p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col justify-center">
                   <p className="font-heading text-xs tracking-[0.4em] text-primary font-semibold mb-3">EXCLUSIVE FOUNDING MEMBER GIVEAWAY</p>
-                  <h3 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-[0.9] mb-6">
+                  <h3 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground leading-[0.9] mb-6">
                     WIN A VIP TRIP<br />
                     <span className="text-gold-gradient">FOR TWO TO ISRAEL</span>
                   </h3>
