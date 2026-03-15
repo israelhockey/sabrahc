@@ -156,7 +156,7 @@ const articles = [
       "Significant renovations are underway at the One Ice Arena near Netanya, Israel's premier ice sports facility, to prepare it for professional-level hockey competition.",
       "The upgrades include improvements to the ice surface quality, enhanced lighting systems, updated player facilities including locker rooms and training areas, and expanded seating capacity to better accommodate game-day crowds.",
       "\"The One Ice Arena has been a cornerstone of Israeli ice sports,\" said facility management. \"These upgrades ensure it can serve as a proper home venue for professional hockey at the European level.\"",
-      "The renovation project is being coordinated with Sabra HC's timeline, with all major work expected to be completed before the club's August 2025 pre-season training camp.",
+      "The renovation project is being coordinated with Sabra HC's timeline, with all major work expected to be completed before the club's summer 2026 pre-season training camp.",
       "Additional improvements to fan amenities, including concession areas and merchandise retail space, are also part of the renovation plan.",
       "The One Ice Arena will serve as one of two home venues for Sabra HC, alongside the Blue Ice Arena in Ashdod, giving the club geographic reach across Israel."
     ],
