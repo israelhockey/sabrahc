@@ -28,7 +28,6 @@ const benefits = [
   { icon: Gift, title: "Founders Merch Pack", desc: "Official scarf, hat, and enamel pin — all Founders Edition exclusives." },
   { icon: Tv, title: "Digital Season Ticket", desc: "Full access to every game broadcast, replay, and behind-the-scenes content worldwide." },
   { icon: Tag, title: "20% Merch Discount", desc: "Lifetime discount on all Sabra HC merchandise as a founding member." },
-  { icon: Plane, title: "VIP Israel Trip Giveaway", desc: "Enter to win an all-expenses-paid trip for two to Israel — flights, hotel, VIP game access, and player meet-and-greets." },
   { icon: MapPin, title: "Founders Wall — Forever", desc: "Your name permanently displayed at the arena on the Sabra HC Founders Wall for all of history." },
 ];
 
@@ -256,6 +255,59 @@ const Founders = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* ── VIP TRIP GIVEAWAY HIGHLIGHT ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="mt-16 max-w-4xl mx-auto relative group"
+          >
+            {/* Glow border */}
+            <div className="absolute -inset-[2px] bg-gradient-to-r from-primary/60 via-gold-light/40 to-primary/60 rounded-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+
+            <div className="relative glass-card rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+                {/* Left — visual */}
+                <div className="relative p-10 md:p-14 flex flex-col items-center justify-center text-center bg-gradient-to-br from-primary/10 via-transparent to-primary/5">
+                  <motion.div
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                  >
+                    <div className="w-24 h-24 rounded-full bg-primary/15 flex items-center justify-center mb-6 mx-auto ring-2 ring-primary/30 ring-offset-2 ring-offset-background">
+                      <Plane className="w-12 h-12 text-primary" />
+                    </div>
+                  </motion.div>
+                  <p className="font-heading text-xs tracking-[0.4em] text-primary font-semibold">EXCLUSIVE GIVEAWAY</p>
+                </div>
+
+                {/* Right — details */}
+                <div className="p-10 md:p-14">
+                  <h3 className="font-display text-3xl md:text-4xl text-foreground mb-4 leading-tight">
+                    WIN A VIP TRIP<br />
+                    <span className="text-gold-gradient">TO ISRAEL</span>
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    Every founding member is automatically entered to win an <span className="text-foreground font-semibold">all-expenses-paid trip for two to Israel</span> — round-trip flights, luxury hotel, VIP game-day access with behind-the-bench seats, and private player meet-and-greets.
+                  </p>
+                  <ul className="space-y-3">
+                    {["Round-trip flights for two", "Luxury hotel accommodation", "VIP game-day access & behind-the-bench seats", "Private player meet-and-greets"].map((item) => (
+                      <li key={item} className="flex items-center gap-3 text-sm text-foreground/90">
+                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                          <Check className="w-3 h-3 text-primary" />
+                        </div>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs text-primary/80 font-heading tracking-wider mt-6">
+                    ✦ INCLUDED WITH EVERY $600 FOUNDING MEMBERSHIP
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
