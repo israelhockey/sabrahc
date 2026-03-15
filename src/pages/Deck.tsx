@@ -635,7 +635,7 @@ const Deck = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { icon: Ticket, title: "Ticket Sales", desc: "20 home games · 1,000 seats per game" },
+                { icon: Ticket, title: "Ticket Sales", desc: "20 home games · 500–1,000 seats per game" },
                 { icon: ShoppingBag, title: "Merchandise", desc: "Team jerseys · Fan apparel · Online store" },
                 { icon: Tv, title: "Digital Broadcasting", desc: "Season streaming pass · International fans" },
                 { icon: Building2, title: "Corporate Sponsorships", desc: "Local Israeli businesses · International Jewish brands" },
