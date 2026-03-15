@@ -62,7 +62,7 @@ const articles: {
 
       { type: "heading", text: "What It Means to Be a Sabra" },
 
-      "The name 'Sabra' was chosen with deep intention. In Hebrew, a Sabra — צבר — refers to a native-born Israeli, derived from the sabra cactus fruit: tough and thorny on the outside, sweet and soft on the inside. It's the perfect metaphor for the Israeli spirit, and it captures exactly what this club is about. We are resilient. We are proud. And we are ready to compete.",
+      "The name 'Sabra' was chosen with deep intention. In Hebrew, a Sabra — סברה — refers to a native-born Israeli, derived from the sabra cactus fruit: tough and thorny on the outside, sweet and soft on the inside. It's the perfect metaphor for the Israeli spirit, and it captures exactly what this club is about. We are resilient. We are proud. And we are ready to compete.",
 
       { type: "pullquote", text: "The Sabra identity is woven into everything we do. From the name to the crest to the culture we're building — this club is a reflection of Israel itself. Tough, determined, and full of heart." },
 
