@@ -130,7 +130,7 @@ const Deck = () => {
         <motion.div className="container relative z-10 px-4 text-center" style={{ opacity: heroOpacity }}>
           <motion.img
             src={logoImg}
-            alt="Jerusalem HC"
+            alt="Sabra HC"
             className="w-28 h-28 md:w-40 md:h-40 object-contain mx-auto mb-8 drop-shadow-2xl"
             initial={{ opacity: 0, scale: 0.4, rotateY: 180 }}
             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
