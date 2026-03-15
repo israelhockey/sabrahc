@@ -22,7 +22,7 @@ const HeroSection = () => {
 
       <IceParticles count={50} />
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse,hsla(40,49%,54%,0.15)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse,hsla(45,90%,50%,0.12)_0%,transparent_70%)] pointer-events-none" />
 
       <motion.div className="container relative z-10 text-center px-4" style={{ y: textY, opacity }}>
         <motion.img

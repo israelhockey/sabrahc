@@ -92,7 +92,7 @@ const TeamIdentitySection = () => {
             <div className="glass-card rounded-xl p-8">
               <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Team Colors</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Navy Blue and Gold — representing the deep desert night sky and the golden sands of Israel.
+                Navy Blue and Gold — representing the deep desert night sky and the golden sands of Israel. Green for the Sabra cactus — tough on the outside, sweet on the inside.
               </p>
               <div className="flex gap-6">
                 {colors.map((c) => (

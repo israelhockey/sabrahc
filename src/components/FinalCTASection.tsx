@@ -21,7 +21,7 @@ const FinalCTASection = () => {
   return (
     <section className="py-28 md:py-40 bg-arena-glow relative overflow-hidden">
       <IceParticles count={25} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,hsla(40,49%,54%,0.1)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,hsla(45,90%,50%,0.08)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="container px-4 relative z-10 text-center">
         <motion.div

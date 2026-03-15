@@ -10,7 +10,7 @@ const features = [
 
 const GameExperienceSection = () => (
   <section className="py-24 md:py-32 relative overflow-hidden">
-    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,hsla(200,60%,50%,0.06)_0%,transparent_50%)] pointer-events-none" />
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,hsla(130,50%,40%,0.06)_0%,transparent_50%)] pointer-events-none" />
 
     <div className="container px-4 relative z-10">
       <motion.div
