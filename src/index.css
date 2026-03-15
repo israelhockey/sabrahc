@@ -32,13 +32,15 @@
 
     --border: 214 25% 18%;
     --input: 214 25% 18%;
-    --ring: 40 49% 54%;
+    --ring: 45 90% 50%;
 
     --radius: 0.25rem;
 
-    --gold: 40 49% 54%;
-    --gold-light: 40 55% 70%;
-    --gold-dark: 40 45% 40%;
+    --gold: 45 90% 50%;
+    --gold-light: 45 95% 65%;
+    --gold-dark: 42 80% 38%;
+    --green: 130 50% 40%;
+    --green-light: 130 45% 55%;
     --navy: 214 65% 8%;
     --navy-light: 214 50% 16%;
     --navy-dark: 214 70% 5%;
@@ -46,12 +48,12 @@
 
     --sidebar-background: 214 65% 8%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 40 49% 54%;
+    --sidebar-primary: 45 90% 50%;
     --sidebar-primary-foreground: 214 65% 8%;
     --sidebar-accent: 214 50% 16%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 214 25% 18%;
-    --sidebar-ring: 40 49% 54%;
+    --sidebar-ring: 45 90% 50%;
   }
 }
 
