@@ -134,7 +134,7 @@ const articles = [
     readTime: "3 min read",
     image: newsJerseys,
     body: [
-      "Sabra HC has unveiled its official home jersey for the inaugural 2025-26 season, and the response from the hockey community has been overwhelmingly positive.",
+      "Sabra HC has unveiled its official home jersey for the inaugural 2026-27 season, and the response from the hockey community has been overwhelmingly positive.",
       "The home jersey features a deep navy base with gold and white accents, prominently displaying the Sabra Lion crest at the center. The cactus shoulder patches and Star of David details connect the team to its Israeli roots.",
       "\"Our jerseys tell a story,\" said the design team. \"Every element — from the Sabra lion crest to the cactus patches — connects the player wearing it to the spirit of Israel. Born in the desert, tough on the outside, sweet on the inside. That's the Sabra identity.\"",
       "The jersey features 'Born in the Desert' stitched inside the collar, a nod to the team's motto and the Sabra spirit that defines Israeli culture.",
