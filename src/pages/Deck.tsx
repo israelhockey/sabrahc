@@ -385,7 +385,7 @@ const Deck = () => {
                 className="relative group"
               >
                 <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <img src={jerseysImg} alt="Jerusalem HC jerseys" className="relative w-full rounded-xl border border-border shadow-2xl" />
+                <img src={jerseysImg} alt="Sabra HC jerseys" className="relative w-full rounded-xl border border-border shadow-2xl" />
               </motion.div>
 
               <div className="space-y-6">
