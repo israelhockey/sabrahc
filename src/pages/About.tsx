@@ -254,35 +254,35 @@ const About = () => {
 
       <div className="section-divider" />
 
-      {/* ════════ THE ALIYAH PATHWAY — FULL WIDTH IMMERSIVE ════════ */}
+      {/* ════════ THE PATHWAY — FULL WIDTH IMMERSIVE ════════ */}
       <section className="relative overflow-hidden">
-        <div className="relative min-h-[60vh] md:min-h-[70vh] overflow-hidden">
+        <div className="relative min-h-[80vh] md:min-h-[70vh] overflow-hidden">
           <img src={actionImg} alt="Hockey action" className="w-full h-full object-cover absolute inset-0" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
 
           <div className="absolute inset-0 flex items-center">
-            <div className="container px-4">
+            <div className="container px-4 py-16 md:py-0">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="max-w-2xl"
               >
-                <p className="text-primary font-heading text-sm tracking-[0.4em] mb-4 font-semibold">THE PATHWAY</p>
-                <h2 className="font-display text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.9] mb-6">
-                  COME TO ISRAEL<br />
-                  <span className="text-gold-gradient">PLAY PRO HOCKEY</span>
+                <p className="text-primary font-heading text-xs md:text-sm tracking-[0.4em] mb-4 font-semibold">THE PATHWAY</p>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.9] mb-6">
+                  A NEW ERA FOR<br />
+                  <span className="text-gold-gradient">HOCKEY IN ISRAEL</span>
                 </h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed max-w-xl">
+                <div className="space-y-4 text-muted-foreground leading-relaxed max-w-xl text-sm md:text-base">
                   <p>
-                    For Jewish hockey players, Sabra HC is the <span className="text-foreground font-semibold">first real professional pathway to Israel</span>. Make aliyah. Live in Israel. Play the sport you love — at the highest level.
+                    Sabra HC represents a <span className="text-foreground font-semibold">professional pathway to Israel through hockey</span>. For Jewish players around the world, it's the chance to make aliyah while competing at the highest level — building a life in Israel doing what they love.
                   </p>
                   <p>
-                    And just like Israeli basketball and soccer attract international stars from around the world, Sabra HC will bring <span className="text-foreground font-semibold">non-Jewish players to Israel too</span> — giving them the chance to experience Israeli culture, live in the country, and compete professionally. Hockey becomes a bridge.
+                    And just like Israeli basketball and soccer have drawn international talent for decades, Sabra HC opens the door for <span className="text-foreground font-semibold">players of all backgrounds</span> to experience Israeli culture, live in the country, and compete professionally. Hockey becomes a bridge between nations.
                   </p>
-                  <p className="text-foreground font-medium text-lg">
+                  <p className="text-foreground font-medium text-base md:text-lg">
                     You have to start somewhere. We're starting here.
                   </p>
                 </div>
@@ -292,19 +292,19 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="flex flex-wrap gap-3 mt-8"
+                  className="flex flex-wrap gap-2 sm:gap-3 mt-6 md:mt-8"
                 >
-                  <div className="glass-card rounded-lg px-5 py-3 flex items-center gap-2">
+                  <div className="glass-card rounded-lg px-4 sm:px-5 py-2.5 sm:py-3 flex items-center gap-2">
                     <Plane className="w-4 h-4 text-primary" />
-                    <span className="text-xs font-heading tracking-wider text-foreground">ALIYAH ROUTE</span>
+                    <span className="text-[10px] sm:text-xs font-heading tracking-wider text-foreground">ALIYAH ROUTE</span>
                   </div>
-                  <div className="glass-card rounded-lg px-5 py-3 flex items-center gap-2">
+                  <div className="glass-card rounded-lg px-4 sm:px-5 py-2.5 sm:py-3 flex items-center gap-2">
                     <Globe className="w-4 h-4 text-accent" />
-                    <span className="text-xs font-heading tracking-wider text-foreground">INTERNATIONAL IMPORTS</span>
+                    <span className="text-[10px] sm:text-xs font-heading tracking-wider text-foreground">INTERNATIONAL IMPORTS</span>
                   </div>
-                  <div className="glass-card rounded-lg px-5 py-3 flex items-center gap-2">
+                  <div className="glass-card rounded-lg px-4 sm:px-5 py-2.5 sm:py-3 flex items-center gap-2">
                     <Star className="w-4 h-4 text-primary" />
-                    <span className="text-xs font-heading tracking-wider text-foreground">LOCAL U20 DEVELOPMENT</span>
+                    <span className="text-[10px] sm:text-xs font-heading tracking-wider text-foreground">LOCAL U20 DEVELOPMENT</span>
                   </div>
                 </motion.div>
               </motion.div>
