@@ -678,7 +678,7 @@ const Deck = () => {
                   </div>
                   <CheckList
                     items={[
-                      "Official Jerusalem HC Founders Edition jersey",
+                      "Official Sabra HC Founders Edition jersey",
                       "Founders merchandise pack (scarf, hat, pin)",
                       "Digital season pass — all broadcasts & replays",
                       "Exclusive behind-the-scenes team content",
