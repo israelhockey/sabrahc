@@ -33,10 +33,10 @@ const benefits = [
 ];
 
 const reasons = [
-  { icon: Globe, title: "A Pathway to Israel", desc: "Sabra HC creates a real professional route for Jewish hockey players worldwide to make aliyah and build their lives in Israel while competing at the highest level." },
-  { icon: Heart, title: "Growing the Sport", desc: "You're not just supporting a team — you're building a development pipeline for local Israeli youth and ensuring the next generation has a future in hockey." },
-  { icon: Trophy, title: "Making History", desc: "Israel has world-class soccer and basketball leagues. It's time hockey joined them. You'll be part of the team that made it happen." },
-  { icon: Users, title: "500 People. One Mission.", desc: "This isn't a donation — it's a founding stake in Israel's first professional hockey club. Only 500 spots exist. Ever." },
+  { icon: Globe, title: "A Pathway to Israel", desc: "Sabra HC creates a real professional route for Jewish hockey players worldwide to make aliyah and build their lives in Israel while competing at the highest level. Play pro hockey. Live in Israel. Both at the same time." },
+  { icon: Heart, title: "Growing the Sport Locally", desc: "You're not just supporting a team — you're building a development pipeline for local Israeli youth and ensuring the next generation has a real future in hockey. Every shekel goes back into the sport." },
+  { icon: Trophy, title: "A Fully Professional Club", desc: "All players are professionals. The team operates as a fully professional organization in every aspect — coaching, training, travel, competition, and player development. No shortcuts." },
+  { icon: Users, title: "Federation-Operated", desc: "Sabra HC is not owned by any one person. It is operated by the Israel Ice Hockey Federation and exists solely to grow Israeli hockey at every level — from youth programs to international competition." },
 ];
 
 const faqs = [
