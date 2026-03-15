@@ -386,10 +386,10 @@ const Founders = () => {
 
                 <div className="space-y-3">
                   <button className="w-full py-5 rounded-xl font-heading text-base font-bold tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 transition-all gold-glow">
-                    PAY ${CAMPAIGN.membershipPrice} — JOIN NOW
+                    PAY ${CAMPAIGN.membershipPrice}/YEAR — JOIN NOW
                   </button>
                   <button className="w-full py-5 rounded-xl font-heading text-sm font-semibold tracking-wider border border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary/50 transition-all">
-                    PAY {CAMPAIGN.installmentCount}× ${CAMPAIGN.installmentPrice} — INSTALLMENTS
+                    PAY {CAMPAIGN.installmentCount}× ${CAMPAIGN.installmentPrice}/YEAR — INSTALLMENTS
                   </button>
                 </div>
 
