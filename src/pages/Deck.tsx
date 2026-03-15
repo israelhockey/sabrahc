@@ -394,7 +394,7 @@ const Deck = () => {
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                       <Shield className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="font-heading text-lg tracking-wider text-foreground">Symbol: The Lion of Jerusalem</h3>
+                    <h3 className="font-heading text-lg tracking-wider text-foreground">Symbol: The Sabra Lion</h3>
                   </div>
                   <BulletList
                     items={[
