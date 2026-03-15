@@ -5,7 +5,8 @@ import logoImg from "@/assets/sabra-logo.png";
 
 const colors = [
   { name: "Navy Blue", hex: "#0B1F3B", tw: "bg-navy" },
-  { name: "Gold", hex: "#C8A44D", tw: "bg-primary" },
+  { name: "Gold", hex: "#EAB308", tw: "bg-primary" },
+  { name: "Green", hex: "#3D9952", tw: "bg-accent" },
   { name: "White", hex: "#FFFFFF", tw: "bg-foreground" },
 ];
 
