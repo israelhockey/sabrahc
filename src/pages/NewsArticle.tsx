@@ -96,7 +96,7 @@ const articles: {
 
       "For non-Jewish international players, Sabra HC offers a unique professional opportunity — the chance to compete at a high level while experiencing life in one of the world's most dynamic countries. Israel's professional sports landscape has proven this model works. Basketball and soccer clubs like Maccabi Tel Aviv and Hapoel have attracted international talent for decades. Now hockey joins that tradition.",
 
-      { type: "image", src: sabraJerseys, alt: "Sabra HC official navy and gold jerseys", caption: "The official Sabra HC jerseys — navy, gold, and green representing the desert night sky, golden sands, and the Sabra cactus.", wide: true },
+      { type: "image", src: collageJerseys, alt: "Sabra HC official jersey reveal with crest details", caption: "Every stitch tells a story — the official Sabra HC jerseys feature the Lion of Judah crest, cactus patches, and the Israeli flag.", wide: true },
 
       { type: "heading", text: "Home Ice" },
 
