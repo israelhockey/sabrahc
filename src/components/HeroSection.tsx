@@ -16,13 +16,13 @@ const HeroSection = () => {
     <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <img src={arenaImg} alt="" className="w-full h-[130%] object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
       </motion.div>
 
       <IceParticles count={50} />
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse,hsla(40,49%,54%,0.15)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse,hsla(45,90%,50%,0.12)_0%,transparent_70%)] pointer-events-none" />
 
       <motion.div className="container relative z-10 text-center px-4" style={{ y: textY, opacity }}>
         <motion.img

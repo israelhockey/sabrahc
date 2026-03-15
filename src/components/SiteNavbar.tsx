@@ -42,7 +42,7 @@ const SiteNavbar = () => {
   return (
     <>
       {/* Top accent bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-gradient-to-r from-primary via-gold-light to-primary" />
+      <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-gradient-to-r from-green via-primary to-green" />
 
       <nav
         className={`fixed top-1 left-0 right-0 z-50 transition-all duration-300 ${

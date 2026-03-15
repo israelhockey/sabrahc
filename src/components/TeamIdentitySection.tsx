@@ -5,7 +5,8 @@ import logoImg from "@/assets/sabra-logo.png";
 
 const colors = [
   { name: "Navy Blue", hex: "#0B1F3B", tw: "bg-navy" },
-  { name: "Gold", hex: "#C8A44D", tw: "bg-primary" },
+  { name: "Gold", hex: "#EAB308", tw: "bg-primary" },
+  { name: "Green", hex: "#3D9952", tw: "bg-accent" },
   { name: "White", hex: "#FFFFFF", tw: "bg-foreground" },
 ];
 
@@ -14,8 +15,8 @@ const TeamIdentitySection = () => {
 
   return (
     <section id="identity" className="py-24 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,hsla(40,49%,54%,0.06)_0%,transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,hsla(200,60%,50%,0.04)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,hsla(45,90%,50%,0.06)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,hsla(130,50%,40%,0.05)_0%,transparent_50%)] pointer-events-none" />
 
       <div className="container px-4 relative z-10">
         <motion.div
@@ -91,7 +92,7 @@ const TeamIdentitySection = () => {
             <div className="glass-card rounded-xl p-8">
               <h3 className="font-heading text-xl font-semibold text-foreground mb-4">Team Colors</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Navy Blue and Gold — representing the deep desert night sky and the golden sands of Israel.
+                Navy Blue and Gold — representing the deep desert night sky and the golden sands of Israel. Green for the Sabra cactus — tough on the outside, sweet on the inside.
               </p>
               <div className="flex gap-6">
                 {colors.map((c) => (
