@@ -143,7 +143,7 @@ const Deck = () => {
           >
             <p className="text-primary font-heading text-xs tracking-[0.5em] mb-4 font-semibold">FOUNDING INVESTOR DECK</p>
             <h1 className="font-display text-6xl md:text-8xl lg:text-[10rem] leading-[0.8] tracking-tight">
-              <span className="text-gold-gradient">JERUSALEM</span>
+              <span className="text-gold-gradient">SABRA</span>
             </h1>
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground tracking-[0.12em] mt-2">
               HOCKEY CLUB
