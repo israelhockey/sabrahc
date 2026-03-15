@@ -1005,7 +1005,7 @@ const Deck = () => {
                 </span>
               </Link>
               <a
-                href="mailto:info@jerusalemhc.com"
+                href="mailto:info@sabrahc.com"
                 className="px-12 py-5 font-heading text-sm font-semibold tracking-wider border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all gold-border-glow"
               >
                 CONTACT US
