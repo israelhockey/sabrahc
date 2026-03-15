@@ -751,16 +751,28 @@ const Deck = () => {
                   ]}
                 />
               </GlassCard>
-              <GlassCard delay={0.15}>
-                <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">EXPECTED GOVERNMENT SUPPORT</h3>
-                <div className="bg-primary/5 border border-primary/15 rounded-lg p-6 text-center mb-6">
-                  <p className="font-display text-4xl text-gold-gradient">~₪100K</p>
-                  <p className="text-xs text-muted-foreground mt-1">Annually</p>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Government funding through Israel's sports development programs will provide consistent annual support for the club's operations and development programs.
-                </p>
-              </GlassCard>
+              <div className="space-y-4">
+                <GlassCard delay={0.15}>
+                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">EXPECTED SPONSORSHIP REVENUE</h3>
+                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-6 text-center mb-6">
+                    <p className="font-display text-4xl text-gold-gradient">₪200K</p>
+                    <p className="text-xs text-muted-foreground mt-1">On top of ₪1M capital</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Corporate sponsorships from local and international brands will generate an additional ₪200,000 NIS in revenue beyond the initial capital target.
+                  </p>
+                </GlassCard>
+                <GlassCard delay={0.25}>
+                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">EXPECTED GOVERNMENT SUPPORT</h3>
+                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-6 text-center mb-6">
+                    <p className="font-display text-4xl text-gold-gradient">~₪100K</p>
+                    <p className="text-xs text-muted-foreground mt-1">Annually</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Government funding through Israel's sports development programs will provide consistent annual support for the club's operations and development programs.
+                  </p>
+                </GlassCard>
+              </div>
             </div>
           </div>
         </div>
