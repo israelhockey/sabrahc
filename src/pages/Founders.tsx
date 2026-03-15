@@ -99,17 +99,17 @@ const Founders = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
+            className="flex flex-col sm:flex-row gap-3 justify-center mt-10 px-4"
           >
             <a
               href="#join"
-              className="px-12 py-5 font-heading text-base font-semibold tracking-wider rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all gold-glow"
+              className="px-8 sm:px-12 py-4 sm:py-5 font-heading text-sm sm:text-base font-semibold tracking-wider rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all gold-glow text-center"
             >
               BECOME A FOUNDER — ${CAMPAIGN.membershipPrice}
             </a>
             <a
               href="#why"
-              className="px-12 py-5 font-heading text-base font-semibold tracking-wider rounded-full border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all"
+              className="px-8 sm:px-12 py-4 sm:py-5 font-heading text-sm sm:text-base font-semibold tracking-wider rounded-full border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all text-center"
             >
               WHY JOIN?
             </a>
