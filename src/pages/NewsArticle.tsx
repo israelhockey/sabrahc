@@ -57,7 +57,7 @@ const articles = [
 
       "\"The atmosphere we want to create is unlike anything Israeli hockey has seen,\" said the club. \"We want packed stands, we want energy, we want families and kids and die-hard fans who live and breathe this team. We want to build a hockey culture in Israel that rivals what you see in Prague, Helsinki, or Montreal.\"",
 
-      "The 2025-26 season will be our inaugural campaign, and while the journey is just beginning, the ambition is clear: compete immediately, develop relentlessly, and build something that lasts. This is not a vanity project. This is not a one-season experiment. Sabra HC is being built with the operational rigor of a professional sports organization — a full-time coaching staff, professional training facilities, structured competition, and the administrative backbone to sustain long-term growth.",
+      "The inaugural 2026-27 season will kick off in September 2026 and run through March 2027. While the journey is just beginning, the ambition is clear: compete immediately, develop relentlessly, and build something that lasts. This is not a vanity project. This is not a one-season experiment. Sabra HC is being built with the operational rigor of a professional sports organization — a full-time coaching staff, professional training facilities, structured competition, and the administrative backbone to sustain long-term growth.",
 
       "We are calling on fans, supporters, and believers in this vision to join us from the ground floor. Our Founding Membership program offers exclusive access, recognition, and the chance to say you were there from the very beginning. History is being written, and every founding member's name will be part of it.",
 
