@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, ArrowLeft, Calendar, Clock } from "lucide-react";
 
+import newsAnnouncement from "@/assets/news-announcement.jpg";
 import newsSigning from "@/assets/news-signing.jpg";
 import newsTraining from "@/assets/news-training.jpg";
 import newsLeague from "@/assets/news-league.jpg";
@@ -10,6 +11,62 @@ import newsArena from "@/assets/news-arena.jpg";
 import newsYouth from "@/assets/news-youth.jpg";
 
 const articles = [
+  {
+    id: 0,
+    slug: "introducing-sabra-hockey-club",
+    title: "Introducing Sabra Hockey Club: Born in the Desert, Built for the Ice",
+    excerpt: "Israel's first professional hockey club is here. Sabra HC is more than a team — it's a movement to elevate Israeli hockey, create pathways for Jewish athletes worldwide, and build a lasting legacy on the ice.",
+    category: "ANNOUNCEMENT",
+    date: "March 15, 2025",
+    readTime: "8 min read",
+    image: newsAnnouncement,
+    body: [
+      "Today marks a historic moment for the sport of ice hockey in the State of Israel. After decades of grassroots passion, international competition, and the tireless dedication of players, coaches, and families who kept the dream alive — we are proud to officially introduce Sabra Hockey Club, Israel's first professional ice hockey organization.",
+
+      "This is not just the birth of a hockey team. This is the beginning of a new era.",
+
+      "For over 40 years, Israeli hockey has existed in the margins — a sport played by passionate athletes who traveled abroad to pursue their dreams, competed on the international stage under the Israeli flag, and returned home to a country that had no professional league to offer them. Talented players were forced to leave Israel to develop their careers, and many never came back. The pipeline led outward, and the talent drain was real.",
+
+      "Sabra HC was created to reverse that trajectory. To give Israeli hockey players a reason to stay. To build something professional, competitive, and enduring right here at home.",
+
+      "The name 'Sabra' was chosen with deep intention. In Hebrew, a Sabra — צבר — refers to a native-born Israeli, derived from the sabra cactus fruit: tough and thorny on the outside, sweet and soft on the inside. It's the perfect metaphor for the Israeli spirit, and it captures exactly what this club is about. We are resilient. We are proud. And we are ready to compete.",
+
+      "\"The Sabra identity is woven into everything we do,\" said the club's founding team. \"From the name to the crest to the culture we're building — this club is a reflection of Israel itself. Tough, determined, and full of heart.\"",
+
+      "At the center of our crest stands the Lion of Judah — an ancient symbol of strength, courage, and leadership that has represented the Jewish people for millennia. The lion is not just a mascot; it is a declaration. It says that we are here, we are fierce, and we will not be outworked. The shield that frames the lion represents protection and unity, and the gold and navy colorway connects the club to both royalty and the deep blue of the Mediterranean that borders our homeland.",
+
+      "Every element of the crest was designed to tell a story. The cactus motifs that appear throughout our branding are a direct nod to the Sabra spirit — born in the harshest conditions, thriving against all odds. The Star of David, subtly integrated into the design, anchors the club to its Jewish and Israeli roots. This is a crest meant to be worn with pride, whether you're on the ice in Budapest or watching from a living room in Tel Aviv.",
+
+      "But Sabra HC is about far more than symbolism. At its core, this club exists to solve a real problem: the absence of a professional hockey infrastructure in Israel.",
+
+      "For years, Israeli players who wanted to pursue hockey at the highest level had only one option — leave the country. Move to Canada, the United States, or Europe. Train in foreign systems, play for foreign clubs, and hope for a shot. Many of these athletes are Israeli-born. Many are Jewish players from the diaspora who dream of connecting to Israel. Until now, there was no professional pathway that kept them here or brought them home.",
+
+      "Sabra HC changes that. We are building a club that operates under the Israel Ice Hockey Federation, competing in the European Interleague Hockey League alongside teams from Romania, Hungary, and Serbia. Our roster will feature 15-17 Israeli players, 3-5 international imports, and 5 local U20 development players — a structure designed to be both competitive and developmental.",
+
+      "\"We want to be the club that young Israeli players dream of playing for,\" said the front office. \"And we want to be the club that Jewish athletes around the world see as their bridge to Israel. Hockey can be the vehicle for Aliyah, for connection, for belonging.\"",
+
+      "This vision extends beyond current players. Sabra HC is establishing a formal development foundation — a structured pipeline that takes young Israeli players from their first skating lessons to professional competition. Through partnerships with the Israeli Ice Hockey Federation, we will run youth camps, coaching clinics, scouting networks, and junior development programs that create a clear pathway from grassroots to the professional roster.",
+
+      "The development program is not an afterthought. It is the foundation of everything we're building. A professional club without youth development is a short-term project. We are building for generations.",
+
+      "For Jewish hockey players around the world — in North America, Europe, and beyond — Sabra HC represents something unprecedented: a professional hockey club in Israel that can facilitate Aliyah through sport. Players can pursue their athletic careers while building a life in Israel, contributing to the country's sporting landscape, and connecting to their heritage in the most tangible way possible.",
+
+      "For non-Jewish international players, Sabra HC offers a unique professional opportunity — the chance to compete in a growing European league while experiencing life in one of the world's most dynamic countries. Israel's professional sports landscape has proven this model works. Basketball and soccer clubs like Maccabi Tel Aviv and Hapoel have attracted international talent for decades. Now hockey joins that tradition.",
+
+      "Our home will be the One Ice Arena near Netanya — Israel's largest ice facility, currently undergoing upgrades to meet European professional standards — with additional games hosted at the Blue Ice Arena in Ashdod. Together, these venues give the club geographic reach across Israel and the capacity to build a true fan culture from day one.",
+
+      "\"The atmosphere we want to create is unlike anything Israeli hockey has seen,\" said the club. \"We want packed stands, we want energy, we want families and kids and die-hard fans who live and breathe this team. We want to build a hockey culture in Israel that rivals what you see in Prague, Helsinki, or Montreal.\"",
+
+      "The 2025-26 season will be our inaugural campaign, and while the journey is just beginning, the ambition is clear: compete immediately, develop relentlessly, and build something that lasts. This is not a vanity project. This is not a one-season experiment. Sabra HC is being built with the operational rigor of a professional sports organization — a full-time coaching staff, professional training facilities, structured competition, and the administrative backbone to sustain long-term growth.",
+
+      "We are calling on fans, supporters, and believers in this vision to join us from the ground floor. Our Founding Membership program offers exclusive access, recognition, and the chance to say you were there from the very beginning. History is being written, and every founding member's name will be part of it.",
+
+      "To the Israeli hockey community that has fought for this moment for four decades — this is for you. To the players who left home because there was nowhere to play — we're building your home. To the young kids lacing up skates for the first time in Metula, Holon, or Bat Yam — your dream just got a whole lot closer.",
+
+      "Born in the desert. Built for the ice. Welcome to Sabra Hockey Club.",
+    ],
+    featured: true,
+  },
   {
     id: 1,
     slug: "sabra-hc-signs-alon-eizenman",
@@ -27,7 +84,7 @@ const articles = [
       "The forward is expected to be a key piece of the roster as the club prepares for its debut season in the European Interleague Hockey League (EIHL), competing against teams from Romania, Hungary, and Serbia.",
       "Additional roster announcements are expected in the coming weeks as the club continues to build a competitive squad for the upcoming season."
     ],
-    featured: true,
+    featured: false,
   },
   {
     id: 2,
