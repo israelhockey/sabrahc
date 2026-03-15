@@ -90,7 +90,7 @@ const Founders = () => {
               <span className="text-gold-gradient">FIRST 500</span>
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Sabra HC is Israel's first professional hockey club — a pathway for Jewish athletes to make aliyah and play at the highest level. Become a founding member and help write the first chapter.
+              Sabra HC is Israel's first fully professional hockey club — a pathway for Jewish athletes to make aliyah and play at the highest level. Your annual founding membership directly supports and grows professional hockey in Israel.
             </p>
           </motion.div>
 
