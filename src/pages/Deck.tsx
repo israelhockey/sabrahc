@@ -333,7 +333,7 @@ const Deck = () => {
                 <h3 className="font-heading text-lg tracking-wider text-foreground mb-4">Key Factors</h3>
                 <BulletList
                   items={[
-                    "Global visibility of Jerusalem as a world-renowned city",
+                    "Global visibility of Israel as a sports and culture destination",
                     "Strong government support for sports development",
                     "Growing youth hockey participation across Israel",
                     "Untapped professional sports market with massive potential",
