@@ -240,7 +240,7 @@ const Deck = () => {
                 items={[
                   "Build a sustainable professional hockey organization in Israel",
                   "Elevate Israeli players to international competition",
-                  "Establish Jerusalem HC as a global hockey brand",
+                  "Establish Sabra HC as a global hockey brand",
                   "Join a European professional league within 3–5 years",
                 ]}
               />
