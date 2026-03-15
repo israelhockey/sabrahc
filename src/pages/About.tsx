@@ -256,14 +256,14 @@ const About = () => {
 
       {/* ════════ THE PATHWAY — FULL WIDTH IMMERSIVE ════════ */}
       <section className="relative overflow-hidden">
-        <div className="relative min-h-[80vh] md:min-h-[70vh] overflow-hidden">
+        <div className="relative overflow-hidden">
           <img src={actionImg} alt="Hockey action" className="w-full h-full object-cover absolute inset-0" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
 
-          <div className="absolute inset-0 flex items-center">
-            <div className="container px-4 py-16 md:py-0">
+          <div className="relative z-10 py-20 md:py-32">
+            <div className="container px-4">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
