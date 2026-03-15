@@ -191,7 +191,7 @@ const Founders = () => {
               <span className="text-gold-gradient">IT'S A MOVEMENT</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-              Israel built world-class professional leagues in soccer and basketball. Now it's hockey's turn. Sabra HC is creating a professional pathway for Jewish athletes to make aliyah, compete at the highest level, and grow the sport for the next generation of Israeli kids.
+              Israel built world-class professional leagues in soccer and basketball. Now it's hockey's turn. Sabra HC is operated by the Israel Ice Hockey Federation — not owned by any individual — and exists to grow the sport at every level. Your founding membership creates a professional pathway for Jewish athletes to make aliyah, compete at the highest level, and inspire the next generation.
             </p>
           </motion.div>
 
