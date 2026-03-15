@@ -111,21 +111,28 @@ const Deck = () => {
   return (
     <div className="overflow-hidden">
       {/* ════════════ HERO ════════════ */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <motion.div className="absolute inset-0" style={{ y: bgY }}>
-          <img src={arenaImg} alt="" className="w-full h-[130%] object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
-        </motion.div>
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+        {/* Layered radial gradients instead of photo */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[1000px] bg-[radial-gradient(ellipse_at_center,hsla(40,55%,50%,0.12)_0%,transparent_55%)]" />
+          <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[radial-gradient(ellipse,hsla(40,50%,45%,0.06)_0%,transparent_60%)]" />
+          <div className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse,hsla(130,40%,35%,0.04)_0%,transparent_60%)]" />
+        </div>
 
-        {/* Gold radial pulse */}
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
+
+        {/* Animated gold line accents */}
         <motion.div
-          className="absolute inset-0 pointer-events-none"
-          animate={{ opacity: [0, 0.15, 0] }}
-          transition={{ duration: 4, repeat: Infinity, repeatDelay: 3 }}
-        >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-[radial-gradient(ellipse,hsl(40_55%_60%_/_0.25)_0%,transparent_60%)]" />
-        </motion.div>
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-gradient-to-b from-transparent via-primary/40 to-transparent"
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-gradient-to-t from-transparent via-primary/40 to-transparent"
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
+          transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
+        />
 
         <motion.div className="container relative z-10 px-4 text-center" style={{ opacity: heroOpacity }}>
           <motion.img
