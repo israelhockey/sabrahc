@@ -81,7 +81,7 @@ const articles = [
       "The 24-year-old Israeli forward brings a wealth of experience from his time with the Israeli national team, where he's been a consistent contributor in international competition. Known for his speed, vision, and finishing ability, Eizenman represents the caliber of player Sabra HC aims to build around.",
       "\"This is a historic moment for the club,\" said the Sabra HC front office. \"Alon embodies the spirit of what we're building — a player with deep roots in Israeli hockey who has the talent and drive to compete at the European level.\"",
       "Eizenman expressed his excitement about joining the project from the ground floor: \"To be the first player signed by Sabra HC is an incredible honor. I believe in the vision of this club and I want to be part of something special. We're going to put Israeli hockey on the map.\"",
-      "The forward is expected to be a key piece of the roster as the club prepares for its debut season in the European Interleague Hockey League (EIHL), competing against teams from Romania, Hungary, and Serbia.",
+      "The forward is expected to be a key piece of the roster as the club prepares for its debut season, competing against international teams from Romania, Hungary, Poland, and more.",
       "Additional roster announcements are expected in the coming weeks as the club continues to build a competitive squad for the upcoming season."
     ],
     featured: false,
