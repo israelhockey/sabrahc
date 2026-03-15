@@ -278,10 +278,13 @@ const Founders = () => {
               </h2>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  The founding membership is permanently capped at <span className="text-foreground font-semibold">500 people</span>. Once every spot is taken, the program closes — forever. There will never be another chance to be a founding member of Israel's first professional hockey club.
+                  The founding membership is permanently capped at <span className="text-foreground font-semibold">500 people</span>. Once every spot is taken, the program closes — forever. There will never be another chance to be a founding member of Israel's first fully professional hockey club.
                 </p>
                 <p>
-                  The first season is being built right now. The roster is forming. The arena is booked. The jerseys are being produced. Every founding member who joins today is part of the foundation that makes this real.
+                  Your annual membership funds a fully professional operation — paid players, full-time coaching staff, international travel, and youth development across Israel. The club is federation-operated, meaning every dollar goes into growing the sport, not lining anyone's pockets.
+                </p>
+                <p>
+                  The first season is being built right now. The roster of professional players is forming. The arena is booked. The jerseys are being produced. Every founding member who joins today is part of the foundation that makes this real.
                 </p>
                 <p className="text-foreground font-medium text-lg">
                   This is your chance to be part of something that has never existed before.
