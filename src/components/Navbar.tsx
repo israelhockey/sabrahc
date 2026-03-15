@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoImg from "@/assets/jhc-logo.png";
+import logoImg from "@/assets/sabra-logo.png";
 
 const NAV_LINKS = [
   { label: "Story", href: "#story" },
