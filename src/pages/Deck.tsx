@@ -969,7 +969,7 @@ const Deck = () => {
               THE FLAGSHIP HOCKEY CLUB <span className="text-gold-gradient">IN ISRAEL</span>
             </SectionTitle>
             <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-              Jerusalem HC will become the flagship hockey club in Israel. The organization will build a sustainable professional team
+              Sabra HC will become the flagship hockey club in Israel. The organization will build a sustainable professional team
               capable of competing internationally while developing the next generation of Israeli hockey players.
             </p>
           </motion.div>
