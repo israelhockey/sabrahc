@@ -983,12 +983,12 @@ const Deck = () => {
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
             <motion.img
               src={logoImg}
-              alt="Jerusalem HC"
+              alt="Sabra HC"
               className="w-24 h-24 md:w-32 md:h-32 object-contain mx-auto mb-8 drop-shadow-2xl"
             />
             <SectionLabel>16 — JOIN THE FOUNDERS</SectionLabel>
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-foreground leading-[0.85] mb-6">
-              JERUSALEM HC IS<br />
+              SABRA HC IS<br />
               <span className="text-gold-gradient">MORE THAN A TEAM</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg mb-10 leading-relaxed">
