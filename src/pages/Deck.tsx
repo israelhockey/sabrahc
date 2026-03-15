@@ -399,7 +399,7 @@ const Deck = () => {
                   <BulletList
                     items={[
                       "Lion of Judah symbolism — strength and resilience",
-                      "Western Wall stone crown — heritage and legacy",
+                      "Sabra cactus mane — tough on the outside, sweet on the inside",
                       "European professional hockey aesthetic",
                     ]}
                   />
