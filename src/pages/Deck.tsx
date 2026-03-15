@@ -706,7 +706,7 @@ const Deck = () => {
                         ✈️ VIP trip for two to Israel
                       </p>
                       <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed mt-1">
-                        🏒 Attend three Jerusalem HC home games
+                        🏒 Attend three Sabra HC home games
                       </p>
                       <p className="text-sm text-foreground font-heading tracking-wider leading-relaxed mt-1">
                         🏨 Flights, hotel & VIP access included
