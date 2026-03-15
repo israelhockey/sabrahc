@@ -28,7 +28,6 @@ const benefits = [
   { icon: Gift, title: "Founders Merch Pack", desc: "Official scarf, hat, and enamel pin — all Founders Edition exclusives." },
   { icon: Tv, title: "Digital Season Ticket", desc: "Full access to every game broadcast, replay, and behind-the-scenes content worldwide." },
   { icon: Tag, title: "20% Merch Discount", desc: "Lifetime discount on all Sabra HC merchandise as a founding member." },
-  { icon: Plane, title: "VIP Israel Trip Giveaway", desc: "Enter to win an all-expenses-paid trip for two to Israel — flights, hotel, VIP game access, and player meet-and-greets." },
   { icon: MapPin, title: "Founders Wall — Forever", desc: "Your name permanently displayed at the arena on the Sabra HC Founders Wall for all of history." },
 ];
 
