@@ -9,8 +9,8 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 const values = [
   { icon: Target, title: "Excellence", desc: "Pursuing the highest standards of professional hockey in every aspect of the organization." },
   { icon: Heart, title: "Community", desc: "Building a passionate fanbase and creating a sense of belonging through sport." },
-  { icon: Globe, title: "Representation", desc: "Putting Israel on the European hockey map and competing at the highest level." },
-  { icon: Star, title: "Development", desc: "Creating pathways for Israeli players to grow and compete professionally." },
+  { icon: Globe, title: "Pathway to Israel", desc: "Creating opportunities for Jewish hockey players worldwide to make aliyah and compete professionally — just like soccer and basketball." },
+  { icon: Star, title: "Development", desc: "Building pathways for Israeli and olim players to grow, compete, and represent Israel at the highest level." },
 ];
 
 const timeline = [
