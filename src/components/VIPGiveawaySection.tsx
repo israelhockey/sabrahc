@@ -3,7 +3,7 @@ import { Plane, Hotel, Ticket, Users, Star, Gift } from "lucide-react";
 
 const perks = [
   { icon: Plane, text: "Round-trip flights for two" },
-  { icon: Hotel, text: "Hotel accommodation in Jerusalem" },
+  { icon: Hotel, text: "Hotel accommodation in Israel" },
   { icon: Ticket, text: "VIP access to 3 home games" },
   { icon: Users, text: "Meet players and coaching staff" },
   { icon: Star, text: "Behind-the-scenes team experience" },
