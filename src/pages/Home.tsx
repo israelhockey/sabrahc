@@ -154,10 +154,10 @@ const Home = () => {
                 <span className="font-display text-2xl text-primary">VS</span>
                 <span className="font-heading text-lg tracking-wider text-foreground">{nextGame.opponent}</span>
               </div>
-              <div className="flex items-center gap-6 text-sm text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1.5"><Calendar size={14} className="text-primary" /> {nextGame.date}</span>
                 <span className="flex items-center gap-1.5"><Clock size={14} className="text-primary" /> {nextGame.time}</span>
-                <span className="flex items-center gap-1.5 hidden sm:flex"><MapPin size={14} className="text-primary" /> {nextGame.venue}</span>
+                <span className="hidden sm:flex items-center gap-1.5"><MapPin size={14} className="text-primary" /> {nextGame.venue}</span>
               </div>
               <Link
                 to="/schedule"

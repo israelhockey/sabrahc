@@ -317,7 +317,7 @@ const Founders = () => {
                 </div>
 
                 {/* Right — content (3 cols) */}
-                <div className="md:col-span-3 p-10 md:p-14 lg:p-16 flex flex-col justify-center">
+                <div className="md:col-span-3 p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col justify-center">
                   <p className="font-heading text-xs tracking-[0.4em] text-primary font-semibold mb-3">EXCLUSIVE FOUNDING MEMBER GIVEAWAY</p>
                   <h3 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground leading-[0.9] mb-6">
                     WIN A VIP TRIP<br />
