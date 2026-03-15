@@ -341,7 +341,7 @@ const Deck = () => {
                 />
               </GlassCard>
               <GlassCard delay={0.15}>
-                <h3 className="font-heading text-lg tracking-wider text-foreground mb-4">Jerusalem HC Will Serve As</h3>
+                <h3 className="font-heading text-lg tracking-wider text-foreground mb-4">Sabra HC Will Serve As</h3>
                 <div className="space-y-4">
                   {[
                     { icon: Globe, text: "Israel's flagship professional hockey team" },
