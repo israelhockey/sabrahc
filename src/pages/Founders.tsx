@@ -501,9 +501,9 @@ const Founders = () => {
               viewport={{ once: true }}
               className="text-center text-sm text-muted-foreground mt-8"
             >
-              Only <span className="text-primary font-bold">{spotsLeft}</span> of {CAMPAIGN.goalMembers} founding spots remaining.
+              Only <span className="text-primary font-bold">{spotsLeft}</span> of {CAMPAIGN.goalMembers} founding spots remaining this season.
               <br />
-              <span className="text-xs">This program will never reopen once all spots are claimed.</span>
+              <span className="text-xs">Once all spots are filled, registration closes and the raffle is drawn.</span>
             </motion.p>
           </div>
         </div>
