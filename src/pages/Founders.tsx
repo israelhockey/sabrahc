@@ -373,7 +373,7 @@ const Founders = () => {
               </h2>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  The founding membership is permanently capped at <span className="text-foreground font-semibold">500 people</span>. Once every spot is taken, the program closes — forever. There will never be another chance to be a founding member of Israel's first fully professional hockey club.
+                  The founding membership is capped at <span className="text-foreground font-semibold">500 members per year</span>. Once every spot for the season is taken, registration closes and the VIP Israel trip raffle is drawn. Don't wait — spots fill fast and you don't want to miss this year's draw.
                 </p>
                 <p>
                   Your annual membership funds a fully professional operation — paid players, full-time coaching staff, international travel, and youth development across Israel. The club is federation-operated, meaning every dollar goes into growing the sport, not lining anyone's pockets.
