@@ -156,7 +156,7 @@ const Founders = () => {
                   </motion.div>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  <span className="text-primary font-semibold">{spotsLeft}</span> spots remaining — then it's closed forever
+                  <span className="text-primary font-semibold">{spotsLeft}</span> spots remaining this season
                 </p>
               </div>
 
