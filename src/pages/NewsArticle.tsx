@@ -104,7 +104,7 @@ const articles: {
 
       { type: "pullquote", text: "The atmosphere we want to create is unlike anything Israeli hockey has seen. We want packed stands, we want energy, we want families and kids and die-hard fans who live and breathe this team." },
 
-      { type: "image", src: arenaHero, alt: "Professional ice hockey arena interior", caption: "The vision: a world-class hockey atmosphere on Israeli ice." },
+      { type: "image", src: collageArena, alt: "Home Ice Advantage — Sabra HC arena concept", caption: "Home ice advantage — world-class hockey atmosphere on Israeli ice.", wide: true },
 
       { type: "heading", text: "The 2026–27 Inaugural Season" },
 
