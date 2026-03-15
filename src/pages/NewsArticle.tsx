@@ -13,6 +13,9 @@ import sabraLogo from "@/assets/sabra-logo.png";
 import sabraJerseys from "@/assets/sabra-jerseys.png";
 import jhcAction from "@/assets/jhc-action.png";
 import arenaHero from "@/assets/arena-hero.jpg";
+import collageNewEra from "@/assets/collage-new-era.jpg";
+import collageJerseys from "@/assets/collage-jerseys.jpg";
+import collageArena from "@/assets/collage-arena.jpg";
 
 type BodyBlock =
   | string
