@@ -96,8 +96,8 @@ const articles = [
     readTime: "3 min read",
     image: newsTraining,
     body: [
-      "Sabra HC has officially announced that its inaugural pre-season training camp will take place at the One Ice Arena near Netanya, beginning August 15th, 2025.",
-      "The three-week camp will serve as the club's primary preparation period ahead of the 2025-26 EIHL season. Players will undergo fitness testing, tactical sessions, and intra-squad scrimmages to build chemistry and establish the team's playing identity.",
+      "Sabra HC has officially announced that its inaugural pre-season training camp will take place at the One Ice Arena near Netanya during the summer of 2026.",
+      "The camp will serve as the club's primary preparation period ahead of the 2026-27 season. Players will undergo fitness testing, tactical sessions, and intra-squad scrimmages to build chemistry and establish the team's playing identity.",
       "\"Training camp is where the real work begins,\" said the coaching staff. \"We'll use these three weeks to evaluate talent, build systems, and create the culture that will define Sabra HC.\"",
       "The One Ice Arena near Netanya, Israel's largest ice facility, is currently undergoing upgrades to meet European professional standards. The renovations are expected to be completed well in advance of the camp's start date.",
       "Fans will have the opportunity to attend select open practices during the camp period. Details on public access and fan events will be announced closer to the date.",
