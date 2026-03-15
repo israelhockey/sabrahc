@@ -3,8 +3,8 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ChevronRight, Target, Heart, Globe, Trophy, Star, Shield,
-  Users, Plane, MapPin, Calendar, Swords, Flag, Medal,
-  ArrowRight, Sparkles,
+  Users, Plane, MapPin, Flag, Medal,
+  ArrowRight,
 } from "lucide-react";
 import logoImg from "@/assets/sabra-logo.png";
 import jerseysImg from "@/assets/sabra-jerseys.png";
