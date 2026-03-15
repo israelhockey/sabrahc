@@ -256,54 +256,97 @@ const Founders = () => {
             ))}
           </div>
 
-          {/* ── VIP TRIP GIVEAWAY HIGHLIGHT ── */}
+          {/* ── VIP TRIP GIVEAWAY — FULL SPOTLIGHT ── */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="mt-16 max-w-4xl mx-auto relative group"
+            transition={{ duration: 0.8 }}
+            className="mt-20 max-w-5xl mx-auto relative"
           >
-            {/* Glow border */}
-            <div className="absolute -inset-[2px] bg-gradient-to-r from-primary/60 via-gold-light/40 to-primary/60 rounded-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+            {/* Outer animated glow */}
+            <motion.div
+              className="absolute -inset-1 rounded-3xl blur-xl pointer-events-none"
+              style={{ background: "linear-gradient(135deg, hsla(40,90%,50%,0.3), hsla(130,50%,40%,0.15), hsla(40,90%,50%,0.3))" }}
+              animate={{ opacity: [0.4, 0.8, 0.4] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
 
-            <div className="relative glass-card rounded-2xl overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-                {/* Left — visual */}
-                <div className="relative p-10 md:p-14 flex flex-col items-center justify-center text-center bg-gradient-to-br from-primary/10 via-transparent to-primary/5">
+            <div className="relative rounded-3xl overflow-hidden border border-primary/30">
+              {/* Background layers */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-background to-primary/10" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,hsla(40,90%,50%,0.15)_0%,transparent_50%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,hsla(130,50%,40%,0.08)_0%,transparent_50%)]" />
+              {/* Subtle sparkle grid */}
+              <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+
+              <div className="relative grid grid-cols-1 md:grid-cols-5 items-stretch">
+                {/* Left — dramatic visual (2 cols) */}
+                <div className="md:col-span-2 relative flex flex-col items-center justify-center py-16 px-8">
+                  {/* Rotating ring */}
                   <motion.div
-                    animate={{ y: [0, -8, 0] }}
+                    className="absolute w-44 h-44 rounded-full border border-dashed border-primary/20"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                  />
+                  <motion.div
+                    className="absolute w-56 h-56 rounded-full border border-dashed border-primary/10"
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+                  />
+
+                  {/* Icon with pulsing glow */}
+                  <motion.div
+                    animate={{ y: [0, -10, 0], scale: [1, 1.05, 1] }}
                     transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                    className="relative z-10"
                   >
-                    <div className="w-24 h-24 rounded-full bg-primary/15 flex items-center justify-center mb-6 mx-auto ring-2 ring-primary/30 ring-offset-2 ring-offset-background">
-                      <Plane className="w-12 h-12 text-primary" />
+                    <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center ring-4 ring-primary/20 shadow-[0_0_60px_hsla(40,90%,50%,0.3)]">
+                      <Plane className="w-14 h-14 text-primary drop-shadow-lg" />
                     </div>
                   </motion.div>
-                  <p className="font-heading text-xs tracking-[0.4em] text-primary font-semibold">EXCLUSIVE GIVEAWAY</p>
+
+                  <motion.p
+                    className="font-display text-2xl md:text-3xl text-gold-gradient mt-8 text-center"
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    ✦ GRAND PRIZE ✦
+                  </motion.p>
+                  <p className="font-heading text-xs tracking-[0.3em] text-primary/70 mt-2">EVERY FOUNDER IS ENTERED</p>
                 </div>
 
-                {/* Right — details */}
-                <div className="p-10 md:p-14">
-                  <h3 className="font-display text-3xl md:text-4xl text-foreground mb-4 leading-tight">
+                {/* Right — content (3 cols) */}
+                <div className="md:col-span-3 p-10 md:p-14 lg:p-16 flex flex-col justify-center">
+                  <p className="font-heading text-xs tracking-[0.4em] text-primary font-semibold mb-3">EXCLUSIVE FOUNDING MEMBER GIVEAWAY</p>
+                  <h3 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-[0.9] mb-6">
                     WIN A VIP TRIP<br />
-                    <span className="text-gold-gradient">TO ISRAEL</span>
+                    <span className="text-gold-gradient">FOR TWO TO ISRAEL</span>
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
-                    Every founding member is automatically entered to win an <span className="text-foreground font-semibold">all-expenses-paid trip for two to Israel</span> — round-trip flights, luxury hotel, VIP game-day access with behind-the-bench seats, and private player meet-and-greets.
+                  <p className="text-muted-foreground leading-relaxed mb-8 text-base">
+                    Every founding member is <span className="text-foreground font-semibold">automatically entered</span> to win the ultimate hockey experience — an all-expenses-paid trip for two to Israel to watch Sabra HC play live.
                   </p>
-                  <ul className="space-y-3">
-                    {["Round-trip flights for two", "Luxury hotel accommodation", "VIP game-day access & behind-the-bench seats", "Private player meet-and-greets"].map((item) => (
-                      <li key={item} className="flex items-center gap-3 text-sm text-foreground/90">
-                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                          <Check className="w-3 h-3 text-primary" />
-                        </div>
-                        {item}
-                      </li>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    {[
+                      { icon: Plane, text: "Round-trip flights for two" },
+                      { icon: Star, text: "Luxury hotel stay" },
+                      { icon: Trophy, text: "VIP behind-the-bench seats" },
+                      { icon: Users, text: "Private player meet & greets" },
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-center gap-3 bg-primary/5 border border-primary/15 rounded-lg px-4 py-3">
+                        <item.icon className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm text-foreground/90 font-medium">{item.text}</span>
+                      </div>
                     ))}
-                  </ul>
-                  <p className="text-xs text-primary/80 font-heading tracking-wider mt-6">
-                    ✦ INCLUDED WITH EVERY $600 FOUNDING MEMBERSHIP
-                  </p>
+                  </div>
+
+                  <div className="flex items-center gap-3 px-5 py-4 rounded-xl bg-gradient-to-r from-primary/15 to-primary/5 border border-primary/25">
+                    <Sparkles className="w-6 h-6 text-primary flex-shrink-0" />
+                    <p className="text-sm font-heading tracking-wider text-foreground">
+                      INCLUDED FREE WITH EVERY <span className="text-primary font-bold">$600</span> FOUNDING MEMBERSHIP
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
