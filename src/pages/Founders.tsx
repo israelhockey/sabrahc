@@ -90,8 +90,14 @@ const Founders = () => {
               <br />
               <span className="text-gold-gradient">FIRST 500</span>
             </h1>
-            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-primary font-heading text-xs md:text-sm tracking-[0.3em] mb-3 font-semibold">
+              "SABRA" — NATIVE ISRAELI
+            </p>
+            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-3">
               Sabra HC is Israel's first fully professional hockey club — a pathway for Jewish athletes to make aliyah and play at the highest level. Your annual founding membership directly supports and grows professional hockey in Israel.
+            </p>
+            <p className="text-gold-gradient font-heading text-base md:text-xl tracking-[0.15em] italic">
+              Born in the Desert. Built for the Ice.
             </p>
           </motion.div>
 
