@@ -282,7 +282,7 @@ const Founders = () => {
 
               <div className="relative grid grid-cols-1 md:grid-cols-5 items-stretch">
                 {/* Left — dramatic visual (2 cols) */}
-                <div className="md:col-span-2 relative flex flex-col items-center justify-center py-16 px-8">
+                <div className="md:col-span-2 relative flex flex-col items-center justify-center py-10 md:py-16 px-6 md:px-8">
                   {/* Rotating ring */}
                   <motion.div
                     className="absolute w-44 h-44 rounded-full border border-dashed border-primary/20"
