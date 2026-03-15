@@ -43,14 +43,13 @@ const pillars = [
   },
 ];
 
-const timeline = [
-  { year: "1986", title: "Hockey Arrives in Israel", desc: "Ice hockey begins in Israel with recreational leagues and the formation of the national federation.", icon: Flag },
-  { year: "2002", title: "IIHF Membership", desc: "Israel becomes a full member of the International Ice Hockey Federation, competing in Division III tournaments.", icon: Globe },
-  { year: "2018", title: "Canada Israel Hockey School", desc: "The CIHS launches in Israel, bringing North American coaching and development to Israeli youth players.", icon: Star },
-  { year: "2024", title: "The Vision is Born", desc: "The concept for Sabra HC is formalized — Israel's first fully professional hockey club.", icon: Sparkles },
-  { year: "2025", title: "Club Founded", desc: "Sabra HC officially launches. The Founding 500 membership opens. Brand, roster, and arena negotiations begin.", icon: Trophy },
-  { year: "2025-26", title: "Inaugural Season", desc: "Sabra HC competes in the EIHL and INHL — professional hockey on Israeli ice, against European competition.", icon: Swords },
-  { year: "2026+", title: "Growth & Legacy", desc: "Youth academies across Israel, a dedicated arena, deeper European integration, and a model for emerging hockey nations.", icon: Medal },
+const journeyHighlights = [
+  { icon: Medal, label: "International Medals", desc: "Israeli teams competing and medaling on the world stage across multiple IIHF divisions." },
+  { icon: Globe, label: "Global Networking", desc: "Connections built between Israeli hockey and federations across North America, Europe, and beyond." },
+  { icon: Users, label: "Development Camps", desc: "Training camps bringing world-class coaching to Israeli youth and building the next generation of players." },
+  { icon: Trophy, label: "League Growth", desc: "From recreational pick-up games to a structured, competitive national league with international participation." },
+  { icon: Star, label: "National Team Programs", desc: "Men's, women's, and junior national teams representing Israel in IIHF competition worldwide." },
+  { icon: Flag, label: "Cultural Identity", desc: "Hockey becoming part of the Israeli sports fabric — creating community, pride, and purpose on the ice." },
 ];
 
 const whyNow = [
