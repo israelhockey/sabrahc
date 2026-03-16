@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { submitSignup } from "@/lib/signup";
 import { Mail, ArrowRight, Check } from "lucide-react";
 
 const NewsletterSignup = () => {
