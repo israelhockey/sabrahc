@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import { submitSignup } from "@/lib/signup";
 import {
   Check,
   Plane,
