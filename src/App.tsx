@@ -38,6 +38,7 @@ const App = () => (
             <Route path="/founders" element={<Founders />} />
             <Route path="/deck" element={<Deck />} />
           </Route>
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
