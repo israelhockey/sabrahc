@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { submitSignup } from "@/lib/signup";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight, Heart, Gift, Shirt, Ticket, Star, Users, Check, ShieldCheck, Mail } from "lucide-react";
@@ -26,9 +27,14 @@ const Fans = () => {
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    try {
+      await submitSignup({ name, email, source: "fans" });
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Signup error:", err);
+    }
   };
 
   return (

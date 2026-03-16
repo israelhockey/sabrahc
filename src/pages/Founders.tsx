@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import { submitSignup } from "@/lib/signup";
 import {
   Check,
   Plane,
@@ -58,10 +59,19 @@ const Founders = () => {
   const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.firstName.trim() || !formData.email.trim()) return;
-    setSubmitted(true);
+    try {
+      await submitSignup({
+        name: `${formData.firstName} ${formData.lastName}`.trim(),
+        email: formData.email,
+        source: "founders",
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Signup error:", err);
+    }
   };
 
   return (
