@@ -14,6 +14,7 @@ import Fans from "./pages/Fans";
 import Media from "./pages/Media";
 import Founders from "./pages/Founders";
 import Deck from "./pages/Deck";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
