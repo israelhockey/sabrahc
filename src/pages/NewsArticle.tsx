@@ -3,12 +3,6 @@ import { motion } from "framer-motion";
 import { ChevronRight, ArrowLeft, Calendar, Clock } from "lucide-react";
 
 import newsAnnouncement from "@/assets/news-announcement.jpg";
-import newsSigning from "@/assets/news-signing.jpg";
-import newsTraining from "@/assets/news-training.jpg";
-import newsLeague from "@/assets/news-league.jpg";
-import newsJerseys from "@/assets/news-jerseys.jpg";
-import newsArena from "@/assets/news-arena.jpg";
-import newsYouth from "@/assets/news-youth.jpg";
 import sabraLogo from "@/assets/sabra-logo.png";
 import sabraJerseys from "@/assets/sabra-jerseys.png";
 import jhcAction from "@/assets/jhc-action.png";
