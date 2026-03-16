@@ -7,11 +7,16 @@ const NewsletterSignup = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) return;
-    setSubmitted(true);
-    setEmail("");
+    try {
+      await submitSignup({ email, source: "newsletter" });
+      setSubmitted(true);
+      setEmail("");
+    } catch (err) {
+      console.error("Newsletter signup error:", err);
+    }
   };
 
   return (

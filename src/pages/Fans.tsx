@@ -27,9 +27,14 @@ const Fans = () => {
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    try {
+      await submitSignup({ name, email, source: "fans" });
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Signup error:", err);
+    }
   };
 
   return (
