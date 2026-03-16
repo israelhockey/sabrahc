@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { submitSignup } from "@/lib/signup";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight, Heart, Gift, Shirt, Ticket, Star, Users, Check, ShieldCheck, Mail } from "lucide-react";
