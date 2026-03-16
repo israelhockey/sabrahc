@@ -31,13 +31,6 @@ const Admin = () => {
       const params = new URLSearchParams({ key: adminKey });
       if (source !== "all") params.set("source", source);
 
-      const { data, error: fnError } = await supabase.functions.invoke("admin-signups", {
-        body: null,
-        method: "GET",
-        headers: {},
-      });
-
-      // Use fetch directly since supabase.functions.invoke doesn't support query params well
       const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
       const url = `https://${projectId}.supabase.co/functions/v1/admin-signups?${params.toString()}`;
       
