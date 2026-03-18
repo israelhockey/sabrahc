@@ -177,7 +177,7 @@ const Fans = () => {
             JOIN THE <span className="text-gold-gradient">PRIDE</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-            Follow Sabra HC on social media and connect with fellow fans around the world. Use #BornInTheDesert to be featured.
+            This team belongs to the community. Follow Sabra HC, connect with fellow fans worldwide, and help us grow the game together. Use #BornInTheDesert to be featured.
           </p>
           <div className="flex gap-4 justify-center">
             {["Instagram", "Twitter/X", "YouTube", "Facebook"].map((platform) => (

@@ -295,7 +295,7 @@ const Home = () => {
             BE PART OF <span className="text-gold-gradient">HISTORY</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-10">
-            Join the exclusive group of founding members who are making Israel's first professional hockey club a reality.
+            Sabra HC is community-funded — built by the fans, for the fans. Join the founding members who are making Israel's first professional hockey club a reality. Together, we grow the game.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

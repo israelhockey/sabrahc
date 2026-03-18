@@ -109,7 +109,7 @@ const Founders = () => {
               "SABRA" — NATIVE ISRAELI
             </p>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-3">
-              Sabra HC is Israel's first fully professional hockey club — a pathway for Jewish athletes to make aliyah and play at the highest level. Be among the first 500 founding members to make history.
+              Sabra HC is Israel's first community-funded professional hockey club — built by the fans, powered by the community. Be among the first 500 founding members to make history and grow Israeli hockey together.
             </p>
             <p className="text-gold-gradient font-heading text-base md:text-xl tracking-[0.15em] italic">
               Born in the Desert. Built for the Ice.

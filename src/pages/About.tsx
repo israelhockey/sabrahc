@@ -182,10 +182,10 @@ const About = () => {
                   Israel built world-class professional leagues in soccer and basketball. International players come from around the world to compete here. Those leagues changed the culture. They proved that Israel can sustain professional sports at the highest level.
                 </p>
                 <p>
-                  Hockey is next. And Sabra HC is the team that's going to make it happen.
+                  Hockey is next. And Sabra HC is the team that's going to make it happen — not through a single owner, but through the <span className="text-foreground font-semibold">community</span>. This is a community-funded club where every fan, every founding member, and every supporter is a stakeholder in the future of Israeli hockey.
                 </p>
                 <p>
-                  This isn't a concept or a dream — it's an active operation. The roster is forming. The arenas are booked. The league schedule is set. Professional hockey in Israel is happening, and it starts now.
+                  This isn't a concept or a dream — it's an active operation. The roster is forming. The arenas are booked. The league schedule is set. Together, we're building something that will last for generations.
                 </p>
               </div>
             </motion.div>
