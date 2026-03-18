@@ -37,8 +37,8 @@ const pillars = [
   },
   {
     icon: Shield,
-    title: "Federation-Operated",
-    desc: "Sabra HC is not owned by any single person. The club is operated by the Israel Ice Hockey Federation and exists solely to grow the sport at every level — from grassroots to international competition.",
+    title: "Community-Funded & Federation-Operated",
+    desc: "Sabra HC is not owned by any single person. The club is community-funded and operated by the Israel Ice Hockey Federation. Every supporter is a stakeholder — together, we grow the sport at every level, from grassroots to international competition.",
     accent: "from-accent/15 to-accent/5",
   },
 ];
