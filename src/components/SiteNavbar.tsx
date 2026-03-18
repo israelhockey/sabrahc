@@ -16,7 +16,7 @@ const NAV_ITEMS = [
   { label: "Fan Zone", path: "/fans" },
   { label: "Media", path: "/media" },
   { label: "About", path: "/about" },
-  { label: "Founders", path: "/founders" },
+  { label: "Founding Member Club", path: "/founders" },
   { label: "Deck", path: "/deck" },
 ];
 
