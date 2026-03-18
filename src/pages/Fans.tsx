@@ -52,7 +52,7 @@ const Fans = () => {
             <h1 className="font-display text-5xl md:text-7xl text-foreground">FAN ZONE</h1>
           </div>
           <p className="text-muted-foreground mt-3 max-w-xl">
-            Everything for the Sabra HC faithful. Tickets, merchandise, experiences, and more.
+            Sabra HC is community-funded — every fan is a stakeholder. Tickets, merchandise, experiences, and a shared mission to grow Israeli hockey together.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-8 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />
@@ -177,7 +177,7 @@ const Fans = () => {
             JOIN THE <span className="text-gold-gradient">PRIDE</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-            Follow Sabra HC on social media and connect with fellow fans around the world. Use #BornInTheDesert to be featured.
+            This team belongs to the community. Follow Sabra HC, connect with fellow fans worldwide, and help us grow the game together. Use #BornInTheDesert to be featured.
           </p>
           <div className="flex gap-4 justify-center">
             {["Instagram", "Twitter/X", "YouTube", "Facebook"].map((platform) => (
