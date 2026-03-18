@@ -64,7 +64,7 @@ const SiteNavbar = () => {
                 SABRA HC
               </span>
               <span className="text-[9px] tracking-[0.3em] text-primary font-medium hidden sm:block">
-                EST. 2025 • ISRAEL
+                EST. 2026 • ISRAEL
               </span>
             </div>
           </Link>
