@@ -10,7 +10,7 @@ const Footer = () => (
             SABRA <span className="text-primary">HC</span> &copy; {new Date().getFullYear()}
           </p>
         </div>
-        <p className="text-sm text-muted-foreground/60">Israel's First Professional Hockey Club</p>
+        <p className="text-sm text-muted-foreground/60">The Flagship Hockey Club in Israel</p>
       </div>
     </div>
   </footer>

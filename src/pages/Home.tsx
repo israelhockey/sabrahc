@@ -99,7 +99,7 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
             >
-              BORN IN THE DESERT · ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
+              BORN IN THE DESERT · THE FLAGSHIP HOCKEY CLUB IN ISRAEL
             </motion.p>
 
             <motion.div
@@ -295,7 +295,7 @@ const Home = () => {
             BE PART OF <span className="text-gold-gradient">HISTORY</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-10">
-            Sabra HC is community-funded — built by the fans, for the fans. Join the founding members who are making Israel's first professional hockey club a reality. Together, we grow the game.
+            Sabra HC is community-funded — built by the fans, for the fans. Join the founding members who are making the flagship hockey club in Israel a reality. Together, we grow the game.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
