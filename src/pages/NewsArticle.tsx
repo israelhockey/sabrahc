@@ -34,7 +34,7 @@ const articles: {
     id: 0,
     slug: "introducing-sabra-hockey-club",
     title: "Introducing Sabra Hockey Club: Born in the Desert, Built for the Ice",
-    excerpt: "Israel's first professional hockey club is here. Sabra HC is more than a team — it's a movement to elevate Israeli hockey, create pathways for Jewish athletes worldwide, and build a lasting legacy on the ice.",
+    excerpt: "The flagship hockey club in Israel is here. Sabra HC is more than a team — it's a movement to elevate Israeli hockey, create pathways for Jewish athletes worldwide, and build a lasting legacy on the ice.",
     category: "ANNOUNCEMENT",
     date: "March 15, 2025",
     readTime: "8 min read",
