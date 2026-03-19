@@ -22,7 +22,7 @@ const nextGame = {
 const newsItems = articles.slice(0, 4);
 
 const stats = [
-  { value: 40, suffix: "+", label: "Years of Hockey in Israel", icon: Trophy },
+  { value: 1992, suffix: "", label: "Hockey in Israel Since", icon: Trophy },
   { value: 20, suffix: "+", label: "Home Games Per Season", icon: Calendar },
   { value: 6, suffix: "", label: "European Nations", icon: Globe },
   { value: 500, suffix: "", label: "Founding Members Goal", icon: Users },

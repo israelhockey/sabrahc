@@ -53,7 +53,7 @@ const journeyHighlights = [
 ];
 
 const whyNow = [
-  { value: "40+", label: "Years of Hockey in Israel" },
+  { value: "1992", label: "Hockey in Israel Since" },
   { value: "3", label: "Ice Arenas Nationwide" },
   { value: "6", label: "European Nations in League" },
   { value: "500", label: "Founding Members Goal" },
@@ -201,9 +201,9 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <p className="font-display text-5xl text-gold-gradient mb-1">
-                    <AnimatedCounter target={40} suffix="+" className="" />
+                    <AnimatedCounter target={1992} suffix="" className="" />
                   </p>
-                  <p className="text-xs text-foreground/80 font-heading tracking-wider">YEARS OF HOCKEY IN ISRAEL</p>
+                  <p className="text-xs text-foreground/80 font-heading tracking-wider">HOCKEY IN ISRAEL SINCE</p>
                 </div>
               </div>
               {/* Floating accent card */}

@@ -4,7 +4,7 @@ import AnimatedCounter from "./AnimatedCounter";
 import puckImg from "@/assets/puck-ice.jpg";
 
 const stats = [
-  { value: 40, suffix: "+", label: "YEARS OF HOCKEY IN ISRAEL" },
+  { value: 1992, suffix: "", label: "HOCKEY IN ISRAEL SINCE" },
   { value: 20, suffix: "+", label: "HOME GAMES PER SEASON" },
   { value: 6, suffix: "", label: "EUROPEAN NATIONS" },
 ];
