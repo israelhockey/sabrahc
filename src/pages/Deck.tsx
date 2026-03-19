@@ -1021,7 +1021,7 @@ const Deck = () => {
               <span className="text-gold-gradient">MORE THAN A TEAM</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg mb-10 leading-relaxed">
-              It is the future of Israeli hockey. Join us as a founding supporter and help build Israel's first professional hockey club.
+              It is the future of Israeli hockey. Join us as a founding supporter and help build the flagship hockey club in Israel.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
