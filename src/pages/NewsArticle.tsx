@@ -40,7 +40,7 @@ const articles: {
     readTime: "8 min read",
     image: newsAnnouncement,
     body: [
-      "Today marks a historic moment for the sport of ice hockey in the State of Israel. After decades of grassroots passion, international competition, and the tireless dedication of players, coaches, and families who kept the dream alive — we are proud to officially introduce Sabra Hockey Club, Israel's first professional ice hockey organization.",
+      "Today marks a historic moment for the sport of ice hockey in the State of Israel. After decades of grassroots passion, international competition, and the tireless dedication of players, coaches, and families who kept the dream alive — we are proud to officially introduce Sabra Hockey Club, the flagship professional ice hockey organization in Israel.",
 
       "This is not just the birth of a hockey team. This is the beginning of a new era.",
 

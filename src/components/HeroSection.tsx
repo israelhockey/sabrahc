@@ -53,7 +53,7 @@ const HeroSection = () => {
         >
           <div className="inline-block px-6 py-2 border border-primary/30 rounded-full">
             <p className="text-sm md:text-base font-medium text-primary tracking-[0.3em]">
-              ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
+              THE FLAGSHIP HOCKEY CLUB IN ISRAEL
             </p>
           </div>
         </motion.div>

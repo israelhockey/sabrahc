@@ -1042,7 +1042,7 @@ const Deck = () => {
             </div>
 
             <p className="text-muted-foreground/50 text-xs tracking-[0.3em] font-heading mt-12">
-              SABRA HC · EST. 2026 · ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
+              SABRA HC · EST. 2026 · THE FLAGSHIP HOCKEY CLUB IN ISRAEL
             </p>
           </motion.div>
         </div>

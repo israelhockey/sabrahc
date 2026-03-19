@@ -44,7 +44,7 @@ const SiteFooter = () => (
             </div>
           </Link>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-            Sabra Hockey Club is Israel's first professional ice hockey team, competing domestically and across Europe.
+            Sabra Hockey Club is the flagship professional ice hockey team in Israel, competing domestically and across Europe.
           </p>
         </div>
 
