@@ -964,7 +964,7 @@ const Deck = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { icon: Trophy, text: "First professional hockey club in Israel" },
+                { icon: Trophy, text: "The flagship hockey club in Israel" },
                 { icon: Globe, text: "Strong global brand potential" },
                 { icon: TrendingUp, text: "Growing sport domestically" },
                 { icon: Users, text: "International audience engagement" },
