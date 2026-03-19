@@ -750,7 +750,7 @@ const Deck = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <GlassCard>
                 <div className="text-center mb-8">
-                  <p className="font-display text-6xl md:text-7xl text-gold-gradient">₪1M</p>
+                  <p className="font-display text-6xl md:text-7xl text-gold-gradient">₪1.2M</p>
                   <p className="text-muted-foreground text-sm mt-2">Initial capital to support first two seasons</p>
                 </div>
                 <h3 className="font-heading text-sm tracking-wider text-foreground mb-4">FUNDING SOURCES</h3>
