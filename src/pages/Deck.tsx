@@ -807,12 +807,16 @@ const Deck = () => {
             <GlassCard>
               <div className="space-y-4 mb-8">
                 {[
-                  { label: "Player & Staff Salaries", amount: "₪350,000", pct: 35 },
-                  { label: "Arena Operations", amount: "₪220,000", pct: 22 },
-                  { label: "Travel & International Teams Coming", amount: "₪200,000", pct: 20 },
-                  { label: "Equipment & Logistics", amount: "₪100,000", pct: 10 },
-                  { label: "Marketing & Media", amount: "₪80,000", pct: 8 },
-                  { label: "Miscellaneous", amount: "₪50,000", pct: 5 },
+                  { label: "👥 Player Salaries", amount: "₪150,000", pct: 10 },
+                  { label: "🇮🇱 Israel Hockey Development", amount: "₪250,000", pct: 17 },
+                  { label: "🏠 Housing (Imports)", amount: "₪90,000", pct: 6 },
+                  { label: "🧠 Staff", amount: "₪123,000", pct: 8 },
+                  { label: "✈️ Travel", amount: "₪300,000", pct: 20 },
+                  { label: "🧊 Ice (Games)", amount: "₪200,000", pct: 13 },
+                  { label: "🏒 Practices", amount: "₪175,000", pct: 12 },
+                  { label: "🥅 Equipment", amount: "₪90,000", pct: 6 },
+                  { label: "📣 Marketing", amount: "₪75,000", pct: 5 },
+                  { label: "⚙️ Misc", amount: "₪50,000", pct: 3 },
                 ].map((item, i) => (
                   <motion.div
                     key={item.label}
@@ -839,8 +843,8 @@ const Deck = () => {
               </div>
 
               <div className="pt-6 border-t border-border flex items-center justify-between">
-                <span className="font-heading text-base tracking-wider text-foreground">TOTAL ANNUAL BUDGET</span>
-                <span className="font-display text-3xl text-gold-gradient">₪1,000,000</span>
+                <span className="font-heading text-base tracking-wider text-foreground">🔴 TOTAL EXPENSES</span>
+                <span className="font-display text-3xl text-gold-gradient">₪1,503,000</span>
               </div>
             </GlassCard>
           </div>
