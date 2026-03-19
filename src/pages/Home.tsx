@@ -99,7 +99,7 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
             >
-              BORN IN THE DESERT · ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
+              BORN IN THE DESERT · THE FLAGSHIP HOCKEY CLUB IN ISRAEL
             </motion.p>
 
             <motion.div
