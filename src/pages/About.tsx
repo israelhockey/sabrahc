@@ -132,7 +132,7 @@ const About = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3 }}
           >
-            Israel's first fully professional hockey club — a pathway for Jewish athletes worldwide,
+            The flagship professional hockey club in Israel — a pathway for Jewish athletes worldwide,
             a home for international talent, and the foundation of a hockey culture that will last forever.
           </motion.p>
           <motion.p

@@ -6,8 +6,8 @@ import logoImg from "@/assets/sabra-logo.png";
 const FinalCTASection = () => {
   const handleShare = async () => {
     const data = {
-      title: "Sabra HC — Israel's First Professional Hockey Club",
-      text: "Help launch Israel's first professional hockey club. Become a founding member!",
+       title: "Sabra HC — The Flagship Hockey Club in Israel",
+       text: "Help launch the flagship hockey club in Israel. Become a founding member!",
       url: window.location.href,
     };
     if (navigator.share) {

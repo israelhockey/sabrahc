@@ -167,7 +167,7 @@ const Deck = () => {
               "SABRA" — NATIVE ISRAELI
             </p>
             <p className="text-muted-foreground text-sm md:text-base font-light italic">
-              Israel's First Professional Hockey Club
+              The Flagship Hockey Club in Israel
             </p>
             <p className="text-gold-gradient font-heading text-base md:text-lg tracking-[0.15em] italic mt-2">
               Born in the Desert. Built for the Ice.
@@ -244,10 +244,10 @@ const Deck = () => {
             >
               <SectionLabel>01 — EXECUTIVE SUMMARY</SectionLabel>
               <SectionTitle>
-                ISRAEL'S FIRST <span className="text-gold-gradient">PROFESSIONAL</span> HOCKEY CLUB
+                THE FLAGSHIP <span className="text-gold-gradient">HOCKEY CLUB</span> IN ISRAEL
               </SectionTitle>
               <p className="text-muted-foreground leading-relaxed mb-8 text-base">
-                Sabra HC is launching Israel's first full-time professional hockey club. The club will compete internationally while serving as the premier development platform for Israeli players.
+                Sabra HC is launching the flagship professional hockey club in Israel. The club will compete internationally while serving as the premier development platform for Israeli players.
               </p>
               <BulletList
                 items={[
@@ -1021,7 +1021,7 @@ const Deck = () => {
               <span className="text-gold-gradient">MORE THAN A TEAM</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg mb-10 leading-relaxed">
-              It is the future of Israeli hockey. Join us as a founding supporter and help build Israel's first professional hockey club.
+              It is the future of Israeli hockey. Join us as a founding supporter and help build the flagship hockey club in Israel.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1042,7 +1042,7 @@ const Deck = () => {
             </div>
 
             <p className="text-muted-foreground/50 text-xs tracking-[0.3em] font-heading mt-12">
-              SABRA HC · EST. 2026 · ISRAEL'S FIRST PROFESSIONAL HOCKEY CLUB
+              SABRA HC · EST. 2026 · THE FLAGSHIP HOCKEY CLUB IN ISRAEL
             </p>
           </motion.div>
         </div>
