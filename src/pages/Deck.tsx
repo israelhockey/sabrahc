@@ -167,7 +167,7 @@ const Deck = () => {
               "SABRA" — NATIVE ISRAELI
             </p>
             <p className="text-muted-foreground text-sm md:text-base font-light italic">
-              Israel's First Professional Hockey Club
+              The Flagship Hockey Club in Israel
             </p>
             <p className="text-gold-gradient font-heading text-base md:text-lg tracking-[0.15em] italic mt-2">
               Born in the Desert. Built for the Ice.
