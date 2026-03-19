@@ -244,7 +244,7 @@ const Deck = () => {
             >
               <SectionLabel>01 — EXECUTIVE SUMMARY</SectionLabel>
               <SectionTitle>
-                ISRAEL'S FIRST <span className="text-gold-gradient">PROFESSIONAL</span> HOCKEY CLUB
+                THE FLAGSHIP <span className="text-gold-gradient">HOCKEY CLUB</span> IN ISRAEL
               </SectionTitle>
               <p className="text-muted-foreground leading-relaxed mb-8 text-base">
                 Sabra HC is launching Israel's first full-time professional hockey club. The club will compete internationally while serving as the premier development platform for Israeli players.
