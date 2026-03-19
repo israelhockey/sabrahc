@@ -776,13 +776,13 @@ const Deck = () => {
                   </p>
                 </GlassCard>
                 <GlassCard delay={0.25}>
-                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">EXPECTED GOVERNMENT SUPPORT</h3>
+                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">OTHER REVENUE</h3>
                   <div className="bg-primary/5 border border-primary/15 rounded-lg p-6 text-center mb-6">
-                    <p className="font-display text-4xl text-gold-gradient">~₪100K</p>
+                    <p className="font-display text-4xl text-gold-gradient">₪150K</p>
                     <p className="text-xs text-muted-foreground mt-1">Annually</p>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Government funding through Israel's sports development programs will provide consistent annual support for the club's operations and development programs.
+                    Additional revenue from ticket sales, merchandise, digital broadcasting, and other sources will provide consistent annual support for the club's operations.
                   </p>
                 </GlassCard>
               </div>
