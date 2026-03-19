@@ -53,7 +53,7 @@ const journeyHighlights = [
 ];
 
 const whyNow = [
-  { value: "40+", label: "Years of Hockey in Israel" },
+  { value: "1992", label: "Hockey in Israel Since" },
   { value: "3", label: "Ice Arenas Nationwide" },
   { value: "6", label: "European Nations in League" },
   { value: "500", label: "Founding Members Goal" },
