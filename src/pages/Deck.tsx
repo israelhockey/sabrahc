@@ -750,13 +750,13 @@ const Deck = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <GlassCard>
                 <div className="text-center mb-8">
-                  <p className="font-display text-6xl md:text-7xl text-gold-gradient">₪1.2M</p>
+                  <p className="font-display text-6xl md:text-7xl text-gold-gradient">₪600K</p>
                   <p className="text-muted-foreground text-sm mt-2">Initial capital to support first two seasons</p>
                 </div>
                 <h3 className="font-heading text-sm tracking-wider text-foreground mb-4">FUNDING SOURCES</h3>
                 <BulletList
                   items={[
-                    "Founding membership program",
+                    "Booster club membership program",
                     "Corporate sponsorships",
                     "Government sports funding",
                     "Ticket revenue",
@@ -766,19 +766,19 @@ const Deck = () => {
               </GlassCard>
               <div className="space-y-4">
                 <GlassCard delay={0.15}>
-                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">EXPECTED SPONSORSHIP REVENUE</h3>
+                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">SPONSORSHIP REVENUE</h3>
                   <div className="bg-primary/5 border border-primary/15 rounded-lg p-6 text-center mb-6">
-                    <p className="font-display text-4xl text-gold-gradient">₪200K</p>
-                    <p className="text-xs text-muted-foreground mt-1">On top of ₪1M capital</p>
+                    <p className="font-display text-4xl text-gold-gradient">₪50–100K</p>
+                    <p className="text-xs text-muted-foreground mt-1">Annually</p>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Corporate sponsorships from local and international brands will generate an additional ₪200,000 NIS in revenue beyond the initial capital target.
+                    Corporate sponsorships from local and international brands will generate additional revenue beyond the initial capital target.
                   </p>
                 </GlassCard>
                 <GlassCard delay={0.25}>
                   <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">OTHER REVENUE</h3>
                   <div className="bg-primary/5 border border-primary/15 rounded-lg p-6 text-center mb-6">
-                    <p className="font-display text-4xl text-gold-gradient">₪150K</p>
+                    <p className="font-display text-4xl text-gold-gradient">₪50–100K</p>
                     <p className="text-xs text-muted-foreground mt-1">Annually</p>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
