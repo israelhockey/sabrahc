@@ -808,15 +808,15 @@ const Deck = () => {
               <div className="space-y-4 mb-8">
                 {[
                   { label: "👥 Player Expenses", amount: "₪50,000–100,000", pct: 7 },
-                  { label: "🇮🇱 Israel Hockey Development (National Team, Camps, Learn to Play Program, etc.)", amount: "₪250,000", pct: 19 },
-                  { label: "🏠 Housing (Imports)", amount: "₪90,000", pct: 7 },
-                  { label: "🧠 Staff", amount: "₪123,000", pct: 9 },
-                  { label: "✈️ Travel", amount: "₪200,000", pct: 15 },
-                  { label: "🧊 Ice (Games)", amount: "₪200,000", pct: 15 },
-                  { label: "🏒 Practices", amount: "₪175,000", pct: 13 },
-                  { label: "🥅 Equipment", amount: "₪90,000", pct: 7 },
-                  { label: "📣 Marketing", amount: "₪75,000", pct: 6 },
-                  { label: "⚙️ Misc", amount: "₪50,000", pct: 4 },
+                  { label: "🇮🇱 Israel Hockey Development (National Team, Camps, Learn to Play Program, etc.)", amount: "₪150,000", pct: 14 },
+                  { label: "🏠 Housing (Imports)", amount: "₪75,000", pct: 7 },
+                  { label: "🧠 Staff", amount: "₪123,000", pct: 12 },
+                  { label: "✈️ Travel", amount: "₪200,000", pct: 19 },
+                  { label: "🧊 Ice (Games)", amount: "₪150,000", pct: 14 },
+                  { label: "🏒 Practices", amount: "₪125,000", pct: 12 },
+                  { label: "🥅 Equipment", amount: "₪90,000", pct: 9 },
+                  { label: "📣 Marketing", amount: "₪50,000", pct: 5 },
+                  { label: "⚙️ Misc", amount: "₪25,000", pct: 2 },
                 ].map((item, i) => (
                   <motion.div
                     key={item.label}
@@ -844,7 +844,7 @@ const Deck = () => {
 
               <div className="pt-6 border-t border-border flex items-center justify-between">
                 <span className="font-heading text-base tracking-wider text-foreground">🔴 TOTAL EXPENSES</span>
-                <span className="font-display text-3xl text-gold-gradient">₪1,303,000–1,353,000</span>
+                <span className="font-display text-3xl text-gold-gradient">₪1,038,000–1,088,000</span>
               </div>
             </GlassCard>
           </div>
