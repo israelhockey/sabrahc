@@ -24,7 +24,7 @@ const MembershipSection = () => (
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <p className="text-primary font-semibold text-sm tracking-[0.4em] mb-4">FOUNDING MEMBERSHIP</p>
+        <p className="text-primary font-semibold text-sm tracking-[0.4em] mb-4">SABRA HC BOOSTER CLUB — INAUGURAL SEASON</p>
         <h2 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4">
           Be Part of <span className="text-gold-gradient">History</span>
         </h2>

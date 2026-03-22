@@ -4,8 +4,8 @@ export const CAMPAIGN = {
   raisedAmount: 12600,
   goalMembers: 500,
   currentMembers: 21,
-  membershipPrice: 600,
-  installmentPrice: 200,
+  membershipPrice: 299,
+  installmentPrice: 100,
   installmentCount: 3,
 } as const;
 
