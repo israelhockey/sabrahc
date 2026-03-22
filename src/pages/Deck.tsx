@@ -868,7 +868,7 @@ const Deck = () => {
             <div className="relative">
               <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-primary/40 to-primary/10" />
               {[
-                { year: "YEAR 1", title: "Foundation", desc: "Independent schedule vs European clubs. Establish operations and brand.", side: "left" },
+                { year: "YEAR 1", title: "Foundation", desc: "Independent schedule vs European clubs. Establish operations and brand. Play in the INHL and Israel Challenge Cup Series (10 games).", side: "left" },
                 { year: "YEAR 2", title: "Expansion", desc: "Expanded international schedule. Deeper league relationships. Compete in the IIHF Continental Cup.", side: "right" },
                 { year: "YEAR 3–5", title: "League Entry", desc: "Apply to join a European professional league.", side: "left" },
               ].map((item, i) => (
