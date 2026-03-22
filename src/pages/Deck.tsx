@@ -668,13 +668,13 @@ const Deck = () => {
 
       <div className="section-divider" />
 
-      {/* ════════════ 09 — FOUNDING MEMBERSHIP ════════════ */}
+      {/* ════════════ 09 — SABRA HC BOOSTER CLUB ════════════ */}
       <Section id="s9" className="py-20 md:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(40_49%_54%_/_0.06)_0%,transparent_50%)] pointer-events-none" />
         <div className="container px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
-              <SectionLabel>09 — FOUNDING MEMBERSHIP</SectionLabel>
+              <SectionLabel>09 — SABRA HC BOOSTER CLUB</SectionLabel>
               <SectionTitle>
                 BE PART OF <span className="text-gold-gradient">HISTORY</span>
               </SectionTitle>
@@ -685,8 +685,8 @@ const Deck = () => {
                 <GlassCard className="relative overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-gold-light to-primary" />
                   <div className="text-center mb-8 pt-4">
-                    <p className="text-muted-foreground text-xs tracking-widest font-heading mb-2">FOUNDING MEMBERSHIP</p>
-                    <p className="font-display text-6xl text-gold-gradient">$600</p>
+                    <p className="text-muted-foreground text-xs tracking-widest font-heading mb-2">SABRA HC BOOSTER CLUB — INAUGURAL SEASON</p>
+                    <p className="font-display text-6xl text-gold-gradient">$299</p>
                     <p className="text-muted-foreground text-xs mt-1">One-time contribution</p>
                   </div>
                   <CheckList
@@ -703,8 +703,8 @@ const Deck = () => {
               </div>
 
               <div className="lg:col-span-2 space-y-4">
-                <StatBox value="500" label="FOUNDING MEMBERS GOAL" icon={Users} />
-                <StatBox value="$600" label="MEMBERSHIP PRICE" icon={DollarSign} delay={0.1} />
+                <StatBox value="500" label="BOOSTER CLUB MEMBERS GOAL" icon={Users} />
+                <StatBox value="$299" label="MEMBERSHIP PRICE" icon={DollarSign} delay={0.1} />
                 <GlassCard delay={0.2} className="relative overflow-hidden !border-primary/30">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-gold-light to-primary" />
