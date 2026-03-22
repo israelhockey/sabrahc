@@ -92,7 +92,7 @@ const Fans = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(40_49%_54%_/_0.06)_0%,transparent_60%)] pointer-events-none" />
         <div className="container relative z-10">
           <div className="text-center mb-12">
-            <p className="text-primary font-heading text-sm tracking-[0.3em] mb-2">FOUNDING MEMBERSHIP</p>
+            <p className="text-primary font-heading text-sm tracking-[0.3em] mb-2">SABRA HC BOOSTER CLUB — INAUGURAL SEASON</p>
             <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4">
               BECOME A <span className="text-gold-gradient">FOUNDER</span>
             </h2>
