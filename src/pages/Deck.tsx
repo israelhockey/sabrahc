@@ -95,7 +95,7 @@ const CheckList = ({ items }: { items: string[] }) => (
 const tocItems = [
   "Executive Summary", "Why Hockey in Israel", "Market Opportunity",
   "Club Identity", "Arena & Game Experience", "Season Format",
-  "Player Development", "Business Model", "Founding Membership",
+  "Player Development", "Business Model", "Sabra HC Booster Club",
   "Financial Plan", "Operating Budget", "Growth Strategy",
   "Strategic Impact", "Why Sponsor", "The Vision", "Join the Founders",
 ];
