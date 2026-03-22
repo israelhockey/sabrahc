@@ -95,7 +95,7 @@ const CheckList = ({ items }: { items: string[] }) => (
 const tocItems = [
   "Executive Summary", "Why Hockey in Israel", "Market Opportunity",
   "Club Identity", "Arena & Game Experience", "Season Format",
-  "Player Development", "Business Model", "Founding Membership",
+  "Player Development", "Business Model", "Sabra HC Booster Club",
   "Financial Plan", "Operating Budget", "Growth Strategy",
   "Strategic Impact", "Why Sponsor", "The Vision", "Join the Founders",
 ];
@@ -668,13 +668,13 @@ const Deck = () => {
 
       <div className="section-divider" />
 
-      {/* ════════════ 09 — FOUNDING MEMBERSHIP ════════════ */}
+      {/* ════════════ 09 — SABRA HC BOOSTER CLUB ════════════ */}
       <Section id="s9" className="py-20 md:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(40_49%_54%_/_0.06)_0%,transparent_50%)] pointer-events-none" />
         <div className="container px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
-              <SectionLabel>09 — FOUNDING MEMBERSHIP</SectionLabel>
+              <SectionLabel>09 — SABRA HC BOOSTER CLUB</SectionLabel>
               <SectionTitle>
                 BE PART OF <span className="text-gold-gradient">HISTORY</span>
               </SectionTitle>
@@ -685,8 +685,8 @@ const Deck = () => {
                 <GlassCard className="relative overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-gold-light to-primary" />
                   <div className="text-center mb-8 pt-4">
-                    <p className="text-muted-foreground text-xs tracking-widest font-heading mb-2">FOUNDING MEMBERSHIP</p>
-                    <p className="font-display text-6xl text-gold-gradient">$600</p>
+                    <p className="text-muted-foreground text-xs tracking-widest font-heading mb-2">SABRA HC BOOSTER CLUB — INAUGURAL SEASON</p>
+                    <p className="font-display text-6xl text-gold-gradient">$299</p>
                     <p className="text-muted-foreground text-xs mt-1">One-time contribution</p>
                   </div>
                   <CheckList
@@ -703,8 +703,8 @@ const Deck = () => {
               </div>
 
               <div className="lg:col-span-2 space-y-4">
-                <StatBox value="500" label="FOUNDING MEMBERS GOAL" icon={Users} />
-                <StatBox value="$600" label="MEMBERSHIP PRICE" icon={DollarSign} delay={0.1} />
+                <StatBox value="500" label="BOOSTER CLUB MEMBERS GOAL" icon={Users} />
+                <StatBox value="$299" label="MEMBERSHIP PRICE" icon={DollarSign} delay={0.1} />
                 <GlassCard delay={0.2} className="relative overflow-hidden !border-primary/30">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-gold-light to-primary" />
@@ -750,13 +750,13 @@ const Deck = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <GlassCard>
                 <div className="text-center mb-8">
-                  <p className="font-display text-6xl md:text-7xl text-gold-gradient">₪1.2M</p>
+                  <p className="font-display text-6xl md:text-7xl text-gold-gradient">₪600K</p>
                   <p className="text-muted-foreground text-sm mt-2">Initial capital to support first two seasons</p>
                 </div>
                 <h3 className="font-heading text-sm tracking-wider text-foreground mb-4">FUNDING SOURCES</h3>
                 <BulletList
                   items={[
-                    "Founding membership program",
+                    "Booster club membership program",
                     "Corporate sponsorships",
                     "Government sports funding",
                     "Ticket revenue",
@@ -766,19 +766,19 @@ const Deck = () => {
               </GlassCard>
               <div className="space-y-4">
                 <GlassCard delay={0.15}>
-                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">EXPECTED SPONSORSHIP REVENUE</h3>
+                  <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">SPONSORSHIP REVENUE</h3>
                   <div className="bg-primary/5 border border-primary/15 rounded-lg p-6 text-center mb-6">
-                    <p className="font-display text-4xl text-gold-gradient">₪200K</p>
-                    <p className="text-xs text-muted-foreground mt-1">On top of ₪1M capital</p>
+                    <p className="font-display text-4xl text-gold-gradient">₪50–100K</p>
+                    <p className="text-xs text-muted-foreground mt-1">Annually</p>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Corporate sponsorships from local and international brands will generate an additional ₪200,000 NIS in revenue beyond the initial capital target.
+                    Corporate sponsorships from local and international brands will generate additional revenue beyond the initial capital target.
                   </p>
                 </GlassCard>
                 <GlassCard delay={0.25}>
                   <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">OTHER REVENUE</h3>
                   <div className="bg-primary/5 border border-primary/15 rounded-lg p-6 text-center mb-6">
-                    <p className="font-display text-4xl text-gold-gradient">₪150K</p>
+                    <p className="font-display text-4xl text-gold-gradient">₪50–100K</p>
                     <p className="text-xs text-muted-foreground mt-1">Annually</p>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
@@ -807,16 +807,16 @@ const Deck = () => {
             <GlassCard>
               <div className="space-y-4 mb-8">
                 {[
-                  { label: "👥 Player Salaries", amount: "₪150,000", pct: 10 },
-                  { label: "🇮🇱 Israel Hockey Development", amount: "₪250,000", pct: 17 },
-                  { label: "🏠 Housing (Imports)", amount: "₪90,000", pct: 6 },
-                  { label: "🧠 Staff", amount: "₪123,000", pct: 8 },
-                  { label: "✈️ Travel", amount: "₪300,000", pct: 20 },
-                  { label: "🧊 Ice (Games)", amount: "₪200,000", pct: 13 },
-                  { label: "🏒 Practices", amount: "₪175,000", pct: 12 },
-                  { label: "🥅 Equipment", amount: "₪90,000", pct: 6 },
-                  { label: "📣 Marketing", amount: "₪75,000", pct: 5 },
-                  { label: "⚙️ Misc", amount: "₪50,000", pct: 3 },
+                  { label: "👥 Player Expenses", amount: "₪50,000–100,000", pct: 7 },
+                  { label: "🇮🇱 Israel Hockey Development (National Team, Camps, Learn to Play Program, etc.)", amount: "₪250,000", pct: 19 },
+                  { label: "🏠 Housing (Imports)", amount: "₪90,000", pct: 7 },
+                  { label: "🧠 Staff", amount: "₪123,000", pct: 9 },
+                  { label: "✈️ Travel", amount: "₪200,000", pct: 15 },
+                  { label: "🧊 Ice (Games)", amount: "₪200,000", pct: 15 },
+                  { label: "🏒 Practices", amount: "₪175,000", pct: 13 },
+                  { label: "🥅 Equipment", amount: "₪90,000", pct: 7 },
+                  { label: "📣 Marketing", amount: "₪75,000", pct: 6 },
+                  { label: "⚙️ Misc", amount: "₪50,000", pct: 4 },
                 ].map((item, i) => (
                   <motion.div
                     key={item.label}
@@ -844,7 +844,7 @@ const Deck = () => {
 
               <div className="pt-6 border-t border-border flex items-center justify-between">
                 <span className="font-heading text-base tracking-wider text-foreground">🔴 TOTAL EXPENSES</span>
-                <span className="font-display text-3xl text-gold-gradient">₪1,503,000</span>
+                <span className="font-display text-3xl text-gold-gradient">₪1,303,000–1,353,000</span>
               </div>
             </GlassCard>
           </div>

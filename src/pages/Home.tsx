@@ -290,7 +290,7 @@ const Home = () => {
       <section className="py-20 lg:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(40_49%_54%_/_0.06)_0%,transparent_60%)] pointer-events-none" />
         <div className="container text-center relative z-10">
-          <p className="text-primary font-heading text-sm tracking-[0.3em] mb-4">FOUNDING MEMBERSHIP</p>
+          <p className="text-primary font-heading text-sm tracking-[0.3em] mb-4">SABRA HC BOOSTER CLUB — INAUGURAL SEASON</p>
           <h2 className="font-display text-4xl md:text-6xl text-foreground mb-4">
             BE PART OF <span className="text-gold-gradient">HISTORY</span>
           </h2>
