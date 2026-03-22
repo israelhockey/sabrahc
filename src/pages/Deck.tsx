@@ -778,7 +778,7 @@ const Deck = () => {
                 <GlassCard delay={0.25}>
                   <h3 className="font-heading text-sm tracking-wider text-foreground mb-6">OTHER REVENUE</h3>
                   <div className="bg-primary/5 border border-primary/15 rounded-lg p-6 text-center mb-6">
-                    <p className="font-display text-4xl text-gold-gradient">₪50–100K</p>
+                    <p className="font-display text-4xl text-gold-gradient">₪200K</p>
                     <p className="text-xs text-muted-foreground mt-1">Annually</p>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
