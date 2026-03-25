@@ -84,6 +84,7 @@ const VisionSection = () => {
                     suffix={s.suffix}
                     className="text-5xl md:text-6xl font-heading font-bold text-gold-gradient block"
                     duration={1.5 + i * 0.3}
+                    formatNumber={s.value < 1000}
                   />
                   <p className="text-sm text-muted-foreground tracking-widest mt-3 font-heading">{s.label}</p>
                 </div>
