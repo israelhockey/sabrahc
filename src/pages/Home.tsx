@@ -278,6 +278,7 @@ const Home = () => {
                   suffix={s.suffix}
                   className="text-4xl md:text-5xl font-display text-gold-gradient block"
                   duration={1.5}
+                  formatNumber={s.value < 1000}
                 />
                 <p className="text-xs text-muted-foreground tracking-wider mt-2 font-heading">{s.label}</p>
               </motion.div>
