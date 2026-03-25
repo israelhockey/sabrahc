@@ -10,7 +10,7 @@ interface AnimatedCounterProps {
   formatNumber?: boolean;
 }
 
-const AnimatedCounter = ({ target, prefix = "", suffix = "", duration = 2, className = "" }: AnimatedCounterProps) => {
+const AnimatedCounter = ({ target, prefix = "", suffix = "", duration = 2, className = "", formatNumber = true }: AnimatedCounterProps) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
