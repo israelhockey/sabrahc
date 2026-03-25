@@ -39,7 +39,7 @@ const AnimatedCounter = ({ target, prefix = "", suffix = "", duration = 2, class
       transition={{ duration: 0.6 }}
       className={className}
     >
-      {prefix}{count.toLocaleString()}{suffix}
+      {prefix}{formatNumber ? count.toLocaleString() : count}{suffix}
     </motion.span>
   );
 };
