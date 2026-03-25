@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logoImg from "@/assets/sabra-logo.png";
 
-const footerLinks = [
+const footerLinks: { title: string; links: { label: string; path: string; external?: boolean }[] }[] = [
   {
     title: "Team",
     links: [
