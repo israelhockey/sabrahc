@@ -7,6 +7,7 @@ interface AnimatedCounterProps {
   suffix?: string;
   duration?: number;
   className?: string;
+  formatNumber?: boolean;
 }
 
 const AnimatedCounter = ({ target, prefix = "", suffix = "", duration = 2, className = "" }: AnimatedCounterProps) => {
