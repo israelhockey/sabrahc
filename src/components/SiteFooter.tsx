@@ -23,6 +23,7 @@ const footerLinks = [
     links: [
       { label: "Media", path: "/media" },
       { label: "Contact", path: "/about" },
+      { label: "info@sabrahc.com", path: "mailto:info@sabrahc.com", external: true },
     ],
   },
 ];

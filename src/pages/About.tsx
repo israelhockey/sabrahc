@@ -606,6 +606,13 @@ const About = () => {
                 VIEW SCHEDULE
               </Link>
             </div>
+
+            <p className="mt-8 text-sm text-muted-foreground">
+              Get in touch:{" "}
+              <a href="mailto:info@sabrahc.com" className="text-primary hover:text-gold-light transition-colors font-heading tracking-wider">
+                info@sabrahc.com
+              </a>
+            </p>
           </motion.div>
         </div>
       </section>
