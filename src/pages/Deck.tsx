@@ -841,11 +841,6 @@ const Deck = () => {
                   </motion.div>
                 ))}
               </div>
-
-              <div className="pt-6 border-t border-border flex items-center justify-between">
-                <span className="font-heading text-base tracking-wider text-foreground">🔴 TOTAL EXPENSES</span>
-                <span className="font-display text-3xl text-gold-gradient">₪903,000–953,000</span>
-              </div>
             </GlassCard>
           </div>
         </div>
