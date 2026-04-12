@@ -139,6 +139,8 @@ const articles: {
 
       "Founded in 2013 by Radu Prospectu, RDP Sports Management has spent over a decade representing professional and amateur athletes across a wide range of sports — including hockey, tennis, bobsledding, speed skating, and track and field. The firm provides full-service athlete representation, business management, contract negotiation, sports marketing, public relations, and identity promotional services, managing over 17 clients across 6 countries worldwide.",
 
+      { type: "image", src: rdpRaduPortrait, alt: "Radu Prospectu, founder of RDP Sports Management", caption: "Radu Prospectu — founder and owner of RDP Sports Management." },
+
       "But what makes RDP truly special — and what makes this partnership so fitting — is the agency's deep, longstanding commitment to supporting Israeli and Jewish causes. Prospectu and his team have consistently stood behind initiatives that uplift the Jewish community and strengthen ties to Israel, making RDP the ideal partner for a club that was built on those very same values.",
 
       { type: "pullquote", text: "RDP Sports Management isn't just our first sponsor — they're a partner who believes in what Sabra HC stands for. Radu's history of supporting Israeli and Jewish causes makes this one of the most meaningful partnerships we could have asked for." },
