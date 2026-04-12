@@ -161,7 +161,7 @@ const articles: {
 
       { type: "heading", text: "Building Together" },
 
-      "As Sabra HC finalizes its roster, secures its competition schedule, and prepares for September 2026, the RDP partnership will be visible across the club's operations — from jersey branding and arena signage to digital content and community programming. This is a founding partnership in every sense of the word.",
+      "As Sabra HC begins building its roster — with Israel's national team fresh off a gold medal win at the IIHF World Championship Division 2B in Sofia, Bulgaria — the excitement around the club's inaugural season has never been higher. The RDP partnership will be visible across the club's operations — from jersey branding and arena signage to digital content and community programming. This is a founding partnership in every sense of the word.",
 
       "To Radu Prospectu and RDP Sports Management — welcome to the Sabra HC family. To the rest of the hockey world — this is just the beginning.",
 
