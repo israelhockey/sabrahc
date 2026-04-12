@@ -11,6 +11,10 @@ import collageNewEra from "@/assets/collage-new-era.jpg";
 import collageJerseys from "@/assets/collage-jerseys.jpg";
 import collageArena from "@/assets/collage-arena.jpg";
 import newsRdpPartnership from "@/assets/news-rdp-partnership.jpg";
+import rdpRaduPortrait from "@/assets/rdp-radu-portrait.png";
+import rdpTeamPhoto from "@/assets/rdp-team-photo.png";
+import rdpGameAction from "@/assets/rdp-game-action.png";
+import rdpRaduTennis from "@/assets/rdp-radu-tennis.png";
 
 type BodyBlock =
   | string
