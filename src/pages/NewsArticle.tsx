@@ -151,6 +151,10 @@ const articles: {
 
       "Romania and Hungary are key markets for Sabra HC's international competition calendar, and having a partner with deep, established ties to clubs in those countries gives the organization a significant advantage in scheduling, logistics, and relationship-building at the professional level.",
 
+      { type: "image", src: rdpTeamPhoto, alt: "One of RDP Sports Management's hockey teams on the ice", caption: "RDP's network spans across European hockey — helping connect Sabra HC to competition partners in Romania and Hungary.", wide: true },
+
+      { type: "image", src: rdpGameAction, alt: "Game action from one of RDP's hockey events", caption: "RDP Sports Management has deep roots in the hockey world, with connections spanning multiple leagues and countries.", wide: true },
+
       { type: "heading", text: "More Than Hockey" },
 
       "While hockey is at the core of both organizations, RDP's multi-sport expertise adds another dimension to this partnership. Their experience in tennis, winter sports, and track and field brings a broader perspective to athlete development and sports marketing — areas that will be invaluable as Sabra HC builds its brand both on and off the ice.",
