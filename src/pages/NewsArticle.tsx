@@ -10,6 +10,7 @@ import arenaHero from "@/assets/arena-hero.jpg";
 import collageNewEra from "@/assets/collage-new-era.jpg";
 import collageJerseys from "@/assets/collage-jerseys.jpg";
 import collageArena from "@/assets/collage-arena.jpg";
+import newsRdpPartnership from "@/assets/news-rdp-partnership.jpg";
 
 type BodyBlock =
   | string
