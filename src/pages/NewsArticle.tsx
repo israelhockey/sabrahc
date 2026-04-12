@@ -125,7 +125,7 @@ const articles: {
     readTime: "5 min read",
     image: newsRdpPartnership,
     body: [
-      "Sabra Hockey Club is proud to announce its first official partnership ahead of the 2026–27 inaugural season. RDP Sports Management, a Toronto-based boutique athlete representation and sports marketing firm, has come on board as the club's founding sponsor — a milestone moment that signals real momentum as Sabra HC prepares to take the ice.",
+      "Sabra Hockey Club is proud to announce its first official partnership ahead of the 2026–27 inaugural season. RDP Sports Management, a Toronto-based boutique athlete representation and sports marketing firm led by founder Radu Prospectu, has come on board as the club's founding sponsor — a milestone moment that signals real momentum as Sabra HC prepares to take the ice.",
 
       "This is more than a sponsorship. It's a statement of shared purpose.",
 
@@ -133,11 +133,17 @@ const articles: {
 
       { type: "heading", text: "A Natural Alignment" },
 
-      "Founded in 2013, RDP Sports Management has spent over a decade representing professional and amateur athletes across a wide range of sports — including hockey, tennis, bobsledding, speed skating, and track and field. The firm provides full-service athlete representation, business management, contract negotiation, sports marketing, public relations, and identity promotional services, managing over 17 clients across 6 countries worldwide.",
+      "Founded in 2013 by Radu Prospectu, RDP Sports Management has spent over a decade representing professional and amateur athletes across a wide range of sports — including hockey, tennis, bobsledding, speed skating, and track and field. The firm provides full-service athlete representation, business management, contract negotiation, sports marketing, public relations, and identity promotional services, managing over 17 clients across 6 countries worldwide.",
 
-      "But what makes RDP truly special — and what makes this partnership so fitting — is the agency's deep, longstanding commitment to supporting Israeli and Jewish causes. RDP's leadership has consistently stood behind initiatives that uplift the Jewish community and strengthen ties to Israel, making them the ideal partner for a club that was built on those very same values.",
+      "But what makes RDP truly special — and what makes this partnership so fitting — is the agency's deep, longstanding commitment to supporting Israeli and Jewish causes. Prospectu and his team have consistently stood behind initiatives that uplift the Jewish community and strengthen ties to Israel, making RDP the ideal partner for a club that was built on those very same values.",
 
-      { type: "pullquote", text: "RDP Sports Management isn't just our first sponsor — they're a partner who believes in what Sabra HC stands for. Their history of supporting Israeli and Jewish causes makes this one of the most meaningful partnerships we could have asked for." },
+      { type: "pullquote", text: "RDP Sports Management isn't just our first sponsor — they're a partner who believes in what Sabra HC stands for. Radu's history of supporting Israeli and Jewish causes makes this one of the most meaningful partnerships we could have asked for." },
+
+      { type: "heading", text: "Already Opening Doors" },
+
+      "RDP's impact on Sabra HC extends well beyond the sponsorship itself. Through Prospectu's extensive network and close working relationships with Romanian and Hungarian hockey clubs, RDP has already been instrumental in helping Sabra HC align competition matchups for the coming 2026–27 season. These connections are invaluable for an independent professional club building its inaugural schedule of 40+ games across Europe and Israel.",
+
+      "Romania and Hungary are key markets for Sabra HC's international competition calendar, and having a partner with deep, established ties to clubs in those countries gives the organization a significant advantage in scheduling, logistics, and relationship-building at the professional level.",
 
       { type: "heading", text: "More Than Hockey" },
 
@@ -151,13 +157,13 @@ const articles: {
 
       "This partnership lays the groundwork for the club's commercial future. With RDP on board, Sabra HC now has a model for the kind of values-driven, mission-aligned sponsorships it will continue to pursue — partners who don't just see a logo on a jersey, but who believe in the movement behind it.",
 
-      { type: "pullquote", text: "Every great team needs partners who believe in the mission before the first puck drops. RDP Sports Management stepped up when it mattered most — and that's something we'll never forget." },
+      { type: "pullquote", text: "Every great team needs partners who believe in the mission before the first puck drops. Radu and RDP Sports Management stepped up when it mattered most — and that's something we'll never forget." },
 
       { type: "heading", text: "Building Together" },
 
       "As Sabra HC finalizes its roster, secures its competition schedule, and prepares for September 2026, the RDP partnership will be visible across the club's operations — from jersey branding and arena signage to digital content and community programming. This is a founding partnership in every sense of the word.",
 
-      "To RDP Sports Management — welcome to the Sabra HC family. To the rest of the hockey world — this is just the beginning.",
+      "To Radu Prospectu and RDP Sports Management — welcome to the Sabra HC family. To the rest of the hockey world — this is just the beginning.",
 
       { type: "divider" },
 
