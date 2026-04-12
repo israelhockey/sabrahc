@@ -11,6 +11,10 @@ import collageNewEra from "@/assets/collage-new-era.jpg";
 import collageJerseys from "@/assets/collage-jerseys.jpg";
 import collageArena from "@/assets/collage-arena.jpg";
 import newsRdpPartnership from "@/assets/news-rdp-partnership.jpg";
+import rdpRaduPortrait from "@/assets/rdp-radu-portrait.png";
+import rdpTeamPhoto from "@/assets/rdp-team-photo.png";
+import rdpGameAction from "@/assets/rdp-game-action.png";
+import rdpRaduTennis from "@/assets/rdp-radu-tennis.png";
 
 type BodyBlock =
   | string
@@ -135,6 +139,8 @@ const articles: {
 
       "Founded in 2013 by Radu Prospectu, RDP Sports Management has spent over a decade representing professional and amateur athletes across a wide range of sports — including hockey, tennis, bobsledding, speed skating, and track and field. The firm provides full-service athlete representation, business management, contract negotiation, sports marketing, public relations, and identity promotional services, managing over 17 clients across 6 countries worldwide.",
 
+      { type: "image", src: rdpRaduPortrait, alt: "Radu Prospectu, founder of RDP Sports Management", caption: "Radu Prospectu — founder and owner of RDP Sports Management." },
+
       "But what makes RDP truly special — and what makes this partnership so fitting — is the agency's deep, longstanding commitment to supporting Israeli and Jewish causes. Prospectu and his team have consistently stood behind initiatives that uplift the Jewish community and strengthen ties to Israel, making RDP the ideal partner for a club that was built on those very same values.",
 
       { type: "pullquote", text: "RDP Sports Management isn't just our first sponsor — they're a partner who believes in what Sabra HC stands for. Radu's history of supporting Israeli and Jewish causes makes this one of the most meaningful partnerships we could have asked for." },
@@ -145,11 +151,17 @@ const articles: {
 
       "Romania and Hungary are key markets for Sabra HC's international competition calendar, and having a partner with deep, established ties to clubs in those countries gives the organization a significant advantage in scheduling, logistics, and relationship-building at the professional level.",
 
+      { type: "image", src: rdpTeamPhoto, alt: "One of RDP Sports Management's hockey teams on the ice", caption: "RDP's network spans across European hockey — helping connect Sabra HC to competition partners in Romania and Hungary.", wide: true },
+
+      { type: "image", src: rdpGameAction, alt: "Game action from one of RDP's hockey events", caption: "RDP Sports Management has deep roots in the hockey world, with connections spanning multiple leagues and countries.", wide: true },
+
       { type: "heading", text: "More Than Hockey" },
 
       "While hockey is at the core of both organizations, RDP's multi-sport expertise adds another dimension to this partnership. Their experience in tennis, winter sports, and track and field brings a broader perspective to athlete development and sports marketing — areas that will be invaluable as Sabra HC builds its brand both on and off the ice.",
 
       "RDP's roster of international athletes and their experience navigating the global sports landscape make them uniquely equipped to support Sabra HC's mission of creating a professional hockey pathway in Israel while connecting Jewish athletes worldwide to the club.",
+
+      { type: "image", src: rdpRaduTennis, alt: "Radu Prospectu on the tennis court", caption: "Beyond the rink — Radu Prospectu brings multi-sport expertise spanning tennis, winter sports, and more." },
 
       { type: "heading", text: "The First of Many" },
 
