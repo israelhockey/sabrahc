@@ -161,6 +161,8 @@ const articles: {
 
       "RDP's roster of international athletes and their experience navigating the global sports landscape make them uniquely equipped to support Sabra HC's mission of creating a professional hockey pathway in Israel while connecting Jewish athletes worldwide to the club.",
 
+      { type: "image", src: rdpRaduTennis, alt: "Radu Prospectu on the tennis court", caption: "Beyond the rink — Radu Prospectu brings multi-sport expertise spanning tennis, winter sports, and more." },
+
       { type: "heading", text: "The First of Many" },
 
       "Landing a founding partner of this caliber validates the vision behind Sabra HC. As the club enters its inaugural season, RDP Sports Management's involvement sends a clear message to the hockey world and the broader sports community: Sabra HC is real, it's professional, and it's attracting partners who share its commitment to excellence and community.",
