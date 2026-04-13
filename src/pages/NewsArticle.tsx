@@ -129,7 +129,7 @@ const articles: {
     readTime: "5 min read",
     image: newsRdpPartnership,
     body: [
-      "Sabra Hockey Club is proud to announce its first official partnership ahead of the 2026–27 inaugural season. RDP Sports Management, a Toronto-based boutique athlete representation and sports marketing firm led by founder Radu Prospectu, has come on board as the club's founding sponsor — a milestone moment that signals real momentum as Sabra HC prepares to take the ice.",
+      "Sabra Hockey Club is proud to announce its first official partnership ahead of the 2026–27 inaugural season. RDP Sports Management, a Toronto-based boutique athlete representation and sports marketing firm led by founder Radu Daniel Popescu, has come on board as the club's founding sponsor — a milestone moment that signals real momentum as Sabra HC prepares to take the ice.",
 
       "This is more than a sponsorship. It's a statement of shared purpose.",
 
@@ -137,9 +137,9 @@ const articles: {
 
       { type: "heading", text: "A Natural Alignment" },
 
-      "Founded in 2013 by Radu Prospectu, RDP Sports Management has spent over a decade representing professional and amateur athletes across a wide range of sports — including hockey, tennis, bobsledding, speed skating, and track and field. The firm provides full-service athlete representation, business management, contract negotiation, sports marketing, public relations, and identity promotional services, managing over 17 clients across 6 countries worldwide.",
+      "Founded in 2013 by Radu Daniel Popescu, RDP Sports Management has spent over a decade representing professional and amateur athletes across a wide range of sports — including hockey, tennis, bobsledding, speed skating, and track and field. The firm provides full-service athlete representation, business management, contract negotiation, sports marketing, public relations, and identity promotional services, managing over 17 clients across 6 countries worldwide.",
 
-      { type: "image", src: rdpRaduPortrait, alt: "Radu Prospectu, founder of RDP Sports Management", caption: "Radu Prospectu — founder and owner of RDP Sports Management." },
+      { type: "image", src: rdpRaduPortrait, alt: "Radu Daniel Popescu, founder of RDP Sports Management", caption: "Radu Daniel Popescu — founder and owner of RDP Sports Management." },
 
       "But what makes RDP truly special — and what makes this partnership so fitting — is the agency's deep, longstanding commitment to supporting Israeli and Jewish causes. Prospectu and his team have consistently stood behind initiatives that uplift the Jewish community and strengthen ties to Israel, making RDP the ideal partner for a club that was built on those very same values.",
 
@@ -161,7 +161,7 @@ const articles: {
 
       "RDP's roster of international athletes and their experience navigating the global sports landscape make them uniquely equipped to support Sabra HC's mission of creating a professional hockey pathway in Israel while connecting Jewish athletes worldwide to the club.",
 
-      { type: "image", src: rdpRaduTennis, alt: "Radu Prospectu on the tennis court", caption: "Beyond the rink — Radu Prospectu brings multi-sport expertise spanning tennis, winter sports, and more." },
+      { type: "image", src: rdpRaduTennis, alt: "Radu Daniel Popescu on the tennis court", caption: "Beyond the rink — Radu Daniel Popescu brings multi-sport expertise spanning tennis, winter sports, and more." },
 
       { type: "heading", text: "The First of Many" },
 
@@ -175,7 +175,7 @@ const articles: {
 
       "As Sabra HC begins building its roster — with Israel's national team fresh off a gold medal win at the IIHF World Championship Division 2B in Sofia, Bulgaria — the excitement around the club's inaugural season has never been higher. The RDP partnership will be visible across every level of the club's operations — on-ice jersey branding and arena signage, off-ice event presence and community programming, and across all digital and social media channels. This is a true all-encompassing founding partnership in every sense of the word.",
 
-      "To Radu Prospectu and RDP Sports Management — welcome to the Sabra HC family. To the rest of the hockey world — this is just the beginning.",
+      "To Radu Daniel Popescu and RDP Sports Management — welcome to the Sabra HC family. To the rest of the hockey world — this is just the beginning.",
 
       { type: "divider" },
 
