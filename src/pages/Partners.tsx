@@ -1,5 +1,6 @@
 import { Shirt, LayoutPanelTop, Trophy, Smartphone, HeartHandshake, Wine } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import { PartnerArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import SignupForm from "@/components/SignupForm";
 import { partners } from "@/data/club";
@@ -22,7 +23,7 @@ const offers = [
 
 const Partners = () => (
   <>
-    <PageHero cam="CAM 5 · Rink boards" eyebrow="Partnerships" title="Partner with Israel's club" intro="Grow with a club at the start of its story, and a sport on the rise in Israel." />
+    <PageHero cam="CAM 5 · Ribbon board" status="Now booking" tone="sand" art={<PartnerArt />} eyebrow="Partnerships" title="Partner with Israel's club" intro="Grow with a club at the start of its story, and a sport on the rise in Israel." />
 
     <section className="bg-ice-white py-20" aria-labelledby="current-title">
       <div className="container-site">

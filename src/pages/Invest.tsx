@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
+import { PlanChartArt } from "@/components/motion";
 import SignupForm from "@/components/SignupForm";
 
 const Invest = () => (
   <>
-    <PageHero
+    <PageHero cam="CAM 7 · The plan" status="Founding round" tone="sand" art={<PlanChartArt />}
       eyebrow="Ownership & investment"
       title="Own a piece of Israel's club"
       intro="Sabra HC LLC is raising a founding round from a small group of partners who want to build Israel's flagship hockey club."
-      cam="CAM 5 · Boardroom over the rink"
+     
     />
     <section className="bg-night py-20">
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr]">

@@ -1,21 +1,28 @@
 import { Link } from "react-router-dom";
 import crest from "@/assets/sabra-crest.webp";
 import ContourField from "@/components/ContourField";
-import { CamFrame } from "@/components/broadcast";
+import PageHero from "@/components/PageHero";
+import { RouteMapArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import { roadToEurope, staff } from "@/data/club";
 
 const Club = () => (
   <>
-    <CamFrame label="CAM 2 · Desert dunes at dusk" corners="diagonal" className="border-b border-line">
-      <div className="container-site flex min-h-[420px] flex-col justify-end pb-14 pt-20 lg:min-h-[520px]">
-        <span className="tag-sand self-start animate-rise">The club · Est. 2026</span>
-        <h1 className="mt-3 font-display font-black uppercase leading-[0.85] animate-rise">
-          <span className="block text-6xl text-sand sm:text-8xl lg:text-[130px]">Born in the desert.</span>
-          <span className="block text-6xl text-ice-white sm:text-8xl lg:text-[130px]">Built for the ice.</span>
-        </h1>
-      </div>
-    </CamFrame>
+    <PageHero
+      cam="CAM 9 · Route map"
+      status="Est. 2026"
+      tone="sand"
+      art={<RouteMapArt />}
+      eyebrow="The club"
+      title={
+        <>
+          Born in the desert.
+          <br />
+          <span className="mt-1 inline-block bg-night px-3 pb-1 text-sand">Built for the ice.</span>
+        </>
+      }
+      intro="A privately owned Israeli club with one plan: win at home, bring European hockey to Israel, and take our place in a European league."
+    />
 
     <section className="bg-night py-20" aria-labelledby="story-title">
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr]">

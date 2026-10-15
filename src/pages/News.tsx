@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
+import { NewsDeskArt } from "@/components/motion";
 import { sortedArticles, formatDate, type Article } from "@/data/news";
 
 const cats = ["All", "Club", "Team", "Signings", "Games", "Partners"] as const;
@@ -12,7 +13,7 @@ const News = () => {
 
   return (
     <>
-      <PageHero cam="CAM 6 · Press area" eyebrow="Sabra HC" title="News" intro="Signings, games, partners and everything happening at the club." />
+      <PageHero cam="CAM 6 · News desk" status="On air" tone="live" art={<NewsDeskArt />} eyebrow="Sabra HC" title="News" intro="Signings, games, partners and everything happening at the club." />
       <section className="bg-night py-16">
         <div className="container-site">
           <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter news">

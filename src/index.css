@@ -214,3 +214,48 @@
 @media (prefers-reduced-motion: reduce) {
   .rink-pulse, .rink-tele, .rink-tele-2 { animation: none; stroke-dashoffset: 0; opacity: 1; }
 }
+
+/* Bright page openers and their motion graphics */
+.ice-bg {
+  background:
+    radial-gradient(ellipse 60% 70% at 72% 30%, #ffffff 0%, rgba(255, 255, 255, 0) 70%),
+    repeating-linear-gradient(90deg, transparent 0 119px, rgba(19, 39, 77, 0.05) 119px 120px),
+    linear-gradient(180deg, #f3f8fb 0%, #e3edf4 100%);
+}
+.mg-float { animation: mg-float 6s ease-in-out infinite; }
+@keyframes mg-float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-10px) rotate(-1deg); } }
+.mg-shine { position: relative; overflow: hidden; }
+.mg-shine::after {
+  content: ""; position: absolute; inset: -20% auto -20% -40%; width: 30%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-18deg); animation: mg-shine 4.5s ease-in-out infinite;
+}
+@keyframes mg-shine { 0%, 55% { left: -40%; } 100% { left: 130%; } }
+.mg-pop { transform-box: fill-box; transform-origin: center; animation: mg-pop 6s ease-out infinite both; }
+@keyframes mg-pop { 0% { transform: scale(0); opacity: 0; } 8% { transform: scale(1.15); opacity: 1; } 12%, 88% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+.mg-in { animation: mg-in 0.5s ease-out both; }
+@keyframes mg-in { from { opacity: 0; transform: translateY(8px) scale(0.96); } to { opacity: 1; transform: none; } }
+.mg-draw { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: mg-draw 6s ease-in-out infinite; }
+@keyframes mg-draw { 0% { stroke-dashoffset: 1000; opacity: 1; } 40%, 85% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+.mg-ring { transform-box: fill-box; transform-origin: center; animation: mg-ring 3s ease-out infinite; }
+@keyframes mg-ring { 0% { transform: scale(0.4); opacity: 0.9; } 100% { transform: scale(2.6); opacity: 0; } }
+.mg-seat { animation: mg-seat 5s ease-in-out infinite both; }
+@keyframes mg-seat { 0%, 20% { fill: #c9d6e6; } 30%, 85% { fill: #d6a84a; } 100% { fill: #c9d6e6; } }
+.mg-plate { animation: mg-plate 9s ease-in-out infinite both; }
+@keyframes mg-plate { 0%, 10% { background: #fff; color: #8a98b3; border-color: #c5d0db; } 16%, 85% { background: #d6a84a; color: #060d1a; border-color: #b88a2e; } 95%, 100% { background: #fff; color: #8a98b3; border-color: #c5d0db; } }
+.mg-ribbon { animation: mg-ribbon 18s linear infinite; }
+@keyframes mg-ribbon { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.mg-bar { transform-origin: bottom; animation: mg-bar 1.2s ease-in-out infinite alternate; }
+@keyframes mg-bar { from { transform: scaleY(0.25); } to { transform: scaleY(1); } }
+.mg-playhead { animation: mg-playhead 10s linear infinite; }
+@keyframes mg-playhead { from { left: 0%; } to { left: 100%; } }
+.mg-travel { offset-rotate: 0deg; animation: mg-travel 4s ease-in-out infinite; }
+@keyframes mg-travel { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+.mg-blink { animation: mg-blink 2.4s ease-in-out infinite; }
+@keyframes mg-blink { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+.mg-swap { animation: mg-in 0.45s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .mg-float, .mg-shine::after, .mg-pop, .mg-in, .mg-draw, .mg-ring, .mg-seat, .mg-plate, .mg-ribbon, .mg-bar, .mg-playhead, .mg-travel, .mg-blink, .mg-swap {
+    animation: none !important; stroke-dashoffset: 0; opacity: 1;
+  }
+}

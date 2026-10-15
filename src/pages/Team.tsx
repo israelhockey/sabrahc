@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
+import { LineupArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import { players, staff, type Player } from "@/data/club";
 import crest from "@/assets/sabra-crest.webp";
@@ -50,7 +51,7 @@ const Team = () => {
 
   return (
     <>
-      <PageHero cam="CAM 2 · Locker room, jerseys hung" eyebrow="2026–27 roster" title="The Team" intro="Israel's best available players, a path in for Jewish players from around the world, and the country's top under-20 talent." />
+      <PageHero cam="CAM 2 · Tactics board" status="Signings soon" tone="sand" art={<LineupArt />} eyebrow="2026–27 roster" title="The Team" intro="Israel's best available players, a path in for Jewish players from around the world, and the country's top under-20 talent." />
 
       <section className="bg-night py-20" aria-labelledby="roster-title">
         <div className="container-site">

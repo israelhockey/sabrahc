@@ -1,5 +1,6 @@
 import { MapPin, Users } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import { TicketArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import GameCard from "@/components/GameCard";
 import SignupForm from "@/components/SignupForm";
@@ -17,7 +18,7 @@ const Tickets = () => {
   const home = upcomingGames().filter((g) => g.home);
   return (
     <>
-      <PageHero cam="CAM 3 · Crowd behind the glass" eyebrow="Game nights" title="Tickets" intro="Fast, loud and close to the glass. Get your seats for Sabra HC home games." />
+      <PageHero cam="CAM 3 · Box office" status="On sale soon" tone="sand" art={<TicketArt />} eyebrow="Game nights" title="Tickets" intro="Fast, loud and close to the glass. Get your seats for Sabra HC home games." />
 
       <section className="bg-night py-16" aria-labelledby="upcoming-title">
         <div className="container-site">

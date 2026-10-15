@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Shirt, Gift, Tv, Percent, Award } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import { FoundersWallArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import SignupForm from "@/components/SignupForm";
 
@@ -14,11 +15,11 @@ const perks = [
 
 const Pride = () => (
   <>
-    <PageHero
+    <PageHero cam="CAM 3 · Founders wall" status="Opening soon" tone="sand" art={<FoundersWallArt />}
       eyebrow="Supporter membership"
       title="Join the Pride"
       intro="Become a founding member of Israel's flagship hockey club and be part of every first."
-      cam="CAM 3 · Fans at the glass"
+     
     />
 
     <section className="bg-night py-20" aria-labelledby="what-title">

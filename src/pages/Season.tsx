@@ -1,20 +1,19 @@
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
+import { TimelineArt } from "@/components/motion";
 import { EpisodeRow, FirstsBoard } from "@/components/sections";
 import SignupForm from "@/components/SignupForm";
 import { club } from "@/data/club";
 
 const Season = () => (
   <>
-    <PageHero
-      cam="CAM 1 · Empty rink at dawn"
+    <PageHero cam="CAM 1 · Edit suite" status="In production" tone="live" art={<TimelineArt />}
       eyebrow={`Original series · ${club.season}`}
-      tone="live"
       title={
         <>
           The Founding
           <br />
-          <span className="text-sand">Season</span>
+          <span className="mt-1 inline-block bg-night px-3 pb-1 text-sand">Season</span>
         </>
       }
       intro="The first year of an Israeli hockey club, filmed from the inside: building the team, designing the uniform, try-outs, and Game 001."

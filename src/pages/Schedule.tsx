@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PageHero from "@/components/PageHero";
+import { CalendarArt } from "@/components/motion";
 import GameCard from "@/components/GameCard";
 import SignupForm from "@/components/SignupForm";
 import { club, games, type Competition } from "@/data/club";
@@ -14,7 +15,7 @@ const Schedule = () => {
 
   return (
     <>
-      <PageHero cam="CAM 1 · Centre ice faceoff dot"
+      <PageHero cam="CAM 4 · Season calendar" status="Schedule TBA" tone="sand" art={<CalendarArt />}
         eyebrow={`${club.season} season`}
         title="Schedule & Results"
         intro={`The ${club.leagueShort} regular season, the Sabra Series, and international games as they are confirmed. All times are Israel time.`}
