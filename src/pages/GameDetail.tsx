@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { MapPin, Ticket } from "lucide-react";
 import crest from "@/assets/sabra-crest.webp";
-import ContourField from "@/components/ContourField";
+import { CamFrame } from "@/components/broadcast";
 import { games } from "@/data/club";
 import { arenaFor, formatGameDate, formatGameTime } from "@/lib/games";
 import NotFound from "./NotFound";
@@ -15,10 +15,9 @@ const GameDetail = () => {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-night pb-16 pt-[160px] lg:pt-[196px]">
-        <ContourField variant="transition" />
-        <div className="container-site relative text-center">
-          <p className="eyebrow">{game.competition} · {formatGameDate(game.date)} · {formatGameTime(game.date)}</p>
+      <CamFrame label={`CAM 1 · ${arena?.name ?? "Arena"} wide`} rec={!final} className="border-b border-line">
+        <div className="container-site relative pb-16 pt-20 text-center">
+          <p className="tag-sand">{game.competition} · {formatGameDate(game.date)} · {formatGameTime(game.date)}</p>
           <div className="mt-8 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
             <div className="flex flex-col items-center gap-3">
               <img src={crest} alt="" className="h-24 w-24 object-contain sm:h-36 sm:w-36" />
@@ -40,7 +39,7 @@ const GameDetail = () => {
             </a>
           )}
         </div>
-      </section>
+      </CamFrame>
       <section className="bg-night-2 py-16">
         <div className="container-site grid gap-8 lg:grid-cols-2">
           {game.preview && (

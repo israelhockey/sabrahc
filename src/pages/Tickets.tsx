@@ -8,7 +8,7 @@ import { upcomingGames } from "@/lib/games";
 
 const faqs = [
   { q: "How much are tickets?", a: "Prices start from ₪50 and are listed with each game when tickets go on sale." },
-  { q: "Can kids come?", a: "Absolutely. Hockey is a family game. Kids' ticket details will be listed with each game." },
+  { q: "Can kids come?", a: "Absolutely. Hockey is a family game, and ticket options are listed with each game when sales open." },
   { q: "What should I bring?", a: "A warm layer. It's an ice rink, and it gets cold even in the Israeli summer." },
   { q: "Is the arena accessible?", a: "Contact us before the game and we'll make sure you have what you need." },
 ];
@@ -17,7 +17,7 @@ const Tickets = () => {
   const home = upcomingGames().filter((g) => g.home);
   return (
     <>
-      <PageHero eyebrow="Game nights" title="Tickets" intro="Fast, loud and close to the glass. Get your seats for Sabra HC home games." />
+      <PageHero cam="CAM 3 · Crowd behind the glass" eyebrow="Game nights" title="Tickets" intro="Fast, loud and close to the glass. Get your seats for Sabra HC home games." />
 
       <section className="bg-night py-16" aria-labelledby="upcoming-title">
         <div className="container-site">

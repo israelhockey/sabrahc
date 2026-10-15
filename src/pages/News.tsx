@@ -12,7 +12,7 @@ const News = () => {
 
   return (
     <>
-      <PageHero eyebrow="Sabra HC" title="News" intro="Signings, games, partners and everything happening at the club." />
+      <PageHero cam="CAM 6 · Press area" eyebrow="Sabra HC" title="News" intro="Signings, games, partners and everything happening at the club." />
       <section className="bg-night py-16">
         <div className="container-site">
           <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter news">
@@ -22,9 +22,7 @@ const News = () => {
                 role="tab"
                 aria-selected={cat === c}
                 onClick={() => setCat(c)}
-                className={`min-h-[44px] rounded-md px-5 font-display text-lg font-bold uppercase ${
-                  cat === c ? "bg-sand text-night" : "border border-line text-ice-white hover:border-sand"
-                }`}
+                className={cat === c ? "chip-on" : "chip-off"}
               >
                 {c}
               </button>

@@ -13,7 +13,42 @@ export const club = {
   email: "info@sabrahc.com",
   // Add the club's real social accounts here, e.g. { label: "Instagram", href: "https://instagram.com/..." }
   socials: [] as { label: string; href: string }[],
+  // Game 001 faceoff, Israel time, e.g. "2026-11-19T20:00:00+02:00". null = "date announced soon".
+  openerDate: null as string | null,
+  openerArenaId: "one-ice",
+  // Set when games stream live; the Watch Live buttons link here.
+  streamUrl: null as string | null,
 };
+
+export type First = {
+  title: string;
+  // Filled in when it happens.
+  date?: string; // e.g. "19 Nov 2026"
+  detail?: string; // e.g. "Daniel Cohen · assists Levi, Mizrahi · P2 12:34"
+  pending: string; // what will be recorded
+};
+
+// The club's firsts, unlocked live through the season.
+export const firsts: First[] = [
+  { title: "First game", pending: "Game 001" },
+  { title: "First goal", pending: "Scorer · assists · time" },
+  { title: "First win", pending: "Opponent · score" },
+  { title: "First shutout", pending: "Goalie · saves" },
+  { title: "First sell-out", pending: "Arena · attendance" },
+  { title: "First Sabra Series game", pending: "vs Israeli all-stars" },
+  { title: "First European club in Israel", pending: "Target: summer 2027" },
+  { title: "First title", pending: "INHL champions" },
+];
+
+export type Episode = { ep: string; title: string; shot: string; videoUrl?: string; released?: string };
+
+// The Founding Season docuseries. Add videoUrl + released when an episode goes live.
+export const episodes: Episode[] = [
+  { ep: "EP 01", title: "Building a club from zero", shot: "Empty rink at dawn" },
+  { ep: "EP 02", title: "The lion and the cactus", shot: "Crest design desk" },
+  { ep: "EP 03", title: "Try-outs", shot: "First skate" },
+  { ep: "EP 04", title: "Game 001", shot: "Locker room" },
+];
 
 export type Arena = {
   id: string;
@@ -63,7 +98,10 @@ export type Game = {
 // Add games here as they are confirmed. Nothing is shown until a game exists.
 export const games: Game[] = [];
 
+export type JourneyStop = { seasons: string; club: string; league: string; note?: string };
+
 export type Player = {
+  slug: string; // e.g. "daniel-cohen"
   number: number;
   firstName: string;
   lastName: string;
@@ -75,6 +113,9 @@ export type Player = {
   captain?: "C" | "A";
   photo?: string;
   eliteProspectsUrl?: string;
+  lastClub?: string;
+  quote?: string; // why they chose Sabra, in their words
+  journey?: JourneyStop[];
 };
 
 // Roster reveal coming soon — add players here.

@@ -8,7 +8,7 @@ const Invest = () => (
       eyebrow="Ownership & investment"
       title="Own a piece of Israel's club"
       intro="Sabra HC LLC is raising a founding round from a small group of partners who want to build Israel's flagship hockey club."
-      variant="ice"
+      cam="CAM 5 · Boardroom over the rink"
     />
     <section className="bg-night py-20">
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr]">

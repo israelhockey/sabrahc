@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import crest from "@/assets/sabra-crest.webp";
 import ContourField from "@/components/ContourField";
+import { CamFrame } from "@/components/broadcast";
 import SectionHeading from "@/components/SectionHeading";
 import { roadToEurope, staff } from "@/data/club";
 
 const Club = () => (
   <>
-    <section className="relative overflow-hidden bg-night pb-20 pt-[160px] lg:pt-[200px]">
-      <ContourField variant="transition" lines={26} />
-      <div className="container-site relative">
-        <p className="eyebrow">The club</p>
-        <h1 className="mt-3 font-display font-black uppercase leading-[0.85]">
-          <span className="block text-6xl text-sand sm:text-8xl lg:text-9xl">Born in the desert.</span>
-          <span className="block text-6xl text-ice-white sm:text-8xl lg:text-9xl">Built for the ice.</span>
+    <CamFrame label="CAM 2 · Desert dunes at dusk" corners="diagonal" className="border-b border-line">
+      <div className="container-site flex min-h-[420px] flex-col justify-end pb-14 pt-20 lg:min-h-[520px]">
+        <span className="tag-sand self-start animate-rise">The club · Est. 2026</span>
+        <h1 className="mt-3 font-display font-black uppercase leading-[0.85] animate-rise">
+          <span className="block text-6xl text-sand sm:text-8xl lg:text-[130px]">Born in the desert.</span>
+          <span className="block text-6xl text-ice-white sm:text-8xl lg:text-[130px]">Built for the ice.</span>
         </h1>
       </div>
-    </section>
+    </CamFrame>
 
     <section className="bg-night py-20" aria-labelledby="story-title">
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr]">
@@ -40,8 +40,8 @@ const Club = () => (
       <div className="container-site grid items-center gap-12 lg:grid-cols-2">
         <img src={crest} alt="The Sabra HC crest" className="mx-auto w-full max-w-md" />
         <div>
-          <p className="eyebrow text-sand-dark">The name and the crest</p>
-          <h2 id="crest-title" className="mt-2 text-5xl font-black text-night sm:text-6xl">Tough outside. Sweet inside.</h2>
+          <span className="tag-dark">The name and the crest</span>
+          <h2 id="crest-title" className="mt-2 font-display text-5xl font-black uppercase leading-[0.9] text-night sm:text-7xl">Tough outside. Sweet inside.</h2>
           <div className="mt-6 space-y-4 text-lg text-[#3B4A63]">
             <p>
               A <strong className="text-night">sabra</strong> is the cactus fruit that is thorny on the outside and sweet on the inside, and the word for a

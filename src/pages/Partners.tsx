@@ -22,7 +22,7 @@ const offers = [
 
 const Partners = () => (
   <>
-    <PageHero eyebrow="Partnerships" title="Partner with Israel's club" intro="Grow with a club at the start of its story, and a sport on the rise in Israel." />
+    <PageHero cam="CAM 5 · Rink boards" eyebrow="Partnerships" title="Partner with Israel's club" intro="Grow with a club at the start of its story, and a sport on the rise in Israel." />
 
     <section className="bg-ice-white py-20" aria-labelledby="current-title">
       <div className="container-site">

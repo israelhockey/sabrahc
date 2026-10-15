@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SectionTitle } from "./broadcast";
 
 type Props = {
   eyebrow: string;
@@ -9,22 +10,9 @@ type Props = {
   action?: ReactNode;
 };
 
+/** Older name for SectionTitle, kept so every page uses the broadcast heading. */
 const SectionHeading = ({ eyebrow, title, intro, tone = "dark", id, action }: Props) => (
-  <div className="mb-10 flex flex-col gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
-    <div className="max-w-3xl">
-      <p className={`eyebrow ${tone === "light" ? "text-sand-dark" : ""}`}>{eyebrow}</p>
-      <h2
-        id={id}
-        className={`mt-2 text-5xl font-black leading-[0.92] sm:text-6xl lg:text-7xl text-balance ${
-          tone === "light" ? "text-night" : "text-ice-white"
-        }`}
-      >
-        {title}
-      </h2>
-      {intro && <p className={`mt-4 text-lg ${tone === "light" ? "text-[#3B4A63]" : "text-muted-text"}`}>{intro}</p>}
-    </div>
-    {action}
-  </div>
+  <SectionTitle tag={eyebrow} tone={tone === "light" ? "dark" : "sand"} title={title} intro={intro} id={id} action={action} light={tone === "light"} />
 );
 
 export default SectionHeading;

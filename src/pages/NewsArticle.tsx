@@ -22,19 +22,19 @@ const NewsArticle = () => {
   return (
     <>
       <article>
-        <header className="bg-night pb-10 pt-[150px] lg:pt-[180px]">
+        <header className="border-b border-line bg-night pb-10 pt-12 lg:pt-16">
           <div className="container-site max-w-4xl">
             <Link to="/news" className="inline-flex items-center gap-2 text-sm font-semibold text-ice hover:text-sand">
               <ArrowLeft className="h-4 w-4" /> All news
             </Link>
-            <p className="eyebrow mt-6">
+            <p className="tag-sand mt-6">
               {article.category} · {formatDate(article.date)}
             </p>
-            <h1 className="mt-3 text-5xl font-black leading-[0.95] text-ice-white sm:text-6xl lg:text-7xl text-balance">{article.title}</h1>
+            <h1 className="mt-3 font-display text-5xl font-black uppercase leading-[0.9] text-ice-white text-balance sm:text-6xl lg:text-8xl">{article.title}</h1>
             <p className="mt-5 text-xl text-muted-text">{article.excerpt}</p>
           </div>
         </header>
-        <div className="bg-night">
+        <div className="bg-night pt-10">
           <div className="container-site max-w-5xl">
             <img
               src={article.image}

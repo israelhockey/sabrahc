@@ -14,7 +14,7 @@ const Schedule = () => {
 
   return (
     <>
-      <PageHero
+      <PageHero cam="CAM 1 · Centre ice faceoff dot"
         eyebrow={`${club.season} season`}
         title="Schedule & Results"
         intro={`The ${club.leagueShort} regular season, the Sabra Series, and international games as they are confirmed. All times are Israel time.`}
@@ -63,9 +63,7 @@ const Schedule = () => {
                     role="tab"
                     aria-selected={tab === t}
                     onClick={() => setTab(t)}
-                    className={`min-h-[44px] rounded-md px-5 font-display text-lg font-bold uppercase ${
-                      tab === t ? "bg-sand text-night" : "border border-line text-ice-white hover:border-sand"
-                    }`}
+                    className={tab === t ? "chip-on" : "chip-off"}
                   >
                     {t}
                   </button>

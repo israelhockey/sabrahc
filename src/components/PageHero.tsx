@@ -1,27 +1,29 @@
 import type { ReactNode } from "react";
-import ContourField from "./ContourField";
+import { CamFrame } from "./broadcast";
 
 type Props = {
   eyebrow: string;
   title: ReactNode;
   intro?: ReactNode;
-  variant?: "desert" | "ice" | "transition";
+  tone?: "sand" | "ice" | "live" | "white";
+  cam?: string; // shot description for the background feed
   children?: ReactNode;
+  // kept for compatibility with older pages
+  variant?: string;
 };
 
-/** Shared top-of-page hero: sits under the fixed header (ticker + nav). */
-const PageHero = ({ eyebrow, title, intro, variant = "transition", children }: Props) => (
-  <section className="relative overflow-hidden border-b border-line bg-night pb-16 pt-[160px] lg:pb-20 lg:pt-[196px]">
-    <ContourField variant={variant} />
-    <div className="container-site relative">
-      <p className="eyebrow animate-rise">{eyebrow}</p>
-      <h1 className="mt-3 max-w-5xl text-6xl font-black leading-[0.9] text-ice-white animate-rise sm:text-7xl lg:text-8xl text-balance">
-        {title}
-      </h1>
-      {intro && <div className="mt-6 max-w-2xl text-lg text-muted-text sm:text-xl animate-rise">{intro}</div>}
+/** Broadcast-style page opener: a camera-feed band with a lower-third title. */
+const PageHero = ({ eyebrow, title, intro, tone = "sand", cam, children }: Props) => (
+  <CamFrame label={cam} corners="diagonal" className="border-b border-line">
+    <div className="container-site flex min-h-[340px] flex-col justify-end pb-12 pt-20 lg:min-h-[420px] lg:pb-14">
+      <span className={`tag-${tone} self-start animate-rise`}>{eyebrow}</span>
+      <h1 className="mt-2 max-w-5xl font-display text-6xl font-black uppercase leading-[0.86] animate-rise sm:text-8xl lg:text-[120px]">{title}</h1>
+      {intro && (
+        <div className="mt-4 max-w-2xl border-l-[6px] border-ice bg-night/90 px-5 py-3 text-lg text-[#C9D6E6] animate-rise">{intro}</div>
+      )}
       {children}
     </div>
-  </section>
+  </CamFrame>
 );
 
 export default PageHero;

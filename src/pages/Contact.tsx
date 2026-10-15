@@ -7,7 +7,7 @@ import { club } from "@/data/club";
 
 const Contact = () => (
   <>
-    <PageHero eyebrow="Get in touch" title="Contact" intro="Questions, partnerships, media or try-outs. We read everything." />
+    <PageHero cam="CAM 4 · Bench door" eyebrow="Get in touch" title="Contact" intro="Questions, partnerships, media or try-outs. We read everything." />
 
     <section className="bg-night py-16">
       <div className="container-site grid gap-6 md:grid-cols-3">

@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
-import ContourField from "@/components/ContourField";
+import { CamFrame } from "@/components/broadcast";
 
 const NotFound = () => (
-  <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-night pt-[100px]">
-    <ContourField variant="ice" />
-    <div className="container-site relative text-center">
-      <p className="eyebrow">404</p>
-      <h1 className="mt-2 text-[22vw] font-black leading-none text-ice-white sm:text-[180px]">Offside.</h1>
-      <p className="mt-4 text-lg text-muted-text">This page doesn't exist, or it's been moved.</p>
+  <CamFrame label="CAM 4 · Empty net" corners="all">
+    <div className="container-site flex min-h-[70vh] flex-col items-center justify-center py-20 text-center">
+      <span className="tag-live">Whistle · 404</span>
+      <h1 className="mt-3 font-display text-[22vw] font-black uppercase leading-none text-ice-white sm:text-[200px]">Offside.</h1>
+      <p className="mt-2 text-lg text-muted-text">This page doesn't exist, or it's been moved.</p>
       <Link to="/" className="btn-primary mt-8">
-        Back to home
+        Back to centre ice
       </Link>
     </div>
-  </section>
+  </CamFrame>
 );
 
 export default NotFound;

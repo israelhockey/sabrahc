@@ -18,7 +18,7 @@ const Pride = () => (
       eyebrow="Supporter membership"
       title="Join the Pride"
       intro="Become a founding member of Israel's flagship hockey club and be part of every first."
-      variant="desert"
+      cam="CAM 3 · Fans at the glass"
     />
 
     <section className="bg-night py-20" aria-labelledby="what-title">

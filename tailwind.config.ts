@@ -4,6 +4,7 @@ export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
+  safelist: ["tag-sand", "tag-ice", "tag-live", "tag-white", "tag-dark"],
   theme: {
     container: {
       center: true,
@@ -16,6 +17,7 @@ export default {
       fontFamily: {
         display: ['"Big Shoulders Display"', '"Secular One"', "Impact", "sans-serif"],
         body: ["Barlow", "Heebo", "system-ui", "sans-serif"],
+        cond: ['"Barlow Condensed"', "Heebo", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,7 +53,8 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        night: { DEFAULT: "hsl(var(--night))", 2: "hsl(var(--night-2))" },
+        night: { DEFAULT: "hsl(var(--night))", 2: "hsl(var(--night-2))", deep: "hsl(var(--night-deep))" },
+        live: "hsl(var(--live))",
         line: "hsl(var(--line))",
         sand: { DEFAULT: "hsl(var(--sand))", soft: "hsl(var(--sand-soft))", dark: "hsl(var(--sand-dark))" },
         ice: { DEFAULT: "hsl(var(--ice))", white: "hsl(var(--ice-white))" },

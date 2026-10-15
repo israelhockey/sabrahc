@@ -8,7 +8,7 @@ import crest from "@/assets/sabra-crest.webp";
 const filters = ["All", "Forward", "Defence", "Goalie"] as const;
 
 const PlayerCard = ({ p }: { p: Player }) => (
-  <article className="card-lift group relative overflow-hidden rounded-lg border border-line bg-night-2">
+  <Link to={`/team/${p.slug}`} className="lift group relative block overflow-hidden border border-line bg-night-2">
     <div className="relative aspect-[4/5] overflow-hidden bg-night">
       <span
         aria-hidden="true"
@@ -37,8 +37,9 @@ const PlayerCard = ({ p }: { p: Player }) => (
         <span className="text-muted-text">{p.position}</span>
         <span className="rounded bg-night px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-ice">{p.tag}</span>
       </div>
+      <p className="label mt-4 text-sm text-sand">Player journey →</p>
     </div>
-  </article>
+  </Link>
 );
 
 const Team = () => {
@@ -49,7 +50,7 @@ const Team = () => {
 
   return (
     <>
-      <PageHero eyebrow="2026–27 roster" title="The Team" intro="Israel's best available players, a path in for Jewish players from around the world, and the country's top under-20 talent." />
+      <PageHero cam="CAM 2 · Locker room, jerseys hung" eyebrow="2026–27 roster" title="The Team" intro="Israel's best available players, a path in for Jewish players from around the world, and the country's top under-20 talent." />
 
       <section className="bg-night py-20" aria-labelledby="roster-title">
         <div className="container-site">
@@ -74,9 +75,7 @@ const Team = () => {
                     role="tab"
                     aria-selected={filter === f}
                     onClick={() => setFilter(f)}
-                    className={`min-h-[44px] rounded-md px-5 font-display text-lg font-bold uppercase ${
-                      filter === f ? "bg-sand text-night" : "border border-line text-ice-white hover:border-sand"
-                    }`}
+                    className={filter === f ? "chip-on" : "chip-off"}
                   >
                     {f === "All" ? "All" : f === "Defence" ? "Defence" : `${f}s`}
                   </button>
@@ -84,7 +83,7 @@ const Team = () => {
               </div>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {list.map((p) => (
-                  <PlayerCard key={p.number} p={p} />
+                  <PlayerCard key={p.slug} p={p} />
                 ))}
               </div>
             </>

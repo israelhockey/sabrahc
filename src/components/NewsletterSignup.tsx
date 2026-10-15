@@ -1,16 +1,14 @@
 import SignupForm from "./SignupForm";
 
 const NewsletterSignup = () => (
-  <section className="border-b border-line bg-night-2" aria-labelledby="newsletter-title">
+  <section className="border-t border-line bg-night" aria-labelledby="newsletter-title">
     <div className="container-site grid items-center gap-8 py-14 lg:grid-cols-2">
       <div>
-        <p className="eyebrow">Stay in the game</p>
-        <h2 id="newsletter-title" className="mt-2 text-4xl font-black text-ice-white sm:text-5xl">
-          Get the news first
+        <span className="tag-ice">Stay tuned</span>
+        <h2 id="newsletter-title" className="mt-2 text-5xl font-black leading-[0.9] sm:text-6xl">
+          Never miss a first
         </h2>
-        <p className="mt-3 max-w-md text-lg text-muted-text">
-          Schedule announcements, roster news and ticket drops, straight to your inbox.
-        </p>
+        <p className="mt-3 max-w-md text-lg text-muted-text">Game 001, signings, the uniform reveal and ticket drops, straight to your inbox.</p>
       </div>
       <SignupForm
         source="newsletter"
