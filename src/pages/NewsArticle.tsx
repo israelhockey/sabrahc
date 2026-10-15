@@ -1,476 +1,99 @@
-import { useParams, Link, Navigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ChevronRight, ArrowLeft, Calendar, Clock } from "lucide-react";
-
-import newsAnnouncement from "@/assets/news-announcement.jpg";
-import sabraLogo from "@/assets/sabra-logo.png";
-import sabraJerseys from "@/assets/sabra-jerseys.png";
-import jhcAction from "@/assets/jhc-action.png";
-import arenaHero from "@/assets/arena-hero.jpg";
-import collageNewEra from "@/assets/collage-new-era.jpg";
-import collageJerseys from "@/assets/collage-jerseys.jpg";
-import collageArena from "@/assets/collage-arena.jpg";
-import newsRdpPartnership from "@/assets/news-rdp-partnership.jpg";
-import rdpRaduPortrait from "@/assets/rdp-radu-portrait.png";
-import rdpTeamPhoto from "@/assets/rdp-team-photo.png";
-import rdpGameAction from "@/assets/rdp-game-action.png";
-import rdpRaduTennis from "@/assets/rdp-radu-tennis.png";
-
-type BodyBlock =
-  | string
-  | { type: "image"; src: string; alt: string; caption?: string; wide?: boolean }
-  | { type: "heading"; text: string }
-  | { type: "pullquote"; text: string }
-  | { type: "divider" };
-
-const articles: {
-  id: number;
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  readTime: string;
-  image: string;
-  body: BodyBlock[];
-  featured?: boolean;
-}[] = [
-  {
-    id: 0,
-    slug: "introducing-sabra-hockey-club",
-    title: "Introducing Sabra Hockey Club: Born in the Desert, Built for the Ice",
-    excerpt: "The flagship hockey club in Israel is here. Sabra HC is more than a team — it's a movement to elevate Israeli hockey, create pathways for Jewish athletes worldwide, and build a lasting legacy on the ice.",
-    category: "ANNOUNCEMENT",
-    date: "March 15, 2025",
-    readTime: "8 min read",
-    image: newsAnnouncement,
-    body: [
-      "Today marks a historic moment for the sport of ice hockey in the State of Israel. After decades of grassroots passion, international competition, and the tireless dedication of players, coaches, and families who kept the dream alive — we are proud to officially introduce Sabra Hockey Club, the flagship professional ice hockey organization in Israel.",
-
-      "This is not just the birth of a hockey team. This is the beginning of a new era.",
-
-      { type: "divider" },
-
-      { type: "heading", text: "The Talent Drain Ends Here" },
-
-      "For over 40 years, Israeli hockey has existed in the margins — a sport played by passionate athletes who traveled abroad to pursue their dreams, competed on the international stage under the Israeli flag, and returned home to a country that had no professional league to offer them. Talented players were forced to leave Israel to develop their careers, and many never came back. The pipeline led outward, and the talent drain was real.",
-
-      "Sabra HC was created to reverse that trajectory. To give Israeli hockey players a reason to stay. To build something professional, competitive, and enduring right here at home.",
-
-      { type: "image", src: collageNewEra, alt: "A New Era for Israeli Hockey — Sabra HC brand collage", caption: "A new era for Israeli hockey — Sabra HC brings professional competition home.", wide: true },
-
-      { type: "heading", text: "What It Means to Be a Sabra" },
-
-      "The name 'Sabra' was chosen with deep intention. In Hebrew, a Sabra — סברה — refers to a native-born Israeli, derived from the sabra cactus fruit: tough and thorny on the outside, sweet and soft on the inside. It's the perfect metaphor for the Israeli spirit, and it captures exactly what this club is about. We are resilient. We are proud. And we are ready to compete.",
-
-      { type: "pullquote", text: "The Sabra identity is woven into everything we do. From the name to the crest to the culture we're building — this club is a reflection of Israel itself. Tough, determined, and full of heart." },
-
-      { type: "heading", text: "The Lion of Judah" },
-
-      "At the center of our crest stands the Lion of Judah — an ancient symbol of strength, courage, and leadership that has represented the Jewish people for millennia. The lion is not just a mascot; it is a declaration. It says that we are here, we are fierce, and we will not be outworked. The shield that frames the lion represents protection and unity, and the gold and navy colorway connects the club to both royalty and the deep blue of the Mediterranean that borders our homeland.",
-
-      { type: "image", src: sabraLogo, alt: "The Sabra HC crest featuring the Lion of Judah", caption: "The Sabra HC crest — the Lion of Judah, cactus motifs, and the Star of David anchor the club to its roots." },
-
-      "Every element of the crest was designed to tell a story. The cactus motifs that appear throughout our branding are a direct nod to the Sabra spirit — born in the harshest conditions, thriving against all odds. The Star of David, subtly integrated into the design, anchors the club to its Jewish and Israeli roots. This is a crest meant to be worn with pride, whether you're on the ice in Budapest or watching from a living room in Tel Aviv.",
-
-      { type: "divider" },
-
-      { type: "heading", text: "Building a Professional Pathway" },
-
-      "But Sabra HC is about far more than symbolism. At its core, this club exists to solve a real problem: the absence of a professional hockey infrastructure in Israel.",
-
-      "For years, Israeli players who wanted to pursue hockey at the highest level had only one option — leave the country. Move to Canada, the United States, or Europe. Train in foreign systems, play for foreign clubs, and hope for a shot. Many of these athletes are Israeli-born. Many are Jewish players from the diaspora who dream of connecting to Israel. Until now, there was no professional pathway that kept them here or brought them home.",
-
-      "Sabra HC changes that. We are building an independent professional club that operates under the Israel Ice Hockey Federation. Rather than joining an existing league, Sabra HC will chart its own course — hosting and traveling to face professional teams from Romania, Hungary, Poland, and beyond in a 40+ game season of international and domestic competition. Our roster will feature 15-17 Israeli players, 3-5 international imports, and 5 local U20 development players — a structure designed to be both competitive and developmental. The long-term vision is clear: 3-5 years of building as an independent professional organization before applying to join an established European league.",
-
-      { type: "pullquote", text: "We want to be the club that young Israeli players dream of playing for. And we want to be the club that Jewish athletes around the world see as their bridge to Israel." },
-
-      { type: "heading", text: "A Bridge for Aliyah Through Sport" },
-
-      "This vision extends beyond current players. Sabra HC is establishing a formal development foundation — a structured pipeline that takes young Israeli players from their first skating lessons to professional competition. Through partnerships with the Israeli Ice Hockey Federation, we will run youth camps, coaching clinics, scouting networks, and junior development programs that create a clear pathway from grassroots to the professional roster.",
-
-      "The development program is not an afterthought. It is the foundation of everything we're building. A professional club without youth development is a short-term project. We are building for generations.",
-
-      "For Jewish hockey players around the world — in North America, Europe, and beyond — Sabra HC represents something unprecedented: a professional hockey club in Israel that can facilitate Aliyah through sport. Players can pursue their athletic careers while building a life in Israel, contributing to the country's sporting landscape, and connecting to their heritage in the most tangible way possible.",
-
-      "For non-Jewish international players, Sabra HC offers a unique professional opportunity — the chance to compete at a high level while experiencing life in one of the world's most dynamic countries. Israel's professional sports landscape has proven this model works. Basketball and soccer clubs like Maccabi Tel Aviv and Hapoel have attracted international talent for decades. Now hockey joins that tradition.",
-
-      { type: "image", src: collageJerseys, alt: "Sabra HC official jersey reveal with crest details", caption: "Every stitch tells a story — the official Sabra HC jerseys feature the Lion of Judah crest, cactus patches, and the Israeli flag.", wide: true },
-
-      { type: "heading", text: "Home Ice" },
-
-      "Our home will be the One Ice Arena near Netanya — Israel's largest ice facility, currently undergoing upgrades to meet European professional standards — with additional games hosted at the Blue Ice Arena in Ashdod. Together, these venues give the club geographic reach across Israel and the capacity to build a true fan culture from day one.",
-
-      { type: "pullquote", text: "The atmosphere we want to create is unlike anything Israeli hockey has seen. We want packed stands, we want energy, we want families and kids and die-hard fans who live and breathe this team." },
-
-      { type: "image", src: collageArena, alt: "Home Ice Advantage — Sabra HC arena concept", caption: "Home ice advantage — world-class hockey atmosphere on Israeli ice.", wide: true },
-
-      { type: "heading", text: "The 2026–27 Inaugural Season" },
-
-      "The inaugural 2026-27 season will kick off in September 2026 and run through March 2027. While the journey is just beginning, the ambition is clear: compete immediately, develop relentlessly, and build something that lasts. This is not a vanity project. This is not a one-season experiment. Sabra HC is being built with the operational rigor of a professional sports organization — a full-time coaching staff, professional training facilities, structured competition, and the administrative backbone to sustain long-term growth.",
-
-      "We are calling on fans, supporters, and believers in this vision to join us from the ground floor. Our Founding Membership program offers exclusive access, recognition, and the chance to say you were there from the very beginning. History is being written, and every founding member's name will be part of it.",
-
-      { type: "divider" },
-
-      "To the Israeli hockey community that has fought for this moment for four decades — this is for you. To the players who left home because there was nowhere to play — we're building your home. To the young kids lacing up skates for the first time in Metula, Holon, or Bat Yam — your dream just got a whole lot closer.",
-
-      { type: "pullquote", text: "Born in the desert. Built for the ice. Welcome to Sabra Hockey Club." },
-    ],
-    featured: true,
-  },
-  {
-    id: 1,
-    slug: "rdp-sports-management-founding-partner",
-    title: "RDP Sports Management Becomes Sabra HC's Founding Partner",
-    excerpt: "Toronto-based boutique sports agency RDP Sports Management signs on as Sabra Hockey Club's first official sponsor and partner for the 2026–27 inaugural season — a natural fit rooted in shared values and a deep commitment to Israeli and Jewish causes.",
-    category: "PARTNERSHIP",
-    date: "April 10, 2026",
-    readTime: "5 min read",
-    image: newsRdpPartnership,
-    body: [
-      "Sabra Hockey Club is proud to announce its first official partnership ahead of the 2026–27 inaugural season. RDP Sports Management, a Toronto-based boutique athlete representation and sports marketing firm led by founder Radu Daniel Popescu, has come on board as the club's founding sponsor — a milestone moment that signals real momentum as Sabra HC prepares to take the ice.",
-
-      "This is more than a sponsorship. It's a statement of shared purpose.",
-
-      { type: "divider" },
-
-      { type: "heading", text: "A Natural Alignment" },
-
-      "Founded in 2013 by Radu Daniel Popescu, RDP Sports Management has spent over a decade representing professional and amateur athletes across a wide range of sports — including hockey, tennis, bobsledding, speed skating, and track and field. The firm provides full-service athlete representation, business management, contract negotiation, sports marketing, public relations, and identity promotional services, managing over 17 clients across 6 countries worldwide.",
-
-      { type: "image", src: rdpRaduPortrait, alt: "Radu Daniel Popescu, founder of RDP Sports Management", caption: "Radu Daniel Popescu — founder and owner of RDP Sports Management." },
-
-      "But what makes RDP truly special — and what makes this partnership so fitting — is the agency's deep, longstanding commitment to supporting Israeli and Jewish causes. Popescu and his team have consistently stood behind initiatives that uplift the Jewish community and strengthen ties to Israel, making RDP the ideal partner for a club that was built on those very same values.",
-
-      { type: "pullquote", text: "RDP Sports Management isn't just our first sponsor — they're a partner who believes in what Sabra HC stands for. Radu's history of supporting Israeli and Jewish causes makes this one of the most meaningful partnerships we could have asked for." },
-
-      { type: "heading", text: "Already Opening Doors" },
-
-      "RDP's impact on Sabra HC extends well beyond the sponsorship itself. Through Popescu's extensive network and close working relationships with Romanian and Hungarian hockey clubs, RDP has already been instrumental in helping Sabra HC align competition matchups for the coming 2026–27 season. These connections are invaluable for an independent professional club building its inaugural schedule of 40+ games across Europe and Israel.",
-
-      "Romania and Hungary are key markets for Sabra HC's international competition calendar, and having a partner with deep, established ties to clubs in those countries gives the organization a significant advantage in scheduling, logistics, and relationship-building at the professional level.",
-
-      { type: "image", src: rdpTeamPhoto, alt: "One of RDP Sports Management's hockey teams on the ice", caption: "RDP's network spans across European hockey — helping connect Sabra HC to competition partners in Romania and Hungary.", wide: true },
-
-      { type: "image", src: rdpGameAction, alt: "Game action from one of RDP's hockey events", caption: "RDP Sports Management has deep roots in the hockey world, with connections spanning multiple leagues and countries.", wide: true },
-
-      { type: "heading", text: "More Than Hockey" },
-
-      "While hockey is at the core of both organizations, RDP's multi-sport expertise adds another dimension to this partnership. Their experience in tennis, winter sports, and track and field brings a broader perspective to athlete development and sports marketing — areas that will be invaluable as Sabra HC builds its brand both on and off the ice.",
-
-      "RDP's roster of international athletes and their experience navigating the global sports landscape make them uniquely equipped to support Sabra HC's mission of creating a professional hockey pathway in Israel while connecting Jewish athletes worldwide to the club.",
-
-      { type: "image", src: rdpRaduTennis, alt: "Radu Daniel Popescu on the tennis court", caption: "Beyond the rink — Radu Daniel Popescu brings multi-sport expertise spanning tennis, winter sports, and more." },
-
-      { type: "heading", text: "The First of Many" },
-
-      "Landing a founding partner of this caliber validates the vision behind Sabra HC. As the club enters its inaugural season, RDP Sports Management's involvement sends a clear message to the hockey world and the broader sports community: Sabra HC is real, it's professional, and it's attracting partners who share its commitment to excellence and community.",
-
-      "This partnership lays the groundwork for the club's commercial future. With RDP on board, Sabra HC now has a model for the kind of values-driven, mission-aligned sponsorships it will continue to pursue — partners who don't just see a logo on a jersey, but who believe in the movement behind it.",
-
-      { type: "pullquote", text: "Every great team needs partners who believe in the mission before the first puck drops. Radu and RDP Sports Management stepped up when it mattered most — and that's something we'll never forget." },
-
-      { type: "heading", text: "Building Together" },
-
-      "As Sabra HC begins building its roster — with Israel's national team fresh off a gold medal win at the IIHF World Championship Division 2B in Sofia, Bulgaria — the excitement around the club's inaugural season has never been higher. The RDP partnership will be visible across every level of the club's operations — on-ice jersey branding and arena signage, off-ice event presence and community programming, and across all digital and social media channels. This is a true all-encompassing founding partnership in every sense of the word.",
-
-      "To Radu Daniel Popescu and RDP Sports Management — welcome to the Sabra HC family. To the rest of the hockey world — this is just the beginning.",
-
-      { type: "divider" },
-
-      "For partnership and sponsorship inquiries, contact Sabra Hockey Club at info@sabrahc.com.",
-    ],
-    featured: false,
-  },
-];
-
-export { articles };
-
-const ArticleBodyRenderer = ({ body }: { body: BodyBlock[] }) => {
-  let paragraphIndex = 0;
-
-  return (
-    <>
-      {body.map((block, i) => {
-        if (typeof block === "string") {
-          const isFirst = paragraphIndex === 0;
-          const isQuote = block.startsWith('"');
-          paragraphIndex++;
-
-          return (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05, duration: 0.4 }}
-              className={`text-muted-foreground leading-[1.9] mb-6 ${
-                isFirst
-                  ? "text-lg text-foreground/90 font-medium first-letter:text-5xl first-letter:font-display first-letter:text-primary first-letter:float-left first-letter:mr-3 first-letter:mt-1"
-                  : isQuote
-                  ? "border-l-2 border-primary/40 pl-6 italic text-foreground/80"
-                  : ""
-              }`}
-            >
-              {block}
-            </motion.p>
-          );
-        }
-
-        if (block.type === "image") {
-          return (
-            <motion.figure
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className={`my-10 ${block.wide ? "-mx-4 md:-mx-16 lg:-mx-24" : ""}`}
-            >
-              <div className="relative overflow-hidden rounded-sm group">
-                <div className="absolute -inset-px bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <img
-                  src={block.src}
-                  alt={block.alt}
-                  className="w-full h-auto rounded-sm border border-border/50"
-                  loading="lazy"
-                />
-              </div>
-              {block.caption && (
-                <figcaption className="mt-3 text-xs text-muted-foreground/70 text-center italic tracking-wide">
-                  {block.caption}
-                </figcaption>
-              )}
-            </motion.figure>
-          );
-        }
-
-        if (block.type === "heading") {
-          return (
-            <motion.h2
-              key={i}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="font-heading text-2xl md:text-3xl text-foreground mt-12 mb-6 flex items-center gap-3"
-            >
-              <span className="w-8 h-0.5 bg-primary shrink-0" />
-              {block.text}
-            </motion.h2>
-          );
-        }
-
-        if (block.type === "pullquote") {
-          return (
-            <motion.blockquote
-              key={i}
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="my-10 px-8 py-8 glass-card rounded-sm relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary via-primary/60 to-transparent" />
-              <div className="absolute -top-2 -left-1 text-primary/10 text-8xl font-display leading-none select-none">"</div>
-              <p className="text-lg md:text-xl text-foreground/90 italic leading-relaxed relative z-10">
-                {block.text}
-              </p>
-            </motion.blockquote>
-          );
-        }
-
-        if (block.type === "divider") {
-          return (
-            <motion.div
-              key={i}
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="my-10 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"
-            />
-          );
-        }
-
-        return null;
-      })}
-    </>
-  );
-};
+import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { ArrowLeft, Link2 } from "lucide-react";
+import { articles, sortedArticles, formatDate } from "@/data/news";
+import NotFound from "./NotFound";
 
 const NewsArticle = () => {
   const { slug } = useParams();
   const article = articles.find((a) => a.slug === slug);
 
-  if (!article) return <Navigate to="/news" replace />;
+  useEffect(() => {
+    if (article) document.title = `${article.title} — Sabra HC`;
+    return () => {
+      document.title = "Sabra HC — Israel's Flagship Hockey Club";
+    };
+  }, [article]);
 
-  const otherArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
+  if (!article) return <NotFound />;
+  const url = `https://sabrahc.com/news/${article.slug}`;
+  const more = sortedArticles.filter((a) => a.slug !== article.slug).slice(0, 3);
 
   return (
     <>
-      {/* Hero image header */}
-      <section className="relative pt-0 overflow-hidden">
-        <div className="relative h-[40vh] md:h-[50vh] lg:h-[60vh]">
-          <motion.img
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            src={article.image}
-            alt={article.title}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/40 to-transparent" />
-          
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent origin-left z-10"
-          />
-        </div>
-
-        <div className="container relative z-10 -mt-32 md:-mt-40 pb-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex items-center gap-2 text-xs text-muted-foreground mb-6"
-          >
-            <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
-            <ChevronRight size={12} />
-            <Link to="/news" className="hover:text-foreground transition-colors">News</Link>
-            <ChevronRight size={12} />
-            <span className="text-primary">{article.category}</span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.25 }}
-          >
-            <Link
-              to="/news"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6 group"
-            >
-              <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-              Back to News
+      <article>
+        <header className="bg-night pb-10 pt-[150px] lg:pt-[180px]">
+          <div className="container-site max-w-4xl">
+            <Link to="/news" className="inline-flex items-center gap-2 text-sm font-semibold text-ice hover:text-sand">
+              <ArrowLeft className="h-4 w-4" /> All news
             </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="flex flex-wrap items-center gap-4 mb-5"
-          >
-            <span className="inline-block px-4 py-1.5 text-[10px] font-heading tracking-[0.2em] text-primary bg-primary/10 border border-primary/30 rounded-sm backdrop-blur-sm">
-              {article.category}
-            </span>
-            <div className="flex items-center gap-4 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <Calendar size={12} className="text-primary/60" />
-                {article.date}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock size={12} className="text-primary/60" />
-                {article.readTime}
-              </span>
-            </div>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] max-w-4xl"
-          >
-            {article.title}
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl"
-          >
-            {article.excerpt}
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Article body */}
-      <section className="py-12 lg:py-20">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="w-16 h-0.5 bg-primary mb-10"
+            <p className="eyebrow mt-6">
+              {article.category} · {formatDate(article.date)}
+            </p>
+            <h1 className="mt-3 text-5xl font-black leading-[0.95] text-ice-white sm:text-6xl lg:text-7xl text-balance">{article.title}</h1>
+            <p className="mt-5 text-xl text-muted-text">{article.excerpt}</p>
+          </div>
+        </header>
+        <div className="bg-night">
+          <div className="container-site max-w-5xl">
+            <img
+              src={article.image}
+              alt=""
+              className={`aspect-[16/9] w-full rounded-lg bg-night-2 ${article.imageFit === "contain" ? "object-contain p-10" : "object-cover"}`}
             />
-
-            <ArticleBodyRenderer body={article.body} />
-
-            <div className="flex items-center gap-3 mt-12 pt-8 border-t border-border/50">
-              <div className="w-3 h-3 bg-primary rotate-45" />
-              <span className="text-xs text-muted-foreground tracking-widest font-heading">SABRA HC</span>
+          </div>
+        </div>
+        <div className="bg-night pb-16 pt-12">
+          <div className="container-site max-w-[68ch] text-lg leading-relaxed text-[#C9D6E6]">
+            {article.body.map((b, i) => {
+              if (typeof b === "string") return <p key={i} className="mb-6">{b}</p>;
+              if (b.type === "heading") return <h2 key={i} className="mb-4 mt-10 text-4xl font-black text-ice-white">{b.text}</h2>;
+              if (b.type === "pullquote")
+                return (
+                  <blockquote key={i} className="my-10 border-l-4 border-sand pl-6 font-display text-3xl font-bold uppercase leading-tight text-ice-white">
+                    “{b.text}”
+                  </blockquote>
+                );
+              return (
+                <figure key={i} className="my-8">
+                  <img src={b.src} alt={b.alt} className="w-full rounded-lg" />
+                  {b.caption && <figcaption className="mt-2 text-sm text-muted-text">{b.caption}</figcaption>}
+                </figure>
+              );
+            })}
+            <div className="mt-12 flex flex-wrap items-center gap-3 border-t border-line pt-6">
+              <span className="text-sm font-bold uppercase tracking-[0.2em] text-muted-text">Share</span>
+              <a className="btn-outline min-h-[40px] px-4 text-sm" href={`https://wa.me/?text=${encodeURIComponent(article.title + " " + url)}`} target="_blank" rel="noreferrer">
+                WhatsApp
+              </a>
+              <a className="btn-outline min-h-[40px] px-4 text-sm" href={`https://x.com/intent/post?url=${encodeURIComponent(url)}&text=${encodeURIComponent(article.title)}`} target="_blank" rel="noreferrer">
+                X
+              </a>
+              <a className="btn-outline min-h-[40px] px-4 text-sm" href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} target="_blank" rel="noreferrer">
+                Facebook
+              </a>
+              <button type="button" className="btn-outline min-h-[40px] px-4 text-sm" onClick={() => navigator.clipboard?.writeText(url)}>
+                <Link2 className="h-4 w-4" /> Copy link
+              </button>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Related articles */}
-      <section className="py-12 lg:py-20 bg-card/50">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mb-10"
-          >
-            <h2 className="font-display text-2xl md:text-3xl text-foreground">MORE NEWS</h2>
-            <div className="w-12 h-0.5 bg-primary mt-3" />
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {otherArticles.map((a, i) => (
-              <motion.div
-                key={a.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <Link
-                  to={`/news/${a.slug}`}
-                  className="block glass-card-hover rounded-sm overflow-hidden h-full group"
-                >
-                  <div className="relative h-40 overflow-hidden">
-                    <img
-                      src={a.image}
-                      alt={a.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                  </div>
-                  <div className="p-5">
-                    <span className="inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 mb-3">
-                      {a.category}
-                    </span>
-                    <h3 className="font-heading text-sm tracking-wider text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
-                      {a.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground">{a.date}</p>
-                  </div>
+      </article>
+      {more.length > 0 && (
+        <section className="border-t border-line bg-night-2 py-16">
+          <div className="container-site">
+            <h2 className="text-4xl font-black text-ice-white">More news</h2>
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              {more.map((a) => (
+                <Link key={a.slug} to={`/news/${a.slug}`} className="card-lift rounded-lg border border-line bg-night p-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-sand">{formatDate(a.date)}</p>
+                  <h3 className="mt-1 text-2xl font-black leading-tight text-ice-white">{a.title}</h3>
                 </Link>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 };

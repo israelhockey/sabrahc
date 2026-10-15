@@ -1,215 +1,217 @@
-import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { ShieldCheck, Download, Users, Mail, Heart, Filter } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { Download, ShieldCheck, LogOut } from "lucide-react";
+import crest from "@/assets/sabra-crest.webp";
 
 type Signup = {
   id: string;
   name: string | null;
   email: string;
   source: string;
+  phone?: string | null;
+  company?: string | null;
+  country?: string | null;
+  message?: string | null;
+  details?: Record<string, string> | null;
   created_at: string;
 };
 
-const sourceLabels: Record<string, { label: string; icon: typeof Users }> = {
-  founders: { label: "Founders", icon: Heart },
-  fans: { label: "Fan Zone", icon: Users },
-  newsletter: { label: "Newsletter", icon: Mail },
+const SOURCES: Record<string, string> = {
+  newsletter: "Newsletter",
+  tickets: "Ticket alerts",
+  pride: "Pride",
+  partner: "Partners",
+  investor: "Investors",
+  contact: "Contact",
+  tryout: "Try-outs",
+  founders: "Founders (old)",
+  fans: "Fans (old)",
 };
 
 const Admin = () => {
-  const [key, setKey] = useState(() => localStorage.getItem("sabra_admin_key") || "");
+  const [key, setKey] = useState(() => {
+    try {
+      return localStorage.getItem("sabra_admin_key") || "";
+    } catch {
+      return "";
+    }
+  });
   const [authenticated, setAuthenticated] = useState(false);
   const [signups, setSignups] = useState<Signup[]>([]);
   const [filter, setFilter] = useState("all");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const fetchSignups = async (adminKey: string, source = "all") => {
+  const fetchSignups = async (adminKey: string) => {
     setLoading(true);
     setError("");
     try {
       const params = new URLSearchParams({ key: adminKey });
-      if (source !== "all") params.set("source", source);
-
       const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
-      const url = `https://${projectId}.supabase.co/functions/v1/admin-signups?${params.toString()}`;
-      
-      const res = await fetch(url, {
-        headers: {
-          "apikey": import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-        },
+      const res = await fetch(`https://${projectId}.supabase.co/functions/v1/admin-signups?${params.toString()}`, {
+        headers: { apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY },
       });
-
-      if (!res.ok) {
-        if (res.status === 401) {
-          setError("Invalid admin key");
-          setAuthenticated(false);
-          return;
-        }
-        throw new Error("Failed to fetch");
+      if (res.status === 401) {
+        setError("Invalid admin key");
+        setAuthenticated(false);
+        return;
       }
-
-      const result = await res.json();
-      setSignups(result);
+      if (!res.ok) throw new Error("Failed");
+      setSignups(await res.json());
       setAuthenticated(true);
-      localStorage.setItem("sabra_admin_key", adminKey);
+      try {
+        localStorage.setItem("sabra_admin_key", adminKey);
+      } catch {
+        /* storage unavailable */
+      }
     } catch {
-      setError("Failed to load signups");
+      setError("Failed to load sign-ups");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    fetchSignups(key);
-  };
-
   useEffect(() => {
-    if (authenticated) {
-      fetchSignups(key, filter);
-    }
-  }, [filter]);
+    if (key) fetchSignups(key);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const counts = useMemo(() => {
+    const c: Record<string, number> = { all: signups.length };
+    for (const s of signups) c[s.source] = (c[s.source] ?? 0) + 1;
+    return c;
+  }, [signups]);
+
+  const filtered = filter === "all" ? signups : signups.filter((s) => s.source === filter);
 
   const exportCSV = () => {
-    const headers = ["Name", "Email", "Source", "Date"];
-    const rows = signups.map((s) => [
-      s.name || "",
+    const headers = ["Date", "Type", "Name", "Email", "Phone", "Company", "Country", "Message", "Details"];
+    const rows = filtered.map((s) => [
+      new Date(s.created_at).toISOString(),
+      SOURCES[s.source] ?? s.source,
+      s.name ?? "",
       s.email,
-      s.source,
-      new Date(s.created_at).toLocaleDateString(),
+      s.phone ?? "",
+      s.company ?? "",
+      s.country ?? "",
+      s.message ?? "",
+      s.details ? JSON.stringify(s.details) : "",
     ]);
-    const csv = [headers, ...rows].map((r) => r.map((c) => `"${c}"`).join(",")).join("\n");
-    const blob = new Blob([csv], { type: "text/csv" });
-    const url = URL.createObjectURL(blob);
+    const csv = [headers, ...rows].map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(",")).join("\n");
+    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
     const a = document.createElement("a");
     a.href = url;
-    a.download = `sabra-signups-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `sabra-signups-${filter}-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   };
 
+  const logout = () => {
+    try {
+      localStorage.removeItem("sabra_admin_key");
+    } catch {
+      /* ignore */
+    }
+    setKey("");
+    setAuthenticated(false);
+    setSignups([]);
+  };
+
   if (!authenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <form onSubmit={handleLogin} className="glass-card rounded-sm p-8 max-w-sm w-full mx-4">
-          <div className="flex items-center gap-3 mb-6">
-            <ShieldCheck className="w-6 h-6 text-primary" />
-            <h1 className="font-heading text-lg tracking-wider text-foreground">ADMIN ACCESS</h1>
-          </div>
-          <input
-            type="password"
-            placeholder="Admin key"
-            value={key}
-            onChange={(e) => setKey(e.target.value)}
-            className="w-full px-4 py-3 bg-background border border-border rounded-sm text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors mb-3"
-          />
-          {error && <p className="text-destructive text-xs mb-3">{error}</p>}
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full py-3 font-heading text-sm tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 transition-all"
-          >
-            {loading ? "CHECKING..." : "ENTER"}
+      <div className="flex min-h-screen items-center justify-center bg-night px-4">
+        <form onSubmit={(e) => { e.preventDefault(); fetchSignups(key); }} className="w-full max-w-sm rounded-lg border border-line bg-night-2 p-8">
+          <img src={crest} alt="" className="mx-auto mb-4 h-20 w-20 object-contain" />
+          <h1 className="mb-6 flex items-center justify-center gap-2 text-3xl font-black text-ice-white">
+            <ShieldCheck className="h-6 w-6 text-sand" /> Admin
+          </h1>
+          <label htmlFor="admin-key" className="mb-1.5 block text-sm font-semibold text-ice-white">
+            Admin key
+          </label>
+          <input id="admin-key" type="password" value={key} onChange={(e) => setKey(e.target.value)} className="field mb-3" autoComplete="current-password" />
+          {error && <p role="alert" className="mb-3 text-sm text-red-400">{error}</p>}
+          <button type="submit" disabled={loading} className="btn-primary w-full">
+            {loading ? "Checking…" : "Enter"}
           </button>
         </form>
       </div>
     );
   }
 
-  const counts = {
-    all: signups.length,
-    founders: signups.filter((s) => s.source === "founders").length,
-    fans: signups.filter((s) => s.source === "fans").length,
-    newsletter: signups.filter((s) => s.source === "newsletter").length,
-  };
-
-  const filtered = filter === "all" ? signups : signups.filter((s) => s.source === filter);
-
   return (
-    <div className="min-h-screen bg-background">
-      <div className="border-b border-border bg-card">
-        <div className="container py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <ShieldCheck className="w-6 h-6 text-primary" />
-              <h1 className="font-heading text-lg tracking-wider text-foreground">SABRA HC — SIGNUPS</h1>
-            </div>
-            <button
-              onClick={exportCSV}
-              className="flex items-center gap-2 px-4 py-2 text-xs font-heading tracking-wider border border-border text-muted-foreground hover:border-primary/40 hover:text-foreground transition-all"
-            >
-              <Download className="w-3.5 h-3.5" />
-              EXPORT CSV
+    <div className="min-h-screen bg-night">
+      <header className="border-b border-line bg-night-2">
+        <div className="container-site flex flex-wrap items-center justify-between gap-4 py-5">
+          <div className="flex items-center gap-3">
+            <img src={crest} alt="" className="h-10 w-10 object-contain" />
+            <h1 className="text-3xl font-black text-ice-white">Sign-ups</h1>
+          </div>
+          <div className="flex gap-2">
+            <button onClick={exportCSV} className="btn-outline min-h-[44px] px-4 text-base">
+              <Download className="h-4 w-4" /> Export CSV
+            </button>
+            <button onClick={logout} className="btn-outline min-h-[44px] px-4 text-base" aria-label="Log out">
+              <LogOut className="h-4 w-4" />
             </button>
           </div>
         </div>
-      </div>
-
-      <div className="container py-8">
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-          {(["all", "founders", "fans", "newsletter"] as const).map((src) => {
-            const info = src === "all"
-              ? { label: "Total", icon: Filter }
-              : sourceLabels[src];
-            const Icon = info.icon;
-            return (
-              <button
-                key={src}
-                onClick={() => setFilter(src)}
-                className={`p-4 rounded-sm border transition-all text-left ${
-                  filter === src
-                    ? "border-primary/50 bg-primary/5"
-                    : "border-border hover:border-primary/30"
-                }`}
-              >
-                <Icon className="w-4 h-4 text-primary mb-2" />
-                <p className="text-2xl font-display text-foreground">{counts[src]}</p>
-                <p className="text-xs text-muted-foreground font-heading tracking-wider">{info.label.toUpperCase()}</p>
-              </button>
-            );
-          })}
+      </header>
+      <div className="container-site py-8">
+        <div className="mb-8 flex flex-wrap gap-2">
+          {["all", ...Object.keys(SOURCES)].filter((k) => k === "all" || counts[k]).map((k) => (
+            <button
+              key={k}
+              onClick={() => setFilter(k)}
+              className={`min-h-[44px] rounded-md px-4 text-sm font-bold uppercase tracking-wider ${
+                filter === k ? "bg-sand text-night" : "border border-line text-ice-white hover:border-sand"
+              }`}
+            >
+              {k === "all" ? "All" : SOURCES[k]} · {counts[k] ?? 0}
+            </button>
+          ))}
         </div>
-
-        {/* Table */}
-        <div className="glass-card rounded-sm overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left px-4 py-3 text-xs font-heading tracking-wider text-muted-foreground">NAME</th>
-                  <th className="text-left px-4 py-3 text-xs font-heading tracking-wider text-muted-foreground">EMAIL</th>
-                  <th className="text-left px-4 py-3 text-xs font-heading tracking-wider text-muted-foreground">SOURCE</th>
-                  <th className="text-left px-4 py-3 text-xs font-heading tracking-wider text-muted-foreground">DATE</th>
+        <div className="overflow-x-auto rounded-lg border border-line">
+          <table className="w-full min-w-[760px] text-left text-sm">
+            <thead className="bg-night-2 text-xs uppercase tracking-wider text-muted-text">
+              <tr>
+                <th className="px-4 py-3">Date</th>
+                <th className="px-4 py-3">Type</th>
+                <th className="px-4 py-3">Name</th>
+                <th className="px-4 py-3">Email</th>
+                <th className="px-4 py-3">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="px-4 py-12 text-center text-muted-text">No sign-ups yet</td>
                 </tr>
-              </thead>
-              <tbody>
-                {filtered.length === 0 ? (
-                  <tr>
-                    <td colSpan={4} className="px-4 py-12 text-center text-muted-foreground text-sm">
-                      No signups yet
+              ) : (
+                filtered.map((s) => (
+                  <tr key={s.id} className="border-t border-line align-top">
+                    <td className="tabular whitespace-nowrap px-4 py-3 text-muted-text">{new Date(s.created_at).toLocaleDateString("en-GB")}</td>
+                    <td className="px-4 py-3">
+                      <span className="rounded bg-sand/15 px-2 py-1 text-xs font-bold uppercase text-sand">{SOURCES[s.source] ?? s.source}</span>
+                    </td>
+                    <td className="px-4 py-3 text-ice-white">
+                      {s.name || "—"}
+                      {s.company && <span className="block text-muted-text">{s.company}</span>}
+                    </td>
+                    <td className="px-4 py-3 text-ice-white">
+                      <a href={`mailto:${s.email}`} className="hover:text-sand">{s.email}</a>
+                      {s.phone && <span className="block text-muted-text">{s.phone}</span>}
+                    </td>
+                    <td className="max-w-md px-4 py-3 text-muted-text">
+                      {s.country && <span className="block">Country: {s.country}</span>}
+                      {s.details && Object.entries(s.details).map(([k, v]) => (
+                        <span key={k} className="block">{k.replace(/_/g, " ")}: {String(v)}</span>
+                      ))}
+                      {s.message && <span className="mt-1 block whitespace-pre-wrap text-ice-white">{s.message}</span>}
                     </td>
                   </tr>
-                ) : (
-                  filtered.map((s) => (
-                    <tr key={s.id} className="border-b border-border/50 hover:bg-card/50 transition-colors">
-                      <td className="px-4 py-3 text-sm text-foreground">{s.name || "—"}</td>
-                      <td className="px-4 py-3 text-sm text-foreground">{s.email}</td>
-                      <td className="px-4 py-3">
-                        <span className="text-xs font-heading tracking-wider px-2 py-1 rounded bg-primary/10 text-primary">
-                          {s.source.toUpperCase()}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-sm text-muted-foreground">
-                        {new Date(s.created_at).toLocaleDateString()}
-                      </td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          </div>
+                ))
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

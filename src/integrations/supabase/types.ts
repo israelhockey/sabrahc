@@ -16,24 +16,39 @@ export type Database = {
     Tables: {
       signups: {
         Row: {
+          company: string | null
+          country: string | null
           created_at: string
+          details: Json | null
           email: string
           id: string
+          message: string | null
           name: string | null
+          phone: string | null
           source: string
         }
         Insert: {
+          company?: string | null
+          country?: string | null
           created_at?: string
+          details?: Json | null
           email: string
           id?: string
+          message?: string | null
           name?: string | null
+          phone?: string | null
           source: string
         }
         Update: {
+          company?: string | null
+          country?: string | null
           created_at?: string
+          details?: Json | null
           email?: string
           id?: string
+          message?: string | null
           name?: string | null
+          phone?: string | null
           source?: string
         }
         Relationships: []

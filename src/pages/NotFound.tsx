@@ -1,24 +1,18 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import ContourField from "@/components/ContourField";
 
-const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
-      </div>
+const NotFound = () => (
+  <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-night pt-[100px]">
+    <ContourField variant="ice" />
+    <div className="container-site relative text-center">
+      <p className="eyebrow">404</p>
+      <h1 className="mt-2 text-[22vw] font-black leading-none text-ice-white sm:text-[180px]">Offside.</h1>
+      <p className="mt-4 text-lg text-muted-text">This page doesn't exist, or it's been moved.</p>
+      <Link to="/" className="btn-primary mt-8">
+        Back to home
+      </Link>
     </div>
-  );
-};
+  </section>
+);
 
 export default NotFound;

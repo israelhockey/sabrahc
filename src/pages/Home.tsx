@@ -1,321 +1,278 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Calendar, Clock, MapPin, Trophy, Users, Globe } from "lucide-react";
-import logoImg from "@/assets/sabra-logo.png";
-import arenaImg from "@/assets/hero-arena.jpg";
-import puckImg from "@/assets/puck-ice.jpg";
-import actionImg from "@/assets/jhc-action.png";
-import playerImg from "@/assets/jhc-player.png";
-import IceParticles from "@/components/IceParticles";
-import AnimatedCounter from "@/components/AnimatedCounter";
-import { articles } from "./NewsArticle";
+import { ArrowRight, Home as HomeIcon, Sprout, Globe2 } from "lucide-react";
+import crest from "@/assets/sabra-crest.webp";
+import ContourField from "@/components/ContourField";
+import SectionHeading from "@/components/SectionHeading";
+import GameCard from "@/components/GameCard";
+import SignupForm from "@/components/SignupForm";
+import { club, partners, players, roadToEurope } from "@/data/club";
+import { sortedArticles, formatDate } from "@/data/news";
+import { upcomingGames, finalGames } from "@/lib/games";
 
-const nextGame = {
-  opponent: "TBA",
-  date: "TBA",
-  time: "TBA",
-  venue: "TBA",
-  league: "EIHL",
-};
-
-const newsItems = articles.slice(0, 4);
-
-const stats = [
-  { value: 1992, suffix: "", label: "Hockey in Israel Since", icon: Trophy },
-  { value: 20, suffix: "+", label: "Home Games Per Season", icon: Calendar },
-  { value: 6, suffix: "", label: "European Nations", icon: Globe },
-  { value: 500, suffix: "", label: "Founding Members Goal", icon: Users },
-];
-
-const Home = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-
-  return (
-    <>
-      {/* ========== HERO ========== */}
-      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
-        <motion.div className="absolute inset-0" style={{ y: bgY }}>
-          <img src={arenaImg} alt="" className="w-full h-[130%] object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-        </motion.div>
-
-        <motion.div
-          className="absolute inset-0 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.3, 0] }}
-          transition={{ duration: 3, repeat: Infinity, repeatDelay: 5, ease: "easeInOut" }}
-        >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[radial-gradient(ellipse,hsl(40_55%_60%_/_0.2)_0%,transparent_60%)]" />
-        </motion.div>
-
-        <IceParticles count={40} />
-
-        <motion.div className="container relative z-10 px-4" style={{ opacity }}>
-          <div className="flex flex-col items-center text-center">
-            <motion.div
-              className="relative mb-8"
-              initial={{ opacity: 0, scale: 0.3, rotateY: 180 }}
-              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <img src={logoImg} alt="Sabra HC Crest" className="w-36 h-36 md:w-52 md:h-52 lg:w-64 lg:h-64 object-contain drop-shadow-2xl" />
-              <div className="absolute inset-0 blur-3xl bg-primary/20 rounded-full scale-150 -z-10" />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <h1 className="font-display text-7xl md:text-9xl lg:text-[11rem] leading-[0.8] tracking-tight">
-                <span className="text-gold-gradient">SABRA</span>
-              </h1>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="w-48 md:w-72 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent my-3"
-            />
-
-            <motion.h2
-              className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground tracking-[0.15em] leading-none"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.9 }}
-            >
-              HOCKEY CLUB
-            </motion.h2>
-
-            <motion.p
-              className="mt-5 text-xs md:text-sm tracking-[0.5em] text-primary/80 font-heading"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-            >
-              BORN IN THE DESERT · THE FLAGSHIP HOCKEY CLUB IN ISRAEL
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row gap-3 justify-center mt-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4 }}
-            >
-              <Link
-                to="/about"
-                className="group relative px-12 py-4 font-heading text-sm font-semibold tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 transition-all clip-angle-right overflow-hidden"
-              >
-                <span className="relative z-10">OUR STORY</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-gold-light to-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-              </Link>
-              <Link
-                to="/schedule"
-                className="px-12 py-4 font-heading text-sm font-semibold tracking-wider border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all gold-border-glow"
-              >
-                2026-27 SEASON
-              </Link>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-background" style={{ clipPath: "polygon(0 70%, 100% 0, 100% 100%, 0 100%)" }} />
-
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
-        >
-          <span className="text-[10px] text-muted-foreground tracking-[0.3em] font-heading">SCROLL</span>
-          <div className="w-[1px] h-6 bg-gradient-to-b from-primary to-transparent" />
-        </motion.div>
-      </section>
-
-      {/* ========== NEXT GAME BAR ========== */}
-      <section className="relative z-10 -mt-12">
-        <div className="container">
-          <div className="bg-card border border-border rounded-sm overflow-hidden">
-            <div className="flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground">
-              <Calendar size={14} />
-              <span className="font-heading text-xs tracking-wider font-semibold">NEXT GAME</span>
-            </div>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 px-6 py-5">
-              <div className="flex items-center gap-6">
-                <div className="flex items-center gap-3">
-                  <img src={logoImg} alt="" className="w-10 h-10 object-contain" />
-                  <span className="font-heading text-lg tracking-wider text-foreground">SHC</span>
-                </div>
-                <span className="font-display text-2xl text-primary">VS</span>
-                <span className="font-heading text-lg tracking-wider text-foreground">{nextGame.opponent}</span>
-              </div>
-              <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5"><Calendar size={14} className="text-primary" /> {nextGame.date}</span>
-                <span className="flex items-center gap-1.5"><Clock size={14} className="text-primary" /> {nextGame.time}</span>
-                <span className="hidden sm:flex items-center gap-1.5"><MapPin size={14} className="text-primary" /> {nextGame.venue}</span>
-              </div>
-              <Link
-                to="/schedule"
-                className="px-6 py-2 font-heading text-xs tracking-wider font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all clip-angle-right"
-              >
-                FULL SCHEDULE
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== NEWS PREVIEW ========== */}
-      <section className="py-20 lg:py-28">
-        <div className="container">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <p className="text-primary font-heading text-sm tracking-[0.3em] mb-2">LATEST</p>
-              <h2 className="font-display text-4xl md:text-5xl text-foreground">NEWS & UPDATES</h2>
-            </div>
-            <Link to="/news" className="hidden md:flex items-center gap-1 text-sm text-primary hover:text-gold-light transition-colors font-heading tracking-wider">
-              ALL NEWS <ChevronRight size={16} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {newsItems.map((item, i) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link
-                  to={`/news/${item.slug}`}
-                  className="block glass-card-hover rounded-sm overflow-hidden h-full group"
-                >
-                  <div className="relative h-36 overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                    <span className="absolute bottom-2 left-3 inline-block px-3 py-1 text-[10px] font-heading tracking-wider text-primary bg-primary/10 border border-primary/20 backdrop-blur-sm">
-                      {item.category}
-                    </span>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-heading text-base tracking-wider text-foreground mb-3 leading-snug group-hover:text-primary transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground">{item.date}</p>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          <Link to="/news" className="md:hidden flex items-center justify-center gap-1 mt-6 text-sm text-primary font-heading tracking-wider">
-            ALL NEWS <ChevronRight size={16} />
+const Hero = () => (
+  <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-night pt-[100px]">
+    <ContourField variant="transition" lines={28} />
+    <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_70%_45%,hsl(var(--sand)/0.12),transparent_60%)]" />
+    <div className="container-site relative grid items-center gap-10 py-16 lg:grid-cols-[1.25fr_1fr]">
+      <div className="order-2 lg:order-1">
+        <p className="eyebrow animate-rise">Israel's flagship hockey club · Est. 2026</p>
+        <h1 className="mt-4 font-display font-black uppercase leading-[0.82] text-ice-white animate-rise">
+          <span className="block text-[26vw] sm:text-[20vw] lg:text-[13.5vw] xl:text-[200px]">Sabra</span>
+        </h1>
+        <p className="mt-4 font-display text-3xl font-black uppercase leading-none sm:text-4xl lg:text-5xl animate-rise">
+          <span className="text-sand">Born in the desert.</span>
+          <br />
+          <span className="text-ice">Built for the ice.</span>
+        </p>
+        <div className="mt-10 flex flex-wrap gap-4 animate-rise">
+          <Link to="/schedule" className="btn-primary">
+            {club.season} Schedule
+          </Link>
+          <Link to="/pride" className="btn-outline">
+            Join the Pride
           </Link>
         </div>
-      </section>
+      </div>
+      <div className="order-1 flex justify-center lg:order-2">
+        <img
+          src={crest}
+          alt="Sabra HC crest: a lion with a sabra cactus mane over crossed hockey sticks and a Star of David"
+          className="w-[62vw] max-w-[520px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)] animate-rise sm:w-[44vw] lg:w-full"
+        />
+      </div>
+    </div>
+  </section>
+);
 
-      {/* ========== VISION / STORY TEASER ========== */}
-      <section className="relative overflow-hidden">
-        <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-          <img src={puckImg} alt="Hockey puck on ice" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
-
-          <div className="absolute inset-0 flex items-center">
-            <div className="container">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="max-w-xl"
-              >
-                <p className="text-primary font-heading text-sm tracking-[0.3em] mb-4">THE VISION</p>
-                <h2 className="font-display text-4xl md:text-6xl text-foreground leading-[0.95] mb-6">
-                  BUILDING THE FUTURE<br />
-                  <span className="text-gold-gradient">OF ISRAELI HOCKEY</span>
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">
-                  Sabra HC is being created to elevate Israeli hockey from grassroots passion to international professional competition.
-                </p>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-2 px-8 py-3 font-heading text-sm tracking-wider font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all clip-angle-right"
-                >
-                  READ OUR STORY <ChevronRight size={16} />
-                </Link>
-              </motion.div>
-            </div>
+const MatchStrip = () => {
+  const next = upcomingGames()[0];
+  const last = finalGames()[0];
+  return (
+    <section className="relative z-10 -mt-px border-y border-line bg-night-2" aria-labelledby="matches-title">
+      <div className="container-site py-10">
+        <h2 id="matches-title" className="sr-only">
+          Games
+        </h2>
+        {next || last ? (
+          <div className="grid gap-4">
+            {next && <GameCard game={next} />}
+            {last && <GameCard game={last} />}
           </div>
-        </div>
-      </section>
+        ) : (
+          <div className="grid items-center gap-6 lg:grid-cols-[1fr_1.1fr]">
+            <div>
+              <p className="eyebrow">{club.season} season</p>
+              <p className="mt-2 font-display text-4xl font-black uppercase text-ice-white sm:text-5xl">Schedule announced soon</p>
+              <p className="mt-2 text-muted-text">
+                {club.leagueShort} regular season plus the Sabra Series. Be first to know when games and tickets go live.
+              </p>
+            </div>
+            <SignupForm
+              source="tickets"
+              idPrefix="notify"
+              fields={[{ name: "email", label: "Email", type: "email", required: true, full: true }]}
+              submitLabel="Notify me"
+              successTitle="You'll hear first"
+              successBody="We'll email you when the schedule and tickets are out."
+            />
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
 
-      {/* ========== STATS ========== */}
-      <section className="py-20 lg:py-24">
-        <div className="container">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-sm p-6 lg:p-8 text-center"
-              >
-                <s.icon className="w-6 h-6 text-primary mx-auto mb-3" />
-                <AnimatedCounter
-                  target={s.value}
-                  suffix={s.suffix}
-                  className="text-4xl md:text-5xl font-display text-gold-gradient block"
-                  duration={1.5}
-                  formatNumber={s.value < 1000}
-                />
-                <p className="text-xs text-muted-foreground tracking-wider mt-2 font-heading">{s.label}</p>
-              </motion.div>
+const RoadToEurope = () => (
+  <section className="relative overflow-hidden bg-night py-24 lg:py-32" aria-labelledby="road-title">
+    <ContourField variant="desert" opacity={0.8} />
+    <div className="container-site relative">
+      <SectionHeading
+        id="road-title"
+        eyebrow="Our plan"
+        title="The road to Europe"
+        intro="Every step has a gate: the thing that must be true before we take the next one."
+        action={
+          <Link to="/club#road-to-europe" className="btn-outline">
+            Read the plan
+          </Link>
+        }
+      />
+      <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {roadToEurope.map((s, i) => (
+          <li key={s.season} className="flex flex-col gap-3 border-t-[6px] pt-6" style={{ borderColor: i < 2 ? "hsl(var(--sand))" : "hsl(var(--ice))" }}>
+            <p className={`tabular font-body text-sm font-bold uppercase tracking-[0.2em] ${i < 2 ? "text-sand" : "text-ice"}`}>{s.season}</p>
+            <h3 className="text-4xl font-black text-ice-white">{s.title}</h3>
+            <p className="text-muted-text">{s.body}</p>
+            <p className="mt-auto rounded-md bg-night-2 px-4 py-3 text-sm text-ice-white">
+              <span className="font-bold text-sand">Gate:</span> {s.gate}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+);
+
+const pillars = [
+  {
+    icon: HomeIcon,
+    title: "A path home",
+    body: "Jewish players from around the world can build a life in Israel through hockey.",
+  },
+  {
+    icon: Sprout,
+    title: "Built here",
+    body: "A real club for Israel's best young players to aim for, without leaving the country.",
+  },
+  {
+    icon: Globe2,
+    title: "Israel on the map",
+    body: "Bringing European pro hockey to Israeli ice, and Israeli hockey to Europe.",
+  },
+];
+
+const WhySabra = () => (
+  <section className="bg-ice-white py-24 lg:py-28" aria-labelledby="why-title">
+    <div className="container-site">
+      <SectionHeading id="why-title" tone="light" eyebrow="Why Sabra" title="More than a team" />
+      <div className="grid gap-6 md:grid-cols-3">
+        {pillars.map((p) => (
+          <div key={p.title} className="rounded-lg border border-[#D5DEE6] bg-white p-8">
+            <p.icon className="h-10 w-10 text-sand-dark" strokeWidth={1.6} aria-hidden="true" />
+            <h3 className="mt-5 text-4xl font-black text-night">{p.title}</h3>
+            <p className="mt-3 text-lg text-[#3B4A63]">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const LatestNews = () => {
+  const [lead, ...rest] = sortedArticles;
+  if (!lead) return null;
+  return (
+    <section className="bg-night py-24 lg:py-28" aria-labelledby="news-title">
+      <div className="container-site">
+        <SectionHeading
+          id="news-title"
+          eyebrow="Latest"
+          title="News"
+          action={
+            <Link to="/news" className="btn-outline">
+              All news
+            </Link>
+          }
+        />
+        <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+          <Link to={`/news/${lead.slug}`} className="card-lift group overflow-hidden rounded-lg border border-line bg-night-2">
+            <div className="aspect-[16/9] overflow-hidden bg-night">
+              <img src={lead.image} alt="" className={`h-full w-full ${lead.imageFit === "contain" ? "object-contain p-8" : "object-cover"} transition-transform duration-500 group-hover:scale-[1.03]`} />
+            </div>
+            <div className="p-6">
+              <p className="eyebrow">{lead.category} · {formatDate(lead.date)}</p>
+              <h3 className="mt-2 text-4xl font-black text-ice-white">{lead.title}</h3>
+              <p className="mt-2 text-muted-text">{lead.excerpt}</p>
+            </div>
+          </Link>
+          <div className="flex flex-col gap-6">
+            {rest.slice(0, 3).map((a) => (
+              <Link key={a.slug} to={`/news/${a.slug}`} className="card-lift group flex gap-4 rounded-lg border border-line bg-night-2 p-4">
+                <img src={a.image} alt="" className={`h-24 w-32 shrink-0 rounded bg-night ${a.imageFit === "contain" ? "object-contain p-2" : "object-cover"}`} />
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-sand">{a.category} · {formatDate(a.date)}</p>
+                  <h3 className="mt-1 text-2xl font-black leading-tight text-ice-white">{a.title}</h3>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* ========== FOUNDERS CTA ========== */}
-      <section className="py-20 lg:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(40_49%_54%_/_0.06)_0%,transparent_60%)] pointer-events-none" />
-        <div className="container text-center relative z-10">
-          <p className="text-primary font-heading text-sm tracking-[0.3em] mb-4">SABRA HC BOOSTER CLUB — INAUGURAL SEASON</p>
-          <h2 className="font-display text-4xl md:text-6xl text-foreground mb-4">
-            BE PART OF <span className="text-gold-gradient">HISTORY</span>
-          </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto mb-10">
-            Sabra HC is community-funded — built by the fans, for the fans. Join the founding members who are making the flagship hockey club in Israel a reality. Together, we grow the game.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/founders"
-              className="px-10 py-4 font-heading text-sm font-semibold tracking-wider bg-primary text-primary-foreground hover:bg-primary/90 transition-all gold-glow clip-angle-right"
-            >
-              BECOME A FOUNDER
-            </Link>
-            <Link
-              to="/fans"
-              className="px-10 py-4 font-heading text-sm font-semibold tracking-wider border border-primary/40 text-foreground hover:border-primary hover:bg-primary/10 transition-all"
-            >
-              FAN ZONE
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
+
+const TeamTeaser = () => (
+  <section className="relative overflow-hidden border-y border-line bg-night-2 py-24" aria-labelledby="team-title">
+    <ContourField variant="ice" />
+    <div className="container-site relative">
+      <SectionHeading
+        id="team-title"
+        eyebrow="The team"
+        title={players.length ? "Meet the roster" : "Roster reveal coming soon"}
+        intro={
+          players.length
+            ? undefined
+            : "Israel's best available players, with a path in for Jewish players worldwide and Israel's top under-20 talent."
+        }
+        action={
+          players.length ? (
+            <Link to="/team" className="btn-outline">
+              Full roster
+            </Link>
+          ) : (
+            <Link to="/contact#tryouts" className="btn-primary">
+              Try-outs <ArrowRight className="h-5 w-5" />
+            </Link>
+          )
+        }
+      />
+    </div>
+  </section>
+);
+
+const PartnersStrip = () => (
+  <section className="bg-ice-white py-20" aria-labelledby="partners-title">
+    <div className="container-site flex flex-col items-center gap-8 text-center">
+      <p id="partners-title" className="eyebrow text-sand-dark">
+        Our partners
+      </p>
+      <ul className="flex flex-wrap items-center justify-center gap-10">
+        {partners.map((p) => (
+          <li key={p.name} className="flex flex-col items-center gap-2">
+            {p.logo ? <img src={p.logo} alt={p.name} className="h-20 w-auto object-contain" /> : <span className="font-display text-3xl font-black uppercase text-night">{p.name}</span>}
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#6B7A93]">{p.tier}</span>
+          </li>
+        ))}
+      </ul>
+      <Link to="/partners" className="font-display text-xl font-bold uppercase text-night underline decoration-sand decoration-4 underline-offset-8 hover:text-sand-dark">
+        Become a partner
+      </Link>
+    </div>
+  </section>
+);
+
+const PrideBanner = () => (
+  <section className="relative overflow-hidden bg-sand py-24" aria-labelledby="pride-title">
+    <div className="container-site relative flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <h2 id="pride-title" className="text-6xl font-black leading-[0.88] text-night sm:text-7xl lg:text-8xl">
+          The Pride
+          <br />
+          starts here
+        </h2>
+        <p className="mt-5 max-w-xl text-lg font-medium text-night/80">
+          Become a founding supporter of Israel's flagship club and be part of every first: the first title, the first European game, the first season.
+        </p>
+      </div>
+      <Link to="/pride" className="btn-dark">
+        Join the Pride <ArrowRight className="h-5 w-5" />
+      </Link>
+    </div>
+  </section>
+);
+
+const Home = () => (
+  <>
+    <Hero />
+    <MatchStrip />
+    <RoadToEurope />
+    <WhySabra />
+    <LatestNews />
+    <TeamTeaser />
+    <PartnersStrip />
+    <PrideBanner />
+  </>
+);
 
 export default Home;

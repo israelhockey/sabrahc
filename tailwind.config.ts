@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Oswald", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        display: ['"Big Shoulders Display"', '"Secular One"', "Impact", "sans-serif"],
+        body: ["Barlow", "Heebo", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,21 +51,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          light: "hsl(var(--gold-light))",
-          dark: "hsl(var(--gold-dark))",
-        },
-        green: {
-          DEFAULT: "hsl(var(--green))",
-          light: "hsl(var(--green-light))",
-        },
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--navy-light))",
-          dark: "hsl(var(--navy-dark))",
-        },
-        ice: "hsl(var(--ice))",
+        night: { DEFAULT: "hsl(var(--night))", 2: "hsl(var(--night-2))" },
+        line: "hsl(var(--line))",
+        sand: { DEFAULT: "hsl(var(--sand))", soft: "hsl(var(--sand-soft))", dark: "hsl(var(--sand-dark))" },
+        ice: { DEFAULT: "hsl(var(--ice))", white: "hsl(var(--ice-white))" },
+        "muted-text": "hsl(var(--muted-text))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -91,15 +81,12 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "pulse-gold": {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.7" },
-        },
+
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "pulse-gold": "pulse-gold 2s ease-in-out infinite",
+
       },
     },
   },

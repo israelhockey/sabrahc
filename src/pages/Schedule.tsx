@@ -1,50 +1,85 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Calendar, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import PageHero from "@/components/PageHero";
+import GameCard from "@/components/GameCard";
+import SignupForm from "@/components/SignupForm";
+import { club, games, type Competition } from "@/data/club";
+import { seasonRecord } from "@/lib/games";
 
-const Schedule = () => (
-  <>
-    <section className="pt-28 pb-12 lg:pt-36 lg:pb-16 bg-card relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(40_49%_54%_/_0.05)_0%,transparent_50%)] pointer-events-none" />
-      <div className="container relative z-10">
-        <div className="flex items-center gap-2 text-xs text-muted-foreground mb-4">
-          <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
-          <ChevronRight size={12} />
-          <span className="text-primary">Schedule</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <Calendar className="w-8 h-8 text-primary" />
-          <h1 className="font-display text-5xl md:text-7xl text-foreground">2026–27 SCHEDULE</h1>
-        </div>
-        <p className="text-muted-foreground mt-3 max-w-xl">
-          Follow Sabra HC through the EIHL and INHL seasons.
-        </p>
-      </div>
-      <div className="absolute bottom-0 left-0 right-0 h-8 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />
-    </section>
+const tabs: ("All" | Competition)[] = ["All", "INHL", "Sabra Series", "International", "Continental Cup"];
 
-    <section className="py-20 lg:py-32">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col items-center justify-center text-center py-16"
-        >
-          <div className="w-20 h-20 rounded-full border border-primary/20 flex items-center justify-center mb-8">
-            <Calendar className="w-8 h-8 text-primary" />
-          </div>
-          <h2 className="font-display text-4xl md:text-6xl text-foreground mb-4">TBA</h2>
-          <p className="text-muted-foreground max-w-md text-lg">
-            The 2026–27 schedule will be announced soon. Stay tuned for game dates, opponents, and venues.
-          </p>
-          <span className="inline-block mt-8 px-5 py-2 text-xs font-heading tracking-widest text-primary border border-primary/20 bg-primary/5">
-            COMING SOON
-          </span>
-        </motion.div>
-      </div>
-    </section>
-  </>
-);
+const Schedule = () => {
+  const [tab, setTab] = useState<(typeof tabs)[number]>("All");
+  const list = games.filter((g) => tab === "All" || g.competition === tab).sort((a, b) => a.date.localeCompare(b.date));
+  const rec = seasonRecord();
+
+  return (
+    <>
+      <PageHero
+        eyebrow={`${club.season} season`}
+        title="Schedule & Results"
+        intro={`The ${club.leagueShort} regular season, the Sabra Series, and international games as they are confirmed. All times are Israel time.`}
+      />
+      <section className="bg-night py-16" aria-label="Games">
+        <div className="container-site">
+          {games.length === 0 ? (
+            <div className="grid items-center gap-8 rounded-lg border border-line bg-night-2 p-8 lg:grid-cols-2 lg:p-12">
+              <div>
+                <p className="eyebrow">Coming soon</p>
+                <p className="mt-2 font-display text-5xl font-black uppercase text-ice-white">The schedule is being finalised</p>
+                <p className="mt-3 text-muted-text">
+                  We'll publish dates, opponents and venues here first. Leave your email and we'll tell you the moment it's out.
+                </p>
+              </div>
+              <SignupForm
+                source="tickets"
+                idPrefix="schedule-notify"
+                fields={[{ name: "email", label: "Email", type: "email", required: true, full: true }]}
+                submitLabel="Notify me"
+                successTitle="You'll hear first"
+              />
+            </div>
+          ) : (
+            <>
+              {rec.played > 0 && (
+                <dl className="tabular mb-10 grid grid-cols-3 gap-4 sm:grid-cols-5">
+                  {[
+                    ["W", rec.w],
+                    ["L", rec.l],
+                    ["OTL", rec.otl],
+                    ["GF", rec.gf],
+                    ["GA", rec.ga],
+                  ].map(([k, v]) => (
+                    <div key={k as string} className="rounded-lg border border-line bg-night-2 p-4 text-center">
+                      <dt className="text-xs font-bold uppercase tracking-[0.2em] text-muted-text">{k}</dt>
+                      <dd className="font-display text-5xl font-black text-ice-white">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter by competition">
+                {tabs.map((t) => (
+                  <button
+                    key={t}
+                    role="tab"
+                    aria-selected={tab === t}
+                    onClick={() => setTab(t)}
+                    className={`min-h-[44px] rounded-md px-5 font-display text-lg font-bold uppercase ${
+                      tab === t ? "bg-sand text-night" : "border border-line text-ice-white hover:border-sand"
+                    }`}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+              <div className="grid gap-4">
+                {list.length ? list.map((g) => <GameCard key={g.id} game={g} />) : <p className="text-muted-text">No games in this competition yet.</p>}
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default Schedule;

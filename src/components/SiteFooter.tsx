@@ -1,92 +1,82 @@
 import { Link } from "react-router-dom";
-import logoImg from "@/assets/sabra-logo.png";
+import crest from "@/assets/sabra-crest.webp";
+import { club } from "@/data/club";
+import NewsletterSignup from "./NewsletterSignup";
 
-const footerLinks: { title: string; links: { label: string; path: string; external?: boolean }[] }[] = [
-  {
-    title: "Team",
-    links: [
-      { label: "Roster", path: "/roster" },
-      { label: "Schedule", path: "/schedule" },
-      { label: "News", path: "/news" },
-    ],
-  },
+const cols = [
   {
     title: "Club",
     links: [
-      { label: "About Us", path: "/about" },
-      { label: "Founders", path: "/founders" },
-      { label: "Fan Zone", path: "/fans" },
+      { to: "/club", label: "The Club" },
+      { to: "/team", label: "Team" },
+      { to: "/news", label: "News" },
+      { to: "/contact", label: "Contact" },
     ],
   },
   {
-    title: "Connect",
+    title: "Fans",
     links: [
-      { label: "Media", path: "/media" },
-      { label: "Contact", path: "/about" },
-      { label: "info@sabrahc.com", path: "mailto:info@sabrahc.com", external: true },
+      { to: "/schedule", label: "Schedule" },
+      { to: "/tickets", label: "Tickets" },
+      { to: "/pride", label: "Join the Pride" },
+      { to: "/contact#tryouts", label: "Try-outs" },
+    ],
+  },
+  {
+    title: "Business",
+    links: [
+      { to: "/partners", label: "Partners" },
+      { to: "/invest", label: "Ownership & Investment" },
     ],
   },
 ];
 
 const SiteFooter = () => (
-  <footer className="bg-card border-t border-border">
-    {/* Gold accent line */}
-    <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
-
-    <div className="container py-12 lg:py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-        {/* Brand */}
-        <div className="lg:col-span-2">
-          <Link to="/" className="flex items-center gap-3 mb-4">
-            <img src={logoImg} alt="Sabra HC" className="w-12 h-12 object-contain" />
-            <div>
-              <span className="font-display text-2xl tracking-wide text-foreground">SABRA HC</span>
-              <p className="text-[10px] tracking-[0.25em] text-primary">ISRAEL'S PROFESSIONAL HOCKEY CLUB</p>
-            </div>
-          </Link>
-          <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-            Sabra Hockey Club is the flagship professional ice hockey team in Israel, competing domestically and across Europe.
-          </p>
-        </div>
-
-        {/* Link columns */}
-        {footerLinks.map((group) => (
-          <div key={group.title}>
-            <h4 className="font-heading text-sm tracking-wider text-primary mb-4">{group.title}</h4>
-            <ul className="space-y-2">
-              {group.links.map((link) => (
-                <li key={link.label}>
-                  {link.external ? (
-                    <a
-                      href={link.path}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      to={link.path}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+  <footer className="border-t border-line bg-night">
+    <NewsletterSignup />
+    <div className="container-site grid gap-12 py-14 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div className="flex flex-col gap-4">
+        <Link to="/" className="flex items-center gap-3" aria-label="Sabra HC home">
+          <img src={crest} alt="" className="h-16 w-16 object-contain" />
+          <span className="font-display text-3xl font-black uppercase text-ice-white">
+            Sabra <span className="text-sand">HC</span>
+          </span>
+        </Link>
+        <p className="font-display text-xl font-bold uppercase text-sand">{club.tagline}</p>
+        <a href={`mailto:${club.email}`} className="text-ice hover:text-sand">
+          {club.email}
+        </a>
+        {club.socials.length > 0 && (
+          <ul className="flex flex-wrap gap-4">
+            {club.socials.map((s) => (
+              <li key={s.label}>
+                <a href={s.href} target="_blank" rel="noreferrer" className="text-muted-text hover:text-sand">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-
-      <div className="section-divider my-8" />
-
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} Sabra Hockey Club. All rights reserved.
-        </p>
-        <p className="text-xs text-muted-foreground/60">
-          #BornInTheDesert
-        </p>
+      {cols.map((c) => (
+        <div key={c.title}>
+          <h2 className="mb-4 font-body text-sm font-bold uppercase tracking-[0.2em] text-muted-text">{c.title}</h2>
+          <ul className="flex flex-col gap-2.5">
+            {c.links.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="text-ice-white hover:text-sand">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div className="border-t border-line">
+      <div className="container-site flex flex-col gap-2 py-6 text-sm text-muted-text sm:flex-row sm:justify-between">
+        <p>© {new Date().getFullYear()} Sabra HC LLC. All rights reserved.</p>
+        <p>Sabra HC competes in the {club.league}.</p>
       </div>
     </div>
   </footer>
