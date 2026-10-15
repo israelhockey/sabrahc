@@ -28,8 +28,6 @@ const useTicker = (n: number, ms: number) => {
   const [i, setI] = useState(0);
   useEffect(() => {
     if (n < 2) return;
-    const reduce = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
     const t = setInterval(() => setI((v) => (v + 1) % n), ms);
     return () => clearInterval(t);
   }, [n, ms]);

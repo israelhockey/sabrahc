@@ -117,24 +117,41 @@ const SiteNavbar = () => {
             {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
           </button>
         </nav>
-        {open && (
-          <div className="fixed inset-x-0 bottom-0 top-[68px] z-40 overflow-y-auto border-t border-line bg-night-deep lg:hidden">
-            <ul className="container-site flex flex-col py-6">
-              {[...links, { to: "/pride", label: "Join the Pride" }, { to: "/partners", label: "Partners" }, { to: "/contact", label: "Contact" }].map((l, i) => (
-                <li key={l.to} className="border-b border-line">
-                  <NavLink
-                    to={l.to}
-                    className={({ isActive }) => `flex items-baseline gap-4 py-3 font-display text-4xl font-black uppercase ${isActive ? "text-sand" : "text-ice-white"}`}
-                  >
-                    <span className="tabular w-8 text-lg text-muted-text">{String(i + 1).padStart(2, "0")}</span>
-                    {l.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </header>
+      {open && (
+        <div className="fixed inset-0 z-[60] flex flex-col bg-night-deep lg:hidden" role="dialog" aria-modal="true" aria-label="Site menu">
+          <div className="container-site flex h-[68px] flex-none items-center justify-between border-b border-line">
+            <Link to="/" className="flex items-center gap-3" aria-label="Sabra HC home" onClick={() => setOpen(false)}>
+              <img src={crest} alt="" className="h-11 w-11 object-contain" />
+              <span className="font-display text-2xl font-black uppercase">
+                Sabra <span className="text-sand">HC</span>
+              </span>
+            </Link>
+            <button type="button" className="inline-flex h-11 w-11 items-center justify-center text-ice-white hover:text-sand" aria-label="Close menu" onClick={() => setOpen(false)}>
+              <X className="h-7 w-7" />
+            </button>
+          </div>
+          <ul className="container-site flex flex-1 flex-col overflow-y-auto py-4">
+            {[...links, { to: "/pride", label: "Join the Pride" }, { to: "/partners", label: "Partners" }, { to: "/contact", label: "Contact" }].map((l, i) => (
+              <li key={l.to} className="border-b border-line">
+                <NavLink
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) => `flex items-baseline gap-4 py-3.5 font-display text-4xl font-black uppercase ${isActive ? "text-sand" : "text-ice-white"}`}
+                >
+                  <span className="tabular w-8 text-lg text-muted-text">{String(i + 1).padStart(2, "0")}</span>
+                  {l.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+          <div className="container-site flex-none pb-8 pt-2">
+            <Link to="/pride" onClick={() => setOpen(false)} className="btn-primary w-full">
+              Join the Pride
+            </Link>
+          </div>
+        </div>
+      )}
     </>
   );
 };

@@ -196,12 +196,8 @@
 .animate-rise { animation: rise-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  html { scroll-behavior: auto !important; }
+  .animate-rise { animation-duration: 0.3s; }
 }
 
 /* Overhead rink feed */
@@ -211,9 +207,6 @@
 .rink-tele-2 { stroke-dasharray: 4 16; stroke-dashoffset: 0; animation: rink-fade 7s ease-in-out infinite; }
 @keyframes rink-draw { 0% { stroke-dashoffset: 1400; opacity: 1; } 35%, 80% { stroke-dashoffset: 0; opacity: 1; } 95%, 100% { stroke-dashoffset: 0; opacity: 0; } }
 @keyframes rink-fade { 0%, 30% { opacity: 0; } 45%, 80% { opacity: 1; } 95%, 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) {
-  .rink-pulse, .rink-tele, .rink-tele-2 { animation: none; stroke-dashoffset: 0; opacity: 1; }
-}
 
 /* Bright page openers and their motion graphics */
 .ice-bg {
@@ -254,8 +247,9 @@
 .mg-blink { animation: mg-blink 2.4s ease-in-out infinite; }
 @keyframes mg-blink { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
 .mg-swap { animation: mg-in 0.45s ease-out both; }
+/* Gentle motion (pulses, line draws, fades, lights) stays on for everyone;
+   only the floating drift is switched off for people who ask for reduced motion. */
 @media (prefers-reduced-motion: reduce) {
-  .mg-float, .mg-shine::after, .mg-pop, .mg-in, .mg-draw, .mg-ring, .mg-seat, .mg-plate, .mg-ribbon, .mg-bar, .mg-playhead, .mg-travel, .mg-blink, .mg-swap {
-    animation: none !important; stroke-dashoffset: 0; opacity: 1;
-  }
+  .mg-float { animation: none !important; }
 }
+
