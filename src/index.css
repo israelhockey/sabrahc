@@ -203,3 +203,14 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Overhead rink feed */
+.rink-pulse { transform-box: fill-box; transform-origin: center; animation: rink-pulse 2.2s ease-out infinite; }
+@keyframes rink-pulse { 0% { transform: scale(0.7); opacity: 1; } 100% { transform: scale(2.4); opacity: 0; } }
+.rink-tele { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: rink-draw 7s ease-in-out infinite; }
+.rink-tele-2 { stroke-dasharray: 4 16; stroke-dashoffset: 0; animation: rink-fade 7s ease-in-out infinite; }
+@keyframes rink-draw { 0% { stroke-dashoffset: 1400; opacity: 1; } 35%, 80% { stroke-dashoffset: 0; opacity: 1; } 95%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes rink-fade { 0%, 30% { opacity: 0; } 45%, 80% { opacity: 1; } 95%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .rink-pulse, .rink-tele, .rink-tele-2 { animation: none; stroke-dashoffset: 0; opacity: 1; }
+}

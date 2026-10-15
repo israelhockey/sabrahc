@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { club, arenas } from "@/data/club";
 import { sortedArticles, formatDate } from "@/data/news";
-import { CamFrame, Countdown, PlayIcon, SectionTitle } from "@/components/broadcast";
+import { Countdown, PlayIcon, SectionTitle } from "@/components/broadcast";
+import RinkFeed from "@/components/RinkFeed";
 import { FirstsBoard, GameCentre, EpisodeRow, LineupSection, HomeIceEverywhere, UniformAndPride } from "@/components/sections";
 import { formatGameDate, formatGameTime } from "@/lib/games";
 
@@ -18,23 +19,39 @@ const Hero = () => {
   const firstEp = "/season";
   return (
     <section aria-labelledby="hero-title" className="bg-night-deep">
-      <CamFrame label="CAM 1 · Team skate-out" rec className="border-b border-line">
-        <div className="container-site grid min-h-[620px] items-end gap-10 pb-10 pt-24 lg:min-h-[720px] lg:grid-cols-[1.35fr_1fr] lg:pb-14">
+      <div className="relative overflow-hidden border-b border-line bg-[#EAF1F6] lg:bg-[#0A1426]">
+        <RinkFeed className="absolute inset-0 hidden h-full w-full lg:block" />
+        <div className="relative h-[250px] sm:h-[360px] lg:hidden">
+          <RinkFeed view="610 175 780 500" className="absolute inset-0 h-full w-full" />
+        </div>
+        {/* soft wash so the headline reads on the ice */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-white/75 via-white/25 to-transparent lg:block" />
+        {/* broadcast frame */}
+        <span aria-hidden="true" className="pointer-events-none absolute left-4 top-4 z-[2] h-7 w-7 border-l-[3px] border-t-[3px] border-night" />
+        <span aria-hidden="true" className="pointer-events-none absolute bottom-4 right-4 z-[2] hidden h-7 w-7 border-b-[3px] border-r-[3px] border-night lg:block" />
+        <div className="absolute left-10 right-10 top-7 z-[2] flex items-center justify-between gap-3">
+          <span className="label border border-night/20 bg-white/90 px-2.5 py-1 text-[11px] text-night">CAM 9 · Overhead<span className="hidden sm:inline"> · Centre ice</span></span>
+          <span className="tag-live !flex items-center gap-2">
+            <span className="animate-rec h-2 w-2 rounded-full bg-ice-white" aria-hidden="true" /> Pre-game
+          </span>
+        </div>
+
+        <div className="container-site relative z-[3] grid items-end gap-8 pb-10 pt-8 lg:min-h-[740px] lg:gap-10 lg:pt-28 lg:grid-cols-[1.35fr_1fr] lg:pb-14">
           <div>
-            <span className="tag-sand animate-rise">The Founding Season · {club.season}</span>
-            <h1 id="hero-title" className="mt-3 font-display text-[64px] font-black uppercase leading-[0.84] animate-rise sm:text-[110px] lg:text-[148px]">
+            <span className="tag-dark animate-rise">The Founding Season · {club.season}</span>
+            <h1 id="hero-title" className="mt-3 font-display text-[64px] font-black uppercase leading-[0.84] text-night animate-rise sm:text-[110px] lg:text-[136px]">
               History
               <br />
               starts at
               <br />
-              <span className="text-sand">Game 001</span>
+              <span className="mt-2 inline-block whitespace-nowrap bg-night px-3 pb-1 text-sand sm:px-4">Game 001</span>
             </h1>
-            <div className="mt-5 max-w-xl border-l-[6px] border-ice bg-night/90 px-5 py-3 text-lg text-[#C9D6E6] animate-rise">
-              Sabra HC is Israel's newest hockey club. No games played yet, no records set, every first still to come. Follow it from the very first faceoff.
+            <div className="mt-5 max-w-xl border-l-[6px] border-sand bg-white/95 px-5 py-3 text-lg text-[#2B3A55] shadow-[0_10px_30px_-18px_rgba(6,13,26,0.6)] animate-rise">
+              Sabra HC is Israel's newest hockey club. The ice is ready, the puck is on the dot, and every first is still to come. Follow it from the very first faceoff.
             </div>
           </div>
 
-          <div className="panel animate-rise">
+          <div className="panel animate-rise shadow-[0_24px_60px_-24px_rgba(6,13,26,0.8)]">
             <div className="panel-head">
               <span className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-live animate-rec" aria-hidden="true" /> Faceoff · Game 001
@@ -62,7 +79,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </CamFrame>
+      </div>
 
       <nav aria-label="Channels" className="border-b border-line bg-night">
         <ul className="container-site flex gap-1 overflow-x-auto [scrollbar-width:none]">
