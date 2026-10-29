@@ -340,6 +340,7 @@ const WALL: { id: string; span: string; label?: string; c?: string }[] = [
   { id: "p060", span: "", c: "game" },
   { id: "p092", span: "", c: "team" },
   { id: "p036", span: "", c: "kids" },
+  { id: "p003", span: "col-span-2", label: "The Finland trip", c: "finland" },
 ];
 
 const TifoWall = () => (
@@ -371,11 +372,11 @@ const TifoWall = () => (
             )}
           </Link>
         ))}
-        <Link to="/gallery" className="col-span-2 flex flex-col items-center justify-center gap-1 rounded bg-sand p-4 sm:col-span-1 lg:col-span-2 text-center text-night hover:bg-sand-soft">
-          <span className="font-display text-3xl font-bold">+{photos.length - WALL.length}</span>
-          <span className="text-sm font-bold uppercase tracking-wide">More photos</span>
-        </Link>
       </div>
+      <Link to="/gallery" className="mt-2 flex items-center justify-center gap-3 rounded bg-sand px-4 py-4 text-center text-night hover:bg-sand-soft">
+        <span className="font-display text-3xl font-bold">+{photos.length - WALL.length}</span>
+        <span className="text-sm font-bold uppercase tracking-wide">More photos</span>
+      </Link>
       <p className="mt-4 text-sm text-muted-text">
         Were you at a game?{" "}
         <a href={`mailto:${club.email}?subject=${encodeURIComponent("Photo for the Tifo Wall")}`} className="text-sand hover:text-sand-soft">

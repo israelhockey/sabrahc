@@ -1,7 +1,7 @@
-// Photos from Israel Selects games and trips (2023–26), sorted by what they show.
+// Photos from Israel Selects games and trips (2023–26), including the Finland trip, sorted by what they show.
 // Files live in /public/media/gallery: <id>.webp (up to 1600px) and <id>-s.webp (thumbnail).
 
-export type PhotoCat = "game" | "team" | "community" | "kids" | "shabbat" | "inside";
+export type PhotoCat = "game" | "team" | "community" | "kids" | "shabbat" | "inside" | "finland";
 export type Photo = { id: string; cat: PhotoCat; w: number; h: number };
 
 export const PHOTO_CATS: { key: PhotoCat; label: string; he: string }[] = [
@@ -11,9 +11,16 @@ export const PHOTO_CATS: { key: PhotoCat; label: string; he: string }[] = [
   { key: "shabbat", label: "Shabbat & dinners", he: "שבת וארוחות" },
   { key: "team", label: "Team photos", he: "תמונות קבוצה" },
   { key: "inside", label: "Behind the scenes", he: "מאחורי הקלעים" },
+  { key: "finland", label: "The Finland trip", he: "פינלנד" },
 ];
 
 export const photos: Photo[] = [
+  { id: "p001", cat: "finland", w: 1170, h: 749 },
+  { id: "p002", cat: "finland", w: 540, h: 285 },
+  { id: "p003", cat: "finland", w: 1081, h: 571 },
+  { id: "p004", cat: "finland", w: 842, h: 443 },
+  { id: "p005", cat: "finland", w: 1170, h: 785 },
+  { id: "p012", cat: "finland", w: 1170, h: 756 },
   { id: "p013", cat: "game", w: 1600, h: 1064 },
   { id: "p014", cat: "game", w: 1600, h: 1064 },
   { id: "p015", cat: "game", w: 1600, h: 1064 },
