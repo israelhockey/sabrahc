@@ -14,13 +14,13 @@ const left: NavItem[] = [
   { to: "/team", label: "Team", he: "הקבוצה" },
 ];
 const right: NavItem[] = [
+  { to: "/host", label: "Host us", he: "הביאו אותנו" },
   { to: "/news", label: "News", he: "חדשות" },
   { to: "/tickets", label: "Tickets", he: "כרטיסים" },
   { to: "/club", label: "Club", he: "המועדון" },
 ];
 const extra: NavItem[] = [
   { to: "/gallery", label: "Photos", he: "תמונות" },
-  { to: "/host", label: "Bring us to your city", he: "הביאו אותנו" },
   { to: "/pride", label: "Join the Pride", he: "הצטרפו לגאווה" },
   { to: "/partners", label: "Partners", he: "שותפים" },
   { to: "/invest", label: "Ownership", he: "בעלות" },
@@ -88,7 +88,7 @@ const SiteNavbar = () => {
       <GameStrip />
       <header className="sticky top-0 z-50 border-b border-line bg-night/95 backdrop-blur">
         <nav className="container-site grid h-[72px] grid-cols-[1fr_auto_1fr] items-center gap-4 lg:h-[88px]" aria-label="Main">
-          <ul className="hidden items-center gap-7 lg:flex">
+          <ul className="hidden items-center gap-5 lg:flex xl:gap-7">
             {left.map((l) => (
               <li key={l.to}>
                 <NavItemLink item={l} />
@@ -99,8 +99,8 @@ const SiteNavbar = () => {
             <img src={crest} alt="" className="h-12 w-12 object-contain lg:h-[72px] lg:w-[72px]" />
             <span className="font-display text-lg font-black uppercase tracking-tight lg:hidden">Sabra HC</span>
           </Link>
-          <div className="col-start-3 row-start-1 flex items-center justify-end gap-7">
-            <ul className="hidden items-center gap-7 lg:flex">
+          <div className="col-start-3 row-start-1 flex items-center justify-end gap-5 xl:gap-7">
+            <ul className="hidden items-center gap-5 lg:flex xl:gap-7">
               {right.map((l) => (
                 <li key={l.to}>
                   <NavItemLink item={l} />
