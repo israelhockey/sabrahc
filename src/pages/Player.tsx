@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import crest from "@/assets/sabra-crest.webp";
 import { players, firsts } from "@/data/club";
 import { CamFrame, StatGrid } from "@/components/broadcast";
+import { skaterStats, goalieStats } from "@/lib/games";
 import NotFound from "./NotFound";
 
 const Player = () => {
@@ -19,7 +20,9 @@ const Player = () => {
 
   if (!p) return <NotFound />;
   const name = `${p.firstName} ${p.lastName}`;
-  const journey = [...(p.journey ?? []), { seasons: "2026–27", club: "Sabra HC", league: "INHL", note: "The Founding Season" }];
+  const journey = [...(p.journey ?? []), { seasons: "2026–27", club: "Sabra HC", league: "MHL", note: "The North American Tour" }];
+  const s = skaterStats().find((x) => x.name === `${p.firstName} ${p.lastName}`);
+  const gs = goalieStats().find((x) => x.name === `${p.firstName} ${p.lastName}`);
   const info = [
     ["Position", p.position],
     ["Shoots", p.shoots],
@@ -27,7 +30,7 @@ const Player = () => {
     ["Hometown", p.hometown],
     ["Last club", p.lastClub],
   ].filter(([, v]) => v !== undefined && v !== "") as [string, string | number][];
-  const mine = firsts.filter((f) => f.detail?.includes(p.lastName));
+  const mine = firsts.filter((f) => f.detail?.includes(`${p.firstName} ${p.lastName}`));
 
   return (
     <>
@@ -50,7 +53,7 @@ const Player = () => {
           <div>
             <div className="flex flex-wrap gap-2">
               <span className="tag-sand">#{p.number} · {p.position}</span>
-              <span className="tag-ice">{p.tag}</span>
+              {p.tag && <span className="tag-ice">{p.tag}</span>}
               {p.captain && <span className="tag-white">{p.captain === "C" ? "Captain" : "Alternate"}</span>}
             </div>
             <h1 className="mt-3 font-display text-7xl font-black uppercase leading-[0.84] sm:text-8xl lg:text-[140px]">
@@ -83,8 +86,8 @@ const Player = () => {
             2026–27 · Sabra HC
           </h2>
           <StatGrid
-            cols={p.position === "Goalie" ? 4 : 5}
-            stats={p.position === "Goalie" ? [{ v: 0, l: "GP" }, { v: 0, l: "W" }, { v: "–", l: "SV%" }, { v: 0, l: "SO" }] : [{ v: 0, l: "GP" }, { v: 0, l: "G" }, { v: 0, l: "A" }, { v: 0, l: "PTS" }, { v: 0, l: "PIM" }]}
+            cols={4}
+            stats={p.position === "Goalie" ? [{ v: gs?.gp ?? 0, l: "GP" }, { v: gs ? `${gs.w}–${gs.l}` : "0–0", l: "W–L" }, { v: gs?.saves ?? 0, l: "SV" }, { v: gs?.svPct ?? "–", l: "SV%" }] : [{ v: s?.gp ?? 0, l: "GP" }, { v: s?.g ?? 0, l: "G" }, { v: s?.a ?? 0, l: "A" }, { v: s?.pts ?? 0, l: "PTS" }]}
             highlight="PTS"
           />
         </div>
@@ -141,7 +144,7 @@ const Player = () => {
               ))}
             </ul>
           ) : (
-            <p className="mt-4 text-lg text-muted-text">Firsts in a Sabra HC jersey are logged here as they happen, starting at Game 001.</p>
+            <p className="mt-4 text-lg text-muted-text">Firsts in a Sabra HC jersey are logged here as they happen, starting with the first season on tour.</p>
           )}
         </div>
       </section>

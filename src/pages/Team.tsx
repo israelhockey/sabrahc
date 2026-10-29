@@ -5,8 +5,15 @@ import { LineupArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import { players, staff, type Player } from "@/data/club";
 import crest from "@/assets/sabra-crest.webp";
+import { skaterStats } from "@/lib/games";
 
-const filters = ["All", "Forward", "Defence", "Goalie"] as const;
+const filters = ["All", ...Array.from(new Set(players.map((p) => p.position)))] as string[];
+
+const line = skaterStats();
+const stat = (p: Player) => {
+  const s = line.find((x) => x.name === `${p.firstName} ${p.lastName}`);
+  return s ? `${s.gp} GP · ${s.g} G · ${s.a} A` : "";
+};
 
 const PlayerCard = ({ p }: { p: Player }) => (
   <Link to={`/team/${p.slug}`} className="lift group relative block overflow-hidden border border-line bg-night-2">
@@ -36,7 +43,8 @@ const PlayerCard = ({ p }: { p: Player }) => (
       </h3>
       <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
         <span className="text-muted-text">{p.position}</span>
-        <span className="rounded bg-night px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-ice">{p.tag}</span>
+        {p.tag && <span className="rounded bg-night px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-ice">{p.tag}</span>}
+        {stat(p) && <span className="tabular text-xs text-sand">{stat(p)}</span>}
       </div>
       <p className="label mt-4 text-sm text-sand">Player journey →</p>
     </div>
@@ -44,14 +52,14 @@ const PlayerCard = ({ p }: { p: Player }) => (
 );
 
 const Team = () => {
-  const [filter, setFilter] = useState<(typeof filters)[number]>("All");
+  const [filter, setFilter] = useState("All");
   const list = players
     .filter((p) => filter === "All" || p.position === filter)
     .sort((a, b) => a.number - b.number);
 
   return (
     <>
-      <PageHero cam="CAM 2 · Tactics board" status="Signings soon" tone="sand" art={<LineupArt />} eyebrow="2026–27 roster" title="The Team" intro="Israel's best available players, a path in for Jewish players from around the world, and the country's top under-20 talent." />
+      <PageHero cam="CAM 2 · Tactics board" status="Roster live" tone="sand" art={<LineupArt />} eyebrow="2026–27 roster" title="The Team" intro="Israeli and Jewish players who live across North America and join the tour weekend by weekend. Next season, the road leads home to Israel." />
 
       <section className="bg-night py-20" aria-labelledby="roster-title">
         <div className="container-site">

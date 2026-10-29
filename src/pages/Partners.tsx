@@ -6,16 +6,16 @@ import SignupForm from "@/components/SignupForm";
 import { partners } from "@/data/club";
 
 const why = [
-  ["Israel's flagship club", "Be part of the club building professional-level hockey in Israel from day one."],
-  ["A global audience", "Reach Israeli fans, the worldwide Jewish community and the international hockey world."],
-  ["Historic firsts", "Put your name on the first European pro games ever played in Israel."],
+  ["Israel's flagship club", "Be part of the club building Israeli hockey's future, from this season's tour to the Israeli league and Europe."],
+  ["Your local community", "Every tour stop is a community event in a city with a big Jewish community. Your brand is front and centre when we're in town."],
+  ["A global audience", "Reach Israeli fans, the worldwide Jewish community and the hockey world through streams and our tour series."],
   ["A brand at the start", "Partners who join now grow with the club and are remembered as founders."],
 ];
 
 const offers = [
   { icon: Shirt, title: "Jersey & helmet", body: "Front, shoulder and helmet placements on the team's uniforms." },
-  { icon: LayoutPanelTop, title: "Rink boards", body: "Board and ice branding at home games." },
-  { icon: Trophy, title: "Game-night naming", body: "Present a game, a series or a European visit." },
+  { icon: LayoutPanelTop, title: "Present a tour stop", body: "\"Sabra HC in your city, presented by…\" for a full weekend series." },
+  { icon: Trophy, title: "Game-night naming", body: "Present a single game, or a European visit next season." },
   { icon: Smartphone, title: "Digital & social", body: "Content series, highlights and stream branding." },
   { icon: HeartHandshake, title: "Community", body: "Youth hockey and learn-to-skate programs." },
   { icon: Wine, title: "Hospitality", body: "Host clients and teams at game nights." },
@@ -23,7 +23,7 @@ const offers = [
 
 const Partners = () => (
   <>
-    <PageHero cam="CAM 5 · Ribbon board" status="Now booking" tone="sand" art={<PartnerArt />} eyebrow="Partnerships" title="Partner with Israel's club" intro="Grow with a club at the start of its story, and a sport on the rise in Israel." />
+    <PageHero cam="CAM 5 · Ribbon board" status="Now booking" tone="sand" art={<PartnerArt />} eyebrow="Partnerships" title="Partner with Israel's club" intro="Back Israel's flagship team as it tours North America this season, in your city or across the whole tour." />
 
     <section className="bg-ice-white py-20" aria-labelledby="current-title">
       <div className="container-site">
@@ -71,6 +71,39 @@ const Partners = () => (
       </div>
     </section>
 
+    <section id="city-partner" className="scroll-mt-28 bg-sand py-20 text-night" aria-labelledby="city-title">
+      <div className="container-site grid items-start gap-10 lg:grid-cols-[1fr_1.1fr]">
+        <div>
+          <span className="tag-dark">New this season</span>
+          <h2 id="city-title" className="mt-2 font-display text-6xl font-black uppercase leading-[0.88] sm:text-7xl">
+            Become a city partner
+          </h2>
+          <p className="mt-4 max-w-md text-lg font-medium">
+            When Sabra HC comes to your city, the weekend is yours. It works for a local business, a family foundation or a community group that wants to
+            bring Israel's team to town.
+          </p>
+        </div>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {[
+            ["Naming", "\"Sabra HC in [your city], presented by [you]\" on every post, poster and stream that weekend."],
+            ["On the ice", "Your logo on the stream and in-arena announcements at both games."],
+            ["Your people", "Tickets and a meet-and-greet with the players for your staff, clients or members."],
+            ["Community", "Your name on the youth clinic or community event that weekend."],
+          ].map(([t2, b]) => (
+            <li key={t2} className="bg-night p-5 text-ice-white">
+              <p className="font-display text-2xl font-black uppercase text-sand">{t2}</p>
+              <p className="mt-1 text-[#C9D6E6]">{b}</p>
+            </li>
+          ))}
+          <li className="sm:col-span-2">
+            <a href="#enquire-title" className="btn-dark">
+              Ask about your city
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <section className="bg-night py-20" aria-labelledby="enquire-title">
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr]">
         <SectionHeading id="enquire-title" eyebrow="Let's talk" title="Partnership enquiry" intro="Tell us a little about your company and we'll come back with options that fit." />
@@ -85,7 +118,7 @@ const Partners = () => (
               name: "interest",
               label: "Most interested in",
               type: "select",
-              options: ["Jersey & helmet", "Rink boards", "Game-night naming", "European visit", "Digital & social", "Community", "Hospitality", "Not sure yet"],
+              options: ["City partner (a tour weekend)", "Jersey & helmet", "Game-night naming", "Whole tour", "European visit (next season)", "Digital & social", "Community", "Not sure yet"],
               full: true,
             },
             { name: "message", label: "Message", type: "textarea" },

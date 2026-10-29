@@ -8,7 +8,7 @@ const NewsletterSignup = () => (
         <h2 id="newsletter-title" className="mt-2 text-5xl font-black leading-[0.9] sm:text-6xl">
           Never miss a first
         </h2>
-        <p className="mt-3 max-w-md text-lg text-muted-text">Game 001, signings, the uniform reveal and ticket drops, straight to your inbox.</p>
+        <p className="mt-3 max-w-md text-lg text-muted-text">New tour stops, results, signings and ticket drops, straight to your inbox.</p>
       </div>
       <SignupForm
         source="newsletter"

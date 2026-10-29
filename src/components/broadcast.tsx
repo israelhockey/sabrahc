@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { club } from "@/data/club";
+import { nextGame } from "@/lib/games";
 
 /* ---------- Camera-feed frame (photo / video placeholder) ---------- */
 
@@ -110,7 +110,7 @@ export const useCountdown = (iso: string | null) => {
 };
 
 export const Countdown = ({ size = "lg" }: { size?: "sm" | "lg" }) => {
-  const cd = useCountdown(club.openerDate);
+  const cd = useCountdown(nextGame()?.date ?? null);
   const blocks = cd
     ? [
         { v: cd.d, l: "Days" },
@@ -125,7 +125,7 @@ export const Countdown = ({ size = "lg" }: { size?: "sm" | "lg" }) => {
         { v: "--", l: "Sec" },
       ];
   return (
-    <div className="grid grid-cols-4 gap-px bg-line" role="timer" aria-label={cd ? `${cd.d} days ${cd.h} hours ${cd.m} minutes until Game 001` : "Game 001 date to be announced"}>
+    <div className="grid grid-cols-4 gap-px bg-line" role="timer" aria-label={cd ? `${cd.d} days ${cd.h} hours ${cd.m} minutes until the next game` : "Next game date to be announced"}>
       {blocks.map((b) => (
         <div key={b.l} className="bg-night px-1 py-3 text-center">
           <div className={`tabular font-display font-black leading-none text-ice-white ${size === "lg" ? "text-5xl sm:text-6xl" : "text-4xl"}`}>{b.v}</div>

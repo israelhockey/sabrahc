@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import crest from "@/assets/sabra-crest.webp";
-import { club, firsts, episodes, players, arenas } from "@/data/club";
-import { upcomingGames, finalGames, seasonRecord, formatGameDate, formatGameTime } from "@/lib/games";
+import { club, firsts, episodes, players } from "@/data/club";
+import { nextGame, lastGame, seasonRecord, skaterStats, goalieStats, gameDate, gameTime, gamePlace } from "@/lib/games";
+import { GameRecap, TourMap, TourStops } from "./tour";
 import { CamFrame, PlayIcon, SectionTitle, StatGrid } from "./broadcast";
 
 /* ---------- The Firsts ---------- */
@@ -17,7 +18,7 @@ export const FirstsBoard = () => {
           tag="Logged live, all season"
           tone="ice"
           title="The Firsts"
-          intro="A brand-new club only gets one of each. Every first in Sabra HC history fills in here the moment it happens."
+          intro="A new club only gets one of each. Every first in Sabra HC history fills in here, from the first goal on tour to the first game in Israel."
           action={
             <p className="flex items-center gap-3">
               <span className="tabular font-display text-6xl font-black text-sand">
@@ -67,49 +68,36 @@ export const FirstsBoard = () => {
 /* ---------- Game centre ---------- */
 
 export const GameCentre = () => {
-  const next = upcomingGames()[0];
-  const last = finalGames()[0];
+  const next = nextGame();
+  const last = lastGame();
   const rec = seasonRecord();
-  const arena = arenas.find((a) => a.id === (next?.arenaId ?? club.openerArenaId));
-  const pts = rec.w * 2 + rec.otl;
+  const leaders = skaterStats().slice(0, 5);
+  const goalie = goalieStats()[0];
   return (
     <section aria-labelledby="gc-title" className="border-y border-line bg-night-deep py-20 lg:py-24">
       <div className="container-site">
-        <SectionTitle id="gc-title" tag="Game centre" title={`Season ${club.season}`} />
+        <SectionTitle
+          id="gc-title"
+          tag="Game centre"
+          title={`Season ${club.season}`}
+          action={
+            <a href={club.statsUrl} target="_blank" rel="noreferrer" className="border-b-[3px] border-sand pb-1 font-cond text-lg font-extrabold uppercase tracking-[0.1em] hover:text-sand">
+              Official MHL stats
+            </a>
+          }
+        />
         <div className="grid gap-4 lg:grid-cols-3">
-          <div className="panel">
-            <div className="panel-head">
-              <span>{last && !next ? "Last game" : "Next game"}</span>
-              <span className="text-ice">{(next ?? last)?.competition ?? club.leagueShort}</span>
-            </div>
-            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-7 text-center">
-              <div>
-                <img src={crest} alt="" className="mx-auto h-24 w-24 object-contain" />
-                <p className="mt-2 font-display text-2xl font-black">SABRA HC</p>
-              </div>
-              <p className="font-display text-5xl font-black text-sand">
-                {last && !next ? `${last.sabraScore}–${last.opponentScore}` : "VS"}
-              </p>
-              <div>
-                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border-2 border-dashed border-line font-display text-2xl font-black text-muted-text">
-                  {(next ?? last)?.opponent.slice(0, 3).toUpperCase() ?? "TBA"}
-                </div>
-                <p className="mt-2 font-display text-2xl font-black text-muted-text">{(next ?? last)?.opponent ?? "Opponent"}</p>
-              </div>
-            </div>
-            <div className="label flex items-center justify-between gap-3 border-t border-line px-4 py-3 text-sm">
-              <span className="text-[#C9D6E6]">
-                {next ? `${formatGameDate(next.date)} · ${formatGameTime(next.date)}` : club.openerDate ? `${formatGameDate(club.openerDate)} · ${formatGameTime(club.openerDate)}` : "Date announced soon"}
-                {arena ? ` · ${arena.name}` : ""}
-              </span>
-              <Link to={next ? `/games/${next.id}` : "/tickets"} className="text-sand hover:text-sand-soft">
-                {next?.ticketUrl ? "Tickets →" : "Ticket alerts →"}
-              </Link>
-            </div>
-          </div>
+          {last ? (
+            <GameRecap game={last} compact />
+          ) : (
+            <div className="panel p-6 text-muted-text">No results yet.</div>
+          )}
 
           <div className="panel">
-            <div className="panel-head">Season stat line</div>
+            <div className="panel-head">
+              <span>Season record</span>
+              <span className="text-ice">{club.leagueShort}</span>
+            </div>
             <StatGrid
               stats={[
                 { v: rec.played, l: "GP" },
@@ -117,29 +105,37 @@ export const GameCentre = () => {
                 { v: rec.l + rec.otl, l: "L" },
                 { v: rec.gf, l: "GF" },
                 { v: rec.ga, l: "GA" },
-                { v: pts, l: "PTS" },
+                { v: goalie ? goalie.svPct : "–", l: "SV%" },
               ]}
-              highlight="PTS"
+              highlight="W"
             />
-            <p className="border-t border-line px-4 py-3 text-sm text-muted-text">
-              {rec.played ? "Updated after every game." : "Every number starts at zero. Game 001 changes that."}
-            </p>
+            <div className="border-t border-line px-4 py-3">
+              <p className="label text-xs text-muted-text">Next game</p>
+              <p className="mt-1 font-display text-2xl font-black uppercase leading-tight">
+                {next ? `vs ${next.opponent}` : "Next weekend series · announced soon"}
+              </p>
+              {next && <p className="label mt-1 text-sm text-ice">{gameDate(next)} · {gameTime(next)}{gamePlace(next) ? ` · ${gamePlace(next)}` : ""}</p>}
+            </div>
           </div>
 
           <div className="panel">
             <div className="panel-head">
-              <span>{club.leagueShort} standings</span>
-              <span>GP · PTS</span>
+              <span>Scoring leaders</span>
+              <span>G · A · PTS</span>
             </div>
-            <div className="label grid grid-cols-[32px_1fr_44px_44px] items-center border-b border-line bg-sand/10 px-4 py-3 text-lg">
-              <span className="text-muted-text">–</span>
-              <span className="text-sand">Sabra HC</span>
-              <span className="tabular text-right text-muted-text">{rec.played}</span>
-              <span className="tabular text-right">{pts}</span>
-            </div>
-            <p className="px-4 py-4 text-sm text-muted-text">The full league table goes live after Game 001.</p>
-            <Link to="/schedule" className="label block border-t border-line px-4 py-3 text-sm text-sand hover:text-sand-soft">
-              Full schedule →
+            <ol>
+              {leaders.map((s, i) => (
+                <li key={s.name} className="label grid grid-cols-[28px_1fr_32px_32px_40px] items-center border-b border-line px-4 py-2.5 text-base">
+                  <span className="tabular text-muted-text">{i + 1}</span>
+                  <span className="truncate text-ice-white">{s.number ? <span className="tabular mr-2 text-sand">#{s.number}</span> : null}{s.name}</span>
+                  <span className="tabular text-right text-muted-text">{s.g}</span>
+                  <span className="tabular text-right text-muted-text">{s.a}</span>
+                  <span className="tabular text-right text-sand">{s.pts}</span>
+                </li>
+              ))}
+            </ol>
+            <Link to="/schedule" className="label block px-4 py-3 text-sm text-sand hover:text-sand-soft">
+              Full schedule and stats →
             </Link>
           </div>
         </div>
@@ -148,7 +144,38 @@ export const GameCentre = () => {
   );
 };
 
-/* ---------- Founding Season episodes ---------- */
+/* ---------- The tour ---------- */
+
+export const TourSection = () => (
+  <section aria-labelledby="tour-title" className="bg-night py-20 lg:py-24">
+    <div className="container-site">
+      <SectionTitle
+        id="tour-title"
+        tag={`${club.seasonName} · ${club.season}`}
+        tone="sand"
+        title="The Tour"
+        intro="This season Sabra HC tours North America in the Mountain Hockey League. Every weekend series is an event for the local community, with a game, a meet-and-greet and a local partner."
+        action={
+          <Link to="/season" className="border-b-[3px] border-sand pb-1 font-cond text-lg font-extrabold uppercase tracking-[0.1em] hover:text-sand">
+            Full tour
+          </Link>
+        }
+      />
+      <div className="grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
+        <div className="border border-line">
+          <div className="panel-head bg-night-2">
+            <span>Cities on our list</span>
+            <span className="text-sand">Dates announced as they're booked</span>
+          </div>
+          <TourMap light={false} />
+        </div>
+        <TourStops />
+      </div>
+    </div>
+  </section>
+);
+
+/* ---------- Tour docuseries ---------- */
 
 export const EpisodeRow = ({ heading = true }: { heading?: boolean }) => (
   <section aria-labelledby={heading ? "fs-title" : undefined} className="border-t border-line bg-night-deep py-20 lg:py-24">
@@ -158,8 +185,8 @@ export const EpisodeRow = ({ heading = true }: { heading?: boolean }) => (
           id="fs-title"
           tag="Original series"
           tone="live"
-          title="The Founding Season"
-          intro="The first year of an Israeli hockey club, filmed from the inside. New episodes through the season."
+          title="On Tour"
+          intro="Israel's flagship team on the road across North America, filmed from the inside. New episodes through the season."
           action={
             <Link to="/season" className="border-b-[3px] border-sand pb-1 font-cond text-lg font-extrabold uppercase tracking-[0.1em] hover:text-sand">
               All episodes
@@ -213,33 +240,32 @@ const Silhouette = () => (
 );
 
 export const LineupSection = () => {
-  const slots = ["F", "F", "F", "D", "D", "G"];
-  const signed = [...players].sort((a, b) => a.number - b.number).slice(0, 6);
+  const roster = [...players].sort((a, b) => a.number - b.number);
+  const show = roster.slice(0, 9);
   return (
     <section aria-labelledby="lineup-title" className="bg-night py-20 lg:py-24">
       <div className="container-site grid items-start gap-10 lg:grid-cols-2">
         <div>
           <SectionTitle
             id="lineup-title"
-            tag={players.length ? "The roster" : "Roster reveal"}
+            tag="The roster"
             tone="ice"
             title="The Lineup"
-            intro={players.length ? `${players.length} players signed for the founding season.` : "Signings revealed one by one, broadcast-style. Every slot fills as a player joins."}
+            intro={`${roster.length} players have dressed for Sabra HC so far this season. Players live across North America and join the tour weekend by weekend.`}
           />
           <ul className="grid grid-cols-3 gap-2.5">
-            {slots.map((pos, i) => {
-              const p = signed[i];
-              return (
-                <li key={i} className="border border-line bg-night-2 px-3 py-4 text-center">
-                  {p?.photo ? <img src={p.photo} alt="" className="mx-auto h-16 w-16 rounded-full object-cover" /> : <Silhouette />}
-                  <p className={`mt-2 font-display text-2xl font-black ${p ? "text-ice-white" : "text-muted-text"}`}>#{p ? p.number : "??"}</p>
-                  <p className="label mt-0.5 text-xs text-sand">{p ? `${p.lastName}` : `${pos} · Signing soon`}</p>
-                </li>
-              );
-            })}
+            {show.map((p) => (
+              <li key={p.slug}>
+                <Link to={`/team/${p.slug}`} className="lift block border border-line bg-night-2 px-3 py-4 text-center">
+                  {p.photo ? <img src={p.photo} alt="" className="mx-auto h-16 w-16 rounded-full object-cover" /> : <Silhouette />}
+                  <p className="tabular mt-2 font-display text-2xl font-black text-ice-white">#{p.number}</p>
+                  <p className="label mt-0.5 truncate text-xs text-sand">{p.lastName}</p>
+                </Link>
+              </li>
+            ))}
           </ul>
-          <Link to={players.length ? "/team" : "/contact#tryouts"} className="btn-primary mt-6">
-            {players.length ? "Full roster" : "Try-outs are open"}
+          <Link to="/team" className="btn-primary mt-6">
+            Full roster
           </Link>
         </div>
         <div className="border border-line bg-night-2">
@@ -247,7 +273,7 @@ export const LineupSection = () => {
             <span>Player journeys</span>
             <span className="text-sand">Every player, every road</span>
           </div>
-          <svg role="img" aria-label="A route line from a player's hometown to Israel" viewBox="0 0 600 260" className="block h-auto w-full bg-night">
+          <svg role="img" aria-label="A route line from North America to Israel" viewBox="0 0 600 260" className="block h-auto w-full bg-night">
             <g stroke="#16233C" strokeWidth="1">
               <path d="M0 52 H600 M0 104 H600 M0 156 H600 M0 208 H600 M100 0 V260 M200 0 V260 M300 0 V260 M400 0 V260 M500 0 V260" />
             </g>
@@ -257,13 +283,13 @@ export const LineupSection = () => {
             <circle cx="520" cy="150" r="20" fill="none" stroke="#D6A84A" strokeOpacity="0.4" strokeWidth="2" />
           </svg>
           <div className="label flex justify-between px-4 py-3 text-base">
-            <span className="text-ice">Hometown</span>
+            <span className="text-ice">North America</span>
             <span className="text-sand">Israel</span>
           </div>
           <div className="px-4 pb-6 pt-1">
-            <p className="font-display text-4xl font-black uppercase leading-[0.95]">From anywhere to the lion</p>
+            <p className="font-display text-4xl font-black uppercase leading-[0.95]">On the road to the lion</p>
             <p className="mt-2 text-muted-text">
-              Every Sabra HC player gets a journey page: where they came from, why they chose Sabra, and their firsts in the jersey.
+              This season we tour North America. Next season the road leads home to Israel. Every player gets a page with their season stats and their firsts in the jersey.
             </p>
           </div>
         </div>
@@ -283,9 +309,9 @@ const ZONES: [string, string][] = [
 ];
 
 export const HomeIceEverywhere = () => {
-  const next = upcomingGames()[0];
-  const iso = next?.date ?? club.openerDate ?? "2026-11-19T20:00:00+02:00";
-  const example = !next && !club.openerDate;
+  const next = nextGame();
+  const iso = next?.date ?? "2026-11-21T19:00:00-05:00";
+  const example = !next;
   return (
     <section aria-labelledby="everywhere-title" className="border-y border-line bg-night-deep py-20 lg:py-24">
       <div className="container-site">
@@ -293,7 +319,7 @@ export const HomeIceEverywhere = () => {
           id="everywhere-title"
           tag="Watch from anywhere"
           title="Home ice, everywhere"
-          intro="Every game streams live, and faceoff shows in your own time zone, wherever your Pride lives."
+          intro="We play across North America, but the Pride is everywhere. Faceoff shows in your time zone, including back home in Israel."
         />
         <ul className="grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-3 lg:grid-cols-5">
           {ZONES.map(([city, tz], i) => (
@@ -316,7 +342,7 @@ export const HomeIceEverywhere = () => {
             </Link>
           )}
           <span className="text-sm text-muted-text">
-            {example ? "Example: a 20:00 faceoff in Israel. Real times appear with each game." : "Times shown for the next game."}
+            {example ? "Example: a 7:00 pm faceoff in New York. Real times appear with each game." : "Times shown for the next game."}
           </span>
         </div>
       </div>

@@ -21,7 +21,7 @@ const Club = () => (
           <span className="mt-1 inline-block bg-night px-3 pb-1 text-sand">Built for the ice.</span>
         </>
       }
-      intro="A privately owned Israeli club with one plan: win at home, bring European hockey to Israel, and take our place in a European league."
+      intro="A privately owned Israeli club with one plan: build the brand on a North American tour, win at home in Israel, bring European hockey to Israel, and take our place in a European league."
     />
 
     <section className="bg-night py-20" aria-labelledby="story-title">
@@ -37,7 +37,8 @@ const Club = () => (
             Europe. Hockey deserves the same.
           </p>
           <p className="font-semibold text-ice-white">
-            Sabra HC is that club. Founded in 2026, privately owned, and built to be Israel's flagship team on the road to European hockey.
+            Sabra HC is that club. It grew out of Israel Selects, a team of Israeli and Jewish players that had already toured North America for three seasons.
+            In 2026 it became Sabra HC: privately owned, built to be Israel's flagship team, and starting its road to Europe with a North American tour.
           </p>
         </div>
       </div>
@@ -82,7 +83,7 @@ const Club = () => (
           {[
             ["A path home", "Jewish players from around the world can build a life in Israel through hockey, and play for a club that represents the country."],
             ["Built here", "Israel's best young players get a club to aim for at home, instead of leaving the country to keep playing at a high level."],
-            ["Israel on the map", "European pro clubs playing on Israeli ice, and an Israeli club carrying the flag in European competition."],
+            ["Israel on the map", "Israel's team in front of crowds across North America now, European clubs on Israeli ice next, and an Israeli club carrying the flag in Europe."],
           ].map(([t, b]) => (
             <div key={t} className="rounded-lg border border-line bg-night-2 p-8">
               <h3 className="text-4xl font-black text-sand">{t}</h3>

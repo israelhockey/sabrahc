@@ -15,8 +15,8 @@ const Invest = () => (
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div className="space-y-8">
           {[
-            ["The plan", <>Win at home, bring European hockey to Israel, and join a European league. <Link to="/club#road-to-europe" className="text-ice underline">See the road to Europe</Link>.</>],
-            ["The people", "A founding group with deep roots in Israeli and international hockey."],
+            ["The plan", <>Year one: a North American tour in the Mountain Hockey League to build the brand and partners. Then win at home in Israel, bring European hockey to Israel, and join a European league. <Link to="/club#road-to-europe" className="text-ice underline">See the road to Europe</Link>.</>],
+            ["The people", "A founding group with deep roots in Israeli and international hockey, and three seasons of North American touring as Israel Selects."],
             ["The structure", "A privately owned US LLC, with a three-season founding commitment from owners."],
           ].map(([t, b]) => (
             <div key={t as string} className="border-t-4 border-sand pt-4">

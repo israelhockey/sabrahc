@@ -5,7 +5,7 @@
 import { useEffect, useId, useMemo, useState, type ReactNode } from "react";
 import crest from "@/assets/sabra-crest.webp";
 import rdpLogo from "@/assets/rdp-logo.webp";
-import { club, arenas, roadToEurope, episodes, partners } from "@/data/club";
+import { club, roadToEurope, episodes, partners } from "@/data/club";
 import { sortedArticles } from "@/data/news";
 
 const NAVY = "#13274D";
@@ -83,7 +83,7 @@ export const CalendarArt = () => {
             style={{ left: `${(col * 100) / 7}%`, top: `${(row * 100) / rows}%`, width: `${100 / 7}%`, height: `${100 / rows}%` }}
           >
             <div className="flex h-full flex-col items-center justify-center bg-sand text-night shadow-[0_10px_24px_-10px_rgba(6,13,26,0.7)]">
-              <span className="font-display text-xl font-black leading-none sm:text-2xl">001</span>
+              <span className="font-display text-lg font-black leading-none sm:text-xl">NEXT</span>
               <span className="label text-[9px] sm:text-[10px]">TBA</span>
             </div>
           </div>
@@ -96,7 +96,7 @@ export const CalendarArt = () => {
           ))}
         </div>
       </Board>
-      <p className="label mt-3 text-right text-xs text-[#5B6B85]">Game 001 date drops soon · all times Israel time</p>
+      <p className="label mt-3 text-right text-xs text-[#5B6B85]">Next weekend series being booked · times local to each city</p>
     </div>
   );
 };
@@ -153,7 +153,6 @@ export const LineupArt = () => {
 /* ---------- Tickets: a Game 001 ticket over a filling seat map ---------- */
 
 export const TicketArt = () => {
-  const arena = arenas.find((a) => a.id === club.openerArenaId);
   const seats = useMemo(() => {
     const out: { x: number; y: number; d: number }[] = [];
     let s = 3;
@@ -184,10 +183,10 @@ export const TicketArt = () => {
               <img src={crest} alt="" className="h-12 w-12 object-contain sm:h-14 sm:w-14" />
               <div>
                 <p className="label text-[11px] text-sand">{club.leagueShort} · {club.season}</p>
-                <p className="font-display text-3xl font-black uppercase leading-none sm:text-4xl">Sabra HC vs TBA</p>
+                <p className="font-display text-3xl font-black uppercase leading-none sm:text-4xl">Sabra HC on tour</p>
               </div>
             </div>
-            <p className="mt-3 font-display text-5xl font-black uppercase leading-none text-sand sm:text-6xl">Game 001</p>
+            <p className="mt-3 font-display text-5xl font-black uppercase leading-none text-sand sm:text-6xl">Your city</p>
             <dl className="mt-4 grid grid-cols-3 gap-3 border-t border-dashed border-line pt-3">
               {[
                 ["Sec", "--"],
@@ -200,7 +199,7 @@ export const TicketArt = () => {
                 </div>
               ))}
             </dl>
-            <p className="label mt-2 text-[11px] text-ice">{arena?.name ?? "Arena TBA"} · Date TBA</p>
+            <p className="label mt-2 text-[11px] text-ice">Weekend series · date TBA</p>
             {/* perforation */}
             <span className="absolute -right-2 top-0 flex h-full flex-col justify-around" aria-hidden="true">
               {Array.from({ length: 9 }).map((_, i) => (
@@ -368,8 +367,8 @@ export const PartnerArt = () => {
       <div className="overflow-hidden border-y-4 border-night bg-night" aria-hidden="true">
         <div className="mg-ribbon flex w-max">
           {loop.map((t, k) => (
-            <span key={k} className={`flex h-12 w-48 flex-none sm:h-14 sm:w-56 items-center justify-center whitespace-nowrap border-r border-night-2 font-cond text-base sm:text-lg font-extrabold uppercase tracking-[0.14em] ${t === "Your brand here" ? "text-sand" : "bg-white text-night"}`}>
-              {t === "Your brand here" ? t : <img src={rdpLogo} alt="" className="h-9 w-auto object-contain" />}
+            <span key={k} className={`flex h-12 w-48 flex-none sm:h-14 sm:w-56 items-center justify-center whitespace-nowrap border-r border-night-2 font-cond text-base sm:text-lg font-extrabold uppercase tracking-[0.14em] ${t === "Your brand here" ? "text-sand" : "bg-white px-3 text-center text-sm text-night"}`}>
+              {t === "RDP Sports Management" ? <img src={rdpLogo} alt="" className="h-9 w-auto object-contain" /> : t}
             </span>
           ))}
         </div>
@@ -481,7 +480,7 @@ export const SignalArt = () => {
 /* ---------- Season: the edit timeline of the docuseries ---------- */
 
 export const TimelineArt = () => (
-  <Board title="The Founding Season · Edit" meta={<span className="mg-blink text-live">● Rec</span>} className="mg-float">
+  <Board title="Sabra HC: On Tour · Edit" meta={<span className="mg-blink text-live">● Rec</span>} className="mg-float">
     <div className="bg-night p-4">
       <div className="relative">
         <div className="mb-2 flex justify-between">

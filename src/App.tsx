@@ -47,6 +47,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
 
             {/* Old URLs from the previous site */}
+            <Route path="/tour" element={<Navigate to="/season" replace />} />
             <Route path="/roster" element={<Navigate to="/team" replace />} />
             <Route path="/about" element={<Navigate to="/club" replace />} />
             <Route path="/founders" element={<Navigate to="/pride" replace />} />

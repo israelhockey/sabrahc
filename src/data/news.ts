@@ -39,6 +39,63 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    slug: "israel-selects-become-sabra-hc",
+    title: "Israel Selects become Sabra HC, and the North American tour is on",
+    excerpt:
+      "The team that has toured North America as Israel Selects for three seasons is now Sabra HC. Weekend one is done: a 5–3 win and a 7–6 thriller against the Mansfield Barracudas.",
+    category: "Club",
+    date: "2026-10-29",
+    image: crestImage,
+    imageFit: "contain",
+    featured: true,
+    body: [
+      "For three seasons, Israel Selects have brought Israeli and Jewish players together to play across North America. This season the team has a new name and a bigger mission: Israel Selects are now Sabra HC, Israel's flagship hockey club.",
+      {
+        type: "facts",
+        items: [
+          ["Former name", "Israel Selects"],
+          ["New name", "Sabra HC"],
+          ["League", "Mountain Hockey League"],
+          ["Weekend one", "1 win, 1 loss"],
+        ],
+      },
+      { type: "heading", text: "Same players, new name" },
+      "Nothing about who we are has changed. The players still live across North America and join the tour weekend by weekend. What changes is what they play for: a club with a five-year plan to take Israeli hockey home and then into Europe.",
+      "This season Sabra HC tours North America in the Mountain Hockey League, with weekend series in cities with big Jewish communities. Every stop is a community event, with the games, a meet-and-greet with the players and a local partner.",
+      { type: "heading", text: "Weekend one: Mansfield" },
+      {
+        type: "stats",
+        items: [
+          ["5–3", "Win, Oct 24"],
+          ["7–6", "Loss, Oct 25"],
+          ["11", "Goals in two games"],
+        ],
+      },
+      "The first game ended 5–3. Chris Blake scored the first goal on a power play late in the first period, set up by Jackson Reimer. Dylan Hamilton scored twice, including an empty-netter to close it out, and Isaac Levy and Owen Wiebe added goals in a three-goal third period. In goal, Josh Messica stopped 54 of 57 shots.",
+      "The second game was a wild one. Mansfield led 7–2 after two periods, and the team answered with four unanswered goals in the third. Kieran Reimer scored twice, Jackson Reimer added a goal and two assists, and Dylan Hamilton scored his third of the weekend. The comeback came up one goal short, 7–6, with Messica making 46 saves.",
+      { type: "heading", text: "The road from here" },
+      {
+        type: "timeline",
+        items: [
+          ["2026–27", "The North American Tour: weekend series across the US and Canada"],
+          ["2027–28", "Home to Israel: the Israeli league, the Sabra Series and the first European clubs in Israel"],
+          ["As champions", "The IIHF Continental Cup"],
+          ["By 2031", "A place in a European league such as the Erste Liga or the Alps Hockey League"],
+        ],
+      },
+      { type: "heading", text: "Thank you to our partners" },
+      "Lone Star Capital, our presenting partner, and Roy Street Advisors, Straightline Management, Go Kosher Panama, Barzel Media and RDP Sports Management have been with this team from the start. They're the founding partners of Sabra HC.",
+      "The next weekend series is being booked now. Results and stats from every game are on the schedule page, straight from the official league game sheets.",
+      {
+        type: "callout",
+        title: "Bring Sabra HC to your city",
+        text: "Local businesses and community groups can host a tour weekend, with your name on the games, the stream and the community event.",
+        cta: "Become a city partner",
+        to: "/partners#city-partner",
+      },
+    ],
+  },
+  {
     slug: "rdp-sports-management-founding-partner",
     title: "RDP Sports Management becomes Sabra HC's founding partner",
     excerpt:
@@ -94,7 +151,6 @@ export const articles: Article[] = [
     date: "2026-03-15",
     image: crestImage,
     imageFit: "contain",
-    featured: true,
     body: [
       "Today we introduce Sabra Hockey Club, a new club built to be Israel's flagship team and to take Israeli hockey into European competition.",
       {
@@ -102,7 +158,7 @@ export const articles: Article[] = [
         items: [
           ["Founded", "2026"],
           ["Home", "Israel"],
-          ["League", "INHL"],
+          ["First season", "North American tour (MHL)"],
           ["Colours", "Navy, gold and white"],
         ],
       },
@@ -112,12 +168,12 @@ export const articles: Article[] = [
       "The lion stands for strength, its mane grown from sabra cactus. The Star of David anchors the club to its home. Navy for the desert night, gold for the sand, white for the ice.",
       { type: "pullquote", text: "We want to be the club young Israeli players dream of playing for, and the club Jewish players around the world see as their way home." },
       { type: "heading", text: "The plan" },
-      "Our first goal is the Israeli championship. Alongside the league, we are launching the Sabra Series, our own games against an Israeli all-star selection. From summer 2027 we plan to bring European pro clubs to play in Israel for the first time, and as Israeli champions we aim to compete in the IIHF Continental Cup. The long-term goal is a place in a European league while still competing at home.",
+      "Updated October 2026: our first season is a North American tour in the Mountain Hockey League, building the brand, the fan base and our partners in cities with big Jewish communities. In 2027–28 we come home to play in the Israeli league, launch the Sabra Series against an Israeli all-star selection, and bring the first European clubs to play in Israel. As Israeli champions we aim to compete in the IIHF Continental Cup, and the long-term goal is a place in a European league while still competing at home.",
       {
         type: "timeline",
         items: [
-          ["2026–27", "Win the Israeli championship and launch the Sabra Series"],
-          ["Summer 2027", "The first European pro clubs play in Israel"],
+          ["2026–27", "The North American Tour in the Mountain Hockey League"],
+          ["2027–28", "Home to Israel: the Israeli league, the Sabra Series and the first European clubs in Israel"],
           ["As champions", "Compete in the IIHF Continental Cup"],
           ["Long term", "A place in a European league, while still competing at home"],
         ],
@@ -127,7 +183,7 @@ export const articles: Article[] = [
       {
         type: "callout",
         title: "This is the first chapter",
-        text: "Become a founding member and be part of every first, from Game 001 onwards.",
+        text: "Become a founding member and be part of every first, from the first tour stop to the first game in Israel.",
         cta: "Join the Pride",
         to: "/pride",
       },

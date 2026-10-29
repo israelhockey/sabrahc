@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import crest from "@/assets/sabra-crest.webp";
 import { club } from "@/data/club";
-import { upcomingGames } from "@/lib/games";
+import { nextGame, lastGame, seasonRecord } from "@/lib/games";
 import { useCountdown } from "./broadcast";
 
 const links = [
@@ -11,27 +11,29 @@ const links = [
   { to: "/schedule", label: "Schedule" },
   { to: "/tickets", label: "Tickets" },
   { to: "/news", label: "News" },
-  { to: "/season", label: "Founding Season", accent: true },
+  { to: "/season", label: "The Tour", accent: true },
   { to: "/club", label: "Club" },
 ];
 
 const Crawl = () => {
-  const cd = useCountdown(club.openerDate);
-  const next = upcomingGames()[0];
+  const next = nextGame();
+  const last = lastGame();
+  const rec = seasonRecord();
+  const cd = useCountdown(next?.date ?? null);
   const items = [
-    cd ? `Game 001 · ${cd.days} days` : "Game 001 · date announced soon",
-    `Season ${club.season} · The Founding Season`,
-    "Try-outs are open",
-    "Founding partner: RDP Sports Management",
-    "Uniform reveal coming soon",
+    `${club.seasonName} · ${club.season}`,
+    ...(last ? [`Last: Sabra HC ${last.sabraScore}–${last.opponentScore} ${last.opponent} (${last.result})`] : []),
+    ...(rec.played ? [`Record ${rec.w}–${rec.l + rec.otl} · ${rec.gf} goals for`] : []),
+    next ? `Next: Sabra HC vs ${next.opponent}${cd ? ` · ${cd.days} days` : ""}` : "Next weekend series · announced soon",
+    `${club.formerName} are now Sabra HC`,
+    "Bring Sabra HC to your city: become a city partner",
     "Join the Pride: founding memberships",
-    ...(next ? [`Next: Sabra HC vs ${next.opponent}`] : []),
   ];
   const loop = [...items, ...items];
   return (
     <div className="flex h-[34px] overflow-hidden border-b border-line bg-night">
       <div className="para-r flex flex-none items-center bg-sand pl-4 pr-7 font-cond text-xs font-extrabold uppercase tracking-[0.12em] text-night sm:text-sm">
-        Sabra HC · Next up
+        Sabra HC · On tour
       </div>
       <div className="flex flex-1 items-center overflow-hidden" aria-label="Club headlines">
         <div className="animate-crawl flex w-max font-cond text-xs font-semibold uppercase tracking-[0.14em] text-[#C9D6E6] sm:text-sm">
@@ -48,16 +50,18 @@ const Crawl = () => {
 };
 
 const ScoreBug = () => {
-  const cd = useCountdown(club.openerDate);
-  const next = upcomingGames()[0];
+  const next = nextGame();
+  const last = lastGame();
+  const cd = useCountdown(next?.date ?? null);
+  const g = next ?? last;
   return (
-    <Link to={next ? `/games/${next.id}` : "/schedule"} className="hidden h-10 items-stretch font-cond font-bold uppercase xl:flex" aria-label="Next game">
-      <span className="flex items-center bg-sand px-3 text-xs tracking-[0.1em] text-night">Game 001</span>
+    <Link to={g ? `/games/${g.id}` : "/schedule"} className="hidden h-10 items-stretch font-cond font-bold uppercase xl:flex" aria-label={next ? "Next game" : "Last result"}>
+      <span className="flex items-center bg-sand px-3 text-xs tracking-[0.1em] text-night">{next ? "Next" : "Final"}</span>
       <span className="flex items-center gap-2.5 border border-line bg-night-2 px-3.5 text-base tracking-[0.06em] text-ice-white">
-        SHC <span className="text-xs text-muted-text">vs</span> {next ? next.opponent.slice(0, 3).toUpperCase() : "TBA"}
+        SHC {next || !last ? <span className="text-xs text-muted-text">vs</span> : <span className="tabular text-sand">{last.sabraScore}–{last.opponentScore}</span>} {g ? g.opponent.split(" ")[0].slice(0, 3).toUpperCase() : "TBA"}
       </span>
       <span className="tabular flex items-center border border-l-0 border-line bg-night px-3 text-base text-ice">
-        {cd ? `${cd.d}D ${cd.h}H` : "SOON"}
+        {next ? (cd ? `${cd.d}D ${cd.h}H` : "SOON") : last ? last.result : "SOON"}
       </span>
     </Link>
   );

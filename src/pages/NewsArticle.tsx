@@ -272,7 +272,7 @@ const NewsArticle = () => {
               )}
               <div className="bg-night p-5 text-ice-white">
                 <p className="font-display text-2xl font-black uppercase leading-none">Never miss a first</p>
-                <p className="mt-2 text-sm text-[#C9D6E6]">Game 001, signings and the uniform reveal, straight to your inbox.</p>
+                <p className="mt-2 text-sm text-[#C9D6E6]">New tour stops, results and signings, straight to your inbox.</p>
                 <a href="#newsletter-title" className="btn-primary mt-4 w-full text-base">
                   Sign up
                 </a>

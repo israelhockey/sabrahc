@@ -4,7 +4,7 @@ import { club, partners } from "@/data/club";
 import NewsletterSignup from "./NewsletterSignup";
 
 const cols = [
-  { title: "Club", links: [["/team", "Team"], ["/season", "Founding Season"], ["/news", "News"], ["/club", "The Club"]] },
+  { title: "Club", links: [["/team", "Team"], ["/season", "The Tour"], ["/news", "News"], ["/club", "The Club"]] },
   { title: "Fans", links: [["/schedule", "Schedule"], ["/tickets", "Tickets"], ["/pride", "Join the Pride"], ["/contact#tryouts", "Try-outs"]] },
   { title: "Business", links: [["/partners", "Partners"], ["/invest", "Ownership & Investment"], ["/contact", "Contact"]] },
 ];

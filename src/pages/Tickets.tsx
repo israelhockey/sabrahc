@@ -1,28 +1,27 @@
-import { MapPin, Users } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { TicketArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import GameCard from "@/components/GameCard";
 import SignupForm from "@/components/SignupForm";
-import { arenas } from "@/data/club";
+import { TourStops } from "@/components/tour";
 import { upcomingGames } from "@/lib/games";
 
 const faqs = [
-  { q: "How much are tickets?", a: "Prices start from ₪50 and are listed with each game when tickets go on sale." },
-  { q: "Can kids come?", a: "Absolutely. Hockey is a family game, and ticket options are listed with each game when sales open." },
-  { q: "What should I bring?", a: "A warm layer. It's an ice rink, and it gets cold even in the Israeli summer." },
+  { q: "How much are tickets?", a: "Each host rink sets its own prices. We list them with every weekend series as soon as they're confirmed." },
+  { q: "Can kids come?", a: "Absolutely. Hockey is a family game, and most stops include a meet-and-greet with the players." },
+  { q: "Can the tour come to my city?", a: "Yes. Local partners and community groups can host a weekend series. Get in touch through the partners page." },
   { q: "Is the arena accessible?", a: "Contact us before the game and we'll make sure you have what you need." },
 ];
 
 const Tickets = () => {
-  const home = upcomingGames().filter((g) => g.home);
+  const home = upcomingGames();
   return (
     <>
-      <PageHero cam="CAM 3 · Box office" status="On sale soon" tone="sand" art={<TicketArt />} eyebrow="Game nights" title="Tickets" intro="Fast, loud and close to the glass. Get your seats for Sabra HC home games." />
+      <PageHero cam="CAM 3 · Box office" status="Next stop soon" tone="sand" art={<TicketArt />} eyebrow="Game nights" title="Tickets" intro="Fast, loud and close to the glass. Catch Sabra HC when the tour comes to your city." />
 
       <section className="bg-night py-16" aria-labelledby="upcoming-title">
         <div className="container-site">
-          <SectionHeading id="upcoming-title" eyebrow="On sale" title="Upcoming home games" />
+          <SectionHeading id="upcoming-title" eyebrow="On sale" title="Upcoming games" />
           {home.length ? (
             <div className="grid gap-4">
               {home.map((g) => (
@@ -31,7 +30,7 @@ const Tickets = () => {
             </div>
           ) : (
             <div className="grid items-center gap-8 rounded-lg border border-line bg-night-2 p-8 lg:grid-cols-2">
-              <p className="font-display text-4xl font-black uppercase text-ice-white">Tickets go on sale with the schedule announcement</p>
+              <p className="font-display text-4xl font-black uppercase text-ice-white">The next weekend series is being booked</p>
               <SignupForm
                 source="tickets"
                 idPrefix="tickets-notify"
@@ -44,23 +43,10 @@ const Tickets = () => {
         </div>
       </section>
 
-      <section className="bg-ice-white py-20" aria-labelledby="arenas-title">
+      <section className="border-t border-line bg-night-deep py-20" aria-labelledby="stops-title">
         <div className="container-site">
-          <SectionHeading id="arenas-title" tone="light" eyebrow="Where we play" title="Our arenas" />
-          <div className="grid gap-6 md:grid-cols-2">
-            {arenas.map((a) => (
-              <div key={a.id} className="rounded-lg border border-[#D5DEE6] bg-white p-8">
-                <h3 className="text-4xl font-black text-night">{a.name}</h3>
-                <p className="mt-2 flex items-center gap-2 text-[#3B4A63]">
-                  <MapPin className="h-5 w-5 text-sand-dark" /> {a.city}
-                </p>
-                <p className="mt-1 flex items-center gap-2 text-[#3B4A63]">
-                  <Users className="h-5 w-5 text-sand-dark" /> {a.capacity}
-                </p>
-                <p className="mt-4 text-lg text-[#3B4A63]">{a.note}</p>
-              </div>
-            ))}
-          </div>
+          <SectionHeading id="stops-title" eyebrow="Where we play" title="The tour" intro="We play weekend series in cities across North America. Ticket details for each stop are posted as soon as it's booked." />
+          <TourStops wide />
         </div>
       </section>
 

@@ -1,43 +1,94 @@
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
-import { TimelineArt } from "@/components/motion";
 import { EpisodeRow, FirstsBoard } from "@/components/sections";
+import { TourMap, TourStops } from "@/components/tour";
 import SignupForm from "@/components/SignupForm";
+import SectionHeading from "@/components/SectionHeading";
 import { club } from "@/data/club";
+
+const TourMapArt = () => (
+  <div className="mg-float border border-night/15 bg-white shadow-[0_30px_70px_-35px_rgba(6,13,26,0.55)]">
+    <div className="flex items-center justify-between gap-3 bg-night px-4 py-2.5">
+      <span className="label text-xs text-ice-white sm:text-sm">{club.seasonName}</span>
+      <span className="label text-xs text-sand sm:text-sm">Cities on our list</span>
+    </div>
+    <TourMap />
+  </div>
+);
 
 const Season = () => (
   <>
-    <PageHero cam="CAM 1 · Edit suite" status="In production" tone="live" art={<TimelineArt />}
-      eyebrow={`Original series · ${club.season}`}
+    <PageHero
+      cam="CAM 1 · Tour map"
+      status="On tour"
+      tone="live"
+      art={<TourMapArt />}
+      eyebrow={`${club.season} · ${club.leagueShort}`}
       title={
         <>
-          The Founding
+          The North
           <br />
-          <span className="mt-1 inline-block bg-night px-3 pb-1 text-sand">Season</span>
+          American <span className="mt-1 inline-block bg-night px-3 pb-1 text-sand">Tour</span>
         </>
       }
-      intro="The first year of an Israeli hockey club, filmed from the inside: building the team, designing the uniform, try-outs, and Game 001."
+      intro="Israel's flagship team on the road. Each weekend series is a game and a community event in a city with a big Jewish community. Next season, the road leads home to Israel."
     />
-    <EpisodeRow heading={false} />
+
+    <section className="bg-night py-16" aria-labelledby="stops-title">
+      <div className="container-site">
+        <SectionHeading id="stops-title" eyebrow="Weekend by weekend" title="Tour stops" />
+        <TourStops wide />
+      </div>
+    </section>
+
+    <section className="border-t border-line bg-night-deep py-16" aria-labelledby="weekend-title">
+      <div className="container-site grid gap-6 lg:grid-cols-4">
+        <div className="lg:col-span-4">
+          <SectionHeading id="weekend-title" eyebrow="What a tour stop looks like" title="Every weekend is an event" />
+        </div>
+        {[
+          ["The games", "Two games against the local MHL team or an exhibition opponent."],
+          ["The community", "A local federation, JCC or Hillel fills the stands and brings families."],
+          ["The kids", "A clinic or meet-and-greet with the players on game day."],
+          ["The partner", "A local business presents the weekend: \"Sabra HC in your city, presented by…\""],
+        ].map(([t, b]) => (
+          <div key={t} className="border-t-4 border-sand bg-night p-5">
+            <h3 className="font-display text-3xl font-black uppercase">{t}</h3>
+            <p className="mt-2 text-muted-text">{b}</p>
+          </div>
+        ))}
+        <div className="lg:col-span-4">
+          <Link to="/partners#city-partner" className="btn-primary">
+            Host a weekend in your city
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    <EpisodeRow />
     <FirstsBoard />
-    <section className="border-t border-line bg-night-2 py-16" aria-labelledby="ep-alerts">
+
+    <section className="border-t border-line bg-night-2 py-16" aria-labelledby="tour-alerts">
       <div className="container-site grid items-center gap-8 lg:grid-cols-2">
         <div>
-          <span className="tag-live">Episode alerts</span>
-          <h2 id="ep-alerts" className="mt-2 font-display text-5xl font-black uppercase leading-[0.9] sm:text-6xl">
-            Get every episode first
+          <span className="tag-live">Tour alerts</span>
+          <h2 id="tour-alerts" className="mt-2 font-display text-5xl font-black uppercase leading-[0.9] sm:text-6xl">
+            Know when we're coming
           </h2>
           <p className="mt-3 text-lg text-muted-text">
-            One email when a new episode drops. Want more? <Link to="/pride" className="text-ice underline">Join the Pride</Link> for behind-the-scenes access.
+            One email when a new stop is booked, and when a new episode drops. Want more? <Link to="/pride" className="text-ice underline">Join the Pride</Link>.
           </p>
         </div>
         <SignupForm
           source="newsletter"
-          idPrefix="episodes"
-          fields={[{ name: "email", label: "Email", type: "email", required: true, full: true }]}
+          idPrefix="tour"
+          fields={[
+            { name: "email", label: "Email", type: "email", required: true },
+            { name: "country", label: "Your city" },
+          ]}
           submitLabel="Notify me"
           successTitle="You're on the list"
-          successBody="We'll email you when the next episode is out."
+          successBody="We'll email you when the tour comes near you."
         />
       </div>
     </section>

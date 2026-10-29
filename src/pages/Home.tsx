@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import { club, arenas } from "@/data/club";
+import { club } from "@/data/club";
 import { sortedArticles, formatDate } from "@/data/news";
 import { Countdown, PlayIcon, SectionTitle } from "@/components/broadcast";
 import RinkFeed from "@/components/RinkFeed";
-import { FirstsBoard, GameCentre, EpisodeRow, LineupSection, HomeIceEverywhere, UniformAndPride } from "@/components/sections";
-import { formatGameDate, formatGameTime } from "@/lib/games";
+import { FirstsBoard, GameCentre, EpisodeRow, LineupSection, HomeIceEverywhere, UniformAndPride, TourSection } from "@/components/sections";
+import { nextGame, finalGames, gameDate, gameTime, gamePlace, seasonRecord } from "@/lib/games";
 
 const channels = [
-  { to: "/season", label: "Founding Season", live: true },
+  { to: "/season", label: "The Tour", live: true },
   { to: "/team", label: "The Lineup" },
   { to: "/schedule", label: "Schedule" },
   { to: "/pride", label: "Join the Pride" },
@@ -15,8 +15,9 @@ const channels = [
 ];
 
 const Hero = () => {
-  const arena = arenas.find((a) => a.id === club.openerArenaId);
-  const firstEp = "/season";
+  const next = nextGame();
+  const recent = finalGames().slice(0, 2).reverse();
+  const rec = seasonRecord();
   return (
     <section aria-labelledby="hero-title" className="bg-night-deep">
       <div className="relative overflow-hidden border-b border-line bg-[#EAF1F6] lg:bg-[#0A1426]">
@@ -32,49 +33,74 @@ const Hero = () => {
         <div className="absolute left-10 right-10 top-7 z-[2] flex items-center justify-between gap-3">
           <span className="label border border-night/20 bg-white/90 px-2.5 py-1 text-[11px] text-night">CAM 9 · Overhead<span className="hidden sm:inline"> · Centre ice</span></span>
           <span className="tag-live !flex items-center gap-2">
-            <span className="animate-rec h-2 w-2 rounded-full bg-ice-white" aria-hidden="true" /> Pre-game
+            <span className="animate-rec h-2 w-2 rounded-full bg-ice-white" aria-hidden="true" /> On tour
           </span>
         </div>
 
         <div className="container-site relative z-[3] grid items-end gap-8 pb-10 pt-8 lg:min-h-[740px] lg:gap-10 lg:pt-28 lg:grid-cols-[1.35fr_1fr] lg:pb-14">
           <div>
-            <span className="tag-dark animate-rise">The Founding Season · {club.season}</span>
+            <span className="tag-dark animate-rise">{club.seasonName} · {club.season}</span>
             <h1 id="hero-title" className="mt-3 font-display text-[64px] font-black uppercase leading-[0.84] text-night animate-rise sm:text-[110px] lg:text-[136px]">
-              History
+              Israel's team
               <br />
-              starts at
+              is on
               <br />
-              <span className="mt-2 inline-block whitespace-nowrap bg-night px-3 pb-1 text-sand sm:px-4">Game 001</span>
+              <span className="mt-2 inline-block whitespace-nowrap bg-night px-3 pb-1 text-sand sm:px-4">Tour</span>
             </h1>
             <div className="mt-5 max-w-xl border-l-[6px] border-sand bg-white/95 px-5 py-3 text-lg text-[#2B3A55] shadow-[0_10px_30px_-18px_rgba(6,13,26,0.6)] animate-rise">
-              Sabra HC is Israel's newest hockey club. The ice is ready, the puck is on the dot, and every first is still to come. Follow it from the very first faceoff.
+              Sabra HC is Israel's flagship hockey club. This season we tour North America in the Mountain Hockey League, one weekend series at a time. Next season, we take it home to Israel.
             </div>
           </div>
 
           <div className="panel animate-rise shadow-[0_24px_60px_-24px_rgba(6,13,26,0.8)]">
-            <div className="panel-head">
-              <span className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-live animate-rec" aria-hidden="true" /> Faceoff · Game 001
-              </span>
-              <span className="text-ice">{club.leagueShort}</span>
-            </div>
-            <Countdown />
-            <div className="border-t border-line px-4 py-3">
-              <p className="label text-base text-ice-white">
-                {club.openerDate ? `${formatGameDate(club.openerDate)} · ${formatGameTime(club.openerDate)}` : "Date announced soon"}
-              </p>
-              {arena && (
-                <p className="text-sm text-muted-text">
-                  {arena.name} · {arena.city}
-                </p>
-              )}
-            </div>
+            {next ? (
+              <>
+                <div className="panel-head">
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-live animate-rec" aria-hidden="true" /> Next game · vs {next.opponent}
+                  </span>
+                  <span className="text-ice">{next.competition}</span>
+                </div>
+                <Countdown />
+                <div className="border-t border-line px-4 py-3">
+                  <p className="label text-base text-ice-white">{gameDate(next)} · {gameTime(next)}</p>
+                  {gamePlace(next) && <p className="text-sm text-muted-text">{gamePlace(next)}</p>}
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="panel-head">
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-sand" aria-hidden="true" /> Latest results
+                  </span>
+                  <span className="tabular text-ice">Record {rec.w}–{rec.l + rec.otl}</span>
+                </div>
+                <ul>
+                  {recent.map((g) => (
+                    <li key={g.id}>
+                      <Link to={`/games/${g.id}`} className="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-line px-4 py-3 hover:bg-night-2">
+                        <span className={`label w-7 text-center text-sm ${g.result === "W" ? "bg-sand text-night" : "bg-night-2 text-muted-text"}`}>{g.result}</span>
+                        <span>
+                          <span className="block font-display text-xl font-black uppercase leading-none">vs {g.opponent}</span>
+                          <span className="label text-xs text-muted-text">{gameDate(g)}</span>
+                        </span>
+                        <span className="tabular font-display text-3xl font-black">{g.sabraScore}–{g.opponentScore}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <div className="px-4 py-3">
+                  <p className="label text-xs text-muted-text">Next weekend series</p>
+                  <p className="font-display text-2xl font-black uppercase leading-tight">Announced soon</p>
+                </div>
+              </>
+            )}
             <div className="grid grid-cols-2 gap-px bg-line">
               <Link to="/tickets" className="btn-primary justify-center whitespace-nowrap px-3 text-base sm:text-lg">
-                Ticket alerts
+                Tour alerts
               </Link>
-              <Link to={firstEp} className="btn-dark justify-center gap-2 whitespace-nowrap px-3 text-base sm:text-lg">
-                <PlayIcon size={22} /> Watch EP 01
+              <Link to="/news/israel-selects-become-sabra-hc" className="btn-dark justify-center gap-2 whitespace-nowrap px-3 text-base sm:text-lg">
+                <PlayIcon size={22} /> The story
               </Link>
             </div>
           </div>
@@ -147,7 +173,7 @@ const NewsSection = () => {
               </li>
             ))}
             {rest.length === 0 && (
-              <li className="flex items-center border border-dashed border-line p-6 text-muted-text">More stories from the founding season coming soon.</li>
+              <li className="flex items-center border border-dashed border-line p-6 text-muted-text">More stories from the tour coming soon.</li>
             )}
           </ul>
         </div>
@@ -159,6 +185,7 @@ const NewsSection = () => {
 const Home = () => (
   <>
     <Hero />
+    <TourSection />
     <FirstsBoard />
     <GameCentre />
     <NewsSection />
