@@ -114,7 +114,7 @@ export type GoalEvent = {
 
 export type Game = {
   id: string;
-  date: string; // ISO with offset, e.g. "2026-10-24T19:00:00-06:00"
+  date: string; // ISO with offset, e.g. "2026-10-24T19:00:00-05:00"
   tz: string; // IANA zone used to show the local faceoff time
   competition: Competition;
   home: boolean;
@@ -155,8 +155,8 @@ const lineupG2 = [
 export const games: Game[] = [
   {
     id: "2026-10-24-mansfield",
-    date: "2026-10-24T19:00:00-06:00",
-    tz: "America/Denver",
+    date: "2026-10-24T19:00:00-05:00",
+    tz: "America/Chicago",
     competition: "MHL",
     home: false,
     opponent: "Mansfield Barracudas",
@@ -184,8 +184,8 @@ export const games: Game[] = [
   },
   {
     id: "2026-10-25-mansfield",
-    date: "2026-10-25T14:30:00-06:00",
-    tz: "America/Denver",
+    date: "2026-10-25T14:30:00-05:00",
+    tz: "America/Chicago",
     competition: "MHL",
     home: false,
     opponent: "Mansfield Barracudas",
