@@ -97,16 +97,29 @@ const Counter = ({ value, label, run, suffix = "" }: { value: number; label: str
 export const TourMap = ({ className = "" }: { light?: boolean; className?: string }) => {
   const uid = useId().replace(/:/g, "");
   const wrap = useRef<HTMLDivElement>(null);
+  const intro = useRef<HTMLVideoElement>(null);
+  // the Earth-at-night intro plays once when the map scrolls into view, then dissolves into the dot map
+  const [inView, setInView] = useState(false);
   const [seen, setSeen] = useState(false);
+  const [skipIntro] = useState(() => typeof window === "undefined" || !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
 
   useEffect(() => {
     const el = wrap.current;
     if (!el) return;
-    if (!("IntersectionObserver" in window)) return setSeen(true);
-    const io = new IntersectionObserver(([e]) => e.isIntersecting && (setSeen(true), io.disconnect()), { threshold: 0.25 });
+    if (!("IntersectionObserver" in window)) return setInView(true);
+    const io = new IntersectionObserver(([e]) => e.isIntersecting && (setInView(true), io.disconnect()), { threshold: 0.35 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!inView) return;
+    const v = intro.current;
+    if (skipIntro || !v) return setSeen(true);
+    v.play().catch(() => setSeen(true));
+    const t = window.setTimeout(() => setSeen(true), 7000); // never hold the map back for long
+    return () => window.clearTimeout(t);
+  }, [inView, skipIntro]);
 
   const stops = tourStops.filter((s) => s.lat != null && s.lon != null && s.status !== "planned");
   const stopCities = new Set(stops.map((s) => s.city));
@@ -144,6 +157,23 @@ export const TourMap = ({ className = "" }: { light?: boolean; className?: strin
 
   return (
     <div ref={wrap} className={`bg-night ${className}`}>
+      <div className="relative">
+      {!skipIntro && (
+        <video
+          ref={intro}
+          aria-hidden="true"
+          muted
+          playsInline
+          preload="metadata"
+          poster="/media/earth.jpg"
+          onEnded={() => setSeen(true)}
+          onError={() => setSeen(true)}
+          className={`pointer-events-none absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-1000 ${seen ? "opacity-0" : "opacity-100"}`}
+        >
+          <source src="/media/earth.webm" type="video/webm" />
+          <source src="/media/earth.mp4" type="video/mp4" />
+        </video>
+      )}
       <svg viewBox={`0 0 ${mapDots.w} ${mapDots.h}`} className="block h-auto w-full" role="img" aria-labelledby={`map-t-${uid}`}>
         <title id={`map-t-${uid}`}>Map of Sabra HC's North American tour: stops played, the next stop, and the cities on our list</title>
         <g className={`transition-opacity duration-1000 ${seen ? "opacity-100" : "opacity-0"}`}>
@@ -226,6 +256,7 @@ export const TourMap = ({ className = "" }: { light?: boolean; className?: strin
           <text x="207" y="5">ON OUR LIST</text>
         </g>
       </svg>
+      </div>
 
       <div className="grid gap-px border-t border-line bg-line sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
         <div className="bg-night-2 p-5" aria-live="polite">
