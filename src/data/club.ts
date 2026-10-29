@@ -72,6 +72,9 @@ export const tourStops: TourStop[] = [
     label: "Weekend 1",
     dates: "Oct 24–25, 2026",
     opponent: "Mansfield Barracudas",
+    city: "Mansfield",
+    region: "TX",
+    country: "USA",
     status: "played",
     record: "1–1",
     note: "A 5–3 win, then a 7–6 loss after a four-goal third period.",
@@ -116,6 +119,8 @@ export type Game = {
   competition: Competition;
   home: boolean;
   opponent: string;
+  opponentLogo?: string; // hosted on the opponent's own site
+  opponentUrl?: string;
   city?: string;
   venue?: string;
   ticketUrl?: string;
@@ -132,6 +137,8 @@ export type Game = {
   recapSlug?: string;
   sheetNote?: string;
 };
+
+const MANSFIELD_LOGO = "https://assets.cdn.filesafe.space/udZTEYaqeLnoartnO3G1/media/680abe7d3ea396cce1f2fdf6.png";
 
 const lineupG1 = [
   "Alec Elinoff", "Bailey Trexler", "Chris Blake", "Chris Sidner", "Daniel Barraza", "Dylan Hamilton", "Isaac Levy",
@@ -153,6 +160,9 @@ export const games: Game[] = [
     competition: "MHL",
     home: false,
     opponent: "Mansfield Barracudas",
+    opponentLogo: MANSFIELD_LOGO,
+    opponentUrl: "https://mansfieldbarracudashockey.com/",
+    city: "Mansfield, TX",
     status: "final",
     sabraScore: 5,
     opponentScore: 3,
@@ -178,6 +188,9 @@ export const games: Game[] = [
     competition: "MHL",
     home: false,
     opponent: "Mansfield Barracudas",
+    opponentLogo: MANSFIELD_LOGO,
+    opponentUrl: "https://mansfieldbarracudashockey.com/",
+    city: "Mansfield, TX",
     status: "final",
     sabraScore: 6,
     opponentScore: 7,

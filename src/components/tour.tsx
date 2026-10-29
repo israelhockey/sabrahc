@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { useId, useState } from "react";
 import { Link } from "react-router-dom";
 import crest from "@/assets/sabra-crest.webp";
 import { targetMarkets, tourStops, type Game } from "@/data/club";
@@ -94,6 +94,18 @@ export const TourStops = ({ wide = false }: { wide?: boolean }) => (
   </ol>
 );
 
+/** Opponent logo from their own site, falling back to initials if it can't load. */
+export const OpponentMark = ({ game, className = "h-16 w-16 sm:h-20 sm:w-20", letters = 3 }: { game: Game; className?: string; letters?: number }) => {
+  const [failed, setFailed] = useState(false);
+  if (game.opponentLogo && !failed)
+    return <img src={game.opponentLogo} alt={`${game.opponent} logo`} loading="lazy" referrerPolicy="no-referrer" onError={() => setFailed(true)} className={`mx-auto object-contain ${className}`} />;
+  return (
+    <div className={`mx-auto flex items-center justify-center rounded-full border-2 border-line font-display text-xl font-black text-muted-text ${className}`}>
+      {game.opponent.slice(0, letters).toUpperCase()}
+    </div>
+  );
+};
+
 /** Full result card for a played game, built from the game sheet. */
 export const GameRecap = ({ game, compact = false }: { game: Game; compact?: boolean }) => {
   const win = game.result === "W" || game.result === "OTW" || game.result === "SOW";
@@ -114,9 +126,7 @@ export const GameRecap = ({ game, compact = false }: { game: Game; compact?: boo
           <span className={!win ? "text-sand" : ""}>{game.opponentScore}</span>
         </p>
         <div className="min-w-0">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-line font-display text-xl font-black text-muted-text sm:h-20 sm:w-20">
-            {game.opponent.slice(0, 3).toUpperCase()}
-          </div>
+          <OpponentMark game={game} />
           <p className={`mt-2 font-display font-black uppercase leading-tight text-muted-text ${compact ? "text-base sm:text-lg" : "text-lg sm:text-2xl"}`}>{game.opponent}</p>
         </div>
       </div>

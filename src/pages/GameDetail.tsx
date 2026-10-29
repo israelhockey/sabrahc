@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { MapPin, Ticket } from "lucide-react";
 import crest from "@/assets/sabra-crest.webp";
 import { CamFrame } from "@/components/broadcast";
-import { GameRecap } from "@/components/tour";
+import { GameRecap, OpponentMark } from "@/components/tour";
 import { club, games } from "@/data/club";
 import { gameDate, gameTime, gamePlace } from "@/lib/games";
 import NotFound from "./NotFound";
@@ -28,10 +28,9 @@ const GameDetail = () => {
               {final ? `${game.sabraScore}–${game.opponentScore}` : "VS"}
             </p>
             <div className="flex flex-col items-center gap-3">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full border border-line bg-night-2 font-display text-3xl font-black text-muted-text sm:h-36 sm:w-36">
-                {game.opponent.slice(0, 2).toUpperCase()}
-              </div>
+              <OpponentMark game={game} letters={2} className="h-24 w-24 sm:h-36 sm:w-36" />
               <p className="font-display text-2xl font-black uppercase text-ice-white sm:text-4xl">{game.opponent}</p>
+              {game.opponentUrl && <a href={game.opponentUrl} target="_blank" rel="noreferrer" className="label text-xs text-ice underline">Team site</a>}
             </div>
           </div>
           {!final && game.ticketUrl && (
