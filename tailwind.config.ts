@@ -15,9 +15,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Unbounded", "Rubik", "system-ui", "sans-serif"],
-        body: ["Rubik", "system-ui", "sans-serif"],
-        cond: ["Rubik", "system-ui", "sans-serif"],
+        display: ["Oswald", "Heebo", "system-ui", "sans-serif"],
+        body: ["Inter", "Heebo", "system-ui", "sans-serif"],
+        cond: ["Oswald", "Heebo", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

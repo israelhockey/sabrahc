@@ -50,7 +50,7 @@ export const SectionTitle = ({ tag, he, title, intro, id, action, light, as = "h
         </p>
         <H
           id={id}
-          className={`mt-2 font-display font-black uppercase leading-[0.95] tracking-[-0.03em] ${
+          className={`mt-2 font-display font-black uppercase leading-[0.95] tracking-normal ${
             as === "h1" ? "text-5xl sm:text-6xl lg:text-7xl" : "text-4xl sm:text-5xl lg:text-6xl"
           } ${light ? "text-night" : "text-ice-white"}`}
         >

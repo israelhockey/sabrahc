@@ -65,10 +65,10 @@
   }
   h1, h2, h3, h4 {
     @apply font-display uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.005em;
   }
   [lang="he"] {
-    font-family: Rubik, "Heebo", system-ui, sans-serif;
+    font-family: "Heebo", system-ui, sans-serif;
     letter-spacing: 0;
   }
   :focus-visible {

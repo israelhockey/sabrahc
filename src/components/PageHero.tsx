@@ -29,7 +29,7 @@ const PageHero = ({ eyebrow, title, he, intro, children, compact }: Props) =>
         <div className="min-w-0">
           <p className="label text-xs text-sand sm:text-sm">{eyebrow}</p>
           <div className="mt-2 flex flex-wrap items-baseline gap-x-5 gap-y-1">
-            <h1 className="font-display text-5xl font-black uppercase leading-[0.9] tracking-[-0.03em] sm:text-6xl lg:text-7xl">{title}</h1>
+            <h1 className="font-display text-5xl font-black uppercase leading-[0.9] tracking-normal sm:text-6xl lg:text-7xl">{title}</h1>
             {he && (
               <p lang="he" dir="rtl" className="text-3xl font-black leading-none text-sand sm:text-4xl">
                 {he}
@@ -55,7 +55,7 @@ const PageHero = ({ eyebrow, title, he, intro, children, compact }: Props) =>
           <img src={crest} alt="" className="hidden h-36 w-36 object-contain lg:block xl:h-44 xl:w-44" />
           <div className="min-w-0">
             <p className="label text-xs sm:text-sm">{eyebrow}</p>
-            <h1 className="mt-2 font-display text-[40px] font-black uppercase leading-[0.92] tracking-[-0.03em] text-balance sm:text-6xl lg:text-7xl">{title}</h1>
+            <h1 className="mt-2 font-display text-[40px] font-black uppercase leading-[0.92] tracking-normal text-balance sm:text-6xl lg:text-7xl">{title}</h1>
             {he && (
               <p lang="he" dir="rtl" className="mt-2 text-left text-3xl font-black leading-none sm:text-5xl">
                 {he}

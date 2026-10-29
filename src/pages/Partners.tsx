@@ -72,7 +72,7 @@ const Partners = () => (
           <p className="label text-sm text-sand">
             Partner with Sabra HC · <span lang="he">שותפים</span>
           </p>
-          <h1 id="partners-title" className="mt-3 font-display text-5xl font-black uppercase leading-[0.9] tracking-[-0.03em] sm:text-7xl">
+          <h1 id="partners-title" className="mt-3 font-display text-5xl font-black uppercase leading-[0.9] tracking-normal sm:text-7xl">
             One team. A new community <span className="text-sand">every weekend.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-xl leading-relaxed text-[#D9E3DC]">

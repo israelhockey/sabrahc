@@ -77,12 +77,12 @@ const Hero = () => {
           <span className="h-2 w-2 rounded-full bg-sand" aria-hidden="true" />
           Israel's hockey club · on tour across North America
         </p>
-        <h1 id="hero-title" className="mt-4 font-display text-[64px] font-black uppercase leading-[0.84] tracking-[-0.045em] text-ice-white drop-shadow-[0_6px_30px_rgba(0,0,0,0.5)] sm:text-[112px] xl:text-[140px]">
+        <h1 id="hero-title" className="mt-4 font-display text-[84px] font-bold uppercase leading-[0.88] tracking-normal text-ice-white drop-shadow-[0_6px_30px_rgba(0,0,0,0.5)] sm:text-[132px] xl:text-[160px]">
           We are
           <br />
           Sabra
         </h1>
-        <p lang="he" dir="rtl" className="mt-1 text-left text-5xl font-black leading-none text-sand drop-shadow-[0_6px_30px_rgba(0,0,0,0.5)] sm:text-7xl xl:text-[88px]">
+        <p lang="he" dir="rtl" className="mt-1 text-left text-5xl font-black leading-none text-sand drop-shadow-[0_6px_30px_rgba(0,0,0,0.5)] sm:text-7xl xl:text-[84px]">
           אנחנו סברה
         </p>
 
@@ -125,44 +125,116 @@ const Hero = () => {
 
 /* ---------- Last game band ---------- */
 
+const isWin = (r?: string) => r === "W" || r === "OTW" || r === "SOW";
+
+/** One team line on the scoreboard: logo, name, goals by period, total, shots. */
+const ScoreRow = ({ logo, name, periods, total, shots, won }: { logo: React.ReactNode; name: string; periods: number[]; total?: number; shots?: number; won: boolean }) => (
+  <tr className={`border-t border-white/10 ${won ? "text-ice-white" : "text-[#9DB5A6]"}`}>
+    <th scope="row" className="relative py-3 pl-5 pr-3 text-left sm:py-4">
+      {won && <span aria-hidden="true" className="absolute inset-y-2 left-0 w-1 rounded-r bg-sand" />}
+      <span className="flex items-center gap-3">
+        {logo}
+        <span className={`truncate text-base sm:text-lg ${won ? "font-black" : "font-semibold"}`}>{name}</span>
+      </span>
+    </th>
+    {periods.map((p, i) => (
+      <td key={i} className="hidden w-12 py-3 text-center text-base sm:table-cell">
+        {p}
+      </td>
+    ))}
+    <td className={`w-16 py-3 text-center font-display text-4xl font-black sm:w-20 sm:text-5xl ${won ? "text-sand" : ""}`}>{total}</td>
+    <td className="hidden w-16 py-3 pr-5 text-center text-sm sm:table-cell">{shots ?? "–"}</td>
+  </tr>
+);
+
 const LastGameBand = () => {
   const [last, before] = finalGames();
   if (!last) return null;
-  const periods = last.periods ? last.periods.us.map((u, i) => `${u}:${last.periods!.them[i]}`).join(" / ") : null;
+  const won = isWin(last.result);
+  const n = last.periods?.us.length ?? 3;
   return (
-    <section aria-labelledby="last-title" className="bg-sand text-night">
-      <div className="container-site grid items-center gap-8 py-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:py-14">
-        <div className="flex flex-col items-center gap-3 text-center">
-          <h2 id="last-title" className="font-body text-sm font-bold tracking-[0.2em]">
-            LAST GAME · {stripDate(last)}
-            {last.city ? ` · ${last.city.toUpperCase()}` : ""}
-          </h2>
-          <div className="grid w-full grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-4 sm:gap-6">
-            <div className="flex flex-col items-center gap-2">
-              <img src={crest} alt="" className="h-20 w-20 object-contain sm:h-24 sm:w-24" />
-              <span className="font-bold">Sabra HC</span>
-            </div>
-            <p className="tabular font-display text-6xl font-black leading-none sm:text-8xl">
-              {last.sabraScore}:{last.opponentScore}
-            </p>
-            <div className="flex flex-col items-center gap-2">
-              <OpponentMark game={last} className="h-20 w-20 border-night text-night sm:h-24 sm:w-24" />
-              <span className="font-bold">{last.opponent}</span>
-            </div>
+    <section aria-labelledby="last-title" className="border-y border-white/10 bg-[#051710] py-12 lg:py-16">
+      <div className="container-site grid items-stretch gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+        <div className="overflow-hidden rounded-md border border-white/10 bg-[#0A2219] shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)]">
+          <div className="flex flex-wrap items-center justify-between gap-2 bg-black/30 px-5 py-3">
+            <h2 id="last-title" className="label flex items-center gap-2 text-xs text-ice-white">
+              <span className="rounded-sm bg-sand px-1.5 py-0.5 font-black text-night">FINAL</span>
+              Last game · {stripDate(last)}
+              {last.city ? ` · ${last.city}` : ""}
+            </h2>
+            <span className="label text-[11px] text-[#9DB5A6]">{last.competition}{last.sheetNote ? ` · ${last.sheetNote.replace("MHL ", "")}` : ""}</span>
           </div>
-          {periods && <p className="tabular font-display text-base font-bold sm:text-lg">{periods}</p>}
-          <Link to={`/games/${last.id}`} className="btn-dark mt-1">
-            Game report
-          </Link>
+          <table className="tabular w-full">
+            <thead className="label text-[11px] text-[#9DB5A6]">
+              <tr>
+                <th scope="col" className="py-2 pl-5 text-left font-bold">Team</th>
+                {Array.from({ length: n }).map((_, i) => (
+                  <th key={i} scope="col" className="hidden w-12 py-2 text-center font-bold sm:table-cell">
+                    {i === 3 ? "OT" : i + 1}
+                  </th>
+                ))}
+                <th scope="col" className="w-16 py-2 text-center font-bold sm:w-20">T</th>
+                <th scope="col" className="hidden w-16 py-2 pr-5 text-center font-bold sm:table-cell" title="Shots on goal">SOG</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ScoreRow
+                logo={<img src={crest} alt="" className="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12" />}
+                name="Sabra HC"
+                periods={last.periods?.us ?? []}
+                total={last.sabraScore}
+                shots={last.shots?.us}
+                won={won}
+              />
+              <ScoreRow
+                logo={<OpponentMark game={last} className="!mx-0 h-10 w-10 shrink-0 text-xs sm:h-12 sm:w-12" letters={2} />}
+                name={last.opponent}
+                periods={last.periods?.them ?? []}
+                total={last.opponentScore}
+                shots={last.shots?.them}
+                won={!won}
+              />
+            </tbody>
+          </table>
+          <div className="flex flex-wrap items-center gap-3 border-t border-white/10 px-5 py-4">
+            <Link to={`/games/${last.id}`} className="btn-primary min-h-[42px] px-5 text-sm">
+              Box score
+            </Link>
+            {last.recapSlug && (
+              <Link to={`/news/${last.recapSlug}`} className="btn-ghost min-h-[42px] px-5 text-sm">
+                Recap
+              </Link>
+            )}
+            {last.venue && <span className="ml-auto text-sm text-[#9DB5A6]">{last.venue}</span>}
+          </div>
         </div>
+
         {before && (
-          <Link to={`/games/${before.id}`} className="rounded bg-night p-6 text-ice-white transition-transform hover:-translate-y-0.5">
-            <span className="label text-xs text-muted-text">The game before · {stripDate(before)}</span>
-            <span className="tabular mt-2 block font-display text-4xl font-black text-sand">
-              {before.sabraScore}:{before.opponentScore} {before.result === "W" ? "WIN" : before.result === "L" ? "LOSS" : before.result}
-            </span>
-            <span className="mt-1 block text-sm text-[#D9E3DC]">vs {before.opponent}</span>
-            <span className="mt-4 block text-sm font-bold text-sand">Game report →</span>
+          <Link
+            to={`/games/${before.id}`}
+            className="group flex flex-col justify-between rounded-md border border-white/10 bg-[#0A2219] p-5 transition-colors hover:border-sand"
+          >
+            <div>
+              <p className="label text-[11px] text-[#9DB5A6]">The game before · {stripDate(before)}</p>
+              <div className="tabular mt-4 flex items-center justify-between gap-3">
+                <span className="flex items-center gap-2 font-semibold">
+                  <img src={crest} alt="" className="h-8 w-8 object-contain" /> Sabra
+                </span>
+                <span className="font-display text-3xl font-black">{before.sabraScore}</span>
+              </div>
+              <div className="tabular mt-2 flex items-center justify-between gap-3 text-[#9DB5A6]">
+                <span className="flex items-center gap-2 font-semibold">
+                  <OpponentMark game={before} className="!mx-0 h-8 w-8 text-[10px]" letters={2} /> {before.opponent.split(" ")[0]}
+                </span>
+                <span className="font-display text-3xl font-black">{before.opponentScore}</span>
+              </div>
+            </div>
+            <p className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-sm">
+              <span className={`rounded-sm px-1.5 py-0.5 text-xs font-black ${isWin(before.result) ? "bg-sand text-night" : "bg-white/10 text-ice-white"}`}>
+                {isWin(before.result) ? "WIN" : "LOSS"}
+              </span>
+              <span className="font-bold text-sand group-hover:text-sand-soft">Box score →</span>
+            </p>
           </Link>
         )}
       </div>

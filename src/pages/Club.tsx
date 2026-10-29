@@ -40,7 +40,7 @@ const Club = () => (
         <p className="label text-sm text-sand">
           The club · <span lang="he">המועדון</span>
         </p>
-        <h1 id="club-title" className="mt-3 max-w-5xl font-display text-5xl font-black uppercase leading-[0.9] tracking-[-0.03em] sm:text-7xl lg:text-8xl">
+        <h1 id="club-title" className="mt-3 max-w-5xl font-display text-5xl font-black uppercase leading-[0.9] tracking-normal sm:text-7xl lg:text-8xl">
           A hockey club with a bigger job.
         </h1>
         <p className="mt-6 max-w-2xl text-xl leading-relaxed text-[#D9E3DC] sm:text-2xl">

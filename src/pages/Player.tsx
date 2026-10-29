@@ -56,7 +56,7 @@ const Player = () => {
               {p.tag && <span className="tag-ice">{p.tag}</span>}
               {p.captain && <span className="tag-white">{p.captain === "C" ? "Captain" : "Alternate"}</span>}
             </div>
-            <h1 className="mt-3 font-display text-5xl font-black uppercase leading-[0.84] sm:text-6xl lg:text-[90px]">
+            <h1 className="mt-3 font-display text-5xl font-black uppercase leading-[0.9] sm:text-6xl lg:text-[90px]">
               {p.firstName}
               <br />
               <span className="text-sand">{p.lastName}</span>
@@ -97,7 +97,7 @@ const Player = () => {
         <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div>
             <span className="tag-ice">The journey</span>
-            <h2 id="journey-title" className="mt-2 font-display text-4xl font-black uppercase leading-[0.88] sm:text-5xl">
+            <h2 id="journey-title" className="mt-2 font-display text-4xl font-black uppercase leading-[0.9] sm:text-5xl">
               {p.hometown ? `From ${p.hometown}` : "The road"}
               <br />
               <span className="text-sand">to the lion</span>

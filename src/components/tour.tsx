@@ -228,7 +228,7 @@ export const TourMap = ({ className = "" }: { light?: boolean; className?: strin
                 x={p.x + dx}
                 y={p.y + dy}
                 textAnchor={anchor}
-                fontFamily="Rubik, Arial, sans-serif"
+                fontFamily="Inter, Arial, sans-serif"
                 fontWeight={status === "list" ? 600 : 800}
                 fontSize={status === "list" ? 17 : 21}
                 letterSpacing="1"
@@ -245,7 +245,7 @@ export const TourMap = ({ className = "" }: { light?: boolean; className?: strin
           );
         })}
 
-        <g transform={`translate(18 ${mapDots.h - 40})`} fontFamily="Rubik, Arial, sans-serif" fontSize="15" fontWeight="600" fill={CREAM}>
+        <g transform={`translate(18 ${mapDots.h - 40})`} fontFamily="Inter, Arial, sans-serif" fontSize="15" fontWeight="600" fill={CREAM}>
           <rect x="-8" y="-17" width="360" height="34" rx="4" fill="#0A2A1E" opacity="0.85" />
           <circle cx="4" cy="0" r="7" fill={GOLD} stroke="#0A2A1E" strokeWidth="2" />
           <text x="18" y="5">PLAYED</text>
