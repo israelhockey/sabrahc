@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import crest from "@/assets/sabra-crest.webp";
 import { club, players } from "@/data/club";
@@ -9,62 +10,117 @@ import { nextGame, finalGames, gamePlace, gameTime, formatGameTime, skaterStats,
 import { stripDate } from "@/components/SiteNavbar";
 import Community from "@/components/Community";
 
-/* ---------- The banner ---------- */
+/* ---------- The hero ---------- */
 
-/** Plays the ice-stop clip once and holds on the last frame; visitors who prefer reduced motion get the still. */
-const HeroVideo = () => {
-  const still = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+/** Where the hero film switches from the desert to the ice, in seconds. */
+const ICE_AT = 6.6;
+
+const Chant = () => {
+  const words = ["We are Sabra", "אנחנו סברה", "Born in the desert", "נולדנו במדבר", "Built for the ice", "נבנינו לקרח"];
+  const row = (
+    <span className="flex shrink-0 items-center">
+      {words.map((w, i) => (
+        <span key={i} className="flex items-center" lang={/[֐-׿]/.test(w) ? "he" : undefined}>
+          <span className="whitespace-nowrap px-6 font-display text-xl font-black uppercase sm:text-2xl">{w}</span>
+          <span aria-hidden="true" className="text-xl">✶</span>
+        </span>
+      ))}
+    </span>
+  );
   return (
-    <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[40vh] lg:h-[46vh]">
-      {still ? (
-        <img src="/media/hero-stop.jpg" alt="" className="h-full w-full object-cover object-[45%_60%]" />
-      ) : (
-        <video className="h-full w-full object-cover object-[45%_60%]" poster="/media/hero-stop.jpg" autoPlay muted playsInline preload="auto">
-          <source src="/media/hero-stop.webm" type="video/webm" />
-          <source src="/media/hero-stop.mp4" type="video/mp4" />
-        </video>
-      )}
-      <div className="absolute inset-0 bg-gradient-to-b from-night-deep/30 via-transparent to-night-deep/60" />
+    <div aria-hidden="true" className="absolute inset-x-[-40px] bottom-6 z-20 -rotate-2 bg-sand py-1.5 text-night shadow-[0_30px_60px_-20px_rgba(0,0,0,0.8)] sm:bottom-8">
+      <div className="stitch overflow-hidden py-2">
+        <div className="flex w-max animate-[crawl_45s_linear_infinite] motion-reduce:animate-none">
+          {row}
+          {row}
+        </div>
+      </div>
     </div>
   );
 };
 
-const Hero = () => (
-  <section aria-labelledby="hero-title" className="relative overflow-hidden bg-night-deep pb-16 pt-[34vh] lg:pb-20 lg:pt-[40vh]">
-    <HeroVideo />
-    <div className="relative mx-[-30px] -rotate-2 bg-sand p-3 text-night shadow-[0_50px_90px_-30px_rgba(0,0,0,0.75)] sm:p-3.5">
-      <div className="stitch">
-        <div className="container-site grid items-center gap-6 px-10 py-8 sm:px-12 sm:py-10 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)] lg:gap-10 lg:py-10">
-          <img src={crest} alt="Sabra HC crest" className="mx-auto w-[36%] max-w-[320px] object-contain sm:w-[30%] lg:w-full" />
-          <div className="min-w-0">
-            <h1 id="hero-title" className="font-display text-[52px] font-black uppercase leading-[0.86] tracking-[-0.04em] sm:text-7xl xl:text-[104px]">
-              We are
-              <br />
-              Sabra
-            </h1>
-            <p lang="he" dir="rtl" className="mt-2 text-left text-4xl font-black leading-none sm:text-6xl xl:text-[80px]">
-              אנחנו סברה
-            </p>
-            <p className="mt-5 max-w-lg text-lg font-medium sm:text-xl">
-              Israel's team, on tour across North America, bringing Jewish communities together at every stop. Next season, home.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/season" className="btn-dark">
-                Follow the tour
-              </Link>
-              <Link to="/news/israel-selects-become-sabra-hc" className="btn border-2 border-night text-night hover:bg-night hover:text-sand">
-                The story
-              </Link>
-            </div>
-          </div>
+const Hero = () => {
+  const video = useRef<HTMLVideoElement>(null);
+  const [ice, setIce] = useState(false);
+  const [still] = useState(() => typeof window !== "undefined" && !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
+  const next = nextGame();
+
+  return (
+    <section aria-labelledby="hero-title" className="relative flex min-h-[640px] flex-col justify-end overflow-hidden bg-night-deep pb-28 pt-20 sm:pb-32 lg:h-[calc(100svh-130px)] lg:min-h-[700px] lg:pt-12">
+      {/* the film: desert, then ice, on a loop */}
+      <div aria-hidden="true" className="absolute inset-0">
+        {still ? (
+          <img src="/media/hero.jpg" alt="" className="h-full w-full object-cover object-[30%_50%]" />
+        ) : (
+          <video
+            ref={video}
+            className="h-full w-full object-cover object-[30%_50%]"
+            poster="/media/hero.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            onTimeUpdate={(e) => setIce(e.currentTarget.currentTime >= ICE_AT)}
+          >
+            <source src="/media/hero.webm" type="video/webm" />
+            <source src="/media/hero.mp4" type="video/mp4" />
+          </video>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-night-deep via-night-deep/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-night-deep/75 via-night-deep/15 to-transparent" />
+      </div>
+
+      <div className="container-site relative z-10">
+        <p className="label inline-flex items-center gap-2 rounded-full bg-night-deep/70 px-3 py-1.5 text-xs text-sand backdrop-blur sm:text-sm">
+          <span className="h-2 w-2 rounded-full bg-sand" aria-hidden="true" />
+          Israel's hockey club · on tour across North America
+        </p>
+        <h1 id="hero-title" className="mt-4 font-display text-[64px] font-black uppercase leading-[0.84] tracking-[-0.045em] text-ice-white drop-shadow-[0_6px_30px_rgba(0,0,0,0.5)] sm:text-[112px] xl:text-[140px]">
+          We are
+          <br />
+          Sabra
+        </h1>
+        <p lang="he" dir="rtl" className="mt-1 text-left text-5xl font-black leading-none text-sand drop-shadow-[0_6px_30px_rgba(0,0,0,0.5)] sm:text-7xl xl:text-[88px]">
+          אנחנו סברה
+        </p>
+
+        {/* the line that follows the film */}
+        <div className="relative mt-5 h-9 sm:h-11" aria-live="off">
+          <p className={`absolute inset-0 font-display text-2xl font-black uppercase text-ice-white transition-all duration-700 sm:text-4xl ${ice && !still ? "-translate-y-3 opacity-0" : "translate-y-0 opacity-100"}`}>
+            Born in the desert.
+          </p>
+          <p className={`absolute inset-0 font-display text-2xl font-black uppercase text-sand transition-all duration-700 sm:text-4xl ${ice && !still ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>
+            Built for the ice.
+          </p>
+        </div>
+
+        <p className="mt-3 max-w-xl text-lg text-[#D9E3DC] sm:text-xl">Bringing Jewish communities together at every stop. Next season, home to Israel.</p>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <Link to="/season" className="btn-primary">
+            Follow the tour
+          </Link>
+          <Link to="/club" className="btn-ghost bg-night-deep/40 backdrop-blur">
+            Our story
+          </Link>
+          <Link
+            to={next ? `/games/${next.id}` : "/tickets"}
+            className="ml-0 inline-flex items-center gap-2 rounded-full border border-line bg-night-deep/70 px-4 py-2 text-sm font-bold text-ice-white backdrop-blur hover:border-sand sm:ml-2"
+          >
+            <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sand opacity-75 motion-reduce:animate-none" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sand" />
+            </span>
+            {next ? `Next · ${stripDate(next)} · ${next.opponent}` : "Next stop · being booked · get alerts"}
+          </Link>
         </div>
       </div>
-    </div>
-    <p className="absolute bottom-5 right-6 text-sm font-bold text-sand" aria-hidden="true">
-      Scroll · <span lang="he">גללו</span> ↓
-    </p>
-  </section>
-);
+
+      <Chant />
+    </section>
+  );
+};
 
 /* ---------- Last game band ---------- */
 
