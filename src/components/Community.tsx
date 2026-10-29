@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Users, Star, Flame, Flag } from "lucide-react";
 import { SectionTitle } from "./broadcast";
+import BgVideo from "./BgVideo";
 
 const pillars = [
   { icon: Users, title: "Community night", he: "ערב קהילה", body: "Synagogues, JCCs, schools and youth groups in the stands together, cheering one team." },
@@ -14,7 +15,11 @@ const pillars = [
  * Used on the home page and the club page.
  */
 const Community = ({ className = "bg-night-deep" }: { className?: string }) => (
-  <section aria-labelledby="community-title" className={`crowd relative py-20 lg:py-24 ${className}`}>
+  <section aria-labelledby="community-title" className={`relative overflow-hidden py-20 lg:py-24 ${className}`}>
+    <div aria-hidden="true" className="absolute -inset-12">
+      <BgVideo name="crowd" className="h-full w-full object-cover" />
+    </div>
+    <div aria-hidden="true" className="absolute -inset-12 bg-night-deep/70" />
     <div className="container-site relative">
       <SectionTitle
         id="community-title"
@@ -25,7 +30,7 @@ const Community = ({ className = "bg-night-deep" }: { className?: string }) => (
       />
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {pillars.map(({ icon: Icon, title, he, body }) => (
-          <li key={title} className="rounded border border-line bg-night p-6">
+          <li key={title} className="rounded border border-line bg-night/90 p-6 backdrop-blur-sm">
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sand text-night">
               <Icon className="h-6 w-6" aria-hidden="true" />
             </span>

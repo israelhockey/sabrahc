@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import { roadToEurope, staff } from "@/data/club";
 import Community from "@/components/Community";
+import BgVideo from "@/components/BgVideo";
 
 const Club = () => (
   <>
@@ -18,6 +19,17 @@ const Club = () => (
       }
       intro="A privately owned Israeli club that brings Jewish communities together around Israeli hockey. The plan: tour North America, win at home in Israel, bring European hockey to Israel, and take our place in a European league."
     />
+
+    <section className="bg-night-deep pt-16" aria-label="Brand film: Born in the desert. Built for the ice.">
+      <div className="container-site">
+        <div className="overflow-hidden rounded border-2 border-sand shadow-[0_40px_80px_-30px_rgba(0,0,0,0.75)]">
+          <BgVideo name="born-in-the-desert" className="aspect-video w-full object-cover" />
+        </div>
+        <p className="mt-3 text-center text-sm text-muted-text">
+          Born in the desert. Built for the ice. · <span lang="he" dir="rtl">נולדנו במדבר. נבנינו לקרח.</span>
+        </p>
+      </div>
+    </section>
 
     <section className="bg-night py-20" aria-labelledby="story-title">
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr]">
