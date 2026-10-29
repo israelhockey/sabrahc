@@ -11,19 +11,38 @@ import Community from "@/components/Community";
 
 /* ---------- The banner ---------- */
 
+/** Plays the ice-stop clip once and holds on the last frame; visitors who prefer reduced motion get the still. */
+const HeroVideo = () => {
+  const still = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  return (
+    <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[40vh] lg:h-[46vh]">
+      {still ? (
+        <img src="/media/hero-stop.jpg" alt="" className="h-full w-full object-cover object-[45%_60%]" />
+      ) : (
+        <video className="h-full w-full object-cover object-[45%_60%]" poster="/media/hero-stop.jpg" autoPlay muted playsInline preload="auto">
+          <source src="/media/hero-stop.webm" type="video/webm" />
+          <source src="/media/hero-stop.mp4" type="video/mp4" />
+        </video>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-b from-night-deep/30 via-transparent to-night-deep/60" />
+    </div>
+  );
+};
+
 const Hero = () => (
-  <section aria-labelledby="hero-title" className="crowd relative overflow-hidden pb-24 pt-14 lg:pb-28 lg:pt-20">
+  <section aria-labelledby="hero-title" className="relative overflow-hidden bg-night-deep pb-16 pt-[34vh] lg:pb-20 lg:pt-[40vh]">
+    <HeroVideo />
     <div className="relative mx-[-30px] -rotate-2 bg-sand p-3 text-night shadow-[0_50px_90px_-30px_rgba(0,0,0,0.75)] sm:p-3.5">
       <div className="stitch">
-        <div className="container-site grid items-center gap-8 px-10 py-10 sm:px-12 sm:py-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12 lg:py-14">
-          <img src={crest} alt="Sabra HC crest" className="mx-auto w-[46%] max-w-[420px] object-contain sm:w-[40%] lg:w-full" />
+        <div className="container-site grid items-center gap-6 px-10 py-8 sm:px-12 sm:py-10 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)] lg:gap-10 lg:py-10">
+          <img src={crest} alt="Sabra HC crest" className="mx-auto w-[36%] max-w-[320px] object-contain sm:w-[30%] lg:w-full" />
           <div className="min-w-0">
-            <h1 id="hero-title" className="font-display text-[56px] font-black uppercase leading-[0.86] tracking-[-0.04em] sm:text-8xl xl:text-[128px]">
+            <h1 id="hero-title" className="font-display text-[52px] font-black uppercase leading-[0.86] tracking-[-0.04em] sm:text-7xl xl:text-[104px]">
               We are
               <br />
               Sabra
             </h1>
-            <p lang="he" dir="rtl" className="mt-2 text-left text-5xl font-black leading-none sm:text-7xl xl:text-[100px]">
+            <p lang="he" dir="rtl" className="mt-2 text-left text-4xl font-black leading-none sm:text-6xl xl:text-[80px]">
               אנחנו סברה
             </p>
             <p className="mt-5 max-w-lg text-lg font-medium sm:text-xl">
