@@ -287,7 +287,7 @@ export const TourMap = ({ className = "" }: { light?: boolean; className?: strin
               <p className="mt-2 text-sm text-[#D9E3DC]">
                 A city with a big Jewish community we'd love to bring the tour to. Local synagogues, JCCs and businesses can help us make it happen.
               </p>
-              <Link to="/partners#city-partner" className="label mt-3 inline-block text-sm text-sand hover:text-sand-soft">
+              <Link to={`/host?city=${encodeURIComponent(`${sel.market.city}, ${sel.market.region}`)}`} className="label mt-3 inline-block text-sm text-sand hover:text-sand-soft">
                 Bring us to {sel.market.city} →
               </Link>
             </>
@@ -328,7 +328,7 @@ export const TourStops = ({ wide = false }: { wide?: boolean }) => (
         <p className="mt-2 font-display text-2xl font-black uppercase leading-none">Being booked now</p>
         <p className="mt-3 text-sm text-[#D9E3DC]">Want Sabra HC in your city? Local partners and community groups can host a weekend.</p>
       </div>
-      <Link to="/partners#city-partner" className="label mt-4 text-sm text-sand hover:text-sand-soft">
+      <Link to="/host" className="label mt-4 text-sm text-sand hover:text-sand-soft">
         Bring us to your city →
       </Link>
     </li>

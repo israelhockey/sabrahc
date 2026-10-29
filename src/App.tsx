@@ -18,6 +18,8 @@ import Partners from "./pages/Partners";
 import Pride from "./pages/Pride";
 import Invest from "./pages/Invest";
 import Contact from "./pages/Contact";
+import Host from "./pages/Host";
+import Stats from "./pages/Stats";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -45,6 +47,9 @@ const App = () => (
             <Route path="/pride" element={<Pride />} />
             <Route path="/invest" element={<Invest />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/host" element={<Host />} />
+            <Route path="/stats" element={<Stats />} />
+            <Route path="/bring-us" element={<Navigate to="/host" replace />} />
 
             {/* Old URLs from the previous site */}
             <Route path="/tour" element={<Navigate to="/season" replace />} />

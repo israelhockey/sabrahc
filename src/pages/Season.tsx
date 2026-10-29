@@ -51,7 +51,7 @@ const Season = () => (
           </div>
         ))}
         <div className="lg:col-span-4">
-          <Link to="/partners#city-partner" className="btn-primary">
+          <Link to="/host" className="btn-primary">
             Host a weekend in your city
           </Link>
         </div>

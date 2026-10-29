@@ -10,6 +10,7 @@ type NavItem = { to: string; label: string; he: string };
 const left: NavItem[] = [
   { to: "/season", label: "Tour", he: "הסיור" },
   { to: "/schedule", label: "Games", he: "משחקים" },
+  { to: "/stats", label: "Stats", he: "סטטיסטיקה" },
   { to: "/team", label: "Team", he: "הקבוצה" },
 ];
 const right: NavItem[] = [
@@ -18,6 +19,7 @@ const right: NavItem[] = [
   { to: "/club", label: "Club", he: "המועדון" },
 ];
 const extra: NavItem[] = [
+  { to: "/host", label: "Bring us to your city", he: "הביאו אותנו" },
   { to: "/pride", label: "Join the Pride", he: "הצטרפו לגאווה" },
   { to: "/partners", label: "Partners", he: "שותפים" },
   { to: "/invest", label: "Ownership", he: "בעלות" },

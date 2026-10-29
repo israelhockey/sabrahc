@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import crest from "@/assets/sabra-crest.webp";
 import { club, partners } from "@/data/club";
 import NewsletterSignup from "./NewsletterSignup";
 
 const cols = [
   { title: "Club", he: "המועדון", links: [["/team", "Team"], ["/season", "The Tour"], ["/news", "News"], ["/club", "The Club"]] },
-  { title: "Fans", he: "אוהדים", links: [["/schedule", "Games"], ["/tickets", "Tickets"], ["/pride", "Join the Pride"], ["/contact#tryouts", "Try-outs"]] },
+  { title: "Fans", he: "אוהדים", links: [["/schedule", "Games"], ["/stats", "Stats"], ["/tickets", "Tickets"], ["/pride", "Join the Pride"], ["/host", "Bring us to your city"], ["/contact#tryouts", "Try-outs"]] },
   { title: "Business", he: "עסקים", links: [["/partners", "Partners"], ["/invest", "Ownership & Investment"], ["/contact", "Contact"]] },
 ];
 
@@ -40,7 +40,7 @@ const PartnerWall = () => (
         ))}
         {Array.from({ length: Math.max(0, 6 - partners.length) }).map((_, i) => (
           <li key={i}>
-            <Link to="/partners#city-partner" className="flex min-h-[128px] items-center justify-center rounded border-2 border-dashed border-line text-center text-sm font-bold uppercase tracking-[0.12em] text-muted-text hover:border-sand hover:text-sand">
+            <Link to="/partners#packages" className="flex min-h-[128px] items-center justify-center rounded border-2 border-dashed border-line text-center text-sm font-bold uppercase tracking-[0.12em] text-muted-text hover:border-sand hover:text-sand">
               Your brand here
             </Link>
           </li>
@@ -50,9 +50,11 @@ const PartnerWall = () => (
   </section>
 );
 
-const SiteFooter = () => (
+const SiteFooter = () => {
+  const { pathname } = useLocation();
+  return (
   <>
-    <PartnerWall />
+    {pathname !== "/partners" && <PartnerWall />}
     <NewsletterSignup />
     <div aria-hidden="true" className="scarf h-7" />
     <footer className="bg-night-deep">
@@ -110,6 +112,7 @@ const SiteFooter = () => (
       </div>
     </footer>
   </>
-);
+  );
+};
 
 export default SiteFooter;

@@ -91,7 +91,7 @@ export const articles: Article[] = [
         title: "Bring Sabra HC to your city",
         text: "Local businesses and community groups can host a tour weekend, with your name on the games, the stream and the community event.",
         cta: "Become a city partner",
-        to: "/partners#city-partner",
+        to: "/partners#packages",
       },
     ],
   },

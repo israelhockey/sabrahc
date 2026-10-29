@@ -48,7 +48,7 @@ const Community = ({ className = "bg-night-deep" }: { className?: string }) => (
           <Link to="/tickets#groups" className="btn-dark">
             Plan a community night
           </Link>
-          <Link to="/partners#city-partner" className="btn border-2 border-night text-night hover:bg-night hover:text-sand">
+          <Link to="/partners" className="btn border-2 border-night text-night hover:bg-night hover:text-sand">
             Partner with us
           </Link>
         </div>

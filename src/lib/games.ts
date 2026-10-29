@@ -68,3 +68,51 @@ export const goalieStats = () => {
 };
 
 export const periodLabel = (p: number) => (p === 4 ? "OT" : ["1st", "2nd", "3rd"][p - 1]);
+
+/* ---------- Stats page ---------- */
+
+const isWin = (g: Game) => g.result === "W" || g.result === "OTW" || g.result === "SOW";
+
+/** Goals in the order they were scored (the sheet clock counts down). */
+const chronological = (g: Game) =>
+  [...(g.goals ?? [])].sort((a, b) => a.period - b.period || b.clock.localeCompare(a.clock));
+
+export type SkaterRow = SkaterLine & { slug?: string; position?: string; ppg: number; shg: number; gwg: number; ppa: number; pPerGp: number };
+
+/** Full skater table: goals, assists, points, power play, game winners, points per game. */
+export const skaterTable = (): SkaterRow[] => {
+  const base = skaterStats();
+  const extra = new Map<string, { ppg: number; shg: number; gwg: number; ppa: number }>();
+  const get = (n: string) => extra.get(n) ?? (extra.set(n, { ppg: 0, shg: 0, gwg: 0, ppa: 0 }), extra.get(n)!);
+  for (const g of finalGames()) {
+    const goals = chronological(g);
+    goals.forEach((goal, i) => {
+      if (goal.strength?.startsWith("PP")) {
+        get(goal.scorer).ppg += 1;
+        goal.assists.forEach((a) => (get(a).ppa += 1));
+      }
+      if (goal.strength === "SH") get(goal.scorer).shg += 1;
+      if (isWin(g) && i === (g.opponentScore ?? 0)) get(goal.scorer).gwg += 1;
+    });
+  }
+  return base.map((s) => {
+    const pl = players.find((p) => `${p.firstName} ${p.lastName}` === s.name);
+    const e = extra.get(s.name) ?? { ppg: 0, shg: 0, gwg: 0, ppa: 0 };
+    return { ...s, ...e, slug: pl?.slug, position: pl?.position, pPerGp: s.gp ? s.pts / s.gp : 0 };
+  });
+};
+
+/** Team totals from the game sheets. */
+export const teamTable = () => {
+  const finals = finalGames();
+  const rec = seasonRecord();
+  const gp = finals.length || 1;
+  const sf = finals.reduce((s, g) => s + (g.shots?.us ?? 0), 0);
+  const sa = finals.reduce((s, g) => s + (g.shots?.them ?? 0), 0);
+  const ppg = finals.reduce((s, g) => s + (g.goals ?? []).filter((x) => x.strength?.startsWith("PP")).length, 0);
+  const byPeriod = [0, 1, 2].map((i) => ({
+    for: finals.reduce((s, g) => s + (g.periods?.us[i] ?? 0), 0),
+    against: finals.reduce((s, g) => s + (g.periods?.them[i] ?? 0), 0),
+  }));
+  return { ...rec, sf, sa, ppg, byPeriod, gfPerGp: rec.gf / gp, gaPerGp: rec.ga / gp, sfPerGp: sf / gp, saPerGp: sa / gp, shPct: sf ? rec.gf / sf : 0, svPct: sa ? 1 - rec.ga / sa : 0 };
+};

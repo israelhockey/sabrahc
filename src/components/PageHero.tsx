@@ -14,13 +14,40 @@ type Props = {
   status?: string;
   art?: ReactNode;
   variant?: string;
+  /** Slim header for data pages (games, stats, team, news). */
+  compact?: boolean;
 };
 
 /**
  * Page opener in the Tifo style: a gold supporters' banner held over the dotted crowd,
  * with the crest, the page title in English and Hebrew, and the intro underneath.
  */
-const PageHero = ({ eyebrow, title, he, intro, children }: Props) => (
+const PageHero = ({ eyebrow, title, he, intro, children, compact }: Props) =>
+  compact ? (
+    <section className="crowd relative overflow-hidden border-b border-line">
+      <div className="container-site relative flex flex-col gap-4 py-10 sm:py-12 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+        <div className="min-w-0">
+          <p className="label text-xs text-sand sm:text-sm">{eyebrow}</p>
+          <div className="mt-2 flex flex-wrap items-baseline gap-x-5 gap-y-1">
+            <h1 className="font-display text-5xl font-black uppercase leading-[0.9] tracking-[-0.03em] sm:text-6xl lg:text-7xl">{title}</h1>
+            {he && (
+              <p lang="he" dir="rtl" className="text-3xl font-black leading-none text-sand sm:text-4xl">
+                {he}
+              </p>
+            )}
+          </div>
+        </div>
+        {(intro || children) && (
+          <div className="max-w-md text-base leading-relaxed text-[#D9E3DC] sm:text-lg lg:pb-1">
+            {intro}
+            {children}
+          </div>
+        )}
+      </div>
+      <div aria-hidden="true" className="scarf h-2" />
+    </section>
+  ) : (
+
   <section className="crowd relative overflow-hidden border-b border-line pb-14 pt-12 lg:pb-16 lg:pt-16">
     <div className="relative mx-[-24px] -rotate-2 bg-sand p-2.5 text-night shadow-[0_40px_80px_-30px_rgba(0,0,0,0.75)] sm:p-3.5">
       <div className="stitch">
@@ -45,6 +72,6 @@ const PageHero = ({ eyebrow, title, he, intro, children }: Props) => (
       </div>
     )}
   </section>
-);
+  );
 
 export default PageHero;

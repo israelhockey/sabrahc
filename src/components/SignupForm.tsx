@@ -29,6 +29,10 @@ type Props = {
   successBody?: string;
   tone?: "dark" | "light";
   idPrefix?: string;
+  /** Extra fixed details saved with every submission, e.g. which form it came from. */
+  details?: Record<string, string>;
+  /** Values to prefill, e.g. a city passed in the link. */
+  initial?: Record<string, string>;
 };
 
 // Columns that exist on the signups table; everything else goes into `details`.
@@ -45,8 +49,8 @@ const LEGACY: Record<SignupSource, "newsletter" | "founders" | "fans"> = {
   tickets: "fans",
 };
 
-const SignupForm = ({ source, fields, submitLabel, successTitle, successBody, tone = "dark", idPrefix = source }: Props) => {
-  const [values, setValues] = useState<Record<string, string>>({});
+const SignupForm = ({ source, fields, submitLabel, successTitle, successBody, tone = "dark", idPrefix = source, details: fixed, initial }: Props) => {
+  const [values, setValues] = useState<Record<string, string>>(initial ?? {});
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
 
   const set = (k: string, v: string) => setValues((s) => ({ ...s, [k]: v }));
@@ -57,7 +61,7 @@ const SignupForm = ({ source, fields, submitLabel, successTitle, successBody, to
     e.preventDefault();
     setState("sending");
     const row: Record<string, unknown> = { source };
-    const details: Record<string, string> = {};
+    const details: Record<string, string> = { ...(fixed ?? {}) };
     for (const [k, v] of Object.entries(values)) {
       const val = v.trim();
       if (!val) continue;
