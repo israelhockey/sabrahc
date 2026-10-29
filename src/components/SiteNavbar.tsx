@@ -19,6 +19,7 @@ const right: NavItem[] = [
   { to: "/club", label: "Club", he: "המועדון" },
 ];
 const extra: NavItem[] = [
+  { to: "/gallery", label: "Photos", he: "תמונות" },
   { to: "/host", label: "Bring us to your city", he: "הביאו אותנו" },
   { to: "/pride", label: "Join the Pride", he: "הצטרפו לגאווה" },
   { to: "/partners", label: "Partners", he: "שותפים" },

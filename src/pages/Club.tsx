@@ -3,6 +3,7 @@ import crest from "@/assets/sabra-crest.webp";
 import { roadToEurope, staff } from "@/data/club";
 import Community from "@/components/Community";
 import BgVideo from "@/components/BgVideo";
+import PhotoStrip from "@/components/PhotoStrip";
 
 const chapters = [
   {
@@ -107,6 +108,7 @@ const Club = () => (
             </li>
           ))}
         </ol>
+        <PhotoStrip className="mt-12" ids={["p122", "p020", "p027", "p143"]} caption="Israel Selects on tour, 2023–26: fans, families, kids and the team." />
         <blockquote className="mx-auto mt-16 max-w-4xl text-center">
           <p className="font-display text-3xl font-black uppercase leading-tight sm:text-5xl">
             We believe that wherever Israeli hockey shows up, <span className="text-sand">the community shows up too.</span>

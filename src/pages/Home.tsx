@@ -10,6 +10,7 @@ import { nextGame, finalGames, gamePlace, gameTime, formatGameTime, skaterStats,
 import { stripDate } from "@/components/SiteNavbar";
 import Community from "@/components/Community";
 import Jersey from "@/components/Jersey";
+import { photos, thumb } from "@/data/gallery";
 
 /* ---------- The hero ---------- */
 
@@ -326,6 +327,21 @@ const StorySoFar = () => (
 
 /* ---------- From the stands ---------- */
 
+/** The home-page wall: a mosaic of the best photos, each tile opening the gallery on its category. */
+const WALL: { id: string; span: string; label?: string; c?: string }[] = [
+  { id: "p009", span: "col-span-2 row-span-2", label: "The community shows up", c: "community" },
+  { id: "p147", span: "col-span-2", label: "Goal!", c: "game" },
+  { id: "p023", span: "", label: "Shabbat with the team", c: "shabbat" },
+  { id: "p094", span: "row-span-2", label: "Kids in the locker room", c: "kids" },
+  { id: "p061", span: "", c: "game" },
+  { id: "p106", span: "row-span-2", label: "Flags up", c: "community" },
+  { id: "p137", span: "col-span-2", label: "One team", c: "team" },
+  { id: "p119", span: "", c: "kids" },
+  { id: "p060", span: "", c: "game" },
+  { id: "p092", span: "", c: "team" },
+  { id: "p036", span: "", c: "kids" },
+];
+
 const TifoWall = () => (
   <section aria-labelledby="wall-title" className="bg-night py-20 lg:py-24">
     <div className="container-site">
@@ -334,29 +350,38 @@ const TifoWall = () => (
         tag="Only at Sabra"
         he="מהיציע"
         title="The Tifo Wall"
-        intro="Photos from the stands at every stop, city by city. The wall fills up as the tour goes. Send us yours from the game and it lands here."
+        intro="Three seasons of Israel Selects on tour: the games, the fans, the kids and the Shabbat tables. Sabra HC's photos join the wall as this season goes."
+        action={
+          <Link to="/gallery" className="btn-ghost">
+            See all {photos.length} photos
+          </Link>
+        }
       />
-      <div className="grid auto-rows-[150px] grid-cols-2 gap-2 sm:auto-rows-[170px] sm:grid-cols-4">
-        <div className="crowd col-span-2 row-span-2 flex items-end rounded p-4">
-          <span className="rounded bg-night/85 px-3 py-1.5 text-sm font-bold">Mansfield, TX · weekend one</span>
-        </div>
-        <div className="flex items-center justify-center rounded bg-night-2">
-          <img src={crest} alt="" className="h-20 w-20 object-contain opacity-80" />
-        </div>
-        <div className="scarf rounded" aria-hidden="true" />
-        <div className="flex items-center justify-center rounded bg-night-deep p-4 text-center">
-          <span lang="he" className="text-3xl font-black text-sand">
-            סברה
-          </span>
-        </div>
-        <div className="crowd rounded" aria-hidden="true" />
-        <a
-          href={`mailto:${club.email}?subject=${encodeURIComponent("Photo for the Tifo Wall")}`}
-          className="col-span-2 flex items-center justify-center rounded bg-sand px-4 text-center font-display text-lg sm:col-span-4 font-black uppercase text-night hover:bg-sand-soft sm:text-xl"
-        >
-          + Send your photo
-        </a>
+      <div className="grid grid-flow-dense auto-rows-[140px] grid-cols-2 gap-2 sm:auto-rows-[170px] sm:grid-cols-4 lg:grid-cols-5">
+        {WALL.map((t) => (
+          <Link
+            key={t.id}
+            to={t.c ? `/gallery?c=${t.c}` : "/gallery"}
+            className={`group relative overflow-hidden rounded bg-night-2 ${t.span}`}
+            aria-label={t.label ?? "Open the photo wall"}
+          >
+            <img src={thumb(t.id)} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            {t.label && (
+              <span className="absolute bottom-2 left-2 rounded bg-night/85 px-2.5 py-1 text-xs font-bold text-ice-white backdrop-blur sm:text-sm">{t.label}</span>
+            )}
+          </Link>
+        ))}
+        <Link to="/gallery" className="col-span-2 flex flex-col items-center justify-center gap-1 rounded bg-sand p-4 sm:col-span-1 lg:col-span-2 text-center text-night hover:bg-sand-soft">
+          <span className="font-display text-3xl font-bold">+{photos.length - WALL.length}</span>
+          <span className="text-sm font-bold uppercase tracking-wide">More photos</span>
+        </Link>
       </div>
+      <p className="mt-4 text-sm text-muted-text">
+        Were you at a game?{" "}
+        <a href={`mailto:${club.email}?subject=${encodeURIComponent("Photo for the Tifo Wall")}`} className="text-sand hover:text-sand-soft">
+          Send us your photo →
+        </a>
+      </p>
     </div>
   </section>
 );

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Users, MapPinned, Share2, Check } from "lucide-react";
 import SignupForm from "@/components/SignupForm";
 import BgVideo from "@/components/BgVideo";
+import PhotoStrip from "@/components/PhotoStrip";
 import { TourMap } from "@/components/tour";
 import { partners, targetMarkets } from "@/data/club";
 
@@ -197,6 +198,18 @@ const Partners = () => (
             </div>
           ))}
         </div>
+      </div>
+    </section>
+
+    {/* what it looks like in real life */}
+    <section className="border-t border-line bg-night-deep py-16" aria-labelledby="real-title">
+      <div className="container-site">
+        <p className="label text-xs text-sand">Already happening</p>
+        <h2 id="real-title" className="mt-2 font-display text-3xl font-black uppercase sm:text-4xl">
+          What a tour weekend looks like
+        </h2>
+        <p className="mt-3 max-w-2xl text-[#D9E3DC]">Photos from three seasons of Israel Selects on tour, the team that is now Sabra HC.</p>
+        <PhotoStrip className="mt-8" ids={["p009", "p093", "p094", "p023"]} caption="Fans with flags, families in the stands, kids in the locker room and Shabbat with the team." />
       </div>
     </section>
 

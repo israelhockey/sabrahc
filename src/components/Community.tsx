@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { Users, Star, Flame, Flag } from "lucide-react";
 import { SectionTitle } from "./broadcast";
 import BgVideo from "./BgVideo";
+import { thumb } from "@/data/gallery";
 
 const pillars = [
-  { icon: Users, title: "Community night", he: "ערב קהילה", body: "Synagogues, JCCs, schools and youth groups in the stands together, cheering one team." },
-  { icon: Star, title: "Meet the players", he: "פגשו את השחקנים", body: "Autographs, photos and time with the players for the kids after the game." },
-  { icon: Flame, title: "Shabbat & celebrations", he: "שבת וחגים", body: "Shabbat dinners, holiday events and gatherings around the weekend, hosted with the local community." },
-  { icon: Flag, title: "Israel at the rink", he: "ישראל ביציע", body: "The flag, the songs, Israeli music and food. A piece of home, wherever we play." },
+  { photo: "p093", icon: Users, title: "Community night", he: "ערב קהילה", body: "Synagogues, JCCs, schools and youth groups in the stands together, cheering one team." },
+  { photo: "p086", icon: Star, title: "Meet the players", he: "פגשו את השחקנים", body: "Autographs, photos and time with the players for the kids after the game." },
+  { photo: "p084", icon: Flame, title: "Shabbat & celebrations", he: "שבת וחגים", body: "Shabbat dinners, holiday events and gatherings around the weekend, hosted with the local community." },
+  { photo: "p145", icon: Flag, title: "Israel at the rink", he: "ישראל ביציע", body: "The flag, the songs, Israeli music and food. A piece of home, wherever we play." },
 ];
 
 /**
@@ -29,16 +30,19 @@ const Community = ({ className = "bg-night-deep" }: { className?: string }) => (
         intro="Every stop on the tour is a community event. We work with local synagogues, JCCs, schools, Hillels and businesses to bring Jewish families together for a night they'll remember."
       />
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {pillars.map(({ icon: Icon, title, he, body }) => (
-          <li key={title} className="rounded border border-line bg-night/90 p-6 backdrop-blur-sm">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sand text-night">
+        {pillars.map(({ photo, icon: Icon, title, he, body }) => (
+          <li key={title} className="overflow-hidden rounded border border-line bg-night/90 backdrop-blur-sm">
+            <img src={thumb(photo)} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+            <div className="relative p-6 pt-8">
+            <span className="absolute -top-6 left-6 flex h-12 w-12 items-center justify-center rounded-full bg-sand text-night ring-4 ring-night">
               <Icon className="h-6 w-6" aria-hidden="true" />
             </span>
-            <h3 className="mt-4 font-display text-xl font-black uppercase leading-tight">{title}</h3>
+            <h3 className="font-display text-xl font-black uppercase leading-tight">{title}</h3>
             <p lang="he" className="mt-1 text-sm font-bold text-sand">
               {he}
             </p>
             <p className="mt-2 text-[#D9E3DC]">{body}</p>
+            </div>
           </li>
         ))}
       </ul>

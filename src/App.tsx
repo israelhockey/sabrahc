@@ -20,6 +20,7 @@ import Invest from "./pages/Invest";
 import Contact from "./pages/Contact";
 import Host from "./pages/Host";
 import Stats from "./pages/Stats";
+import Gallery from "./pages/Gallery";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -49,6 +50,8 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/host" element={<Host />} />
             <Route path="/stats" element={<Stats />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/photos" element={<Navigate to="/gallery" replace />} />
             <Route path="/bring-us" element={<Navigate to="/host" replace />} />
 
             {/* Old URLs from the previous site */}
