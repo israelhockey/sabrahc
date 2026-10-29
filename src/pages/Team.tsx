@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
-import { LineupArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import { players, staff, type Player } from "@/data/club";
 import crest from "@/assets/sabra-crest.webp";
@@ -20,7 +19,7 @@ const PlayerCard = ({ p }: { p: Player }) => (
     <div className="relative aspect-[4/5] overflow-hidden bg-night">
       <span
         aria-hidden="true"
-        className="tabular absolute -right-2 -top-6 font-display text-[180px] font-black leading-none text-transparent"
+        className="tabular absolute -right-2 -top-6 font-display text-[115px] font-black leading-none text-transparent"
         style={{ WebkitTextStroke: "2px hsl(var(--sand) / 0.5)" }}
       >
         {p.number}
@@ -31,14 +30,14 @@ const PlayerCard = ({ p }: { p: Player }) => (
         <img src={crest} alt="" className="relative mx-auto mt-16 w-1/2 opacity-30" />
       )}
       {p.captain && (
-        <span className="absolute left-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sand font-display text-xl font-black text-night">
+        <span className="absolute left-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sand font-display text-lg font-black text-night">
           {p.captain}
         </span>
       )}
     </div>
     <div className="p-5">
-      <p className="tabular font-display text-xl font-black text-sand">#{p.number}</p>
-      <h3 className="text-3xl font-black leading-tight text-ice-white">
+      <p className="tabular font-display text-lg font-black text-sand">#{p.number}</p>
+      <h3 className="text-2xl font-black leading-tight text-ice-white">
         {p.firstName} <span className="block">{p.lastName}</span>
       </h3>
       <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
@@ -59,7 +58,7 @@ const Team = () => {
 
   return (
     <>
-      <PageHero cam="CAM 2 · Tactics board" status="Roster live" tone="sand" art={<LineupArt />} eyebrow="2026–27 roster" title="The Team" intro="Israeli and Jewish players who live across North America and join the tour weekend by weekend. Next season, the road leads home to Israel." />
+      <PageHero he="הקבוצה" eyebrow="2026–27 roster" title="The Team" intro="Israeli and Jewish players who live across North America and join the tour weekend by weekend. Next season, the road leads home to Israel." />
 
       <section className="bg-night py-20" aria-labelledby="roster-title">
         <div className="container-site">
@@ -69,7 +68,7 @@ const Team = () => {
           {players.length === 0 ? (
             <div className="rounded-lg border border-line bg-night-2 p-10 text-center">
               <p className="eyebrow">Roster</p>
-              <p className="mt-2 font-display text-5xl font-black uppercase text-ice-white">Roster reveal coming soon</p>
+              <p className="mt-2 font-display text-3xl font-black uppercase text-ice-white">Roster reveal coming soon</p>
               <p className="mx-auto mt-3 max-w-xl text-muted-text">Signings will be announced here and in the news as they are confirmed.</p>
               <Link to="/contact#tryouts" className="btn-primary mt-8">
                 Want to wear the lion? Try-outs
@@ -104,13 +103,13 @@ const Team = () => {
         <div className="container-site">
           <SectionHeading id="staff-title" tone="light" eyebrow="Behind the bench" title="Coaches and staff" />
           {staff.length === 0 ? (
-            <p className="text-lg text-[#3B4A63]">Coaching and staff announcements are coming soon.</p>
+            <p className="text-lg text-[#3E4F44]">Coaching and staff announcements are coming soon.</p>
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {staff.map((s) => (
-                <div key={s.name} className="rounded-lg border border-[#D5DEE6] bg-white p-6">
+                <div key={s.name} className="rounded-lg border border-[#D9C9A4] bg-white p-6">
                   {s.photo && <img src={s.photo} alt={s.name} className="mb-4 aspect-square w-full rounded object-cover" />}
-                  <h3 className="text-3xl font-black text-night">{s.name}</h3>
+                  <h3 className="text-2xl font-black text-night">{s.name}</h3>
                   <p className="text-sand-dark">{s.role}</p>
                 </div>
               ))}
@@ -121,7 +120,7 @@ const Team = () => {
 
       <section className="bg-night py-20">
         <div className="container-site flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <h2 className="text-5xl font-black text-ice-white sm:text-6xl">Want to wear the lion?</h2>
+          <h2 className="text-3xl font-black text-ice-white sm:text-4xl">Want to wear the lion?</h2>
           <Link to="/contact#tryouts" className="btn-primary">
             Apply for try-outs
           </Link>

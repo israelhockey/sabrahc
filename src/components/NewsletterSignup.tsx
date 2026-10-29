@@ -1,14 +1,16 @@
 import SignupForm from "./SignupForm";
 
 const NewsletterSignup = () => (
-  <section className="border-t border-line bg-night" aria-labelledby="newsletter-title">
+  <section className="bg-night" aria-labelledby="newsletter-title">
     <div className="container-site grid items-center gap-8 py-14 lg:grid-cols-2">
       <div>
-        <span className="tag-ice">Stay tuned</span>
-        <h2 id="newsletter-title" className="mt-2 text-5xl font-black leading-[0.9] sm:text-6xl">
-          Never miss a first
+        <p className="label text-xs text-sand">
+          Tour alerts <span lang="he">· עדכונים</span>
+        </p>
+        <h2 id="newsletter-title" className="mt-2 text-4xl font-black leading-[0.95] sm:text-5xl">
+          Never miss a stop
         </h2>
-        <p className="mt-3 max-w-md text-lg text-muted-text">New tour stops, results, signings and ticket drops, straight to your inbox.</p>
+        <p className="mt-3 max-w-md text-lg text-muted-text">New tour cities, results, signings and ticket drops, straight to your inbox.</p>
       </div>
       <SignupForm
         source="newsletter"
@@ -19,7 +21,7 @@ const NewsletterSignup = () => (
         ]}
         submitLabel="Sign me up"
         successTitle="You're on the list"
-        successBody="We'll be in touch with the big news."
+        successBody="We'll email you when the tour is coming near you."
       />
     </div>
   </section>

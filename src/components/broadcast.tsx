@@ -1,10 +1,10 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { nextGame } from "@/lib/games";
 
-/* ---------- Camera-feed frame (photo / video placeholder) ---------- */
+/* ---------- Photo / video frame ---------- */
 
 type CamProps = {
-  label?: string; // e.g. "CAM 1 · Team skate-out"
+  label?: string; // kept for older call sites; not shown
   rec?: boolean;
   corners?: "all" | "diagonal" | "none";
   className?: string;
@@ -13,51 +13,19 @@ type CamProps = {
   imageAlt?: string;
 };
 
-const Corner = ({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) => {
-  const base = "pointer-events-none absolute z-[2] h-6 w-6 border-ice-white/55";
-  const map = {
-    tl: "left-4 top-4 border-l-2 border-t-2",
-    tr: "right-4 top-4 border-r-2 border-t-2",
-    bl: "bottom-4 left-4 border-b-2 border-l-2",
-    br: "bottom-4 right-4 border-b-2 border-r-2",
-  } as const;
-  return <span aria-hidden="true" className={`${base} ${map[pos]}`} />;
-};
-
-export const CamFrame = ({ label, rec, corners = "all", className = "", children, image, imageAlt = "" }: CamProps) => (
+/** A spotlit frame that holds a photo or video, or a quiet placeholder until one arrives. */
+export const CamFrame = ({ className = "", children, image, imageAlt = "" }: CamProps) => (
   <div className={`cam ${className}`}>
     {image && <img src={image} alt={imageAlt} className="absolute inset-0 h-full w-full object-cover" />}
-    {corners !== "none" && (
-      <>
-        <Corner pos="tl" />
-        <Corner pos="br" />
-        {corners === "all" && (
-          <>
-            <Corner pos="tr" />
-            <Corner pos="bl" />
-          </>
-        )}
-      </>
-    )}
-    {label && !image && (
-      <span className="label absolute left-10 top-7 z-[2] hidden max-w-[70%] border border-line bg-night/85 px-2.5 py-1 text-[11px] text-ice-white sm:block">
-        {label}
-      </span>
-    )}
-    {rec && (
-      <span className="label absolute right-10 top-8 z-[2] hidden items-center gap-2 text-xs text-ice-white sm:flex">
-        <span className="animate-rec h-2.5 w-2.5 rounded-full bg-live" aria-hidden="true" />
-        REC
-      </span>
-    )}
     <div className="relative z-[3] h-full">{children}</div>
   </div>
 );
 
-/* ---------- Section title: tag + big headline ---------- */
+/* ---------- Section title: small gold label + big headline ---------- */
 
 type TitleProps = {
   tag: string;
+  he?: string;
   tone?: "sand" | "ice" | "live" | "white" | "dark";
   title: ReactNode;
   intro?: ReactNode;
@@ -67,21 +35,28 @@ type TitleProps = {
   as?: "h1" | "h2";
 };
 
-export const SectionTitle = ({ tag, tone = "sand", title, intro, id, action, light, as = "h2" }: TitleProps) => {
+export const SectionTitle = ({ tag, he, title, intro, id, action, light, as = "h2" }: TitleProps) => {
   const H = as;
   return (
     <div className="mb-8 flex flex-col gap-5 lg:mb-10 lg:flex-row lg:items-end lg:justify-between">
       <div className="max-w-3xl">
-        <span className={`tag-${tone}`}>{tag}</span>
+        <p className={`label text-xs sm:text-[13px] ${light ? "text-sand-dark" : "text-sand"}`}>
+          {tag}
+          {he && (
+            <span lang="he" className="normal-case tracking-normal">
+              {" "}· {he}
+            </span>
+          )}
+        </p>
         <H
           id={id}
-          className={`mt-2 font-display font-black uppercase leading-[0.88] ${
-            as === "h1" ? "text-6xl sm:text-8xl lg:text-[120px]" : "text-5xl sm:text-6xl lg:text-[84px]"
+          className={`mt-2 font-display font-black uppercase leading-[0.95] tracking-[-0.03em] ${
+            as === "h1" ? "text-5xl sm:text-6xl lg:text-7xl" : "text-4xl sm:text-5xl lg:text-6xl"
           } ${light ? "text-night" : "text-ice-white"}`}
         >
           {title}
         </H>
-        {intro && <p className={`mt-3 max-w-2xl text-lg ${light ? "text-[#3B4A63]" : "text-muted-text"}`}>{intro}</p>}
+        {intro && <p className={`mt-3 max-w-2xl text-lg ${light ? "text-[#3E4F44]" : "text-[#D9E3DC]"}`}>{intro}</p>}
       </div>
       {action}
     </div>
@@ -128,7 +103,7 @@ export const Countdown = ({ size = "lg" }: { size?: "sm" | "lg" }) => {
     <div className="grid grid-cols-4 gap-px bg-line" role="timer" aria-label={cd ? `${cd.d} days ${cd.h} hours ${cd.m} minutes until the next game` : "Next game date to be announced"}>
       {blocks.map((b) => (
         <div key={b.l} className="bg-night px-1 py-3 text-center">
-          <div className={`tabular font-display font-black leading-none text-ice-white ${size === "lg" ? "text-5xl sm:text-6xl" : "text-4xl"}`}>{b.v}</div>
+          <div className={`tabular font-display font-black leading-none text-ice-white ${size === "lg" ? "text-3xl sm:text-4xl" : "text-3xl"}`}>{b.v}</div>
           <div className="label mt-1.5 text-[11px] text-ice sm:text-xs">{b.l}</div>
         </div>
       ))}
@@ -142,7 +117,7 @@ export const StatGrid = ({ stats, cols = 3, highlight }: { stats: { v: string | 
   <dl className="grid gap-px bg-line" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
     {stats.map((s) => (
       <div key={s.l} className="bg-night px-2 py-4 text-center">
-        <dd className={`tabular font-display text-5xl font-black leading-none ${highlight === s.l ? "text-sand" : "text-ice-white"}`}>{s.v}</dd>
+        <dd className={`tabular font-display text-3xl font-black leading-none ${highlight === s.l ? "text-sand" : "text-ice-white"}`}>{s.v}</dd>
         <dt className="label mt-1 text-xs text-ice">{s.l}</dt>
       </div>
     ))}

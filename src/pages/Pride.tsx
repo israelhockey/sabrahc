@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Shirt, Gift, Tv, Percent, Award } from "lucide-react";
 import PageHero from "@/components/PageHero";
-import { FoundersWallArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import SignupForm from "@/components/SignupForm";
 
@@ -15,7 +14,7 @@ const perks = [
 
 const Pride = () => (
   <>
-    <PageHero cam="CAM 3 · Founders wall" status="Opening soon" tone="sand" art={<FoundersWallArt />}
+    <PageHero he="הגאווה"
       eyebrow="Supporter membership"
       title="Join the Pride"
       intro="Become a founding member of Israel's flagship hockey club and be part of every first."
@@ -26,7 +25,7 @@ const Pride = () => (
       <div className="container-site grid gap-12 lg:grid-cols-2">
         <div>
           <SectionHeading id="what-title" eyebrow="What it is" title="Founding membership" />
-          <div className="space-y-4 text-lg text-[#C9D6E6]">
+          <div className="space-y-4 text-lg text-[#D9E3DC]">
             <p>
               The Pride is our supporter membership. Founding members help fund the club's first seasons and get first access to tickets, news and members-only
               moments.
@@ -44,7 +43,7 @@ const Pride = () => (
           {perks.map((p) => (
             <li key={p.title} className="rounded-lg border border-line bg-night-2 p-6">
               <p.icon className="h-8 w-8 text-sand" strokeWidth={1.6} aria-hidden="true" />
-              <h3 className="mt-3 text-2xl font-black text-ice-white">{p.title}</h3>
+              <h3 className="mt-3 text-xl font-black text-ice-white">{p.title}</h3>
               <p className="mt-1 text-muted-text">{p.body}</p>
             </li>
           ))}
@@ -55,7 +54,7 @@ const Pride = () => (
     <section className="bg-sand py-20" aria-labelledby="early-title">
       <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.1fr]">
         <div>
-          <h2 id="early-title" className="text-6xl font-black leading-[0.9] text-night sm:text-7xl">Get early access</h2>
+          <h2 id="early-title" className="text-4xl font-black leading-[0.9] text-night sm:text-5xl">Get early access</h2>
           <p className="mt-4 max-w-md text-lg font-medium text-night/80">
             Founding memberships open soon. Sign up and we'll send you the details and price before anyone else. No commitment.
           </p>

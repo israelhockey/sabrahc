@@ -1,50 +1,49 @@
 import type { ReactNode } from "react";
+import crest from "@/assets/sabra-crest.webp";
 
 type Props = {
   eyebrow: string;
   title: ReactNode;
+  /** The page name in Hebrew, set under the English title on the banner. */
+  he?: string;
   intro?: ReactNode;
-  tone?: "sand" | "ice" | "live" | "white";
-  cam?: string; // broadcast camera label, e.g. "CAM 4 · Calendar"
-  status?: string; // the tag in the top right, e.g. "Schedule TBA"
-  art?: ReactNode; // the page's motion graphic
   children?: ReactNode;
-  // kept for compatibility with older pages
+  // older props, accepted so existing pages keep compiling; the banner ignores them
+  tone?: string;
+  cam?: string;
+  status?: string;
+  art?: ReactNode;
   variant?: string;
 };
 
 /**
- * Bright broadcast page opener, the same family as the homepage rink feed:
- * light ice background, navy frame, a camera label and status tag,
- * and a page-specific motion graphic.
+ * Page opener in the Tifo style: a gold supporters' banner held over the dotted crowd,
+ * with the crest, the page title in English and Hebrew, and the intro underneath.
  */
-const PageHero = ({ eyebrow, title, intro, tone = "live", cam, status, art, children }: Props) => (
-  <section className="ice-bg relative overflow-hidden border-b border-line">
-    <span aria-hidden="true" className="pointer-events-none absolute left-4 top-4 z-[2] h-7 w-7 border-l-[3px] border-t-[3px] border-night" />
-    <span aria-hidden="true" className="pointer-events-none absolute bottom-4 right-4 z-[2] h-7 w-7 border-b-[3px] border-r-[3px] border-night" />
-    <div className="absolute left-10 right-10 top-7 z-[2] flex items-center justify-between gap-3">
-      {cam ? <span className="label border border-night/20 bg-white/90 px-2.5 py-1 text-[11px] text-night">{cam}</span> : <span />}
-      {status && (
-        <span className={`tag-${tone} !flex items-center gap-2`}>
-          {tone === "live" && <span className="animate-rec h-2 w-2 rounded-full bg-ice-white" aria-hidden="true" />}
-          {status}
-        </span>
-      )}
-    </div>
-
-    <div className="container-site relative z-[1] grid items-center gap-8 pb-12 pt-24 lg:min-h-[560px] lg:grid-cols-[1.05fr_1fr] lg:gap-12 lg:pb-16 lg:pt-24">
-      {art && <div className="order-first min-w-0 lg:order-none lg:col-start-2 lg:row-start-1">{art}</div>}
-      <div className={`min-w-0 ${art ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-        <span className="tag-dark animate-rise">{eyebrow}</span>
-        <h1 className="mt-3 font-display text-6xl font-black uppercase leading-[0.86] text-night text-balance animate-rise sm:text-8xl lg:text-[104px]">{title}</h1>
-        {intro && (
-          <div className="mt-5 max-w-xl border-l-[6px] border-sand bg-white/95 px-5 py-3 text-lg text-[#2B3A55] shadow-[0_10px_30px_-18px_rgba(6,13,26,0.6)] animate-rise">
-            {intro}
+const PageHero = ({ eyebrow, title, he, intro, children }: Props) => (
+  <section className="crowd relative overflow-hidden border-b border-line pb-14 pt-12 lg:pb-16 lg:pt-16">
+    <div className="relative mx-[-24px] -rotate-2 bg-sand p-2.5 text-night shadow-[0_40px_80px_-30px_rgba(0,0,0,0.75)] sm:p-3.5">
+      <div className="stitch">
+        <div className="container-site grid items-center gap-6 px-10 py-8 sm:px-12 sm:py-10 lg:grid-cols-[auto_1fr] lg:gap-12 lg:py-12">
+          <img src={crest} alt="" className="hidden h-36 w-36 object-contain lg:block xl:h-44 xl:w-44" />
+          <div className="min-w-0">
+            <p className="label text-xs sm:text-sm">{eyebrow}</p>
+            <h1 className="mt-2 font-display text-[40px] font-black uppercase leading-[0.92] tracking-[-0.03em] text-balance sm:text-6xl lg:text-7xl">{title}</h1>
+            {he && (
+              <p lang="he" dir="rtl" className="mt-2 text-left text-3xl font-black leading-none sm:text-5xl">
+                {he}
+              </p>
+            )}
           </div>
-        )}
-        {children}
+        </div>
       </div>
     </div>
+    {(intro || children) && (
+      <div className="container-site relative mt-10 max-w-3xl text-center">
+        {intro && <div className="text-lg leading-relaxed text-[#D9E3DC] sm:text-xl">{intro}</div>}
+        {children}
+      </div>
+    )}
   </section>
 );
 

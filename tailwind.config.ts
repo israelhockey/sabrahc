@@ -15,9 +15,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Big Shoulders Display"', '"Secular One"', "Impact", "sans-serif"],
-        body: ["Barlow", "Heebo", "system-ui", "sans-serif"],
-        cond: ['"Barlow Condensed"', "Heebo", "system-ui", "sans-serif"],
+        display: ["Unbounded", "Rubik", "system-ui", "sans-serif"],
+        body: ["Rubik", "system-ui", "sans-serif"],
+        cond: ["Rubik", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

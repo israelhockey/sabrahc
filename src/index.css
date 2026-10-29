@@ -3,53 +3,53 @@
 @tailwind utilities;
 
 /*
-  Sabra HC — broadcast design system
-  deep #060D1A · night #0A1426 · night-2 #111E36 · line #22324F
-  sand #D6A84A · ice #9CC9E3 · ice-white #F2F7FA · muted #8A98B3 · live #E5484D
+  Sabra HC · Tifo design system
+  deep #0A2A1E · green #0F3B2A · green-2 #164A35 · line #1E5640
+  gold #E8B547 · gold-soft #F7D58A · gold-dark #8A5E0B · cream #F3E9D2 · sage #B8C9BE
 */
 @layer base {
   :root {
-    --background: 216 62% 6%;
-    --foreground: 203 45% 96%;
-    --card: 219 52% 14%;
-    --card-foreground: 203 45% 96%;
-    --popover: 219 52% 14%;
-    --popover-foreground: 203 45% 96%;
-    --primary: 40 63% 56%;
-    --primary-foreground: 218 58% 9%;
-    --secondary: 219 52% 14%;
-    --secondary-foreground: 203 45% 96%;
-    --muted: 219 40% 22%;
-    --muted-foreground: 219 20% 62%;
-    --accent: 202 56% 75%;
-    --accent-foreground: 218 58% 9%;
+    --background: 158 62% 10%;
+    --foreground: 42 58% 89%;
+    --card: 157 59% 15%;
+    --card-foreground: 42 58% 89%;
+    --popover: 157 59% 15%;
+    --popover-foreground: 42 58% 89%;
+    --primary: 41 78% 59%;
+    --primary-foreground: 157 59% 15%;
+    --secondary: 156 54% 19%;
+    --secondary-foreground: 42 58% 89%;
+    --muted: 156 48% 23%;
+    --muted-foreground: 141 14% 75%;
+    --accent: 141 22% 85%;
+    --accent-foreground: 157 59% 15%;
     --destructive: 358 75% 59%;
-    --destructive-foreground: 203 45% 96%;
-    --border: 219 40% 22%;
-    --input: 219 40% 22%;
-    --ring: 40 63% 56%;
-    --radius: 0rem;
+    --destructive-foreground: 42 58% 89%;
+    --border: 156 48% 23%;
+    --input: 156 48% 23%;
+    --ring: 41 78% 59%;
+    --radius: 0.25rem;
 
-    --night-deep: 216 62% 6%;
-    --night: 218 58% 9%;
-    --night-2: 219 52% 14%;
-    --line: 219 40% 22%;
-    --sand: 40 63% 56%;
-    --sand-soft: 43 68% 74%;
-    --sand-dark: 38 60% 33%;
-    --ice: 202 56% 75%;
-    --ice-white: 203 45% 96%;
-    --muted-text: 219 20% 62%;
+    --night-deep: 158 62% 10%;
+    --night: 157 59% 15%;
+    --night-2: 156 54% 19%;
+    --line: 156 48% 23%;
+    --sand: 41 78% 59%;
+    --sand-soft: 41 87% 75%;
+    --sand-dark: 39 85% 29%;
+    --ice: 141 22% 85%;
+    --ice-white: 42 58% 89%;
+    --muted-text: 141 14% 75%;
     --live: 358 75% 59%;
 
-    --sidebar-background: 216 62% 6%;
-    --sidebar-foreground: 203 45% 96%;
-    --sidebar-primary: 40 63% 56%;
-    --sidebar-primary-foreground: 218 58% 9%;
-    --sidebar-accent: 219 52% 14%;
-    --sidebar-accent-foreground: 203 45% 96%;
-    --sidebar-border: 219 40% 22%;
-    --sidebar-ring: 40 63% 56%;
+    --sidebar-background: 158 62% 10%;
+    --sidebar-foreground: 42 58% 89%;
+    --sidebar-primary: 41 78% 59%;
+    --sidebar-primary-foreground: 157 59% 15%;
+    --sidebar-accent: 156 54% 19%;
+    --sidebar-accent-foreground: 42 58% 89%;
+    --sidebar-border: 156 48% 23%;
+    --sidebar-ring: 41 78% 59%;
   }
 }
 
@@ -61,10 +61,15 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-night-deep text-ice-white font-body antialiased;
+    @apply bg-night text-ice-white font-body antialiased;
   }
   h1, h2, h3, h4 {
     @apply font-display uppercase;
+    letter-spacing: -0.02em;
+  }
+  [lang="he"] {
+    font-family: Rubik, "Heebo", system-ui, sans-serif;
+    letter-spacing: 0;
   }
   :focus-visible {
     outline: 2px solid hsl(var(--sand));
@@ -80,92 +85,89 @@
     @apply mx-auto w-full max-w-[1400px] px-4 sm:px-6;
   }
 
-  /* Parallelogram cut used for broadcast tags and buttons */
-  .para {
-    clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
-  }
+  /* Kept as no-ops: the Tifo look uses straight edges and small radii */
+  .para,
   .para-r {
-    clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+    clip-path: none;
   }
 
   .label {
-    @apply font-cond font-bold uppercase tracking-[0.14em];
+    @apply font-body font-bold uppercase tracking-[0.14em];
   }
 
   .tag {
-    @apply para inline-block px-5 py-1.5 font-cond text-xs font-extrabold uppercase tracking-[0.16em] sm:text-sm;
+    @apply inline-block rounded-full px-3.5 py-1 font-body text-xs font-bold uppercase tracking-[0.14em] sm:text-[13px];
   }
   .tag-sand { @apply tag bg-sand text-night; }
   .tag-ice { @apply tag bg-ice text-night; }
-  .tag-live { @apply tag bg-live text-ice-white; }
+  .tag-live { @apply tag bg-sand text-night; }
   .tag-white { @apply tag bg-ice-white text-night; }
   .tag-dark { @apply tag bg-night text-sand; }
 
   .btn {
-    @apply para inline-flex min-h-[48px] items-center justify-center gap-2 px-7 font-cond text-lg font-extrabold uppercase tracking-[0.1em] transition-colors duration-200;
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded px-6 font-body text-base font-bold transition-colors duration-200;
   }
   .btn-primary { @apply btn bg-sand text-night hover:bg-sand-soft; }
-  .btn-ghost { @apply btn border border-line bg-night-2 text-ice-white hover:text-sand; }
+  .btn-ghost { @apply btn border-2 border-sand bg-transparent text-sand hover:bg-sand hover:text-night; }
   .btn-dark { @apply btn bg-night text-ice-white hover:bg-night-2; }
-  .btn-live { @apply btn bg-live text-ice-white hover:brightness-110; }
+  .btn-live { @apply btn bg-sand text-night hover:bg-sand-soft; }
 
   .panel {
-    @apply border border-line bg-night;
+    @apply border border-line bg-night-2;
   }
   .panel-head {
-    @apply flex items-center justify-between gap-3 border-b border-line px-4 py-3 font-cond text-sm font-bold uppercase tracking-[0.14em] text-muted-text;
+    @apply flex items-center justify-between gap-3 border-b border-line px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.14em] text-muted-text;
   }
 
   .lift {
     @apply transition-all duration-200 hover:-translate-y-0.5 hover:border-sand;
   }
 
-  /* Aliases kept so every page shares the broadcast look */
   .eyebrow { @apply label text-sm text-sand; }
   .btn-outline { @apply btn-ghost; }
   .card-lift { @apply lift; }
   .chip {
-    @apply para inline-flex min-h-[44px] items-center px-6 font-cond text-base font-extrabold uppercase tracking-[0.1em] transition-colors;
+    @apply inline-flex min-h-[44px] items-center rounded-full px-5 font-body text-sm font-bold uppercase tracking-[0.1em] transition-colors;
   }
   .chip-on { @apply chip bg-sand text-night; }
-  .chip-off { @apply chip bg-night-2 text-ice-white hover:bg-line; }
+  .chip-off { @apply chip border border-line bg-night-2 text-ice-white hover:border-sand; }
+
+  /* Supporters' end: the dotted crowd behind every banner */
+  .crowd {
+    background-color: #0A2A1E;
+    background-image: radial-gradient(circle, rgba(243, 233, 210, 0.24) 2px, transparent 2.6px), radial-gradient(circle, rgba(232, 181, 71, 0.28) 2px, transparent 2.6px);
+    background-size: 18px 18px, 26px 26px;
+    background-position: 0 0, 9px 13px;
+  }
+  /* Tour scarf stripe */
+  .scarf {
+    background: repeating-linear-gradient(90deg, #E8B547 0 60px, #0F3B2A 60px 72px, #F3E9D2 72px 132px, #0F3B2A 132px 144px);
+  }
+  .stitch {
+    border: 3px dashed rgba(15, 59, 42, 0.5);
+  }
 
   .field {
-    @apply w-full border border-line bg-night-deep px-4 py-3 text-base text-ice-white placeholder:text-muted-text focus:border-sand focus:outline-none;
+    @apply w-full rounded border border-line bg-night-deep px-4 py-3 text-base text-ice-white placeholder:text-muted-text focus:border-sand focus:outline-none;
   }
   .field-light {
-    @apply w-full border border-[#C5D0DB] bg-white px-4 py-3 text-base text-night placeholder:text-[#6B7A93] focus:border-sand-dark focus:outline-none;
+    @apply w-full rounded border border-[#D9C9A4] bg-[#FBF6EA] px-4 py-3 text-base text-night placeholder:text-[#5A6B5F] focus:border-sand-dark focus:outline-none;
   }
 
   .tabular {
     font-variant-numeric: tabular-nums;
   }
 
-  /* Camera-feed frame: the placeholder for photography and video */
+  /* Photo / video frame: a spotlight on dark green until real media arrives */
   .cam {
     position: relative;
     overflow: hidden;
-    background: radial-gradient(ellipse at 50% 35%, #1c3156 0%, #0e1a30 45%, #060d1a 100%);
-  }
-  .cam::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 4px);
-    pointer-events: none;
-    z-index: 1;
-  }
-  .cam::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(100deg, transparent 0 46px, rgba(156, 201, 227, 0.05) 46px 47px);
-    pointer-events: none;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(243, 233, 210, 0.16), transparent 70%), linear-gradient(180deg, #164A35 0%, #0A2A1E 100%);
   }
 
   .outline-num {
     color: transparent;
-    -webkit-text-stroke: 2px hsl(var(--sand) / 0.55);
+    -webkit-text-stroke: 2px hsl(var(--sand) / 0.5);
   }
 }
 

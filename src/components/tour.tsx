@@ -4,8 +4,8 @@ import crest from "@/assets/sabra-crest.webp";
 import { targetMarkets, tourStops, type Game } from "@/data/club";
 import { gameDate, gameTime, periodLabel } from "@/lib/games";
 
-const NAVY = "#13274D";
-const GOLD = "#D6A84A";
+const NAVY = "#0F3B2A";
+const GOLD = "#E8B547";
 
 /* North America, equirectangular: lon -130..-60, lat 24..52 */
 const W = 700;
@@ -16,9 +16,9 @@ const py = (lat: number) => ((52 - lat) / 28) * H;
 /** A broadcast-style tour map of the cities on the list, drawn on a dot grid. */
 export const TourMap = ({ light = true, className = "" }: { light?: boolean; className?: string }) => {
   const uid = useId().replace(/:/g, "");
-  const bg = light ? "#F7FAFC" : "#0A1426";
-  const dot = light ? "#C9D6E6" : "#1C2C4A";
-  const ink = light ? NAVY : "#F2F7FA";
+  const bg = light ? "#FBF6EA" : "#0F3B2A";
+  const dot = light ? "#D9E3DC" : "#1E5640";
+  const ink = light ? NAVY : "#F3E9D2";
   // label placement per city so neighbours don't collide: [dx, dy, anchor]
   const LBL: Record<string, [number, number, "start" | "end"]> = {
     "Los Angeles": [-11, -6, "end"],
@@ -39,7 +39,7 @@ export const TourMap = ({ light = true, className = "" }: { light?: boolean; cla
       <rect width={W} height={H} fill={bg} />
       <rect width={W} height={H} fill={`url(#dots-${uid})`} />
       {/* US / Canada border, roughly along the 49th parallel to the Great Lakes */}
-      <path d={`M0 ${py(49)} H${px(-95)} L${px(-83)} ${py(46)} L${px(-79)} ${py(43.3)} L${px(-75)} ${py(45)} L${px(-71)} ${py(45)} L${px(-67)} ${py(47.3)}`} fill="none" stroke={light ? "#B8C9D6" : "#22324F"} strokeWidth="2" strokeDasharray="6 6" />
+      <path d={`M0 ${py(49)} H${px(-95)} L${px(-83)} ${py(46)} L${px(-79)} ${py(43.3)} L${px(-75)} ${py(45)} L${px(-71)} ${py(45)} L${px(-67)} ${py(47.3)}`} fill="none" stroke={light ? "#C9B58C" : "#1E5640"} strokeWidth="2" strokeDasharray="6 6" />
       {targetMarkets.map((m, i) => {
         const x = px(m.lon);
         const y = py(m.lat);
@@ -55,7 +55,7 @@ export const TourMap = ({ light = true, className = "" }: { light?: boolean; cla
         );
       })}
       <g transform={`translate(12 ${H - 44})`}>
-        <rect width="156" height="32" fill={light ? "#fff" : "#0F1C33"} stroke={light ? "#DCE4EC" : "#22324F"} />
+        <rect width="156" height="32" fill={light ? "#fff" : "#0F3B2A"} stroke={light ? "#D9C9A4" : "#1E5640"} />
         <circle cx="16" cy="16" r="6" fill={NAVY} stroke="#fff" strokeWidth="2" />
         <text x="28" y="20" fontFamily="Barlow Condensed, sans-serif" fontWeight="700" fontSize="11" fill={ink}>USA</text>
         <circle cx="70" cy="16" r="6" fill="#C8373D" stroke="#fff" strokeWidth="2" />
@@ -76,16 +76,16 @@ export const TourStops = ({ wide = false }: { wide?: boolean }) => (
             {s.status === "played" ? `Played · ${s.record ?? ""}` : s.status === "next" ? "Next stop" : "Planned"}
           </span>
         </div>
-        <p className="mt-2 font-display text-3xl font-black uppercase leading-none">{s.city ?? (s.opponent ? `vs ${s.opponent}` : "City TBA")}</p>
+        <p className="mt-2 font-display text-2xl font-black uppercase leading-none">{s.city ?? (s.opponent ? `vs ${s.opponent}` : "City TBA")}</p>
         <p className="label mt-1 text-sm text-muted-text">{s.dates}{s.region ? ` · ${s.region}` : ""}</p>
-        {s.note && <p className="mt-3 text-sm text-[#C9D6E6]">{s.note}</p>}
+        {s.note && <p className="mt-3 text-sm text-[#D9E3DC]">{s.note}</p>}
       </li>
     ))}
     <li className="flex flex-col justify-between border border-dashed border-sand/60 bg-night p-5">
       <div>
         <span className="label text-sm text-sand">Next weekend series</span>
-        <p className="mt-2 font-display text-3xl font-black uppercase leading-none">Being booked now</p>
-        <p className="mt-3 text-sm text-[#C9D6E6]">Want Sabra HC in your city? Local partners and community groups can host a weekend.</p>
+        <p className="mt-2 font-display text-2xl font-black uppercase leading-none">Being booked now</p>
+        <p className="mt-3 text-sm text-[#D9E3DC]">Want Sabra HC in your city? Local partners and community groups can host a weekend.</p>
       </div>
       <Link to="/partners#city-partner" className="label mt-4 text-sm text-sand hover:text-sand-soft">
         Bring us to your city →
@@ -100,7 +100,7 @@ export const OpponentMark = ({ game, className = "h-16 w-16 sm:h-20 sm:w-20", le
   if (game.opponentLogo && !failed)
     return <img src={game.opponentLogo} alt={`${game.opponent} logo`} loading="lazy" referrerPolicy="no-referrer" onError={() => setFailed(true)} className={`mx-auto object-contain ${className}`} />;
   return (
-    <div className={`mx-auto flex items-center justify-center rounded-full border-2 border-line font-display text-xl font-black text-muted-text ${className}`}>
+    <div className={`mx-auto flex items-center justify-center rounded-full border-2 border-line font-display text-lg font-black text-muted-text ${className}`}>
       {game.opponent.slice(0, letters).toUpperCase()}
     </div>
   );
@@ -118,16 +118,16 @@ export const GameRecap = ({ game, compact = false }: { game: Game; compact?: boo
       <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 px-4 py-6 text-center">
         <div className="min-w-0">
           <img src={crest} alt="" className="mx-auto h-16 w-16 object-contain sm:h-20 sm:w-20" />
-          <p className="mt-2 font-display text-lg font-black leading-tight sm:text-2xl">SABRA HC</p>
+          <p className="mt-2 font-display text-base font-black leading-tight sm:text-xl">SABRA HC</p>
         </div>
-        <p className="tabular whitespace-nowrap font-display text-4xl font-black sm:text-6xl">
+        <p className="tabular whitespace-nowrap font-display text-3xl font-black sm:text-4xl">
           <span className={win ? "text-sand" : ""}>{game.sabraScore}</span>
           <span className="px-2 text-muted-text">–</span>
           <span className={!win ? "text-sand" : ""}>{game.opponentScore}</span>
         </p>
         <div className="min-w-0">
           <OpponentMark game={game} />
-          <p className={`mt-2 font-display font-black uppercase leading-tight text-muted-text ${compact ? "text-base sm:text-lg" : "text-lg sm:text-2xl"}`}>{game.opponent}</p>
+          <p className={`mt-2 font-display font-black uppercase leading-tight text-muted-text ${compact ? "text-sm sm:text-base" : "text-base sm:text-xl"}`}>{game.opponent}</p>
         </div>
       </div>
       {game.periods && (
@@ -182,7 +182,7 @@ export const GameRecap = ({ game, compact = false }: { game: Game; compact?: boo
         </div>
       )}
       <div className="label flex items-center justify-between gap-3 border-t border-line px-4 py-3 text-sm">
-        <span className="text-[#C9D6E6]">{gameTime(game)}</span>
+        <span className="text-[#D9E3DC]">{gameTime(game)}</span>
         <Link to={`/games/${game.id}`} className="text-sand hover:text-sand-soft">Game page →</Link>
       </div>
     </article>

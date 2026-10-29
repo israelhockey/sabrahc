@@ -1,5 +1,4 @@
 import PageHero from "@/components/PageHero";
-import { TicketArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import GameCard from "@/components/GameCard";
 import SignupForm from "@/components/SignupForm";
@@ -17,7 +16,7 @@ const Tickets = () => {
   const home = upcomingGames();
   return (
     <>
-      <PageHero cam="CAM 3 · Box office" status="Next stop soon" tone="sand" art={<TicketArt />} eyebrow="Game nights" title="Tickets" intro="Fast, loud and close to the glass. Catch Sabra HC when the tour comes to your city." />
+      <PageHero he="כרטיסים" eyebrow="Game nights" title="Tickets" intro="Fast, loud and close to the glass. Catch Sabra HC when the tour comes to your city." />
 
       <section className="bg-night py-16" aria-labelledby="upcoming-title">
         <div className="container-site">
@@ -30,7 +29,7 @@ const Tickets = () => {
             </div>
           ) : (
             <div className="grid items-center gap-8 rounded-lg border border-line bg-night-2 p-8 lg:grid-cols-2">
-              <p className="font-display text-4xl font-black uppercase text-ice-white">The next weekend series is being booked</p>
+              <p className="font-display text-3xl font-black uppercase text-ice-white">The next weekend series is being booked</p>
               <SignupForm
                 source="tickets"
                 idPrefix="tickets-notify"
@@ -74,11 +73,11 @@ const Tickets = () => {
 
       <section className="border-t border-line bg-night-2 py-20" aria-labelledby="faq-title">
         <div className="container-site max-w-4xl">
-          <h2 id="faq-title" className="text-5xl font-black text-ice-white">Good to know</h2>
+          <h2 id="faq-title" className="text-3xl font-black text-ice-white">Good to know</h2>
           <dl className="mt-8 divide-y divide-line border-y border-line">
             {faqs.map((f) => (
               <div key={f.q} className="py-5">
-                <dt className="font-display text-2xl font-bold uppercase text-ice-white">{f.q}</dt>
+                <dt className="font-display text-xl font-bold uppercase text-ice-white">{f.q}</dt>
                 <dd className="mt-1 text-muted-text">{f.a}</dd>
               </div>
             ))}

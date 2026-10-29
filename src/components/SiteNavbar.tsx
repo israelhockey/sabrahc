@@ -2,70 +2,71 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import crest from "@/assets/sabra-crest.webp";
-import { club } from "@/data/club";
-import { nextGame, lastGame, seasonRecord } from "@/lib/games";
-import { useCountdown } from "./broadcast";
+import type { Game } from "@/data/club";
+import { finalGames, nextGame } from "@/lib/games";
 
-const links = [
-  { to: "/team", label: "Team" },
-  { to: "/schedule", label: "Schedule" },
-  { to: "/tickets", label: "Tickets" },
-  { to: "/news", label: "News" },
-  { to: "/season", label: "The Tour", accent: true },
-  { to: "/club", label: "Club" },
+type NavItem = { to: string; label: string; he: string };
+
+const left: NavItem[] = [
+  { to: "/season", label: "Tour", he: "הסיור" },
+  { to: "/schedule", label: "Games", he: "משחקים" },
+  { to: "/team", label: "Team", he: "הקבוצה" },
+];
+const right: NavItem[] = [
+  { to: "/news", label: "News", he: "חדשות" },
+  { to: "/tickets", label: "Tickets", he: "כרטיסים" },
+  { to: "/club", label: "Club", he: "המועדון" },
+];
+const extra: NavItem[] = [
+  { to: "/pride", label: "Join the Pride", he: "הצטרפו לגאווה" },
+  { to: "/partners", label: "Partners", he: "שותפים" },
+  { to: "/invest", label: "Ownership", he: "בעלות" },
+  { to: "/contact", label: "Contact", he: "צור קשר" },
 ];
 
-const Crawl = () => {
+/** "SAT 24.10", in the rink's own time zone. */
+export const stripDate = (g: Game) => {
+  const parts = new Intl.DateTimeFormat("en-GB", { weekday: "short", day: "2-digit", month: "2-digit", timeZone: g.tz }).formatToParts(new Date(g.date));
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
+  return `${get("weekday").toUpperCase()} ${get("day")}.${get("month")}`;
+};
+
+const shortName = (name: string) => name.split(" ")[0];
+
+/** The results strip across the top of every page. */
+const GameStrip = () => {
+  const results = finalGames().slice(0, 3).reverse();
   const next = nextGame();
-  const last = lastGame();
-  const rec = seasonRecord();
-  const cd = useCountdown(next?.date ?? null);
-  const items = [
-    `${club.seasonName} · ${club.season}`,
-    ...(last ? [`Last: Sabra HC ${last.sabraScore}–${last.opponentScore} ${last.opponent} (${last.result})`] : []),
-    ...(rec.played ? [`Record ${rec.w}–${rec.l + rec.otl} · ${rec.gf} goals for`] : []),
-    next ? `Next: Sabra HC vs ${next.opponent}${cd ? ` · ${cd.days} days` : ""}` : "Next weekend series · announced soon",
-    `${club.formerName} are now Sabra HC`,
-    "Bring Sabra HC to your city: become a city partner",
-    "Join the Pride: founding memberships",
-  ];
-  const loop = [...items, ...items];
   return (
-    <div className="flex h-[34px] overflow-hidden border-b border-line bg-night">
-      <div className="para-r flex flex-none items-center bg-sand pl-4 pr-7 font-cond text-xs font-extrabold uppercase tracking-[0.12em] text-night sm:text-sm">
-        Sabra HC · On tour
-      </div>
-      <div className="flex flex-1 items-center overflow-hidden" aria-label="Club headlines">
-        <div className="animate-crawl flex w-max font-cond text-xs font-semibold uppercase tracking-[0.14em] text-[#C9D6E6] sm:text-sm">
-          {loop.map((t, i) => (
-            <span key={i} className="whitespace-nowrap px-5" aria-hidden={i >= items.length}>
-              {t}
-              <span className="pl-10 text-sand">◆</span>
-            </span>
-          ))}
-        </div>
+    <div className="border-b border-line bg-night-deep text-[13px]">
+      <div className="container-site flex items-center gap-x-6 gap-y-1 overflow-x-auto py-2 [scrollbar-width:none]">
+        <span className="flex-none font-bold text-sand">
+          TOUR GAMES <span lang="he">· משחקים</span>
+        </span>
+        {results.map((g) => (
+          <Link key={g.id} to={`/games/${g.id}`} className="flex-none whitespace-nowrap text-ice-white hover:text-sand">
+            {stripDate(g)} · Sabra <b className="tabular">{g.sabraScore}–{g.opponentScore}</b> {shortName(g.opponent)}
+          </Link>
+        ))}
+        <Link
+          to={next ? `/games/${next.id}` : "/season"}
+          className="ml-auto flex-none whitespace-nowrap rounded-full bg-sand px-3 py-0.5 font-bold text-night hover:bg-sand-soft"
+        >
+          {next ? `NEXT · ${stripDate(next)} · ${next.opponent}` : "NEXT STOP · BEING BOOKED"}
+        </Link>
       </div>
     </div>
   );
 };
 
-const ScoreBug = () => {
-  const next = nextGame();
-  const last = lastGame();
-  const cd = useCountdown(next?.date ?? null);
-  const g = next ?? last;
-  return (
-    <Link to={g ? `/games/${g.id}` : "/schedule"} className="hidden h-10 items-stretch font-cond font-bold uppercase xl:flex" aria-label={next ? "Next game" : "Last result"}>
-      <span className="flex items-center bg-sand px-3 text-xs tracking-[0.1em] text-night">{next ? "Next" : "Final"}</span>
-      <span className="flex items-center gap-2.5 border border-line bg-night-2 px-3.5 text-base tracking-[0.06em] text-ice-white">
-        SHC {next || !last ? <span className="text-xs text-muted-text">vs</span> : <span className="tabular text-sand">{last.sabraScore}–{last.opponentScore}</span>} {g ? g.opponent.split(" ")[0].slice(0, 3).toUpperCase() : "TBA"}
-      </span>
-      <span className="tabular flex items-center border border-l-0 border-line bg-night px-3 text-base text-ice">
-        {next ? (cd ? `${cd.d}D ${cd.h}H` : "SOON") : last ? last.result : "SOON"}
-      </span>
-    </Link>
-  );
-};
+const NavItemLink = ({ item }: { item: NavItem }) => (
+  <NavLink to={item.to} className={({ isActive }) => `group flex flex-col leading-tight ${isActive ? "text-sand" : "text-ice-white"}`}>
+    <span className="font-bold group-hover:text-sand">{item.label}</span>
+    <span lang="he" className="text-xs text-muted-text">
+      {item.he}
+    </span>
+  </NavLink>
+);
 
 const SiteNavbar = () => {
   const [open, setOpen] = useState(false);
@@ -81,70 +82,66 @@ const SiteNavbar = () => {
 
   return (
     <>
-      <Crawl />
-      <header className="sticky top-0 z-50 border-b border-line bg-night-deep/90 backdrop-blur">
-        <nav className="container-site flex h-[68px] items-center gap-6 lg:h-[76px]" aria-label="Main">
-          <Link to="/" className="flex items-center gap-3" aria-label="Sabra HC home">
-            <img src={crest} alt="" className="h-11 w-11 object-contain lg:h-14 lg:w-14" />
-            <span className="font-display text-2xl font-black uppercase lg:text-[30px]">
-              Sabra <span className="text-sand">HC</span>
-            </span>
-          </Link>
-          <ul className="hidden items-center gap-6 lg:flex">
-            {links.map((l) => (
+      <GameStrip />
+      <header className="sticky top-0 z-50 border-b border-line bg-night/95 backdrop-blur">
+        <nav className="container-site grid h-[72px] grid-cols-[1fr_auto_1fr] items-center gap-4 lg:h-[88px]" aria-label="Main">
+          <ul className="hidden items-center gap-7 lg:flex">
+            {left.map((l) => (
               <li key={l.to}>
-                <NavLink
-                  to={l.to}
-                  className={({ isActive }) =>
-                    `font-cond text-lg font-bold uppercase tracking-[0.08em] transition-colors ${
-                      isActive || l.accent ? "text-sand" : "text-ice-white hover:text-sand"
-                    }`
-                  }
-                >
-                  {l.label}
-                </NavLink>
+                <NavItemLink item={l} />
               </li>
             ))}
           </ul>
-          <div className="flex-1" />
-          <ScoreBug />
-          <Link to="/pride" className="btn-primary hidden min-h-[44px] px-6 text-base sm:inline-flex">
-            Join the Pride
+          <Link to="/" className="col-start-1 row-start-1 flex items-center gap-3 justify-self-start lg:col-start-2 lg:justify-self-center" aria-label="Sabra HC home">
+            <img src={crest} alt="" className="h-12 w-12 object-contain lg:h-[72px] lg:w-[72px]" />
+            <span className="font-display text-lg font-black uppercase tracking-tight lg:hidden">Sabra HC</span>
           </Link>
-          <button
-            type="button"
-            className="inline-flex h-11 w-11 items-center justify-center text-ice-white hover:text-sand lg:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((o) => !o)}
-          >
-            {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-          </button>
+          <div className="col-start-3 row-start-1 flex items-center justify-end gap-7">
+            <ul className="hidden items-center gap-7 lg:flex">
+              {right.map((l) => (
+                <li key={l.to}>
+                  <NavItemLink item={l} />
+                </li>
+              ))}
+            </ul>
+            <Link to="/pride" className="btn-primary hidden min-h-[46px] px-5 sm:inline-flex">
+              Join the Pride
+            </Link>
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center text-ice-white hover:text-sand lg:hidden"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((o) => !o)}
+            >
+              {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+            </button>
+          </div>
         </nav>
       </header>
       {open && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-night-deep lg:hidden" role="dialog" aria-modal="true" aria-label="Site menu">
-          <div className="container-site flex h-[68px] flex-none items-center justify-between border-b border-line">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-night lg:hidden" role="dialog" aria-modal="true" aria-label="Site menu">
+          <div className="container-site flex h-[72px] flex-none items-center justify-between border-b border-line">
             <Link to="/" className="flex items-center gap-3" aria-label="Sabra HC home" onClick={() => setOpen(false)}>
-              <img src={crest} alt="" className="h-11 w-11 object-contain" />
-              <span className="font-display text-2xl font-black uppercase">
-                Sabra <span className="text-sand">HC</span>
-              </span>
+              <img src={crest} alt="" className="h-12 w-12 object-contain" />
+              <span className="font-display text-lg font-black uppercase tracking-tight">Sabra HC</span>
             </Link>
             <button type="button" className="inline-flex h-11 w-11 items-center justify-center text-ice-white hover:text-sand" aria-label="Close menu" onClick={() => setOpen(false)}>
               <X className="h-7 w-7" />
             </button>
           </div>
-          <ul className="container-site flex flex-1 flex-col overflow-y-auto py-4">
-            {[...links, { to: "/pride", label: "Join the Pride" }, { to: "/partners", label: "Partners" }, { to: "/contact", label: "Contact" }].map((l, i) => (
+          <ul className="container-site flex flex-1 flex-col overflow-y-auto py-3">
+            {[...left, ...right, ...extra].map((l) => (
               <li key={l.to} className="border-b border-line">
                 <NavLink
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className={({ isActive }) => `flex items-baseline gap-4 py-3.5 font-display text-4xl font-black uppercase ${isActive ? "text-sand" : "text-ice-white"}`}
+                  className={({ isActive }) => `flex items-baseline justify-between gap-4 py-3.5 ${isActive ? "text-sand" : "text-ice-white"}`}
                 >
-                  <span className="tabular w-8 text-lg text-muted-text">{String(i + 1).padStart(2, "0")}</span>
-                  {l.label}
+                  <span className="font-display text-2xl font-black uppercase">{l.label}</span>
+                  <span lang="he" className="text-lg font-bold text-muted-text">
+                    {l.he}
+                  </span>
                 </NavLink>
               </li>
             ))}

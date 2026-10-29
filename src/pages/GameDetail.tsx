@@ -22,14 +22,14 @@ const GameDetail = () => {
           <div className="mt-8 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
             <div className="flex flex-col items-center gap-3">
               <img src={crest} alt="" className="h-24 w-24 object-contain sm:h-36 sm:w-36" />
-              <p className="font-display text-2xl font-black uppercase text-ice-white sm:text-4xl">Sabra HC</p>
+              <p className="font-display text-xl font-black uppercase text-ice-white sm:text-3xl">Sabra HC</p>
             </div>
-            <p className="tabular font-display text-6xl font-black text-ice-white sm:text-8xl">
+            <p className="tabular font-display text-4xl font-black text-ice-white sm:text-6xl">
               {final ? `${game.sabraScore}–${game.opponentScore}` : "VS"}
             </p>
             <div className="flex flex-col items-center gap-3">
               <OpponentMark game={game} letters={2} className="h-24 w-24 sm:h-36 sm:w-36" />
-              <p className="font-display text-2xl font-black uppercase text-ice-white sm:text-4xl">{game.opponent}</p>
+              <p className="font-display text-xl font-black uppercase text-ice-white sm:text-3xl">{game.opponent}</p>
               {game.opponentUrl && <a href={game.opponentUrl} target="_blank" rel="noreferrer" className="label text-xs text-ice underline">Team site</a>}
             </div>
           </div>
@@ -44,14 +44,14 @@ const GameDetail = () => {
         <div className="container-site grid items-start gap-8 lg:grid-cols-[1.3fr_1fr]">
           {final ? <GameRecap game={game} /> : game.preview ? (
             <div>
-              <h2 className="text-4xl font-black text-ice-white">Preview</h2>
+              <h2 className="text-3xl font-black text-ice-white">Preview</h2>
               <p className="mt-3 text-lg text-muted-text">{game.preview}</p>
             </div>
           ) : <div />}
           <div className="grid gap-4">
             {place && (
               <div className="border border-line bg-night p-6">
-                <h2 className="flex items-center gap-2 text-3xl font-black text-ice-white">
+                <h2 className="flex items-center gap-2 text-2xl font-black text-ice-white">
                   <MapPin className="h-6 w-6 text-sand" /> {place}
                 </h2>
               </div>

@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
-import { PlanChartArt } from "@/components/motion";
 import SignupForm from "@/components/SignupForm";
 
 const Invest = () => (
   <>
-    <PageHero cam="CAM 7 · The plan" status="Founding round" tone="sand" art={<PlanChartArt />}
+    <PageHero he="בעלות והשקעה"
       eyebrow="Ownership & investment"
       title="Own a piece of Israel's club"
       intro="Sabra HC LLC is raising a founding round from a small group of partners who want to build Israel's flagship hockey club."
@@ -20,13 +19,13 @@ const Invest = () => (
             ["The structure", "A privately owned US LLC, with a three-season founding commitment from owners."],
           ].map(([t, b]) => (
             <div key={t as string} className="border-t-4 border-sand pt-4">
-              <h2 className="text-4xl font-black text-ice-white">{t}</h2>
+              <h2 className="text-3xl font-black text-ice-white">{t}</h2>
               <p className="mt-2 text-lg text-muted-text">{b}</p>
             </div>
           ))}
         </div>
         <div className="rounded-lg border border-line bg-night-2 p-6 sm:p-8">
-          <h2 className="text-4xl font-black text-ice-white">Request the investor pack</h2>
+          <h2 className="text-3xl font-black text-ice-white">Request the investor pack</h2>
           <p className="mb-6 mt-2 text-muted-text">We'll send the presentation and arrange a call.</p>
           <SignupForm
             source="investor"

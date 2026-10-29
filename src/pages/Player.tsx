@@ -44,7 +44,7 @@ const Player = () => {
           <CamFrame label={`CAM · ${p.lastName} portrait`} corners="diagonal" image={p.photo} imageAlt={name} className="aspect-[4/5] border border-line">
             <span
               aria-hidden="true"
-              className="outline-num tabular absolute -right-3 -top-8 font-display text-[260px] font-black leading-none"
+              className="outline-num tabular absolute -right-3 -top-8 font-display text-[166px] font-black leading-none"
             >
               {p.number}
             </span>
@@ -56,7 +56,7 @@ const Player = () => {
               {p.tag && <span className="tag-ice">{p.tag}</span>}
               {p.captain && <span className="tag-white">{p.captain === "C" ? "Captain" : "Alternate"}</span>}
             </div>
-            <h1 className="mt-3 font-display text-7xl font-black uppercase leading-[0.84] sm:text-8xl lg:text-[140px]">
+            <h1 className="mt-3 font-display text-5xl font-black uppercase leading-[0.84] sm:text-6xl lg:text-[90px]">
               {p.firstName}
               <br />
               <span className="text-sand">{p.lastName}</span>
@@ -66,7 +66,7 @@ const Player = () => {
                 {info.map(([k, v]) => (
                   <div key={k} className="bg-night px-4 py-3">
                     <dt className="label text-xs text-muted-text">{k}</dt>
-                    <dd className="font-display text-2xl font-black uppercase">{v}</dd>
+                    <dd className="font-display text-xl font-black uppercase">{v}</dd>
                   </div>
                 ))}
               </dl>
@@ -82,7 +82,7 @@ const Player = () => {
 
       <section className="bg-night py-16" aria-labelledby="statline">
         <div className="container-site">
-          <h2 id="statline" className="label mb-4 text-sm text-muted-text">
+          <h2 id="statline" className="label mb-4 text-xs text-muted-text">
             2026–27 · Sabra HC
           </h2>
           <StatGrid
@@ -97,13 +97,13 @@ const Player = () => {
         <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div>
             <span className="tag-ice">The journey</span>
-            <h2 id="journey-title" className="mt-2 font-display text-6xl font-black uppercase leading-[0.88] sm:text-7xl">
+            <h2 id="journey-title" className="mt-2 font-display text-4xl font-black uppercase leading-[0.88] sm:text-5xl">
               {p.hometown ? `From ${p.hometown}` : "The road"}
               <br />
               <span className="text-sand">to the lion</span>
             </h2>
             {p.quote && (
-              <blockquote className="mt-8 border-l-[6px] border-sand bg-night px-6 py-5 font-display text-3xl font-bold uppercase leading-tight">
+              <blockquote className="mt-8 border-l-[6px] border-sand bg-night px-6 py-5 font-display text-2xl font-bold uppercase leading-tight">
                 “{p.quote}”
                 <footer className="label mt-3 text-sm text-muted-text">{name}</footer>
               </blockquote>
@@ -116,7 +116,7 @@ const Player = () => {
                 <li key={`${s.seasons}-${s.club}`} className="relative pb-8 pl-8 last:pb-0">
                   <span className={`absolute -left-[11px] top-1.5 h-5 w-5 rounded-full border-4 border-night-deep ${last ? "bg-sand" : "bg-ice"}`} aria-hidden="true" />
                   <p className="label tabular text-sm text-muted-text">{s.seasons}</p>
-                  <p className={`font-display text-4xl font-black uppercase leading-none ${last ? "text-sand" : ""}`}>{s.club}</p>
+                  <p className={`font-display text-3xl font-black uppercase leading-none ${last ? "text-sand" : ""}`}>{s.club}</p>
                   <p className="text-muted-text">
                     {s.league}
                     {s.note ? ` · ${s.note}` : ""}
@@ -131,14 +131,14 @@ const Player = () => {
       <section className="bg-night py-20" aria-labelledby="pfirsts">
         <div className="container-site">
           <span className="tag-sand">In the jersey</span>
-          <h2 id="pfirsts" className="mt-2 font-display text-5xl font-black uppercase sm:text-6xl">
+          <h2 id="pfirsts" className="mt-2 font-display text-3xl font-black uppercase sm:text-4xl">
             {p.lastName}'s firsts
           </h2>
           {mine.length ? (
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {mine.map((f) => (
                 <li key={f.title} className="border border-sand bg-sand/10 p-5">
-                  <p className="font-display text-3xl font-black uppercase">{f.title}</p>
+                  <p className="font-display text-2xl font-black uppercase">{f.title}</p>
                   <p className="label mt-2 text-sm">{f.date}</p>
                 </li>
               ))}

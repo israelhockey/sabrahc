@@ -6,23 +6,9 @@ import SignupForm from "@/components/SignupForm";
 import SectionHeading from "@/components/SectionHeading";
 import { club } from "@/data/club";
 
-const TourMapArt = () => (
-  <div className="mg-float border border-night/15 bg-white shadow-[0_30px_70px_-35px_rgba(6,13,26,0.55)]">
-    <div className="flex items-center justify-between gap-3 bg-night px-4 py-2.5">
-      <span className="label text-xs text-ice-white sm:text-sm">{club.seasonName}</span>
-      <span className="label text-xs text-sand sm:text-sm">Cities on our list</span>
-    </div>
-    <TourMap />
-  </div>
-);
-
 const Season = () => (
   <>
-    <PageHero
-      cam="CAM 1 · Tour map"
-      status="On tour"
-      tone="live"
-      art={<TourMapArt />}
+    <PageHero he="הסיור בצפון אמריקה"
       eyebrow={`${club.season} · ${club.leagueShort}`}
       title={
         <>
@@ -37,6 +23,13 @@ const Season = () => (
     <section className="bg-night py-16" aria-labelledby="stops-title">
       <div className="container-site">
         <SectionHeading id="stops-title" eyebrow="Weekend by weekend" title="Tour stops" />
+        <div className="mb-8 overflow-hidden rounded border border-line">
+          <div className="panel-head bg-night-2">
+            <span>Cities on our list</span>
+            <span className="text-sand">Dates announced as they're booked</span>
+          </div>
+          <TourMap light={false} />
+        </div>
         <TourStops wide />
       </div>
     </section>
@@ -53,7 +46,7 @@ const Season = () => (
           ["The partner", "A local business presents the weekend: \"Sabra HC in your city, presented by…\""],
         ].map(([t, b]) => (
           <div key={t} className="border-t-4 border-sand bg-night p-5">
-            <h3 className="font-display text-3xl font-black uppercase">{t}</h3>
+            <h3 className="font-display text-2xl font-black uppercase">{t}</h3>
             <p className="mt-2 text-muted-text">{b}</p>
           </div>
         ))}
@@ -72,7 +65,7 @@ const Season = () => (
       <div className="container-site grid items-center gap-8 lg:grid-cols-2">
         <div>
           <span className="tag-live">Tour alerts</span>
-          <h2 id="tour-alerts" className="mt-2 font-display text-5xl font-black uppercase leading-[0.9] sm:text-6xl">
+          <h2 id="tour-alerts" className="mt-2 font-display text-3xl font-black uppercase leading-[0.9] sm:text-4xl">
             Know when we're coming
           </h2>
           <p className="mt-3 text-lg text-muted-text">

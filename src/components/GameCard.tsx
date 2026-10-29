@@ -8,7 +8,7 @@ const competitionColor: Record<Game["competition"], string> = {
   "Tour exhibition": "bg-sand text-night",
   "Israeli league": "bg-ice-white text-night",
   "Sabra Series": "bg-sand text-night",
-  International: "bg-[#2F6B45] text-ice-white",
+  International: "bg-[#1E5640] text-ice-white",
 };
 
 const GameCard = ({ game }: { game: Game }) => {
@@ -17,7 +17,7 @@ const GameCard = ({ game }: { game: Game }) => {
   return (
     <article className="card-lift grid gap-4 rounded-lg border border-line bg-night-2 p-5 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-6">
       <div className="tabular min-w-[96px]">
-        <p className="font-display text-2xl font-black uppercase text-ice-white">{gameDate(game)}</p>
+        <p className="font-display text-xl font-black uppercase text-ice-white">{gameDate(game)}</p>
         <p className="text-sm text-muted-text">{final ? "Final" : gameTime(game)}</p>
       </div>
       <div className="flex flex-wrap items-center gap-3">
@@ -26,7 +26,7 @@ const GameCard = ({ game }: { game: Game }) => {
         </span>
         <div className="flex items-center gap-3">
           <img src={crest} alt="" className="h-9 w-9 object-contain" />
-          <p className="font-display text-2xl font-black uppercase text-ice-white">
+          <p className="font-display text-xl font-black uppercase text-ice-white">
             {game.home ? "Sabra HC vs" : "Sabra HC at"} {game.opponent}
           </p>
         </div>
@@ -34,7 +34,7 @@ const GameCard = ({ game }: { game: Game }) => {
       </div>
       <div className="flex items-center gap-3">
         {final ? (
-          <p className="tabular font-display text-4xl font-black text-ice-white">
+          <p className="tabular font-display text-3xl font-black text-ice-white">
             {game.sabraScore}–{game.opponentScore}
             {game.result && <span className="ml-2 text-xl text-sand">{game.result}</span>}
           </p>

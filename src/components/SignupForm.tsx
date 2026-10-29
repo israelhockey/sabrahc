@@ -82,12 +82,12 @@ const SignupForm = ({ source, fields, submitLabel, successTitle, successBody, to
 
   if (state === "done") {
     return (
-      <div role="status" className={`rounded-lg border p-8 ${tone === "light" ? "border-[#C5D0DB] bg-white" : "border-line bg-night-2"}`}>
+      <div role="status" className={`rounded-lg border p-8 ${tone === "light" ? "border-[#D9C9A4] bg-white" : "border-line bg-night-2"}`}>
         <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-sand text-night">
           <Check className="h-6 w-6" />
         </div>
-        <h3 className={`text-3xl font-black ${tone === "light" ? "text-night" : "text-ice-white"}`}>{successTitle}</h3>
-        {successBody && <p className={`mt-2 text-lg ${tone === "light" ? "text-[#3B4A63]" : "text-muted-text"}`}>{successBody}</p>}
+        <h3 className={`text-2xl font-black ${tone === "light" ? "text-night" : "text-ice-white"}`}>{successTitle}</h3>
+        {successBody && <p className={`mt-2 text-lg ${tone === "light" ? "text-[#3E4F44]" : "text-muted-text"}`}>{successBody}</p>}
       </div>
     );
   }

@@ -121,7 +121,7 @@ const Admin = () => {
       <div className="flex min-h-screen items-center justify-center bg-night px-4">
         <form onSubmit={(e) => { e.preventDefault(); fetchSignups(key); }} className="w-full max-w-sm rounded-lg border border-line bg-night-2 p-8">
           <img src={crest} alt="" className="mx-auto mb-4 h-20 w-20 object-contain" />
-          <h1 className="mb-6 flex items-center justify-center gap-2 text-3xl font-black text-ice-white">
+          <h1 className="mb-6 flex items-center justify-center gap-2 text-2xl font-black text-ice-white">
             <ShieldCheck className="h-6 w-6 text-sand" /> Admin
           </h1>
           <label htmlFor="admin-key" className="mb-1.5 block text-sm font-semibold text-ice-white">
@@ -143,7 +143,7 @@ const Admin = () => {
         <div className="container-site flex flex-wrap items-center justify-between gap-4 py-5">
           <div className="flex items-center gap-3">
             <img src={crest} alt="" className="h-10 w-10 object-contain" />
-            <h1 className="text-3xl font-black text-ice-white">Sign-ups</h1>
+            <h1 className="text-2xl font-black text-ice-white">Sign-ups</h1>
           </div>
           <div className="flex gap-2">
             <button onClick={exportCSV} className="btn-outline min-h-[44px] px-4 text-base">

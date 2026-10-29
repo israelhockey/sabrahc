@@ -1,18 +1,12 @@
 import { Link } from "react-router-dom";
 import crest from "@/assets/sabra-crest.webp";
-import ContourField from "@/components/ContourField";
 import PageHero from "@/components/PageHero";
-import { RouteMapArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import { roadToEurope, staff } from "@/data/club";
 
 const Club = () => (
   <>
-    <PageHero
-      cam="CAM 9 · Route map"
-      status="Est. 2026"
-      tone="sand"
-      art={<RouteMapArt />}
+    <PageHero he="המועדון"
       eyebrow="The club"
       title={
         <>
@@ -26,8 +20,8 @@ const Club = () => (
 
     <section className="bg-night py-20" aria-labelledby="story-title">
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.2fr]">
-        <h2 id="story-title" className="text-5xl font-black text-ice-white sm:text-6xl">Our story</h2>
-        <div className="space-y-5 text-lg leading-relaxed text-[#C9D6E6]">
+        <h2 id="story-title" className="text-3xl font-black text-ice-white sm:text-4xl">Our story</h2>
+        <div className="space-y-5 text-lg leading-relaxed text-[#D9E3DC]">
           <p>
             Hockey has been played in Israel for decades. Israeli teams compete at IIHF World Championships every year, and a growing community of players,
             coaches and families keeps the game alive.
@@ -49,8 +43,8 @@ const Club = () => (
         <img src={crest} alt="The Sabra HC crest" className="mx-auto w-full max-w-md" />
         <div>
           <span className="tag-dark">The name and the crest</span>
-          <h2 id="crest-title" className="mt-2 font-display text-5xl font-black uppercase leading-[0.9] text-night sm:text-7xl">Tough outside. Sweet inside.</h2>
-          <div className="mt-6 space-y-4 text-lg text-[#3B4A63]">
+          <h2 id="crest-title" className="mt-2 font-display text-3xl font-black uppercase leading-[0.9] text-night sm:text-5xl">Tough outside. Sweet inside.</h2>
+          <div className="mt-6 space-y-4 text-lg text-[#3E4F44]">
             <p>
               A <strong className="text-night">sabra</strong> is the cactus fruit that is thorny on the outside and sweet on the inside, and the word for a
               native-born Israeli. It's how we play.
@@ -58,14 +52,14 @@ const Club = () => (
             <p>The <strong className="text-night">lion</strong> stands for strength, its mane grown from the sabra cactus. The Star of David anchors the club to its home.</p>
             <ul className="grid gap-3 pt-2 sm:grid-cols-3">
               {[
-                ["#13274D", "Navy", "The desert night"],
-                ["#D6A84A", "Gold", "The sand"],
-                ["#F2F7FA", "White", "The ice"],
+                ["#0F3B2A", "Navy", "The desert night"],
+                ["#E8B547", "Gold", "The sand"],
+                ["#F3E9D2", "White", "The ice"],
               ].map(([c, n, m]) => (
-                <li key={n} className="flex items-center gap-3 rounded-md border border-[#D5DEE6] bg-white p-3">
-                  <span className="h-10 w-10 shrink-0 rounded-full border border-[#C5D0DB]" style={{ background: c }} aria-hidden="true" />
+                <li key={n} className="flex items-center gap-3 rounded-md border border-[#D9C9A4] bg-white p-3">
+                  <span className="h-10 w-10 shrink-0 rounded-full border border-[#D9C9A4]" style={{ background: c }} aria-hidden="true" />
                   <span>
-                    <span className="block font-display text-xl font-black uppercase text-night">{n}</span>
+                    <span className="block font-display text-lg font-black uppercase text-night">{n}</span>
                     <span className="text-sm">{m}</span>
                   </span>
                 </li>
@@ -86,7 +80,7 @@ const Club = () => (
             ["Israel on the map", "Israel's team in front of crowds across North America now, European clubs on Israeli ice next, and an Israeli club carrying the flag in Europe."],
           ].map(([t, b]) => (
             <div key={t} className="rounded-lg border border-line bg-night-2 p-8">
-              <h3 className="text-4xl font-black text-sand">{t}</h3>
+              <h3 className="text-3xl font-black text-sand">{t}</h3>
               <p className="mt-3 text-lg text-muted-text">{b}</p>
             </div>
           ))}
@@ -94,8 +88,7 @@ const Club = () => (
       </div>
     </section>
 
-    <section id="road-to-europe" className="relative scroll-mt-28 overflow-hidden border-y border-line bg-night-2 py-24" aria-labelledby="road-title">
-      <ContourField variant="desert" opacity={0.6} />
+    <section id="road-to-europe" className="crowd relative scroll-mt-28 overflow-hidden border-y border-line py-24" aria-labelledby="road-title">
       <div className="container-site relative">
         <SectionHeading id="road-title" eyebrow="Our plan" title="The road to Europe" intro="These are goals, not results. Each step has a gate that must be met before the next one." />
         <ol className="relative ml-3 border-l-2 border-line">
@@ -107,7 +100,7 @@ const Club = () => (
                 aria-hidden="true"
               />
               <p className={`tabular text-sm font-bold uppercase tracking-[0.2em] ${i < 2 ? "text-sand" : "text-ice"}`}>{s.season}</p>
-              <h3 className="mt-1 text-5xl font-black text-ice-white">{s.title}</h3>
+              <h3 className="mt-1 text-3xl font-black text-ice-white">{s.title}</h3>
               <p className="mt-2 max-w-2xl text-lg text-muted-text">{s.body}</p>
               <p className="mt-3 inline-block rounded-md bg-night px-4 py-2 text-sm text-ice-white">
                 <span className="font-bold text-sand">Gate:</span> {s.gate}
@@ -127,7 +120,7 @@ const Club = () => (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {staff.map((s) => (
               <div key={s.name} className="rounded-lg border border-line bg-night-2 p-6">
-                <h3 className="text-3xl font-black text-ice-white">{s.name}</h3>
+                <h3 className="text-2xl font-black text-ice-white">{s.name}</h3>
                 <p className="text-sand">{s.role}</p>
                 {s.bio && <p className="mt-2 text-muted-text">{s.bio}</p>}
               </div>
@@ -139,7 +132,7 @@ const Club = () => (
 
     <section className="bg-sand py-20">
       <div className="container-site flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
-        <h2 className="text-6xl font-black text-night sm:text-7xl">We're just getting started.</h2>
+        <h2 className="text-4xl font-black text-night sm:text-5xl">We're just getting started.</h2>
         <div className="flex flex-wrap gap-3">
           <Link to="/pride" className="btn-dark">
             Join the Pride

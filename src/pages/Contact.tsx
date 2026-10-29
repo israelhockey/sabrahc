@@ -1,30 +1,29 @@
 import { Link } from "react-router-dom";
 import { Mail, Handshake, Megaphone } from "lucide-react";
 import PageHero from "@/components/PageHero";
-import { SignalArt } from "@/components/motion";
 import SectionHeading from "@/components/SectionHeading";
 import SignupForm from "@/components/SignupForm";
 import { club } from "@/data/club";
 
 const Contact = () => (
   <>
-    <PageHero cam="CAM 8 · Comms" status="Receiving" tone="live" art={<SignalArt />} eyebrow="Get in touch" title="Contact" intro="Questions, partnerships, media or try-outs. We read everything." />
+    <PageHero he="צור קשר" eyebrow="Get in touch" title="Contact" intro="Questions, partnerships, media or try-outs. We read everything." />
 
     <section className="bg-night py-16">
       <div className="container-site grid gap-6 md:grid-cols-3">
         <a href={`mailto:${club.email}`} className="card-lift rounded-lg border border-line bg-night-2 p-7">
           <Mail className="h-8 w-8 text-sand" aria-hidden="true" />
-          <h2 className="mt-3 text-3xl font-black text-ice-white">General</h2>
+          <h2 className="mt-3 text-2xl font-black text-ice-white">General</h2>
           <p className="text-ice">{club.email}</p>
         </a>
         <Link to="/partners" className="card-lift rounded-lg border border-line bg-night-2 p-7">
           <Handshake className="h-8 w-8 text-sand" aria-hidden="true" />
-          <h2 className="mt-3 text-3xl font-black text-ice-white">Partners</h2>
+          <h2 className="mt-3 text-2xl font-black text-ice-white">Partners</h2>
           <p className="text-muted-text">Partnership enquiry form</p>
         </Link>
         <a href={`mailto:${club.email}?subject=Media%20enquiry`} className="card-lift rounded-lg border border-line bg-night-2 p-7">
           <Megaphone className="h-8 w-8 text-sand" aria-hidden="true" />
-          <h2 className="mt-3 text-3xl font-black text-ice-white">Media</h2>
+          <h2 className="mt-3 text-2xl font-black text-ice-white">Media</h2>
           <p className="text-muted-text">Press and interview requests</p>
         </a>
       </div>
