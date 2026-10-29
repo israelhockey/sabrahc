@@ -64,6 +64,9 @@ export type TourStop = {
   status: "played" | "next" | "planned";
   record?: string; // e.g. "1–1"
   note?: string;
+  /** Host city coordinates, so the stop shows on the tour map. */
+  lat?: number;
+  lon?: number;
 };
 
 export const tourStops: TourStop[] = [
@@ -75,6 +78,8 @@ export const tourStops: TourStop[] = [
     city: "Mansfield",
     region: "TX",
     country: "USA",
+    lat: 32.563,
+    lon: -97.142,
     status: "played",
     record: "1–1",
     note: "A 5–3 win, then a 7–6 loss after a four-goal third period.",

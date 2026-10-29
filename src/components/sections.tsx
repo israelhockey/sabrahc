@@ -166,8 +166,8 @@ export const TourSection = () => (
       <div className="grid items-start gap-6 lg:grid-cols-[1.3fr_1fr]">
         <div className="border border-line">
           <div className="panel-head bg-night-2">
-            <span>Cities on our list</span>
-            <span className="text-sand">Dates announced as they're booked</span>
+            <span>The route so far · <span lang="he">המסלול</span></span>
+            <span className="text-sand">Tap a city</span>
           </div>
           <TourMap light={false} />
         </div>

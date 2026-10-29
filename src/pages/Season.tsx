@@ -25,8 +25,8 @@ const Season = () => (
         <SectionHeading id="stops-title" eyebrow="Weekend by weekend" title="Tour stops" />
         <div className="mb-8 overflow-hidden rounded border border-line">
           <div className="panel-head bg-night-2">
-            <span>Cities on our list</span>
-            <span className="text-sand">Dates announced as they're booked</span>
+            <span>The route so far · <span lang="he">המסלול</span></span>
+            <span className="text-sand">Tap a city</span>
           </div>
           <TourMap light={false} />
         </div>
