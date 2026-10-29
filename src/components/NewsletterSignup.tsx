@@ -5,7 +5,7 @@ const NewsletterSignup = () => (
     <div className="container-site grid items-center gap-8 py-14 lg:grid-cols-2">
       <div>
         <p className="label text-xs text-sand">
-          Tour alerts <span lang="he">· עדכונים</span>
+          Tour alerts · <span lang="he">עדכונים</span>
         </p>
         <h2 id="newsletter-title" className="mt-2 text-4xl font-black leading-[0.95] sm:text-5xl">
           Never miss a stop

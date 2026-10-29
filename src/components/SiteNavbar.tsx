@@ -41,7 +41,7 @@ const GameStrip = () => {
     <div className="border-b border-line bg-night-deep text-[13px]">
       <div className="container-site flex items-center gap-x-6 gap-y-1 overflow-x-auto py-2 [scrollbar-width:none]">
         <span className="flex-none font-bold text-sand">
-          TOUR GAMES <span lang="he">· משחקים</span>
+          TOUR GAMES · <span lang="he">משחקים</span>
         </span>
         {results.map((g) => (
           <Link key={g.id} to={`/games/${g.id}`} className="flex-none whitespace-nowrap text-ice-white hover:text-sand">

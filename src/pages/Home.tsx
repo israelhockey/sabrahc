@@ -41,7 +41,7 @@ const Hero = () => (
       </div>
     </div>
     <p className="absolute bottom-5 right-6 text-sm font-bold text-sand" aria-hidden="true">
-      Scroll <span lang="he">· גללו</span> ↓
+      Scroll · <span lang="he">גללו</span> ↓
     </p>
   </section>
 );
@@ -103,7 +103,7 @@ const NextStop = () => {
         <div className="grid items-center gap-5 rounded border-2 border-sand p-6 sm:p-8 lg:grid-cols-[minmax(0,1.3fr)_repeat(2,minmax(0,1fr))_auto]">
           <div>
             <p className="label text-xs text-sand">
-              Next stop <span lang="he">· התחנה הבאה</span>
+              Next stop · <span lang="he">התחנה הבאה</span>
             </p>
             <h2 id="next-title" className="mt-1 font-display text-3xl font-black uppercase leading-[0.95] sm:text-4xl">
               {next ? next.city ?? `vs ${next.opponent}` : "Being booked"}
@@ -118,7 +118,7 @@ const NextStop = () => {
           </div>
           <div className="rounded bg-night-deep px-5 py-4">
             <p className="label text-[11px] text-muted-text">
-              In Israel <span lang="he">· שעון ישראל</span>
+              In Israel · <span lang="he">שעון ישראל</span>
             </p>
             <p className="mt-1 font-display text-xl font-black">{next ? formatGameTime(next.date, "Asia/Jerusalem") : "Shown with every game"}</p>
           </div>
@@ -137,6 +137,43 @@ const NextStop = () => {
     </section>
   );
 };
+
+/* ---------- The story so far ---------- */
+
+const chapters = [
+  { when: "2023–26", title: "Israel Selects", body: "Three seasons bringing players from Israel Elite Hockey League teams and Israel's national team to play in North America." },
+  { when: "2026–27 · now", title: "The North American Tour", body: "The Selects play as Sabra HC: weekend series in cities with big Jewish communities, building the fans and partners." },
+  { when: "2027–28 and on", title: "Home, then Europe", body: "The Israeli league and European clubs in Israel, the Continental Cup as champions, and a European league by 2031." },
+];
+
+const StorySoFar = () => (
+  <section aria-labelledby="story-title" className="bg-night pt-20 lg:pt-24">
+    <div className="container-site">
+      <SectionTitle
+        id="story-title"
+        tag="The story so far"
+        he="הסיפור שלנו"
+        title="From Selects to Sabra"
+        action={
+          <Link to="/club" className="btn-ghost">
+            Our story
+          </Link>
+        }
+      />
+      <ol className="grid gap-3 md:grid-cols-3">
+        {chapters.map((c, i) => (
+          <li key={c.title} className={`rounded border p-6 ${i === 1 ? "border-sand bg-sand text-night" : "border-line bg-night-2"}`}>
+            <p className={`label text-xs ${i === 1 ? "" : "text-sand"}`}>
+              Chapter {i + 1} · {c.when}
+            </p>
+            <h3 className="mt-2 font-display text-2xl font-black uppercase leading-tight">{c.title}</h3>
+            <p className={`mt-2 ${i === 1 ? "font-medium" : "text-[#D9E3DC]"}`}>{c.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+);
 
 /* ---------- From the stands ---------- */
 
@@ -309,7 +346,7 @@ const ScarvesUp = () => (
     <div className="container-site mt-14 grid items-end gap-6 lg:grid-cols-[1fr_auto]">
       <div>
         <p className="label text-xs text-sand">
-          Founding membership <span lang="he">· הגאווה</span>
+          Founding membership · <span lang="he">הגאווה</span>
         </p>
         <h2 id="pride-title" className="mt-2 font-display text-4xl font-black uppercase leading-[0.95] sm:text-6xl">
           Join the Pride
@@ -328,6 +365,7 @@ const Home = () => (
     <Hero />
     <LastGameBand />
     <NextStop />
+    <StorySoFar />
     <TourSection />
     <GameCentre />
     <TifoWall />

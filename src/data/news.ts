@@ -49,7 +49,7 @@ export const articles: Article[] = [
     imageFit: "contain",
     featured: true,
     body: [
-      "For three seasons, Israel Selects have brought Israeli and Jewish players together to play across North America. This season the team has a new name and a bigger mission: Israel Selects are now Sabra HC, Israel's flagship hockey club.",
+      "For three seasons, Israel Selects brought together players from Israel Elite Hockey League teams and Israel's national team to play across North America. This season the team has a new name and a bigger mission: Israel Selects are now Sabra HC, the club the same group founded in 2026 to take Israeli hockey home and then into Europe.",
       {
         type: "facts",
         items: [
@@ -60,7 +60,7 @@ export const articles: Article[] = [
         ],
       },
       { type: "heading", text: "Same players, new name" },
-      "Nothing about who we are has changed. The players still live across North America and join the tour weekend by weekend. What changes is what they play for: a club with a five-year plan to take Israeli hockey home and then into Europe.",
+      "Nothing about who we are has changed. The players still live across North America and join the tour weekend by weekend. What changes is what they play for: a club with a five-year plan. Start on tour, where the players, many of the fans and many of the partners already are. Then bring the club home to Israel, and from there into Europe.",
       "This season Sabra HC tours North America in the Mountain Hockey League, with weekend series in cities with big Jewish communities. Every stop is a community event, with the games, a meet-and-greet with the players and a local partner.",
       { type: "heading", text: "Weekend one: Mansfield" },
       {
@@ -159,13 +159,13 @@ export const articles: Article[] = [
           ["Founded", "2026"],
           ["Home", "Israel"],
           ["First season", "North American tour (MHL)"],
-          ["Colours", "Navy, gold and white"],
+          ["Colours", "Green, gold and cream"],
         ],
       },
       { type: "heading", text: "Why Sabra" },
       "A sabra is the cactus fruit that is tough on the outside and sweet on the inside, and the word Israelis use for someone born here. It is how we want to play: hard to beat, and proud of where we come from.",
       { type: "heading", text: "The crest" },
-      "The lion stands for strength, its mane grown from sabra cactus. The Star of David anchors the club to its home. Navy for the desert night, gold for the sand, white for the ice.",
+      "The lion stands for strength, its mane grown from sabra cactus. The Star of David anchors the club to its home. Green for the sabra cactus, gold for the desert and the lion, cream for the ice.",
       { type: "pullquote", text: "We want to be the club young Israeli players dream of playing for, and the club Jewish players around the world see as their way home." },
       { type: "heading", text: "The plan" },
       "Updated October 2026: our first season is a North American tour in the Mountain Hockey League, building the brand, the fan base and our partners in cities with big Jewish communities. In 2027–28 we come home to play in the Israeli league, launch the Sabra Series against an Israeli all-star selection, and bring the first European clubs to play in Israel. As Israeli champions we aim to compete in the IIHF Continental Cup, and the long-term goal is a place in a European league while still competing at home.",

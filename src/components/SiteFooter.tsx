@@ -15,7 +15,7 @@ const PartnerWall = () => (
       <div className="mb-7 flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="label text-xs text-sand">
-            With thanks to <span lang="he">· תודה</span>
+            With thanks to · <span lang="he">תודה</span>
           </p>
           <h2 id="partners-wall" className="mt-1 text-3xl font-black sm:text-4xl">
             Our partners

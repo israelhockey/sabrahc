@@ -23,16 +23,25 @@ const Club = () => (
         <h2 id="story-title" className="text-3xl font-black text-ice-white sm:text-4xl">Our story</h2>
         <div className="space-y-5 text-lg leading-relaxed text-[#D9E3DC]">
           <p>
-            Hockey has been played in Israel for decades. Israeli teams compete at IIHF World Championships every year, and a growing community of players,
+            Hockey has been played in Israel for decades. Israel's national teams compete at IIHF World Championships every year, and a growing community of players,
             coaches and families keeps the game alive.
           </p>
           <p>
-            What was missing was a club built to take Israeli hockey to the next level. Israel's top basketball and football clubs win at home and compete in
-            Europe. Hockey deserves the same.
+            What was missing was a club built to go further. Israel's top basketball and football clubs win at home and compete in Europe. Hockey had no club set up
+            to do the same.
+          </p>
+          <p>
+            <strong className="text-ice-white">Where we come from.</strong> For three seasons, Israel Selects brought together players from Israel Elite Hockey League
+            teams and Israel's national team to play in North America. Sabra HC was founded in 2026 by the people behind the Selects, and from the 2026–27 season the
+            Selects play as Sabra HC.
+          </p>
+          <p>
+            <strong className="text-ice-white">Why we start on tour.</strong> Our players live in North America, and so do many of the fans and partners who want to back
+            Israeli hockey. One season on the road, city by city, builds the following and the partners before we bring the club home.
           </p>
           <p className="font-semibold text-ice-white">
-            Sabra HC is that club. It grew out of Israel Selects, a team of Israeli and Jewish players that had already toured North America for three seasons.
-            In 2026 it became Sabra HC: privately owned, built to be Israel's flagship team, and starting its road to Europe with a North American tour.
+            Then home, then Europe: the Israeli league and the first European clubs on Israeli ice in 2027–28, the IIHF Continental Cup as Israeli champions, and a
+            place in a European league by 2031, while still competing at home.
           </p>
         </div>
       </div>
@@ -42,7 +51,7 @@ const Club = () => (
       <div className="container-site grid items-center gap-12 lg:grid-cols-2">
         <img src={crest} alt="The Sabra HC crest" className="mx-auto w-full max-w-md" />
         <div>
-          <span className="tag-dark">The name and the crest</span>
+          <p className="label text-xs text-sand-dark">The name and the crest · <span lang="he" className="normal-case tracking-normal">השם והסמל</span></p>
           <h2 id="crest-title" className="mt-2 font-display text-3xl font-black uppercase leading-[0.9] text-night sm:text-5xl">Tough outside. Sweet inside.</h2>
           <div className="mt-6 space-y-4 text-lg text-[#3E4F44]">
             <p>
@@ -52,9 +61,9 @@ const Club = () => (
             <p>The <strong className="text-night">lion</strong> stands for strength, its mane grown from the sabra cactus. The Star of David anchors the club to its home.</p>
             <ul className="grid gap-3 pt-2 sm:grid-cols-3">
               {[
-                ["#0F3B2A", "Navy", "The desert night"],
-                ["#E8B547", "Gold", "The sand"],
-                ["#F3E9D2", "White", "The ice"],
+                ["#0F3B2A", "Green", "The sabra cactus"],
+                ["#E8B547", "Gold", "The desert and the lion"],
+                ["#F3E9D2", "Cream", "The ice"],
               ].map(([c, n, m]) => (
                 <li key={n} className="flex items-center gap-3 rounded-md border border-[#D9C9A4] bg-white p-3">
                   <span className="h-10 w-10 shrink-0 rounded-full border border-[#D9C9A4]" style={{ background: c }} aria-hidden="true" />

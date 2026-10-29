@@ -43,9 +43,9 @@ export const SectionTitle = ({ tag, he, title, intro, id, action, light, as = "h
         <p className={`label text-xs sm:text-[13px] ${light ? "text-sand-dark" : "text-sand"}`}>
           {tag}
           {he && (
-            <span lang="he" className="normal-case tracking-normal">
-              {" "}· {he}
-            </span>
+            <>
+              {" "}· <span lang="he" className="normal-case tracking-normal">{he}</span>
+            </>
           )}
         </p>
         <H
