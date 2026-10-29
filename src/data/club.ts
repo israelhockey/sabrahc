@@ -292,7 +292,7 @@ export const roadToEurope = [
   {
     season: "2026–27",
     title: "The North American Tour",
-    body: "Israel's flagship team tours North America in the Mountain Hockey League, with weekend series in cities with big Jewish communities. Every stop is a community event.",
+    body: "Israel's flagship team tours North America in the Mountain Hockey League, with weekend series in cities with big Jewish communities. Every stop brings the local community together.",
     gate: "A brand, fans and partners across North America",
   },
   {

@@ -67,6 +67,7 @@ const SiteFooter = () => (
           <p lang="he" dir="rtl" className="mt-2 text-left text-xl font-black text-muted-text">
             נולדנו במדבר. נבנינו לקרח.
           </p>
+          <p className="mt-3 max-w-xs text-sm text-[#D9E3DC]">Israel's hockey club, bringing Jewish communities together at every stop.</p>
           <a href={`mailto:${club.email}`} className="mt-4 inline-block text-ice-white hover:text-sand">
             {club.email}
           </a>

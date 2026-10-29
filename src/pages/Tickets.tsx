@@ -7,6 +7,7 @@ import { upcomingGames } from "@/lib/games";
 
 const faqs = [
   { q: "How much are tickets?", a: "Each host rink sets its own prices. We list them with every weekend series as soon as they're confirmed." },
+  { q: "Can our synagogue, school or JCC come as a group?", a: "Yes, and we'd love that. Community nights are what the tour is built around. Fill in the group form and we'll plan it with you." },
   { q: "Can kids come?", a: "Absolutely. Hockey is a family game, and most stops include a meet-and-greet with the players." },
   { q: "Can the tour come to my city?", a: "Yes. Local partners and community groups can host a weekend series. Get in touch through the partners page." },
   { q: "Is the arena accessible?", a: "Contact us before the game and we'll make sure you have what you need." },
@@ -49,10 +50,10 @@ const Tickets = () => {
         </div>
       </section>
 
-      <section className="bg-night py-20" aria-labelledby="groups-title">
+      <section id="groups" className="scroll-mt-28 bg-night py-20" aria-labelledby="groups-title">
         <div className="container-site grid gap-12 lg:grid-cols-2">
           <div>
-            <SectionHeading id="groups-title" eyebrow="Groups & companies" title="Bring the crew" intro="Group tickets, company nights, birthdays and school trips. Tell us what you're planning." />
+            <SectionHeading id="groups-title" eyebrow="Community nights & groups" title="Bring your community" intro="Synagogues, JCCs, schools, youth groups and companies: we'll set up a group night with seats together and time with the players afterwards. Tell us what you're planning." />
           </div>
           <SignupForm
             source="tickets"

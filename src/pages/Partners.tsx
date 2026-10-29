@@ -6,7 +6,7 @@ import { partners } from "@/data/club";
 
 const why = [
   ["Israel's flagship club", "Be part of the club building Israeli hockey's future, from this season's tour to the Israeli league and Europe."],
-  ["Your local community", "Every tour stop is a community event in a city with a big Jewish community. Your brand is front and centre when we're in town."],
+  ["Your local community", "Every tour stop brings a city's Jewish community together. Your brand is at the heart of it when we're in town."],
   ["A global audience", "Reach Israeli fans, the worldwide Jewish community and the hockey world through streams and our tour series."],
   ["A brand at the start", "Partners who join now grow with the club and are remembered as founders."],
 ];
@@ -16,13 +16,13 @@ const offers = [
   { icon: LayoutPanelTop, title: "Present a tour stop", body: "\"Sabra HC in your city, presented by…\" for a full weekend series." },
   { icon: Trophy, title: "Game-night naming", body: "Present a single game, or a European visit next season." },
   { icon: Smartphone, title: "Digital & social", body: "Content series, highlights and stream branding." },
-  { icon: HeartHandshake, title: "Community", body: "Youth hockey and learn-to-skate programs." },
+  { icon: HeartHandshake, title: "Community nights", body: "Present the night that brings the local community together, plus youth clinics and learn-to-skate." },
   { icon: Wine, title: "Hospitality", body: "Host clients and teams at game nights." },
 ];
 
 const Partners = () => (
   <>
-    <PageHero he="שותפים" eyebrow="Partnerships" title="Partner with Israel's club" intro="Back Israel's flagship team as it tours North America this season, in your city or across the whole tour." />
+    <PageHero he="שותפים" eyebrow="Partnerships" title="Partner with Israel's club" intro="Back Israel's team as it tours North America this season and brings Jewish communities together, in your city or across the whole tour." />
 
     <section className="bg-ice-white py-20" aria-labelledby="current-title">
       <div className="container-site">

@@ -7,6 +7,7 @@ import { OpponentMark } from "@/components/tour";
 import { FirstsBoard, GameCentre, EpisodeRow, TourSection } from "@/components/sections";
 import { nextGame, finalGames, gamePlace, gameTime, formatGameTime, skaterStats, goalieStats } from "@/lib/games";
 import { stripDate } from "@/components/SiteNavbar";
+import Community from "@/components/Community";
 
 /* ---------- The banner ---------- */
 
@@ -26,7 +27,7 @@ const Hero = () => (
               אנחנו סברה
             </p>
             <p className="mt-5 max-w-lg text-lg font-medium sm:text-xl">
-              Israel's team, on tour across North America. Every weekend, a new city. Next season, home.
+              Israel's team, on tour across North America, bringing Jewish communities together at every stop. Next season, home.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/season" className="btn-dark">
@@ -142,7 +143,7 @@ const NextStop = () => {
 
 const chapters = [
   { when: "2023–26", title: "Israel Selects", body: "Three seasons bringing players from Israel Elite Hockey League teams and Israel's national team to play in North America." },
-  { when: "2026–27 · now", title: "The North American Tour", body: "The Selects play as Sabra HC: weekend series in cities with big Jewish communities, building the fans and partners." },
+  { when: "2026–27 · now", title: "The North American Tour", body: "The Selects play as Sabra HC: weekend series in cities with big Jewish communities, each one a night that brings the community together." },
   { when: "2027–28 and on", title: "Home, then Europe", body: "The Israeli league and European clubs in Israel, the Continental Cup as champions, and a European league by 2031." },
 ];
 
@@ -365,6 +366,7 @@ const Home = () => (
     <Hero />
     <LastGameBand />
     <NextStop />
+    <Community />
     <StorySoFar />
     <TourSection />
     <GameCentre />

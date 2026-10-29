@@ -3,6 +3,7 @@ import crest from "@/assets/sabra-crest.webp";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import { roadToEurope, staff } from "@/data/club";
+import Community from "@/components/Community";
 
 const Club = () => (
   <>
@@ -15,7 +16,7 @@ const Club = () => (
           <span className="mt-1 inline-block bg-night px-3 pb-1 text-sand">Built for the ice.</span>
         </>
       }
-      intro="A privately owned Israeli club with one plan: build the brand on a North American tour, win at home in Israel, bring European hockey to Israel, and take our place in a European league."
+      intro="A privately owned Israeli club that brings Jewish communities together around Israeli hockey. The plan: tour North America, win at home in Israel, bring European hockey to Israel, and take our place in a European league."
     />
 
     <section className="bg-night py-20" aria-labelledby="story-title">
@@ -36,6 +37,11 @@ const Club = () => (
             Selects play as Sabra HC.
           </p>
           <p>
+            <strong className="text-ice-white">Why we play.</strong> Sabra HC is more than a hockey team. Every game is a chance to bring the Jewish community together:
+            families, congregations, schools and friends in one building, cheering for Israel. We build every tour stop around that, with community nights, time with the
+            players, Shabbat and holiday events, and Israel in the stands.
+          </p>
+          <p>
             <strong className="text-ice-white">Why we start on tour.</strong> Our players live in North America, and so do many of the fans and partners who want to back
             Israeli hockey. One season on the road, city by city, builds the following and the partners before we bring the club home.
           </p>
@@ -46,6 +52,8 @@ const Club = () => (
         </div>
       </div>
     </section>
+
+    <Community />
 
     <section className="bg-ice-white py-20" aria-labelledby="crest-title">
       <div className="container-site grid items-center gap-12 lg:grid-cols-2">

@@ -156,7 +156,7 @@ export const TourSection = () => (
         tone="sand"
         he="הסיור"
         title="The Tour"
-        intro="This season Sabra HC tours North America in the Mountain Hockey League. Every weekend series is an event for the local community, with a game, a meet-and-greet and a local partner."
+        intro="This season Sabra HC tours North America in the Mountain Hockey League. Every weekend series brings the local Jewish community together, with the games, a community night, time with the players and a local partner."
         action={
           <Link to="/season" className="btn-ghost">
             Full tour

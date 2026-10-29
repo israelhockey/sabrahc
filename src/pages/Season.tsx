@@ -17,7 +17,7 @@ const Season = () => (
           American <span className="mt-1 inline-block bg-night px-3 pb-1 text-sand">Tour</span>
         </>
       }
-      intro="Israel's flagship team on the road. Each weekend series is a game and a community event in a city with a big Jewish community. Next season, the road leads home to Israel."
+      intro="Israel's flagship team on the road. Every weekend series brings a city's Jewish community together around the games. Next season, the road leads home to Israel."
     />
 
     <section className="bg-night py-16" aria-labelledby="stops-title">
@@ -41,7 +41,7 @@ const Season = () => (
         </div>
         {[
           ["The games", "Two games against the local MHL team or an exhibition opponent."],
-          ["The community", "A local federation, JCC or Hillel fills the stands and brings families."],
+          ["The community", "Synagogues, the JCC, schools and Hillel fill the stands together for a community night."],
           ["The kids", "A clinic or meet-and-greet with the players on game day."],
           ["The partner", "A local business presents the weekend: \"Sabra HC in your city, presented by…\""],
         ].map(([t, b]) => (
