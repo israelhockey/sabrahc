@@ -2,6 +2,9 @@
 // Empty lists show "coming soon" states on the site.
 
 import rdpLogo from "@/assets/rdp-logo.webp";
+import royStreetLogo from "@/assets/partner-roystreet.png";
+import barzelLogo from "@/assets/partner-barzel.png";
+import goKosherLogo from "@/assets/partner-gokosher.png";
 
 export const club = {
   name: "Sabra HC",
@@ -285,10 +288,10 @@ export type Partner = { name: string; tier: "Presenting Partner" | "Founding Par
 export const partners: Partner[] = [
   { name: "Lone Star Capital", tier: "Presenting Partner" },
   { name: "RDP Sports Management", tier: "Founding Partner", logo: rdpLogo },
-  { name: "Roy Street Advisors", tier: "Founding Partner" },
+  { name: "Roy Street Advisors", tier: "Founding Partner", logo: royStreetLogo },
   { name: "Straightline Management", tier: "Founding Partner" },
-  { name: "Go Kosher Panama", tier: "Founding Partner" },
-  { name: "Barzel Media", tier: "Founding Partner" },
+  { name: "Go Kosher Panama", tier: "Founding Partner", logo: goKosherLogo },
+  { name: "Barzel Media", tier: "Founding Partner", logo: barzelLogo },
 ];
 
 /* ---------- The plan ---------- */

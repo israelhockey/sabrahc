@@ -29,8 +29,8 @@ const PartnerWall = () => (
         {partners.map((p) => (
           <li key={p.name} className="flex min-h-[128px] flex-col items-center justify-center gap-2 rounded border border-line bg-night px-3 py-4 text-center">
             {p.logo ? (
-              <span className="flex h-14 items-center justify-center rounded bg-ice-white px-3">
-                <img src={p.logo} alt={p.name} className="h-10 w-auto object-contain" />
+              <span className="flex h-20 w-full items-center justify-center rounded bg-ice-white px-3 py-2">
+                <img src={p.logo} alt={p.name} className="max-h-full max-w-full object-contain" />
               </span>
             ) : (
               <span className="font-display text-base font-black uppercase leading-tight">{p.name}</span>

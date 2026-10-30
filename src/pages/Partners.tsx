@@ -224,7 +224,7 @@ const Partners = () => (
           {partners.map((p) => (
             <li key={p.name} className="flex min-h-[130px] flex-col items-center justify-center gap-2 rounded border border-[#D9C9A4] bg-white p-4 text-center">
               {p.logo ? (
-                <img src={p.logo} alt={p.name} className="h-12 w-auto object-contain" />
+                <img src={p.logo} alt={p.name} className="h-16 max-w-full object-contain" />
               ) : (
                 <span className="font-display text-base font-black uppercase leading-tight">{p.name}</span>
               )}
