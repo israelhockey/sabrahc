@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Shirt, Gift, Tv, Percent, Award } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
@@ -29,13 +28,6 @@ const Pride = () => (
             <p>
               The Pride is our supporter membership. Founding members help fund the club's first seasons and get first access to tickets, news and members-only
               moments.
-            </p>
-            <p className="rounded-md border border-line bg-night-2 p-4 text-base text-muted-text">
-              A membership is a supporter package. It is not ownership of the club or an investment. For ownership enquiries, see{" "}
-              <Link to="/invest" className="text-ice underline">
-                Ownership & Investment
-              </Link>
-              .
             </p>
           </div>
         </div>

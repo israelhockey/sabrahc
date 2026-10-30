@@ -16,7 +16,6 @@ import NewsArticle from "./pages/NewsArticle";
 import Club from "./pages/Club";
 import Partners from "./pages/Partners";
 import Pride from "./pages/Pride";
-import Invest from "./pages/Invest";
 import Contact from "./pages/Contact";
 import Host from "./pages/Host";
 import Stats from "./pages/Stats";
@@ -46,7 +45,7 @@ const App = () => (
             <Route path="/club" element={<Club />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/pride" element={<Pride />} />
-            <Route path="/invest" element={<Invest />} />
+            <Route path="/invest" element={<Navigate to="/" replace />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/host" element={<Host />} />
             <Route path="/stats" element={<Stats />} />
@@ -61,7 +60,7 @@ const App = () => (
             <Route path="/founders" element={<Navigate to="/pride" replace />} />
             <Route path="/fans" element={<Navigate to="/tickets" replace />} />
             <Route path="/media" element={<Navigate to="/news" replace />} />
-            <Route path="/deck" element={<Navigate to="/invest" replace />} />
+            <Route path="/deck" element={<Navigate to="/" replace />} />
 
             <Route path="*" element={<NotFound />} />
           </Route>

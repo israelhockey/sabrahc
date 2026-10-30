@@ -23,7 +23,6 @@ const extra: NavItem[] = [
   { to: "/gallery", label: "Photos", he: "תמונות" },
   { to: "/pride", label: "Join the Pride", he: "הצטרפו לגאווה" },
   { to: "/partners", label: "Partners", he: "שותפים" },
-  { to: "/invest", label: "Ownership", he: "בעלות" },
   { to: "/contact", label: "Contact", he: "צור קשר" },
 ];
 
