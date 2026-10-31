@@ -1,4 +1,6 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Pause, Play } from "lucide-react";
+import { playSilently } from "@/lib/autoplay";
 import { Link } from "react-router-dom";
 import crest from "@/assets/sabra-crest.webp";
 import { club, players } from "@/data/club";
@@ -44,31 +46,47 @@ const Chant = () => {
 const Hero = () => {
   const video = useRef<HTMLVideoElement>(null);
   const [ice, setIce] = useState(false);
-  const [still] = useState(() => typeof window !== "undefined" && !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
+  const [paused, setPaused] = useState(false);
+
+  // start the film on every device; phones that refuse autoplay (e.g. Low Power Mode) start it on the first touch.
+  // The button in the corner pauses it for anyone who'd rather it stayed still.
+  useEffect(() => {
+    const v = video.current;
+    if (!v) return;
+    return playSilently(v);
+  }, []);
+
+  const toggle = () => {
+    const v = video.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().catch(() => {});
+      setPaused(false);
+    } else {
+      v.pause();
+      setPaused(true);
+    }
+  };
   const next = nextGame();
 
   return (
     <section aria-labelledby="hero-title" className="relative flex min-h-[640px] flex-col justify-end overflow-hidden bg-night-deep pb-28 pt-20 sm:pb-32 lg:h-[calc(100svh-130px)] lg:min-h-[700px] lg:pt-12">
       {/* the film: desert, then ice, on a loop */}
       <div aria-hidden="true" className="absolute inset-0">
-        {still ? (
-          <img src="/media/hero.jpg" alt="" className="h-full w-full object-cover object-[30%_50%]" />
-        ) : (
-          <video
-            ref={video}
-            className="h-full w-full object-cover object-[30%_50%]"
-            poster="/media/hero.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            onTimeUpdate={(e) => setIce(e.currentTarget.currentTime >= ICE_AT)}
-          >
-            <source src="/media/hero.webm" type="video/webm" />
-            <source src="/media/hero.mp4" type="video/mp4" />
-          </video>
-        )}
+        <video
+          ref={video}
+          className="h-full w-full object-cover object-[30%_50%]"
+          poster="/media/hero.jpg"
+          muted
+          loop
+          playsInline
+          preload="auto"
+          onTimeUpdate={(e) => setIce(e.currentTarget.currentTime >= ICE_AT)}
+          onPlay={() => setPaused(false)}
+        >
+          <source src="/media/hero.mp4" type="video/mp4" />
+          <source src="/media/hero.webm" type="video/webm" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-night-deep via-night-deep/25 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-night-deep/75 via-night-deep/15 to-transparent" />
       </div>
@@ -89,10 +107,10 @@ const Hero = () => {
 
         {/* the line that follows the film */}
         <div className="relative mt-5 h-9 sm:h-11" aria-live="off">
-          <p className={`absolute inset-0 font-display text-2xl font-black uppercase text-ice-white transition-all duration-700 sm:text-4xl ${ice && !still ? "-translate-y-3 opacity-0" : "translate-y-0 opacity-100"}`}>
+          <p className={`absolute inset-0 font-display text-2xl font-black uppercase text-ice-white transition-all duration-700 sm:text-4xl ${ice ? "-translate-y-3 opacity-0" : "translate-y-0 opacity-100"}`}>
             Born in the desert.
           </p>
-          <p className={`absolute inset-0 font-display text-2xl font-black uppercase text-sand transition-all duration-700 sm:text-4xl ${ice && !still ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>
+          <p className={`absolute inset-0 font-display text-2xl font-black uppercase text-sand transition-all duration-700 sm:text-4xl ${ice ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>
             Built for the ice.
           </p>
         </div>
@@ -118,6 +136,15 @@ const Hero = () => {
           </Link>
         </div>
       </div>
+
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={paused ? "Play the background film" : "Pause the background film"}
+        className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-night-deep/60 text-ice-white backdrop-blur hover:border-sand hover:text-sand"
+      >
+        {paused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}
+      </button>
 
       <Chant />
     </section>

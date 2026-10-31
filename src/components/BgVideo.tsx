@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { playSilently } from "@/lib/autoplay";
 
 const prefersStill = () => typeof window !== "undefined" && !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
@@ -20,16 +21,27 @@ const BgVideo = ({ name, className = "", loop = true }: Props) => {
   useEffect(() => {
     const v = ref.current;
     if (!v || still || !("IntersectionObserver" in window)) return;
-    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()), { threshold: 0.15 });
+    let stop = () => {};
+    const io = new IntersectionObserver(
+      ([e]) => {
+        stop();
+        if (e.isIntersecting) stop = playSilently(v);
+        else v.pause();
+      },
+      { threshold: 0.15 },
+    );
     io.observe(v);
-    return () => io.disconnect();
+    return () => {
+      stop();
+      io.disconnect();
+    };
   }, [still]);
 
   if (still) return <img src={`/media/${name}.jpg`} alt="" aria-hidden="true" className={className} />;
   return (
     <video ref={ref} aria-hidden="true" className={className} poster={`/media/${name}.jpg`} muted playsInline loop={loop} preload="metadata">
-      <source src={`/media/${name}.webm`} type="video/webm" />
       <source src={`/media/${name}.mp4`} type="video/mp4" />
+      <source src={`/media/${name}.webm`} type="video/webm" />
     </video>
   );
 };

@@ -116,6 +116,7 @@ export const TourMap = ({ className = "" }: { light?: boolean; className?: strin
     if (!inView) return;
     const v = intro.current;
     if (skipIntro || !v) return setSeen(true);
+    v.muted = true;
     v.play().catch(() => setSeen(true));
     const t = window.setTimeout(() => setSeen(true), 7000); // never hold the map back for long
     return () => window.clearTimeout(t);
@@ -170,8 +171,8 @@ export const TourMap = ({ className = "" }: { light?: boolean; className?: strin
           onError={() => setSeen(true)}
           className={`pointer-events-none absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-1000 ${seen ? "opacity-0" : "opacity-100"}`}
         >
-          <source src="/media/earth.webm" type="video/webm" />
           <source src="/media/earth.mp4" type="video/mp4" />
+          <source src="/media/earth.webm" type="video/webm" />
         </video>
       )}
       <svg viewBox={`0 0 ${mapDots.w} ${mapDots.h}`} className="block h-auto w-full" role="img" aria-labelledby={`map-t-${uid}`}>
